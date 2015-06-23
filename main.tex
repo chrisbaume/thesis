@@ -1,0 +1,62 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{pgfgantt}
+\usepackage{lscape}
+\usepackage{appendix}
+\usepackage[utf8]{inputenc}
+\usepackage[nottoc,numbib]{tocbibind}
+\usetikzlibrary{shapes,arrows}
+\onehalfspacing
+\hypersetup{
+  colorlinks=false,
+  pdfborder={0 0 0},
+}
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+\begin{titlepage}
+  \vspace*{\fill}
+  \begin{center}
+    {\Huge Assisted navigation of audio in radio production using visualisation}\\[0.5cm]
+    {\Large Stage 1 report}\\[1cm]
+    {\large Chris Baume, July 2014}\\[0.8cm]
+    {\small Supervisors: Prof. Mark Plumbley \& Dr. Nick Bryan-Kinns}
+  \end{center}
+  \vspace*{\fill}
+\end{titlepage}
+
+{\singlespacing
+\tableofcontents
+}
+
+\include{intro}
+
+\include{litreview}
+
+\include{production}
+
+\include{study}
+
+\include{tech}
+
+\include{plan}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\begin{appendices}
+  \include{remit}
+  \include{startrack}
+  \include{consent}
+  %\include{results}
+  %\include{opportunities}
+\end{appendices}
+
+\end{document}
