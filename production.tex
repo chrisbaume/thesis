@@ -1,4 +1,4 @@
-\section{BBC radio production workflow}\label{sec:production}
+\chapter{BBC radio production workflow}\label{sec:production}
 BBC radio is a huge operation with 59 radio stations spread across the UK
 covering every type of programme and music genre. Successfully documenting the
 entire system would be difficult if not impossible as different groups and
@@ -10,7 +10,7 @@ will provide some context to the real-life environment for which the work in
 this project will eventually feed into, and may help guide the direction of the
 research.
 
-\subsection{Roles}\label{sec:roles}
+\section{Roles}\label{sec:roles}
 
 \paragraph{Producer}
 Most radio programmes have one producer who `owns' that programme.  In many
@@ -41,17 +41,17 @@ edits and apply noise reduction/EQ. In live productions, they operate the
 mixing desk and set up remote contributions. In News, senior studio managers
 are called Studio Directors.
 
-%\subsubsection{Commissioner}
+%\subsection{Commissioner}
 %When a producer has an idea for a programme, they pitch that idea to a
 %commissioner who then decides whether it gets made.
 
-%\subsubsection{Broadcast Assistant}
+%\subsection{Broadcast Assistant}
 
 \paragraph{Media Manager}
 Ingests video and audio content for News by setting up ISDN links and BNCS
 routing, creating clips from incoming feeds and attaching basic metadata.
 
-\subsubsection{Political structure}\label{sec:organisation}
+\subsection{Political structure}\label{sec:organisation}
 BBC radio output is produced across three top-level divisions - Radio (formerly
 called Audio \& Music), News and North. The structure is listed below.
 
@@ -72,7 +72,7 @@ called Audio \& Music), News and North. The structure is listed below.
   \item News
 \end{itemize}
 
-\subsubsection{Services}
+\subsection{Services}
 The BBC broadcasts a diverse range of speech and music content across genres
 including news, drama, comedy, live events, magazine shows, documentaries,
 cultural programming and childrens. Quantifying the proportion of these types
@@ -95,7 +95,7 @@ greater or lesser extent, and two networks are dedicated to it. With music,
 there are a number of conditions that encourage or demand live music and
 performances, although the majority of music output will be recordings.
 
-\subsection{Technology}\label{sec:workflow}
+\section{Technology}\label{sec:workflow}
 The audio workflow at the BBC is vast and complicated. Despite attempts to
 harmonise production tools, the wide variety of requirements from production
 staff around the BBC means that no one tool can cater for everyone. For
@@ -116,7 +116,7 @@ production in the BBC.
 \label{fig:workflow}
 \end{figure}
 
-\subsection{Ingest}\label{sec:ingest}
+\section{Ingest}\label{sec:ingest}
 The chosen method of capturing audio content is highly dependent on the type of
 programme that is being made. For instance, phone-in shows will combine live
 studio recordings with telephone links, and news reports will primarily use
@@ -230,7 +230,7 @@ display and keyboard shortcuts (see Figure~\ref{fig:snippets}). The code which
 powers Snippets for Radio has been open-sourced\footnote{See
   \url{http://waveform.prototyping.bbc.co.uk}}.
 
-\subsection{Storage}
+\section{Storage}
 
 \paragraph{dira! Highlander}
 The dira! radio production system is central to the BBC's operation. Almost all
@@ -347,7 +347,7 @@ Their use is most common when handling large data files which the network can
 struggle with, or for storing data when network access is unavailable, such as
 on location.
 
-\subsection{Editing}
+\section{Editing}
 
 \begin{figure}[p]
 \centering
@@ -443,7 +443,7 @@ not be used without dedicated hardware, making them impractical for use
 off-site. Cool Edit Pro was used instead, which was then bought by Adobe and
 turned into Audition.
 
-\subsection{Metadata}
+\section{Metadata}
 Metadata is information about data. In the case of radio, it is information
 about the audio content. This can include anything from who made a programme to
 where particular recordings were made. Collection and use of metadata has
@@ -529,7 +529,7 @@ tracklistings are pulled from dira!. Further information can be added/edited
 using a system called \textbf{iBroadcast}.
 
 
-\subsection{Playout}
+\section{Playout}
 The majority of radio output is broadcast live from a mixing desk and through
 the emission chain. However, pre-recorded items must be played out using
 software.

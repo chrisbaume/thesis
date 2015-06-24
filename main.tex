@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper,twoside]{report}
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{setspace}
@@ -9,6 +9,7 @@
 \usepackage{pgfgantt}
 \usepackage{lscape}
 \usepackage{appendix}
+\usepackage{fancyhdr}
 \usepackage[utf8]{inputenc}
 \usepackage[nottoc,numbib]{tocbibind}
 \usetikzlibrary{shapes,arrows}
@@ -17,20 +18,36 @@
   colorlinks=false,
   pdfborder={0 0 0},
 }
-\setcounter{tocdepth}{2}
+\pagestyle{fancy}
+\fancyhead[LO,RE]{\thepage}
+\fancyfoot{}
+\setcounter{tocdepth}{1}
 
 \begin{document}
 
 \begin{titlepage}
   \vspace*{\fill}
   \begin{center}
-    {\Huge Assisted navigation of audio in radio production using visualisation}\\[0.5cm]
-    {\Large Stage 1 report}\\[1cm]
-    {\large Chris Baume, July 2014}\\[0.8cm]
-    {\small Supervisors: Prof. Mark Plumbley \& Dr. Nick Bryan-Kinns}
+    {\Huge Assisted navigation of audio in radio production using
+      visualisation}\\[1cm]
+    {\Large Christopher M. Baume}\\[1cm]
+    {\large Submitted for the degree of\\Doctor of Philosophy\\from the\\
+      University of Surrey}\\[1cm]
+    \begin{center}
+      \includegraphics[width=6cm]{figs/surrey-logo.png}
+    \end{center}
+    \\[1cm]
+    {\small Centre for Vision, Speech and Signal Processing,\\
+      Faculty of Engineering and Physical Sciences,\\
+      University of Surrey,\\
+      Guildford, Surrey GU2 7XH, U.K.}
   \end{center}
   \vspace*{\fill}
 \end{titlepage}
+
+\include{abstract}
+
+\include{acknowledgements}
 
 {\singlespacing
 \tableofcontents
@@ -40,23 +57,21 @@
 
 \include{litreview}
 
-\include{production}
+\include{study1}
 
-\include{study}
-
-\include{tech}
-
-\include{plan}
-
-\bibliographystyle{plain}
-\bibliography{refs}
+\include{study2}
 
 \begin{appendices}
   \include{remit}
   \include{startrack}
   \include{consent}
+  \include{production}
+  \include{study2-ethics}
   %\include{results}
   %\include{opportunities}
 \end{appendices}
+
+\bibliographystyle{plain}
+\bibliography{refs}
 
 \end{document}

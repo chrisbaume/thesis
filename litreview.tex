@@ -1,4 +1,4 @@
-\section{Background and Literature review}\label{sec:litreview}
+\chapter{Literature review}\label{sec:litreview}
 
 Academic research into audio analysis and audio interfaces tends to concentrate
 on fully automated systems \cite{AngueraMiro2012}, navigation of large audio
@@ -13,13 +13,13 @@ This section looks at three areas of literature from which the project will
 draw upon -- extraction of meaningful audio properties, mapping these to a
 visual representation, and the perceptual links between audition and vision.
 
-\subsection{Feature extraction}\label{sec:litreviewfeats}
+\section{Feature extraction}\label{sec:litreviewfeats}
 This section looks at audio features that could be used as part of an audio
 visualization system. Firstly, two use cases that were previously identified as
 being a common component of radio production are explored, before considering
 methods of generating features for any use case.
 
-\subsubsection{Speech/music discrimination}
+\subsection{Speech/music discrimination}
 Speech/music discrimination (SMD) is the process of segmenting audio content
 into parts labelled by the categories speech and music. In general, SMD
 classifiers use a collection of different features. This section lists the ones
@@ -109,7 +109,7 @@ In the original CFA paper, the feature was used to find music in television
 content, but recently it has also been successfully applied to segmentaton of
 radio recordings \cite{Wieser2014}.
 
-\subsubsection{Speaker diarization}
+\subsection{Speaker diarization}
 Speaker diarization is the process of segmenting a speech recording by where
 different people are talking. Review papers from 2006 \cite{Tranter2006} and
 2012 \cite{AngueraMiro2012} show that the vast majority of systems are based on
@@ -133,7 +133,7 @@ selection, which showed that ``the median and mean fundamental frequency are
 the best features, following by high formants (F4, F5)''. Inclusion of the
 top ten prosodic features improved the speaker diarization system by 24\%.
 
-\subsubsection{Feature generation}\label{sec:litreviewgeneration}
+\subsection{Feature generation}\label{sec:litreviewgeneration}
 Traditionally, audio features were developed by hand for specific tasks. This
 was usually done by attempting to write an algorithm that calculated the
 properties of the sound that humans used to distinuish the categories in
@@ -180,7 +180,7 @@ would make it very difficult to map to a visualization. The objective of the
 deep learning process is to minimise a cost function rather than to maximise
 the link to human perception.
 
-\subsection{Audio visualization}
+\section{Audio visualization}
 In a world of `big data', data visualization is becoming an increasing popular
 subject. Visualization techniques have been applied to audio content for a
 variety of applications including accessibility \cite{Ho-Ching2003}, browsing
@@ -199,7 +199,7 @@ of which can be found in a Springer book of the same name \cite{Aigner2011}.
 The rest of this section will look at examples of time-oriented visualization
 of audio, grouped by the most common visualization techniques.
 
-\subsubsection{Colour mapping}\label{sec:litreviewcolour}
+\subsection{Colour mapping}\label{sec:litreviewcolour}
 Mapping of data to colour can be separated into two methods -- pseudocolour and
 false colour.
 
@@ -310,7 +310,7 @@ Figure~\ref{fig:towsey} shows the recordings from March until October, with
 each line representing one day. The visualization reveals the change in time of
 the dawn and evening choruses throughout the year, amongst other things.
 
-\subsubsection{Other approaches}
+\subsection{Other approaches}
 
 \paragraph{Rescaling}
 The `quintessence waveform' is a visualization developed by Loviscach
@@ -352,7 +352,7 @@ hidden in long speech recordings. Although this task is not directly
 applicable to radio production, the techniques used for the visualisation and
 evaluation are of interest.
 
-\subsection{Cross-modal links}\label{sec:litreviewmodal}
+\section{Cross-modal links}\label{sec:litreviewmodal}
 The bouba/kiki effect is a demonstration of cross-model mapping originally
 discovered in an experiment run by psychologist Wolfgang K\"{o}hler in 1929
 \cite{Koehler1929}. Participants were shown two shapes (see
