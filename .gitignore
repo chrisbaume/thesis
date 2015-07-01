@@ -1,2 +1,11 @@
 refs.bib
 *.un~
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+main.pdf
