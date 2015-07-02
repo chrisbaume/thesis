@@ -18,10 +18,16 @@
   colorlinks=false,
   pdfborder={0 0 0},
 }
-\pagestyle{fancy}
-\fancyhead[LO,RE]{\thepage}
-\fancyfoot{}
 \setcounter{tocdepth}{1}
+
+% set up page header/footer
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\headsep}{25pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\scshape\MakeTextLowercase{\leftmark}}
+\fancyhead[RE]{\scshape\MakeTextLowercase{\chaptername~\thechapter}}
+\fancyfoot{}
 
 \begin{document}
 
@@ -64,6 +70,7 @@
 \include{study2}
 
 \begin{appendices}
+  \renewcommand\chaptername{Appendix}
   \include{remit}
   \include{startrack}
   \include{consent}
