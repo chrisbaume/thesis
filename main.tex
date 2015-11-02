@@ -12,6 +12,22 @@
 \usepackage{fancyhdr}
 \usepackage[utf8]{inputenc}
 \usepackage[nottoc,numbib]{tocbibind}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+% tweak for bar graph legend
+\pgfplotsset{compat=1.11,
+  /pgfplots/ybar legend/.style={
+  /pgfplots/legend image code/.code={%
+     \draw[##1,/tikz/.cd,yshift=-0.25em]
+      (0cm,0cm) rectangle (0.8em,0.8em);},
+ },
+  /pgfplots/xbar legend/.style={
+  /pgfplots/legend image code/.code={%
+     \draw[##1,/tikz/.cd,yshift=-0.25em]
+      (0cm,0cm) rectangle (0.8em,0.8em);},
+ },
+}
 \usetikzlibrary{shapes,arrows}
 \onehalfspacing
 \hypersetup{
@@ -69,16 +85,16 @@
 
 \include{study2}
 
-\begin{appendices}
-  \renewcommand\chaptername{Appendix}
-  \include{remit}
-  \include{startrack}
-  \include{consent}
-  \include{production}
-  \include{study2-ethics}
+%\begin{appendices}
+  %\renewcommand\chaptername{Appendix}
+  %\include{remit}
+  %\include{startrack}
+  %\include{consent}
+  %\include{production}
+  %\include{study2-ethics}
   %\include{results}
   %\include{opportunities}
-\end{appendices}
+%\end{appendices}
 
 \bibliographystyle{plain}
 \bibliography{refs}
