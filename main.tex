@@ -11,7 +11,7 @@
 \usepackage{appendix}
 \usepackage{fancyhdr}
 \usepackage[utf8]{inputenc}
-\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[nottoc,notlof,notlot,numbib]{tocbibind}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 
@@ -73,9 +73,15 @@
 \tableofcontents
 }
 
+\listoffigures
+
+\listoftables
+
+\include{abbreviations}
+
 \include{intro}
 
-\include{litreview}
+\include{background}
 
 \include{study1}
 
@@ -84,6 +90,8 @@
 \include{study2}
 
 \include{study3}
+
+\include{conclusions}
 
 %\begin{appendices}
   %\renewcommand\chaptername{Appendix}
