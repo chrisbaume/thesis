@@ -8,4 +8,6 @@ refs.bib
 *.log
 *.out
 *.toc
+*.lof
+*.lot
 main.pdf
