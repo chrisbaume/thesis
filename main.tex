@@ -1,5 +1,5 @@
-\documentclass[11pt,a4paper,twoside]{report}
-\usepackage{fullpage}
+\documentclass[11pt,a4paper]{report}
+%\usepackage{fullpage}
 \usepackage{graphics}
 \usepackage{setspace}
 \usepackage{caption}
@@ -13,6 +13,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[nottoc,notlof,notlot,numbib]{tocbibind}
 \usepackage{pgfplots}
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
 \pgfplotsset{compat=newest}
 
 % tweak for bar graph legend
@@ -45,6 +46,8 @@
 \fancyhead[RE]{\scshape\MakeTextLowercase{\chaptername~\thechapter}}
 \fancyfoot{}
 
+\bibliography{refs}
+
 \begin{document}
 
 \begin{titlepage}
@@ -55,8 +58,8 @@
     {\large Submitted for the degree of\\Doctor of Philosophy\\from the\\
       University of Surrey}\\[1cm]
     \begin{center}
-      \includegraphics[width=6cm]{figs/surrey-logo.png}
-    \end{center}\\[1cm]
+      \includegraphics[width=6cm]{figs/surrey-logo.png}\\[1cm]
+    \end{center}
     {\small Centre for Vision, Speech and Signal Processing,\\
       Faculty of Engineering and Physical Sciences,\\
       University of Surrey,\\
@@ -104,7 +107,6 @@
   %\include{opportunities}
 %\end{appendices}
 
-\bibliographystyle{plain}
-\bibliography{refs}
+\printbibliography
 
 \end{document}

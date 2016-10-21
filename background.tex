@@ -1,11 +1,11 @@
 \chapter{Background}\label{chpt:background}
 
 Academic research into audio analysis and audio interfaces tends to concentrate
-on fully automated systems \cite{AngueraMiro2012}, navigation of large audio
-collections \cite{FontCorbera2010} or navigation interfaces based on skimming
-\cite{Arons1997} and scrolling \cite{Lee2007}. Although there are examples of
+on fully automated systems \citep{AngueraMiro2012}, navigation of large audio
+collections \citep{FontCorbera2010} or navigation interfaces based on skimming
+\citep{Arons1997} and scrolling \citep{Lee2007}. Although there are examples of
 audio visualization from the world of academia, it is much more popular in the
-context of art \cite{Armitage2012}, with excellent examples such as Quayola's
+context of art \citep{Armitage2012}, with excellent examples such as Quayola's
 Form--Sound--Abstraction\footnote{\url{http://www.quayola.com/work/form-sound-abstraction/}}
 work.
 
@@ -27,21 +27,21 @@ that are used frequently or have recently been found to perform well.
 
 \paragraph{RMS energy}
 The root mean squared energy can be used also exclusively as an effective SMD
-classifier, as demonstrated in \cite{Ericsson2009} and \cite{Panagiotakis2005}.
+classifier, as demonstrated in \citep{Ericsson2009} and \citep{Panagiotakis2005}.
 Commonly used statistics of RMS include low energy ratio
-\cite{Liang2005,Ericsson2009,Saunders1996,Scheirer1997} and variance
-\cite{Ericsson2009} (including normalised variance \cite{Panagiotakis2005} and
-delta variance \cite{Carey1999}).
+\citep{Liang2005,Ericsson2009,Saunders1996,Scheirer1997} and variance
+\citep{Ericsson2009} (including normalised variance \citep{Panagiotakis2005} and
+delta variance \citep{Carey1999}).
 
 Low energy ratio (also known as `silent interval frequency' and `energy contour
 dip') is a measure of the number of RMS energy frames that fall below a
 threshold. It exploits the fact that speech has freqent silent gaps between
 words, wheras music does not. The threshold can be set as a fixed value
-\cite{Liang2005}, a function of a moving average \cite{Ericsson2009} or moving
-peak value \cite{Saunders1996}.
+\citep{Liang2005}, a function of a moving average \citep{Ericsson2009} or moving
+peak value \citep{Saunders1996}.
 
 Kacprzak and Zi\'{o}\l{}ko recently proposed a modified version of low energy
-ratio called `minimum energy density' \cite{Kacprzak2013}. It is calculated by
+ratio called `minimum energy density' \citep{Kacprzak2013}. It is calculated by
 normalizing over a $\sim$15 second window and finding the minimum of the
 normalization function over a $\sim$1--3 second window. It has similar
 performance to low energy ratio with a moving average threshold, but has fewer
@@ -49,28 +49,28 @@ parameters to set.
 
 \paragraph{Zero-crossing rate} is the rate at which a signal crosses the time
 axis, which is an easy-to-calculate measure for the spectral energy
-distribution. Early work in SMD \cite{Saunders1996} identified that ``speech
+distribution. Early work in SMD \citep{Saunders1996} identified that ``speech
 signals produce a marked rise in the ZCR during periods of fricativity occuring
 at the beginning and end of words'', wheras music does not. This causes a
 bimodality which skews the ZCR distribition, which can be measured using the
 third standardized moment (skewness). The variance of ZCR has also been found
-to perform well for SMD \cite{Scheirer1997}.
+to perform well for SMD \citep{Scheirer1997}.
 
 ZCR also played a significant role in two steps of a five-step classifer
-\cite{Panagiotakis2005}. During silent intervals the number of zero crossings
+\citep{Panagiotakis2005}. During silent intervals the number of zero crossings
 is null, so this was used to detect gaps between speech. The authors also noted
 that ``RMS and ZCR are somewhat correlated for speech signals, while
 essentially independent for music'', and so the product of RMS and ZCR was used
 for the second classifier.
 
-A review \cite{Carey1999} of features for SMD found ZCR to perform least well,
+A review \citep{Carey1999} of features for SMD found ZCR to perform least well,
 but did not consider the skewness, variance, or probability of null
 zero-crossings.
 
 \paragraph{MFCC}
 Mel-frequency cepstral coefficients have long been the workhorse of audio
 analysis, and they have been successfully used in SMD applications
-\cite{Carey1999,Liang2005,Pikrakis2008,Pikrakis2006a,Sell2014,Wieser2014}.
+\citep{Carey1999,Liang2005,Pikrakis2008,Pikrakis2006a,Sell2014,Wieser2014}.
 Notably, their use has only been successful when used in combination with
 strong machine learning systems, indicating that the relationship of MFCCs to
 SMD labels is complex and non-linear. This would make it difficult to map to a
@@ -79,11 +79,11 @@ visual representation.
 \paragraph{Chroma}
 Use of chroma features work on the principle that the spectra of music is
 aligned to the chromatic scale. Pikrakis et. al.
-\cite{Pikrakis2006,Pikrakis2008} have successfully used `chromatic entropy' for
+\citep{Pikrakis2006,Pikrakis2008} have successfully used `chromatic entropy' for
 SMD applications. It takes sub-bands from a mel-scaled spectrum, aligned to the
 chromatic scale, and calculates the entropy of the normalised spectral energy.
 
-More recently, Sell \cite{Sell2014} has proposed two new chroma features, which
+More recently, Sell \citep{Sell2014} has proposed two new chroma features, which
 try to account for the fact that the chromagram varies greatly between
 different pieces of music. Music tends to form strong, separated peaks on the
 chromagram wheras speech has smoother mounds of energy. The new features
@@ -96,7 +96,7 @@ frequency energy.
 Most of the above SMD features work well for segmenting speech-only/music-only
 content. However, many fall down at detecting background music in speech.
 Seyerlehner developed the continuous frequency activation (CFA) feature
-\cite{Seyerlehner2007}, which works on the basis that music content has stable
+\citep{Seyerlehner2007}, which works on the basis that music content has stable
 harmonics, seen as horizontal lines on a spectrogram.
 
 A moving average is subtracted from the FFT before it is binarized using a low
@@ -107,12 +107,12 @@ numeric value which quantifies the presence of steady frequency components.
 
 In the original CFA paper, the feature was used to find music in television
 content, but recently it has also been successfully applied to segmentaton of
-radio recordings \cite{Wieser2014}.
+radio recordings \citep{Wieser2014}.
 
 \subsection{Speaker diarization}
 Speaker diarization is the process of segmenting a speech recording by where
-different people are talking. Review papers from 2006 \cite{Tranter2006} and
-2012 \cite{AngueraMiro2012} show that the vast majority of systems are based on
+different people are talking. Review papers from 2006 \citep{Tranter2006} and
+2012 \citep{AngueraMiro2012} show that the vast majority of systems are based on
 clustering of MFCC or PLP features, which are low-dimensional representations
 of speech. Rather than developing new features, the research is primarily
 focussed on improvement of the clustering algorithms and pre-processing stages
@@ -122,11 +122,11 @@ MFCC and PLP features are extremely effective when used in machine-based
 classification systems, but from a human perception angle, the features do not
 correlate well to what is heard.  Other features developed for automatic speech
 recognition may also be useful in a speaker diarization system. For example,
-spectral entropy \cite{Misra2004} is a measure of the peakiness of the spectrum
+spectral entropy \citep{Misra2004} is a measure of the peakiness of the spectrum
 and is an effective feature in distinguishing between voiced and unvoiced
 speech.
 
-Friendland et. al. \cite{Friedland2009} proposed enhancing the standard MFCC
+Friendland et. al. \citep{Friedland2009} proposed enhancing the standard MFCC
 features with a set of long-term features representing prosody (the rhythm and
 intonation of speech). 52 candidate features were ranked using feature
 selection, which showed that ``the median and mean fundamental frequency are
@@ -152,12 +152,12 @@ with principal component analysis), or supervised where the feature data has
 corresponding labels (such as with linear discriminant analysis).
 
 Canonical correaltion analysis (CCA) has been used to reduce the dimensions of
-features for speaker diarization \cite{Chaudhuri2009} and phonetic labelling
-\cite{Arora2014}, amongst other things. It is able to efficiently map features
+features for speaker diarization \citep{Chaudhuri2009} and phonetic labelling
+\citep{Arora2014}, amongst other things. It is able to efficiently map features
 to a subspace and can be used with the kernel trick (known as KCCA) to support
 non-linear mappings. In the case of speaker clustering, ``CCA-based algorithms
 consistently provide better performance than standard PCA-based clustering
-methods'' \cite{Chaudhuri2009}.
+methods'' \citep{Chaudhuri2009}.
 
 \paragraph{Feature learning}
 The above methods of reducing dimensionality are based on a relatively short
@@ -170,7 +170,7 @@ neural networks with large numbers (tens or hundreds) of hidden units. This
 line of research has been enabled by the increasing availability of large
 amount of processing power. When done properly, deep learning can produce the
 state-of-the-art in audio features, outperforming even the best hand-crafted
-features \cite{Hamel2010,Sigtia2014}.
+features \citep{Hamel2010,Sigtia2014}.
 
 Such an approach requires a high-quality and very large labelled dataset, on
 which the success of the process depends. The nature of neural networks means
@@ -183,19 +183,19 @@ the link to human perception.
 \section{Audio visualization}
 In a world of `big data', data visualization is becoming an increasing popular
 subject. Visualization techniques have been applied to audio content for a
-variety of applications including accessibility \cite{Ho-Ching2003}, browsing
-large databases \cite{FontCorbera2010}, browsing small databases \cite{Yoo2011}
-and musical training \cite{Ferguson2005} amonst others.
+variety of applications including accessibility \citep{Ho-Ching2003}, browsing
+large databases \citep{FontCorbera2010}, browsing small databases \citep{Yoo2011}
+and musical training \citep{Ferguson2005} amonst others.
 
 The development of good visualizations lies somewhere between science and art.
-Tufte's seminal work on good practice \cite{Tufte2001} gives solid guidance on
-creating elegent and unbiased visuals, and Wolfe and Horowitz \cite{Wolfe2004}
+Tufte's seminal work on good practice \citep{Tufte2001} gives solid guidance on
+creating elegent and unbiased visuals, and Wolfe and Horowitz \citep{Wolfe2004}
 tell us which properties of vision are most critical for visual search.
 However, putting these together in the context of audio requires a certain
 amount of creativity.
 
 This project focusses on `visualization of time-oriented data', a good overview
-of which can be found in a Springer book of the same name \cite{Aigner2011}.
+of which can be found in a Springer book of the same name \citep{Aigner2011}.
 The rest of this section will look at examples of time-oriented visualization
 of audio, grouped by the most common visualization techniques.
 
@@ -205,7 +205,7 @@ false colour.
 
 \paragraph{Pseudocolour}
 This is a method of mapping a scalar value to a colour gradient
-\cite{Moreland2009}. A commonly used example application of pseudocolour is
+\citep{Moreland2009}. A commonly used example application of pseudocolour is
 thermal imaging, where increasing temperature is mapped to a colour gradient of
 blue$\to$green$\to$yellow$\to$orange$\to$red. The advantage of pseudocolour is
 that it can emphasize small variations by using the full colour spectrum, or
@@ -236,12 +236,12 @@ The technique of mapping audio frequencies to colour has been around since at
 least 2000 when Tzanetakis and Cook introduced the concept of `Timbregrams',
 which ``use color perception and the pattern recognition capabilities of the
 human visual system to depict timbral and temporal information''
-\cite{Tzanetakis2000}. Their implementation mapped the first three principal
+\citep{Tzanetakis2000}. Their implementation mapped the first three principal
 components of a large feature vector to RGB colour space. According to the
 authors, ``sound textures that are similar have similar colors''.
 
 In 2005, Rice presented a similar idea, but used the colour to enhance
-waveforms \cite{Rice2005}. The technique is not described in detail, but
+waveforms \citep{Rice2005}. The technique is not described in detail, but
 generally it maps low/mid/high frequencies to blue/green/red. It is useful for
 identifying timbrally distinct sounds and, with training, could be used to
 identify certain sound effects. This system is currently marketed and licensed
@@ -259,7 +259,7 @@ software from Native Instruments.
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{figs/rice.png}
-  \caption{Comparisonics, source: \cite{Rice2005}}
+  \caption{Comparisonics, source: \citep{Rice2005}}
   \label{fig:rice}
 \end{subfigure}
 \caption{Examples of pseudocolour (\ref{fig:freesound}) and false colour
@@ -268,7 +268,7 @@ software from Native Instruments.
 \end{figure}
 
 In 2007, the BBC created a system for visually representing recently-broadcast
-radio material for navigation by the audience \cite{Mason2007}. It used three
+radio material for navigation by the audience \citep{Mason2007}. It used three
 basic features -- zero-crossing rate, its skewness and spectral rolloff --
 which were each mapped to red, green and blue. Despite the arbitrarily-chosen
 and simple features/mapping, the system is successful at indicating the
@@ -296,7 +296,7 @@ Figure~\ref{fig:bonney} shows an example of a recording with three speakers
   \includegraphics[width=0.95\linewidth]{figs/towsey.png}
   \caption{False colour visualization of environmental recordings, with each
     line representing one day (missing data is grey), source:
-    \cite{Towsey2014}}
+    \citep{Towsey2014}}
   \label{fig:towsey}
 \end{subfigure}
   \caption{Further examples of false colour audio visualization}
@@ -304,7 +304,7 @@ Figure~\ref{fig:bonney} shows an example of a recording with three speakers
 \end{figure}
 
 False colour has also been used for navigating and summarizing extremely long
-recordings. Towsey et. al. \cite{Towsey2014} mapped three spectral features to
+recordings. Towsey et. al. \citep{Towsey2014} mapped three spectral features to
 RGB colour for visualizing almost a year of environmental recording.
 Figure~\ref{fig:towsey} shows the recordings from March until October, with
 each line representing one day. The visualization reveals the change in time of
@@ -314,7 +314,7 @@ the dawn and evening choruses throughout the year, amongst other things.
 
 \paragraph{Rescaling}
 The `quintessence waveform' is a visualization developed by Loviscach
-\cite{Loviscach2011} which attempts to address the problem of audio waveforms
+\citep{Loviscach2011} which attempts to address the problem of audio waveforms
 not scaling well at different levels of zoom. It uses exteme pitch shifting so
 that the character of the waveform is preserved at whatever scale the waveform
 is viewed at (see Figure~\ref{fig:quint}). This approach works well for
@@ -326,14 +326,14 @@ monophonic material, but does not do so well with complex polyphonic material.
   \centering
   \includegraphics[width=0.95\linewidth]{figs/quint.png}
   \caption{Above: Normal waveform, below: quintessence waveform, source:
-  \cite{Loviscach2011}}
+  \citep{Loviscach2011}}
   \label{fig:quint}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=0.95\linewidth]{figs/timeliner.png}
   \caption{User interface of `Timeliner', featuring a salience-mapped
-    spectrogram, source: \cite{Goudeseune2012}}
+    spectrogram, source: \citep{Goudeseune2012}}
   \label{fig:timeliner}
 \end{subfigure}
   \caption{Examples of alternative visualization techniques}
@@ -342,7 +342,7 @@ monophonic material, but does not do so well with complex polyphonic material.
 
 \paragraph{Saliency mapping}
 The University of Illinois have developed and evaluated enhanced spectrograms
-for audio navigation \cite{Goudeseune2012,Lin2013}. The design was targeted
+for audio navigation \citep{Goudeseune2012,Lin2013}. The design was targeted
 towards discovery of `acoustic events' and was implemented by creating a visual
 saliency map of the spectrogram -- an image processing technique which attempts
 to amplify the unique characteristics of the graphic.  Through the use of
@@ -355,12 +355,12 @@ evaluation are of interest.
 \section{Cross-modal links}\label{sec:litreviewmodal}
 The bouba/kiki effect is a demonstration of cross-model mapping originally
 discovered in an experiment run by psychologist Wolfgang K\"{o}hler in 1929
-\cite{Koehler1929}. Participants were shown two shapes (see
+\citep{Koehler1929}. Participants were shown two shapes (see
 Figure~\ref{fig:boubakiki}) and asked to assign the name `bouba' to one of
 them, and `kiki' to the other. The vast majority chose to name the sharp,
 pointy one `kiki' and the curvy, rounded one `bouba'. Repeats of the experiment
-\cite{Ramachandran2001} have shown that the effect holds for 95--98\% of the
-population. This synesthetic-like mapping \cite{Hubbard1996} is just one
+\citep{Ramachandran2001} have shown that the effect holds for 95--98\% of the
+population. This synesthetic-like mapping \citep{Hubbard1996} is just one
 example of common links between sound and vision
 
 \begin{figure}[ht]
@@ -377,14 +377,14 @@ example of common links between sound and vision
   \caption{Bouba}
   \label{fig:bouba}
 \end{subfigure}
-  \caption{Demonstration of kiki and bouba, source: \cite{Ramachandran2001}}
+  \caption{Demonstration of kiki and bouba, source: \citep{Ramachandran2001}}
   \label{fig:boubakiki}
 \end{figure}
 
 These audio-visual associations are not just higher-level constructs that our
 concious brain creates, they affect the brain at the very lowest level even
 with only brief exposure to bimodal stimuli. Zangenehpour et. al.
-\cite{Zangenehpour2010} used a PET-CT scanner to measure blood flow in the
+\citep{Zangenehpour2010} used a PET-CT scanner to measure blood flow in the
 brain during exposure to audio and visual stimuli. ``When presented with only
 the auditory or visual components of the bimodal stimuli, na\"{i}ve subjects
 showed only modality-specific cortical activation, as expected.  However,
@@ -392,7 +392,7 @@ subjects who had previously been exposed to the audiovisual stimuli showed
 increased cerebral blood flow in the primary visual cortex when presented with
 sounds alone.''
 
-In his review paper, Spence \cite{Spence2011} considers a range of experiments
+In his review paper, Spence \citep{Spence2011} considers a range of experiments
 from the world of psychology that attempt to find the inherint cross-modal
 links in the human brain.
 
@@ -426,7 +426,7 @@ links:
 \end{itemize}
 }
 
-A recent experiment by Tsiros \cite{Tsiros2014} attempted to measure
+A recent experiment by Tsiros \citep{Tsiros2014} attempted to measure
 audio-visual cross-modal link using audio visualization. Three audio recordings
 were used -- a violin, recording of wind noise and impact sound event. For
 each, images were manually created which used different combinations of
@@ -438,5 +438,5 @@ pitch/elevation, and weaker links between colour/pitch, granularity/dissonance,
 and colour complexity/dissonance.
 
 %Vision and audition are physiologically separate, but idential in many respects
-%\cite{Tsiros2013}.
+%\citep{Tsiros2013}.
 

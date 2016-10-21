@@ -10,4 +10,7 @@ refs.bib
 *.toc
 *.lof
 *.lot
+*.bcf
+*.run.xml
+*-blx.bib
 main.pdf

@@ -120,7 +120,7 @@ The actions that were recorded are listed below:
 
 \paragraph{Task load}
 After completing the tasks for a given condition, participants were asked to
-rate the tasks using the NASA Task Load Index (NASA-TLX) \cite{Hart1988}
+rate the tasks using the NASA Task Load Index (NASA-TLX) \citep{Hart1988}
 metrics on a scale of $-10$ to $+10$. These are listed below:
 
 {\singlespacing
@@ -163,7 +163,7 @@ Each audio clip can only be used once per participant, otherwise they would be
 able to remember where the music was. An efficient way of presenting each clip
 once is to use a Latin square. A Latin square is an $n \times n$ array with $n$
 different symbols, with each symbol occurring exactly once in each row and
-exactly once in each column. A Williams design Latin square \cite{Williams1949}
+exactly once in each column. A Williams design Latin square \citep{Williams1949}
 is one which is balanced for first order carryover effects.  When $n$ is odd,
 to maintain balance two Latin squares must be used, producing a $2n \times n$
 array.
@@ -388,7 +388,7 @@ collected using the experiment, find differences between conditions and
 determine whether they are of significance.
 
 \paragraph{Box plot}
-A box plot \cite{McGill1978} is a technique used to graph distributions by 
+A box plot \citep{McGill1978} is a technique used to graph distributions by 
 their quartile values (i.e. 25th, 50th and 75th percentiles). An example can be
 seen in Figure~\ref{fig:seekbox}. The box extends from the first to the third
 quartile, with the second quartile (median) marked as a line through the box.
@@ -696,7 +696,7 @@ second slider available on the zoomed display.
 \section{Audio visualisation software}\label{sec:vis}
 The direction of the research in this project centres around turning audio
 data into image data. There is already some software that visualizes audio and
-audio features in a number of ways, notably Sonic Visualiser \cite{Cannam2010}.
+audio features in a number of ways, notably Sonic Visualiser \citep{Cannam2010}.
 However, the visualization algorithms are always hard-coded into the program,
 making prototyping of new methods prohibitively difficult.
 
@@ -708,7 +708,7 @@ duplication of effort and to allow modularisation of algorithms.
 
 The system was developed as a plugin framework with clearly defined inputs and
 outputs. It is based on the existing Vamp plugin framework, developed by Queen
-Mary University of London \cite{Cannam2010}, which analyses audio data and
+Mary University of London \citep{Cannam2010}, which analyses audio data and
 outputs frame-- or time-based features. The visualization plugin is designed to
 take these features and produce a bitmap image. An outline of the system design
 is shown in Figure~\ref{fig:vampeyer}.

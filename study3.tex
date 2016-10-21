@@ -5,7 +5,7 @@
 Digital documents are often reviewed and proofread by printing the document and
 using a pen to annotate the text. This approach is still popular, despite the
 widespread availability of similar functionality in word processors
-\cite{Harper2001}.
+\citep{Harper2001}.
 
 Working on paper offers a number of advantages over working on computer.  Paper
 is lightweight, portable and does not require any power, which allows readers
@@ -17,7 +17,7 @@ means that it is intuitive, robust, durable and does not crash or lose data.
 These advantages mean that reading from paper rather than a screen allows
 readers to gain a deeper understanding, easily cross-reference other documents,
 and interleave reading and writing
-\cite{OHara1997}.
+\citep{OHara1997}.
 
 %Transcripts are often printed out because:
 %- it is easier to read than on screen
@@ -32,7 +32,7 @@ and interleave reading and writing
 A similar process happens in the production of media content. The production
 workflow typically involves recording material, selecting which parts of that
 material to use, then editing the desired material down to the final output
-\cite{Baume2015}.  Many producers will `log' the material after it is recorded
+\citep{Baume2015}.  Many producers will `log' the material after it is recorded
 by writing transcripts of what was said.  This is either done themselves or
 using a third-party service. These transcripts help producers to recall what
 was said and when, identify themes, and make links between different parts of
@@ -48,7 +48,7 @@ editorial decisions, which is a tedious and slow process.
 In this paper, we describe a system which allows users to edit audio and video
 content directly using a printed transcript.  Speech-to-text is used to
 generate a transcript that has precise timestamps for each word.  The
-transcript is printed with an Anoto dot-pattern \cite{Fahraeus2003}, which
+transcript is printed with an Anoto dot-pattern \citep{Fahraeus2003}, which
 allows a compatible digital pen to capture annotations make on the paper.  A
 digital pen is used to annotate the transcript to mark which parts of the
 transcript the user wants to keep or remove.  The audio or video content is
@@ -69,7 +69,7 @@ then automatically edited to reflect the annotations made on the transcript.
 
 %Our system automatically generates a transcript using speech-to-text. Even
 %though it's imperfect, it is good enough to make edit decisions with
-%\cite{Whittaker2004}
+%\citep{Whittaker2004}
 
 \section{Previous work}
 Our system combines editing of media using transcripts with annotation of paper
@@ -79,64 +79,64 @@ paper transcripts, digital ink annotation of video and paper-based note taking
 for media.
 
 Transcript-based interfaces have already successfully been applied to both audio
-and video editing. SCANMail \cite{Whittaker2002} demonstrated the advantages of
+and video editing. SCANMail \citep{Whittaker2002} demonstrated the advantages of
 navigating voicemail recordings using a transcript, but did not include editing
-capabilities.  The LIDS Editor \cite{Apperley2002}, and later TRAED
-\cite{Masoodian2006}, used automatically-generated transcripts to allow users
+capabilities.  The LIDS Editor \citep{Apperley2002}, and later TRAED
+\citep{Masoodian2006}, used automatically-generated transcripts to allow users
 to navigate and edit lecture recordings by removing and rearranging sentences
 and words. Even though automatically-generated transcripts are
 imperfect, Whittaker and Amento found they are sufficiently accurate to allow
-navigation and editing \cite{Whittaker2004}.  More recently, Rubin
-\cite{Rubin2013} created a system for using editable crowd-sourced transcripts
+navigation and editing \citep{Whittaker2004}.  More recently, Rubin
+\citep{Rubin2013} created a system for using editable crowd-sourced transcripts
 to create audio stories.  Similar techniques have been applied to video
-editing. SILVER \cite{Casares2002} was a video editor that had an editable
+editing. SILVER \citep{Casares2002} was a video editor that had an editable
 transcript window, generated from subtitles, and Berthouzoz et. al.
-\cite{Berthouzoz2012} developed a system that used crowd-sourced transcripts and
+\citep{Berthouzoz2012} developed a system that used crowd-sourced transcripts and
 image processing to allow text-based editing of multi-camera video interviews.
 
 The Anoto dot pattern can be used with digital pens to bridge the gap between
-paper and digital documents. PADD \cite{Guimbretiere2003} was a concept for a
+paper and digital documents. PADD \citep{Guimbretiere2003} was a concept for a
 system of editing documents that allowed users to move from digital
-to paper and back again. ProofRite \cite{Conroy2004} was an
+to paper and back again. ProofRite \citep{Conroy2004} was an
 implementation of this, which anchored annotations made on paper into a word
 processor such that they `reflow' with the text they were attached to.
-PaperProof \cite{Weibel2008} improved on this by interpreting the edit
+PaperProof \citep{Weibel2008} improved on this by interpreting the edit
 annotations and automatically applying them to the document.
 
 Paper transcripts have been explored as a method of navigating video recordings
 by using a device to detect the position in the text and play the video from
-that position. Video Paper \cite{Hull2003} was a system that embedded video
+that position. Video Paper \citep{Hull2003} was a system that embedded video
 keyframes with barcodes down the side of the page. It used a PDA to scan the
 barcodes that linked to a position in a video, which was downloaded and played
-on the device. Books with Voices \cite{Klemmer2003} was a similar system which
+on the device. Books with Voices \citep{Klemmer2003} was a similar system which
 tested this approach with oral historians who found it had substantial benefits
-with minimal overhead. Erol et. al. \cite{Erol2007} went a step further by
+with minimal overhead. Erol et. al. \citep{Erol2007} went a step further by
 embedding the video data in the barcode, removing the need for the server.
-HotPaper \cite{Erol2008} removed the need for barcodes by using a camera to
+HotPaper \citep{Erol2008} removed the need for barcodes by using a camera to
 measure the whitespace between words and matching that to unique patterns in
 the text.
 
 Digital ink interfaces on tablet PCs have been explored as a method for
-annotating and editing video content.  Marquee \cite{Weher1994} synchronised
+annotating and editing video content.  Marquee \citep{Weher1994} synchronised
 handwritten notes with a live video recording by using a horizontal line
-gesture to mark a timestamp.  Videotater \cite{Diakopoulos2006} was another
+gesture to mark a timestamp.  Videotater \citep{Diakopoulos2006} was another
 digital ink interface for segmenting and annotating pre-recorded video clips. A
 vertical line gesture on a video timeline split the video, and handwritten words
-could be written over a clip. WaCTool \cite{Cattelan2008} extended this
+could be written over a clip. WaCTool \citep{Cattelan2008} extended this
 functionality by associating user interactions with edit commands. For
 instance, users could assign a `skip' command by pressing buttons at the start
-and end of an unwanted region.  Video as Ink \cite{Cabral2016} allows users to
+and end of an unwanted region.  Video as Ink \citep{Cabral2016} allows users to
 `paint' video frames onto the tablet interface and then edit the video by using
 an `eraser mode' to remove unwanted frames.
 
-Dynomite \cite{Wilcox1997} was a note-taking system that recorded audio
+Dynomite \citep{Wilcox1997} was a note-taking system that recorded audio
 synchronously with digital ink handwritten notes.  Users could highlight
 segments of the audio by pressing buttons to begin or end a segment. They could
 navigate the audio through a screen-based timeline interface which displayed
-the highlighted regions.  The Audio Notebook \cite{Stifelman2001} was a similar
+the highlighted regions.  The Audio Notebook \citep{Stifelman2001} was a similar
 system that used paper and a physical interface that recorded audio and allowed
 users to navigate the recordings using their pen on a scroll bar on the side of
-the page.  ChronoVis \cite{Fouse2011} used the Anoto dot pattern to record
+the page.  ChronoVis \citep{Fouse2011} used the Anoto dot pattern to record
 paper notes during playback of a video. The interface allowed users to click on
 the digital display of the handwritten notes to navigate to that position in
 the video.
@@ -163,7 +163,7 @@ Kaldi\footnote{\url{http://kaldi-asr.org}}, trained on subtitled television
 broadcasts, to extract a transcript from each recording. In addition to
 providing precise timings for the start and duration of each word, the
 speech-to-text system provides a confidence rating to signify the probability
-of that word being correct. A speaker diarization \cite{AngueraMiro2012}
+of that word being correct. A speaker diarization \citep{AngueraMiro2012}
 algorithm was also run on the content to estimate the times and
 identities of when different people are speaking.
 
@@ -415,7 +415,7 @@ Stickers\footnote{\url{http://store.livescribe.com/sound-stickers-1-1.html}}.
 
 Previous work has also shown the benefits of being able to write freehand notes
 which link to specific points in recordings. These could be attached to a
-screen-based interface similarly to ProofRite \cite{Conroy2004}, or handwriting
+screen-based interface similarly to ProofRite \citep{Conroy2004}, or handwriting
 recognition could be used to store and organise these notes in a structured
 way. This approach could also be used to fix incorrect words in the transcript.
 
