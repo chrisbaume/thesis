@@ -41,9 +41,10 @@
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\headsep}{25pt}
+\newcommand\textlcsc[1]{\textsc{\MakeLowercase{#1}}}
 \fancyhead[LE,RO]{\thepage}
-\fancyhead[LO]{\scshape\MakeTextLowercase{\leftmark}}
-\fancyhead[RE]{\scshape\MakeTextLowercase{\chaptername~\thechapter}}
+\fancyhead[LO]{\textlcsc{\leftmark}}
+\fancyhead[RE]{\textlcsc{\chaptername~\thechapter}}
 \fancyfoot{}
 
 \bibliography{refs}
