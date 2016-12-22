@@ -1,12 +1,26 @@
-\chapter{Navigation of audio waveforms}\label{sec:study}
-Conducting experiments online brings a range of benefits as they can be run in
-parallel, taken at any time at any place, and are easily shared. Recent
-advances in web technology standards (notably
-HTML5\footnote{\url{http://www.w3.org/TR/html5/}}) mean that it is now
-possible to implement advanced audio interfaces on a wide range of browsers,
-making large scale evaluation achievable.
+% !TeX root = main.tex
+
+\chapter{Navigation of colourised waveforms}\label{sec:study1}
+
+Previous work has mapped waveform colour to data, which is expected to assist
+users in navigating the audio content more efficiently. However we could not
+find any studies which tested the effectiveness of this approach.
+
+Our hypothesis is that by mapping the colour of a waveform to a relevant variable,
+we can complete tasks using the waveform with:
+\begin{itemize}
+  \item Reduce the time required
+  \item Reduce the effort required
+  \item Complete with same performance
+\end{itemize}
+
+Hypothesis: waveforms can be improved by linking colour to data
 
 \section{Goals}
+
+The aims of this experiment was to discover whether enhancing a waveform with
+colour allows for faster navigation.
+
 The primary objective of this initial experiment was to verify that conducting
 a task-based evaluation of an audio interface online is viable and produces
 significant results. It was designed to have a narrow scope and low requirement
@@ -18,8 +32,6 @@ common method of visualising audio -- the waveform -- and investigate whether
 there is potential to improve upon it.
 
 \section{Experimental design}
-In order to attract a sufficient number of participants while collecting enough
-data, the experiment was designed so it could be completed in 10--15 mins.
 
 \subsection{Task}\label{sec:studytask}
 The experiment was designed to simulate a typical task encountered by radio
@@ -35,6 +47,18 @@ at the programme level can be challenging.
 
 The task for the experiment was to find and select the piece of music content
 in a recording of a radio programme.
+
+\subsection{Platform}
+Conducting experiments online brings a range of benefits as they can be run in
+parallel, taken at any time at any place, and are easily shared. Recent
+advances in web technology standards (notably
+HTML5\footnote{\url{http://www.w3.org/TR/html5/}}) mean that it is now
+possible to control playback of audio on a wide range of browsers without requiring
+additional plugins, making large scale evaluation achievable.
+
+\subsection{Duration}
+In order to attract a sufficient number of participants while collecting enough
+data, the experiment was designed so it could be completed in 10--15 mins.
 
 \subsection{Conditions}
 Three different methods were used to visualize the audio: a normal waveform, a
@@ -60,27 +84,29 @@ The programmes are described in Table~\ref{tab:clips}.
 
 \begin{table}[htbp]
   \begin{center}
+    {\small
     \begin{tabular}{|r|l|l|l|l|l|}
       \hline
       \multicolumn{1}{|l|}{\textbf{Clip}} & \textbf{Network} & \textbf{Title} &
       \textbf{Voices} & \textbf{Prog genre} & \textbf{Music genre} \\ \hline
-      Train & Radio 4 & Desert Island Discs & Female & Interview & Ambient \\ \hline
-      1 & 1 Xtra & Sian Anderson & Male, Female & Breakfast & Dance \\ \hline
-      2 & 6 Music & Lauren Laverne & Female & Single & Indie \\ \hline
-      3 & Radio 2 & Ken Bruce & Male & Phone quiz & Lounge \\ \hline
-      4 & Radio 3 & Breakfast show & Male & Single & Classical \\ \hline
-      5 & 5 Live & Sports report & Male & Sports & Band \\ \hline
-      6 & Radio 1 & Zane Lowe & Male & Interview & Rap \\ \hline
-      7 & Radio 2 & Jo Whiley & Male, Female & Review & Pop \\ \hline
-      8 & Radio 4 & Afternoon drama & Male, Female & Drama & Classical \\ \hline
-      9 & Radio 4 & Front Row & Male & Interview & Alternative \\ \hline
+      Train & Radio 4 & Desert Island Discs & F & Interview & Ambient \\ \hline
+      1 & 1 Xtra & Sian Anderson & M, F & Breakfast & Dance \\ \hline
+      2 & 6 Music & Lauren Laverne & F & Single & Indie \\ \hline
+      3 & Radio 2 & Ken Bruce & M & Phone quiz & Lounge \\ \hline
+      4 & Radio 3 & Breakfast show & M & Single & Classical \\ \hline
+      5 & 5 Live & Sports report & M & Sports & Band \\ \hline
+      6 & Radio 1 & Zane Lowe & M & Interview & Rap \\ \hline
+      7 & Radio 2 & Jo Whiley & M, F & Review & Pop \\ \hline
+      8 & Radio 4 & Afternoon drama & M, F & Drama & Classical \\ \hline
+      9 & Radio 4 & Front Row & M & Interview & Alternative \\ \hline
     \end{tabular}
+    }
   \end{center}
   \caption{Descriptions of the radio programmes used for the evaluation}
   \label{tab:clips}
 \end{table}
 
-\subsection{Measures}\label{sec:measures}
+\subsection{Metrics}\label{sec:metrics}
 \paragraph{Demographics}
 Participants were asked about their gender, age and a number of question which
 attempted to gauge their level of experience. The questions and options are
@@ -428,7 +454,7 @@ observation is above the mean.
 
 \subsection{Performance metrics}\label{sec:studymetrics}
 An analysis was carried out on the performance metrics that were measured while
-participants used the interface (see Section~\ref{sec:measures}).
+participants used the interface (see Section~\ref{sec:metrics}).
 
 \paragraph{Seek action}
 The number of seek actions made was standardised for each participant. This was
@@ -741,7 +767,7 @@ from the functions.
 \begin{itemize}
   \item \texttt{VampParameter} is a name/value pair used to store a parameter
   \item \texttt{VampParameterList} is a vector of \texttt{VampParameter}s
-  \item \texttt{VampPlugin} stores the name of a Vamp plugin along with a
+  \item \texttt{VampPlugin} stores the name of a Vamp plugin along with a\\
     \texttt{VampParameterList} and the preferred block and step sizes
   \item \texttt{VampOutput} stores a \texttt{VampPlugin} and output name
   \item \texttt{VampOutputList} is a vector of \texttt{VampOutput}s
