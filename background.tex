@@ -1,4 +1,283 @@
-\chapter{Background}\label{chpt:background}
+% !TeX root = main.tex
+\chapter{Background}\label{chp:background}
+
+\section{Audio visualisation principles}
+
+Sound is temporal
+
+Vision is spatio-temporal
+
+In a world of `big data', data visualization is becoming an increasing popular
+subject. Visualization techniques have been applied to audio content for a
+variety of applications including accessibility \citep{Ho-Ching2003}, browsing
+large databases \citep{FontCorbera2010}, browsing small databases \citep{Yoo2011}
+and musical training \citep{Ferguson2005} amonst others.
+
+The development of good visualizations lies somewhere between science and art.
+Tufte's seminal work on good practice \citep{Tufte2001} gives solid guidance on
+creating elegent and unbiased visuals, and Wolfe and Horowitz \citep{Wolfe2004}
+tell us which properties of vision are most critical for visual search.
+However, putting these together in the context of audio requires a certain
+amount of creativity.
+
+This project focusses on `visualization of time-oriented data', a good overview
+of which can be found in a Springer book of the same name \citep{Aigner2011}.
+The rest of this section will look at examples of time-oriented visualization
+of audio, grouped by the most common visualization techniques.
+
+\subsection{Cross-modality}\label{sec:background-crossmodal}
+The ``bouba/kiki effect'' is a demonstration of cross-model mapping between vision and audition. It was originally
+discovered in an experiment run by psychologist \citet{Koehler1929}. In the experiment, participants are shown two
+abstract shapes and are asked to assign the name `bouba' to one of them, and `kiki' to the
+%TODO Add original names
+other\footnote{Originally the words XXX and YYY were used, but later changed}. To try out the experiment for yourself,
+look at the shapes in Figure~\ref{fig:boubakiki} and see which shape you think best fits the name `bouba' and which
+best fits `kiki'.
+
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{figs/kiki.png}
+  %\caption{Kiki}
+  \label{fig:kiki}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.7\linewidth]{figs/bouba.png}
+  %\caption{Bouba}
+  \label{fig:bouba}
+\end{subfigure}
+  \caption{Demonstration of the ``bouba/kiki effect'' \citep{Ramachandran2001}}
+  \label{fig:boubakiki}
+\end{figure}
+
+K\"{o}hler found that the vast majority of participants chose to name the sharp, pointy shape `kiki' and the curvy,
+rounded shape `bouba'. \citet{Ramachandran2001} found that that this effect holds for 95--98\% of the population. This
+is an example of just one audio-visual mapping that is common amongst the population.
+\citet{Spence2011} reviews a wide range of experiments from the world of psychology that attempt to find the inherint
+cross-modal links in the human brain, including audio-visual mapping.
+%\citep{Hubbard1996}
+
+%These audio-visual associations are not just higher-level constructs that our
+%concious brain creates, they affect the brain at the very lowest level even
+%with only brief exposure to bimodal stimuli. Zangenehpour et. al.
+%\citep{Zangenehpour2010} used a PET-CT scanner to measure blood flow in the
+%brain during exposure to audio and visual stimuli. ``When presented with only
+%the auditory or visual components of the bimodal stimuli, na\"{i}ve subjects
+%showed only modality-specific cortical activation, as expected.  However,
+%subjects who had previously been exposed to the audiovisual stimuli showed
+%increased cerebral blood flow in the primary visual cortex when presented with
+%sounds alone.''
+
+Two test methods are used to discover these links -- `speeded' and `unspeeded'.  In `speeded' tests, participants are
+asked to press a button as soon as they see/hear an audio-visual stimulus and their reaction time is measured. When the
+reaction times are quicker, the stimuli are considered `congruent' (perceived to be similar). In `unspeeded' tests,
+visual and audio stimuli are presented very quickly, one after the other, and participants are asked to choose which
+one came first. When the just-noticeable difference (JND) time is higher, the stimuli are considered congruent, as they
+are perceived to have merged into one entity.
+
+\citet{Spence2011} found there to be strong evidence for six audio-visual mappings, which he grouped into three
+categories:
+{\singlespacing
+\begin{itemize}
+  \item Structural
+  \begin{itemize}
+    \item Loudness/brightness (louder=brighter)
+  \end{itemize}
+  \item Statistical
+  \begin{itemize}
+    \item Pitch/elevation (higher=higher)
+    \item Pitch/size (higher=smaller)
+    \item Loudness/size (louder=bigger)
+  \end{itemize}
+  \item Semantic
+  \begin{itemize}
+    \item Pitch/elevation (higher=higher)
+    \item Pitch/spatial frequency (higher=higher)
+  \end{itemize}
+\end{itemize}
+}
+
+A recent experiment by \citet{Tsiros2014} attempted to measure audio-visual cross-modal link using audio visualization.
+Three audio recordings were used -- a violin, recording of wind noise and impact sound event. For each, images were
+manually created which used different combinations of audio-visual mappings (e.g. dissonance $\to$ texture
+granularity). Participants were played an audio clip and shown an image and were asked whether they are similar or not,
+and to what degree (on a scale of 0--100).  The experiment confirmed previous results which found strong links between
+size/loudness and pitch/elevation, and weaker links between colour/pitch, granularity/dissonance, and colour
+complexity/dissonance.
+
+%Vision and audition are physiologically separate, but idential in many respects
+%\citep{Tsiros2013}.
+
+\section{Generative techniques}
+
+\subsection{Waveform}
+
+\subsubsection{Colour mapping}\label{sec:background-colourmapping}
+Mapping of data to colour can be separated into two methods -- pseudocolour and
+false colour.
+
+\paragraph{Pseudocolour}
+This is a method of mapping a scalar value to a colour gradient
+\citep{Moreland2009}. A commonly used example application of pseudocolour is
+thermal imaging, where increasing temperature is mapped to a colour gradient of
+blue$\to$green$\to$yellow$\to$orange$\to$red. The advantage of pseudocolour is
+that it can emphasize small variations by using the full colour spectrum, or
+make it easy to pick out highlights. However, as pseudocolour can only
+represent one dimension, it does not make full use of the colour space.
+
+Spectral waveform colouration has become a standard feature in DJ software,
+first becoming popular after Serato Audio Research's `Scratch LIVE' program
+introduced it.  DJs use the colour to distinguish between bass kicks, snares
+and high-hats. Pseudocolour is used to enhanced the waveform, with spectral
+centroid used as the input audio feature.
+
+The same technique has been applied to other applications, notably on the audio
+clip sharing website `Freesound' from Universitat Pompeu Fabra's Music
+Technology Group\footnote{\url{http://blog.freesound.org/?p=10}, Bram de Jong,
+  Music Technology Group, Universitat Pompeu Fabra, Barcelona}. The coloured
+waveforms are used to help users quickly compare sound effect and music clips
+on the website.
+
+\paragraph{False colour}
+This technique maps three values to a colour space, usually red/green/blue
+(RGB). The advantage of this method is that it can use the full potential of
+the colour available. However, it can be difficult to design/choose the three
+values so that they map to colour in a coherent way that humans can easily
+understand and interpret.
+
+The technique of mapping audio frequencies to colour has been around since at
+least 2000 when Tzanetakis and Cook introduced the concept of `Timbregrams',
+which ``use color perception and the pattern recognition capabilities of the
+human visual system to depict timbral and temporal information''
+\citep{Tzanetakis2000}. Their implementation mapped the first three principal
+components of a large feature vector to RGB colour space. According to the
+authors, ``sound textures that are similar have similar colors''.
+
+In 2005, Rice presented a similar idea, but used the colour to enhance
+waveforms \citep{Rice2005}. The technique is not described in detail, but
+generally it maps low/mid/high frequencies to blue/green/red. It is useful for
+identifying timbrally distinct sounds and, with training, could be used to
+identify certain sound effects. This system is currently marketed and licensed
+as `Comparisonics' and has been integrated into DAW software from Magix and DJ
+software from Native Instruments.
+
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figs/freesound.png}
+  \caption{Freesound (\url{freesound.com})}
+  \label{fig:freesound}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figs/rice.png}
+  \caption{Comparisonics \citep{Rice2005}}
+  \label{fig:rice}
+\end{subfigure}
+\caption{Examples of pseudocolour (\ref{fig:freesound}) and false colour
+  (\ref{fig:rice}) applied to audio visualization}
+\label{fig:colourvis}
+\end{figure}
+
+In 2007, the BBC created a system for visually representing recently-broadcast
+radio material for navigation by the audience \citep{Mason2007}. It used three
+basic features -- zero-crossing rate, its skewness and spectral rolloff --
+which were each mapped to red, green and blue. Despite the arbitrarily-chosen
+and simple features/mapping, the system is successful at indicating the
+location of music within speech content, and highlighting low-bandwidth
+material such as phone calls. The paper proposes in Section 7 that the system
+could be used for assisted segmentation for podcast production.
+
+Similar work was conducted at the BBC in 2013 by trainee Andrew Bonney who,
+under the supervision of the author, looked into whether colour could represent
+the sound of different people's voices. The result used median-filtered MFCCs
+and gaussian mixture models, mapped to RGB colour space.
+Figure~\ref{fig:bonney} shows an example of a recording with three speakers
+(red/orange, blue and light/dark green).
+
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.95\linewidth]{figs/bonney.png}
+  \caption{Speaker diarizartion through colour based on filtered MFCCs}
+  \label{fig:bonney}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.95\linewidth]{figs/towsey.png}
+  \caption{False colour visualization of environmental recordings, with each
+    line representing one day. Missing data is grey.
+    \citep{Towsey2014}}
+  \label{fig:towsey}
+\end{subfigure}
+  \caption{Further examples of false colour audio visualization}
+\label{fig:falsecolour}
+\end{figure}
+
+False colour has also been used for navigating and summarizing extremely long
+recordings. Towsey et. al. \citep{Towsey2014} mapped three spectral features to
+RGB colour for visualizing almost a year of environmental recording.
+Figure~\ref{fig:towsey} shows the recordings from March until October, with
+each line representing one day. The visualization reveals the change in time of
+the dawn and evening choruses throughout the year, amongst other things.
+
+\subsubsection{Rescaling}
+The `quintessence waveform' is a visualization developed by Loviscach
+\citep{Loviscach2011} which attempts to address the problem of audio waveforms
+not scaling well at different levels of zoom. It uses exteme pitch shifting so
+that the character of the waveform is preserved at whatever scale the waveform
+is viewed at (see Figure~\ref{fig:quint}). This approach works well for
+monophonic material, but does not do so well with complex polyphonic material.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.95\linewidth]{figs/quint.png}
+  \caption{Above: Normal waveform, below: quintessence waveform, source:
+  \citep{Loviscach2011}}
+  \label{fig:quint}
+\end{figure}
+
+\subsection{Spectrogram}
+
+\subsubsection{Saliency mapping}
+The University of Illinois have developed and evaluated enhanced spectrograms
+for audio navigation \citep{Goudeseune2012,Lin2013}. The design was targeted
+towards discovery of `acoustic events' and was implemented by creating a visual
+saliency map of the spectrogram -- an image processing technique which attempts
+to amplify the unique characteristics of the graphic.  Through the use of
+custom browsing software called Timeliner (see Figure~\ref{fig:timeliner}), the
+system was tested by recording how quickly users could find sound effects
+hidden in long speech recordings. Although this task is not directly
+applicable to radio production, the techniques used for the visualisation and
+evaluation are of interest.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.95\linewidth]{figs/timeliner.png}
+  \caption{User interface of `Timeliner', featuring a salience-mapped
+    spectrogram, source: \citep{Goudeseune2012}}
+  \label{fig:timeliner}
+\end{figure}
+
+
+\section{Semantic techniques}
+
+\subsection{Segmentation}
+Music structure
+Speaker diarization
+
+\subsection{Transcription}
+Music transcription
+Speech to text
+
+\section{Alternatives}
+Haptics
+
+%======================================================================================================================
 
 Academic research into audio analysis and audio interfaces tends to concentrate
 on fully automated systems \citep{AngueraMiro2012}, navigation of large audio
@@ -179,264 +458,3 @@ which isn't an issue when used as the input to a machine learning system, but
 would make it very difficult to map to a visualization. The objective of the
 deep learning process is to minimise a cost function rather than to maximise
 the link to human perception.
-
-\section{Audio visualization}
-In a world of `big data', data visualization is becoming an increasing popular
-subject. Visualization techniques have been applied to audio content for a
-variety of applications including accessibility \citep{Ho-Ching2003}, browsing
-large databases \citep{FontCorbera2010}, browsing small databases \citep{Yoo2011}
-and musical training \citep{Ferguson2005} amonst others.
-
-The development of good visualizations lies somewhere between science and art.
-Tufte's seminal work on good practice \citep{Tufte2001} gives solid guidance on
-creating elegent and unbiased visuals, and Wolfe and Horowitz \citep{Wolfe2004}
-tell us which properties of vision are most critical for visual search.
-However, putting these together in the context of audio requires a certain
-amount of creativity.
-
-This project focusses on `visualization of time-oriented data', a good overview
-of which can be found in a Springer book of the same name \citep{Aigner2011}.
-The rest of this section will look at examples of time-oriented visualization
-of audio, grouped by the most common visualization techniques.
-
-\subsection{Colour mapping}\label{sec:litreviewcolour}
-Mapping of data to colour can be separated into two methods -- pseudocolour and
-false colour.
-
-\paragraph{Pseudocolour}
-This is a method of mapping a scalar value to a colour gradient
-\citep{Moreland2009}. A commonly used example application of pseudocolour is
-thermal imaging, where increasing temperature is mapped to a colour gradient of
-blue$\to$green$\to$yellow$\to$orange$\to$red. The advantage of pseudocolour is
-that it can emphasize small variations by using the full colour spectrum, or
-make it easy to pick out highlights. However, as pseudocolour can only
-represent one dimension, it does not make full use of the colour space.
-
-Spectral waveform colouration has become a standard feature in DJ software,
-first becoming popular after Serato Audio Research's `Scratch LIVE' program
-introduced it.  DJs use the colour to distinguish between bass kicks, snares
-and high-hats. Pseudocolour is used to enhanced the waveform, with spectral
-centroid used as the input audio feature.
-
-The same technique has been applied to other applications, notably on the audio
-clip sharing website `Freesound' from Universitat Pompeu Fabra's Music
-Technology Group\footnote{\url{http://blog.freesound.org/?p=10}, Bram de Jong,
-  Music Technology Group, Universitat Pompeu Fabra, Barcelona}. The coloured
-waveforms are used to help users quickly compare sound effect and music clips
-on the website.
-
-\paragraph{False colour}
-This technique maps three values to a colour space, usually red/green/blue
-(RGB). The advantage of this method is that it can use the full potential of
-the colour available. However, it can be difficult to design/choose the three
-values so that they map to colour in a coherent way that humans can easily
-understand and interpret.
-
-The technique of mapping audio frequencies to colour has been around since at
-least 2000 when Tzanetakis and Cook introduced the concept of `Timbregrams',
-which ``use color perception and the pattern recognition capabilities of the
-human visual system to depict timbral and temporal information''
-\citep{Tzanetakis2000}. Their implementation mapped the first three principal
-components of a large feature vector to RGB colour space. According to the
-authors, ``sound textures that are similar have similar colors''.
-
-In 2005, Rice presented a similar idea, but used the colour to enhance
-waveforms \citep{Rice2005}. The technique is not described in detail, but
-generally it maps low/mid/high frequencies to blue/green/red. It is useful for
-identifying timbrally distinct sounds and, with training, could be used to
-identify certain sound effects. This system is currently marketed and licensed
-as `Comparisonics' and has been integrated into DAW software from Magix and DJ
-software from Native Instruments.
-
-\begin{figure}[ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figs/freesound.png}
-  \caption{Freesound, source: \url{freesound.com}}
-  \label{fig:freesound}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figs/rice.png}
-  \caption{Comparisonics, source: \citep{Rice2005}}
-  \label{fig:rice}
-\end{subfigure}
-\caption{Examples of pseudocolour (\ref{fig:freesound}) and false colour
-  (\ref{fig:rice}) applied to audio visualization}
-\label{fig:colourvis}
-\end{figure}
-
-In 2007, the BBC created a system for visually representing recently-broadcast
-radio material for navigation by the audience \citep{Mason2007}. It used three
-basic features -- zero-crossing rate, its skewness and spectral rolloff --
-which were each mapped to red, green and blue. Despite the arbitrarily-chosen
-and simple features/mapping, the system is successful at indicating the
-location of music within speech content, and highlighting low-bandwidth
-material such as phone calls. The paper proposes in Section 7 that the system
-could be used for assisted segmentation for podcast production.
-
-Similar work was conducted at the BBC in 2013 by trainee Andrew Bonney who,
-under the supervision of the author, looked into whether colour could represent
-the sound of different people's voices. The result used median-filtered MFCCs
-and gaussian mixture models, mapped to RGB colour space.
-Figure~\ref{fig:bonney} shows an example of a recording with three speakers
-(red/orange, blue and light/dark green).
-
-\begin{figure}[ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/bonney.png}
-  \caption{Speaker diarizartion through colour based on filtered MFCCs}
-  \label{fig:bonney}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/towsey.png}
-  \caption{False colour visualization of environmental recordings, with each
-    line representing one day (missing data is grey), source:
-    \citep{Towsey2014}}
-  \label{fig:towsey}
-\end{subfigure}
-  \caption{Further examples of false colour audio visualization}
-\label{fig:falsecolour}
-\end{figure}
-
-False colour has also been used for navigating and summarizing extremely long
-recordings. Towsey et. al. \citep{Towsey2014} mapped three spectral features to
-RGB colour for visualizing almost a year of environmental recording.
-Figure~\ref{fig:towsey} shows the recordings from March until October, with
-each line representing one day. The visualization reveals the change in time of
-the dawn and evening choruses throughout the year, amongst other things.
-
-\subsection{Other approaches}
-
-\paragraph{Rescaling}
-The `quintessence waveform' is a visualization developed by Loviscach
-\citep{Loviscach2011} which attempts to address the problem of audio waveforms
-not scaling well at different levels of zoom. It uses exteme pitch shifting so
-that the character of the waveform is preserved at whatever scale the waveform
-is viewed at (see Figure~\ref{fig:quint}). This approach works well for
-monophonic material, but does not do so well with complex polyphonic material.
-
-\begin{figure}[ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/quint.png}
-  \caption{Above: Normal waveform, below: quintessence waveform, source:
-  \citep{Loviscach2011}}
-  \label{fig:quint}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/timeliner.png}
-  \caption{User interface of `Timeliner', featuring a salience-mapped
-    spectrogram, source: \citep{Goudeseune2012}}
-  \label{fig:timeliner}
-\end{subfigure}
-  \caption{Examples of alternative visualization techniques}
-\label{fig:altvis}
-\end{figure}
-
-\paragraph{Saliency mapping}
-The University of Illinois have developed and evaluated enhanced spectrograms
-for audio navigation \citep{Goudeseune2012,Lin2013}. The design was targeted
-towards discovery of `acoustic events' and was implemented by creating a visual
-saliency map of the spectrogram -- an image processing technique which attempts
-to amplify the unique characteristics of the graphic.  Through the use of
-custom browsing software called Timeliner (see Figure~\ref{fig:timeliner}), the
-system was tested by recording how quickly users could find sound effects
-hidden in long speech recordings. Although this task is not directly
-applicable to radio production, the techniques used for the visualisation and
-evaluation are of interest.
-
-\section{Cross-modal links}\label{sec:litreviewmodal}
-The bouba/kiki effect is a demonstration of cross-model mapping originally
-discovered in an experiment run by psychologist Wolfgang K\"{o}hler in 1929
-\citep{Koehler1929}. Participants were shown two shapes (see
-Figure~\ref{fig:boubakiki}) and asked to assign the name `bouba' to one of
-them, and `kiki' to the other. The vast majority chose to name the sharp,
-pointy one `kiki' and the curvy, rounded one `bouba'. Repeats of the experiment
-\citep{Ramachandran2001} have shown that the effect holds for 95--98\% of the
-population. This synesthetic-like mapping \citep{Hubbard1996} is just one
-example of common links between sound and vision
-
-\begin{figure}[ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=0.7\linewidth]{figs/kiki.png}
-  \caption{Kiki}
-  \label{fig:kiki}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=0.7\linewidth]{figs/bouba.png}
-  \caption{Bouba}
-  \label{fig:bouba}
-\end{subfigure}
-  \caption{Demonstration of kiki and bouba, source: \citep{Ramachandran2001}}
-  \label{fig:boubakiki}
-\end{figure}
-
-These audio-visual associations are not just higher-level constructs that our
-concious brain creates, they affect the brain at the very lowest level even
-with only brief exposure to bimodal stimuli. Zangenehpour et. al.
-\citep{Zangenehpour2010} used a PET-CT scanner to measure blood flow in the
-brain during exposure to audio and visual stimuli. ``When presented with only
-the auditory or visual components of the bimodal stimuli, na\"{i}ve subjects
-showed only modality-specific cortical activation, as expected.  However,
-subjects who had previously been exposed to the audiovisual stimuli showed
-increased cerebral blood flow in the primary visual cortex when presented with
-sounds alone.''
-
-In his review paper, Spence \citep{Spence2011} considers a range of experiments
-from the world of psychology that attempt to find the inherint cross-modal
-links in the human brain.
-
-In `speeded' tests, participants are asked to press a button as soon as they
-see/hear an audio-visual stimulus and their reaction time is measured. When the
-stimuli are `congruent' (are perceived to be similar), the reaction times are
-quicker.  `Unspeeded' tests present visual and audio stimuli very quickly after
-the other and participants are asked to choose which one came first. When the
-stimuli are congruent, the just-noticeable different (JND) time is higher, as
-the audio and visual stimuli are perceived to merge into one entity.
-
-The review paper finds that there are three principal types of cross-modal
-links:
-{\singlespacing
-\begin{itemize}
-  \item Structural
-  \begin{itemize}
-    \item Loudness/brightness (louder=brighter)
-  \end{itemize}
-  \item Statistical
-  \begin{itemize}
-    \item Pitch/elevation (higher=higher)
-    \item Pitch/size (higher=smaller)
-    \item Loudness/size (louder=bigger)
-  \end{itemize}
-  \item Semantic
-  \begin{itemize}
-    \item Pitch/elevation (higher=higher)
-    \item Pitch/spatial frequency (higher=higher)
-  \end{itemize}
-\end{itemize}
-}
-
-A recent experiment by Tsiros \citep{Tsiros2014} attempted to measure
-audio-visual cross-modal link using audio visualization. Three audio recordings
-were used -- a violin, recording of wind noise and impact sound event. For
-each, images were manually created which used different combinations of
-audio-visual mappings (e.g. dissonance $\to$ texture granularity). Participants
-were played an audio clip and shown an image and were asked whether they are
-similar or not, and to what degree (on a scale of 0--100).  The experiment
-confirmed previous results which found strong links between size/loudness and
-pitch/elevation, and weaker links between colour/pitch, granularity/dissonance,
-and colour complexity/dissonance.
-
-%Vision and audition are physiologically separate, but idential in many respects
-%\citep{Tsiros2013}.
-
