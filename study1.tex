@@ -1,6 +1,13 @@
 % !TeX root = main.tex
 \chapter{Navigation of colourised waveforms}\label{chp:colourised}
 
+Audio waveforms are the universal method of displaying audio content but have never been formally tested.
+
+They are not well-suited to most audio editing tasks. For example, is it almost impossible to distinguish between voices with a waveform.
+
+This online experiment showed significant improvements in task performance when using a normal waveform versus nothing, and when using a colourised waveform versus a normal waveform.
+
+\section{Introduction}
 Production of audio content involves a number of tasks
 Efficient navigation of audio content allows these tasks to be completed faster.
 
@@ -38,7 +45,7 @@ music at the programme level can be challenging.
 
 The task for the experiment was to find and select the piece of music content in a recording of a radio programme.
 
-\subsection{Conditions}
+\subsection{Conditions}\label{sec:colourised-conditions}
 Three different methods were used to visualize the audio: a normal waveform, a colourised waveform and a blank
 display (no waveform). The blank visualization acts as a baseline where participants are operating `blind' with no
 visual assistance.
@@ -49,11 +56,19 @@ visual assistance.
 %The expected result is that having a waveform is better than having nothing, and that a colourised waveform performs
 %better than a normal waveform.
 
-\subsubsection{Colourised waveform}\label{sec:studywaveform}
 We created the colourised waveform by modifying the colour of a standard waveform, based on a very simple speech/music
 discrimination (SMD) feature.
 
-As shown in Section~\ref{sec:litreview}, low energy ratio is a popular, simple and effective scalar metric for
+
+
+Low energy ratio (also known as `silent interval frequency' and `energy contour
+dip') is a measure of the number of RMS energy frames that fall below a
+threshold. It exploits the fact that speech has freqent silent gaps between
+words, wheras music does not. The threshold can be set as a fixed value
+\citep{Liang2005}, a function of a moving average \citep{Ericsson2009} or moving
+peak value \citep{Saunders1996}.
+
+Low energy ratio is a popular, simple and effective scalar metric for
 speech/music discrimination. It works on the principle that speech has intermittent silences (between words) whereas
 music does not. We calculated it by extracting the RMS energy (20ms frames, no overlap) and counting the proportion of
 frames which fall below a threshold.  In the case of this experiment, we configured the threshold as the third
@@ -265,6 +280,13 @@ place, and are easily shared. Recent advances in web technology standards (notab
 HTML5\footnote{\url{http://www.w3.org/TR/html5/}}) mean that it is now possible to control playback of audio on a wide
 range of browsers without requiring additional plugins, making large scale evaluation achievable.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figs/waveform-interface.png}
+  \caption{Interface for the experiment}
+  \label{fig:colourised-interface}
+\end{figure}
+
 We developed an online audio interface and evaluation system, which is described in detail in Section \ref{sec:iface}.
 It displays two audio visualisations -- one shows the full recording, and the other shows a zoomed-in view. We
 implemented basic functionality, including seek, zoom, play/pause and selection.
@@ -276,8 +298,7 @@ people) and all residents in the Electronics and Computer Science department at 
 mostly non-experts.
 
 \subsection{Ethics}
-We received ethics approval for the experiment from the QMUL Research Ethics Committee, which is logged under the reference
-\texttt{QMREC1348d}. 
+We received ethics approval for this experiment from the Queen Mary University of London Ethics of Research Committee, under the reference \texttt{QMREC1348d}.
 
 \section{Results}
 63 responses were completed in the three weeks the experiment ran. Emails linking to the experiment were sent to
@@ -627,4 +648,6 @@ wasn't a second slider available on the zoomed display.
 
 \section{Conclusions}\label{sec:colourised-conclusions}
 
-The conclusions
+The normal waveform required fewer seek actions than nothing but was not significantly faster. It scored better than nothing for mental demand, performance and frustration.
+
+The enhanced waveform required fewer seek actions than the normal waveform and was significantly faster than nothing. It performed better than the normal waveform for mental demand, performance and effort.

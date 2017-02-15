@@ -7,6 +7,10 @@ Sound is temporal
 
 Vision is spatio-temporal
 
+Benefits:
+- Screens are prevalent, so usually no extra equipment needed
+- 
+
 In a world of `big data', data visualization is becoming an increasing popular
 subject. Visualization techniques have been applied to audio content for a
 variety of applications including accessibility \citep{Ho-Ching2003}, browsing
@@ -26,6 +30,7 @@ The rest of this section will look at examples of time-oriented visualization
 of audio, grouped by the most common visualization techniques.
 
 \subsection{Cross-modality}\label{sec:background-crossmodal}
+%TODO What is cross-modality?
 The ``bouba/kiki effect'' is a demonstration of cross-model mapping between vision and audition. It was originally
 discovered in an experiment run by psychologist \citet{Koehler1929}. In the experiment, participants are shown two
 abstract shapes and are asked to assign the name `bouba' to one of them, and `kiki' to the
@@ -114,6 +119,16 @@ complexity/dissonance.
 
 \subsection{Waveform}
 
+Benefits:
+- Waveform is most recognisable visualisation
+- Concept is very simple, easy to understand
+- Simple to draw
+
+Downsides:
+- Displays limited information
+- Mostly symetrical, wasting space
+- audio wave-forms represent audio signal pressure over time and these signal representations are incredibly hard to interpret and use unless one is an audio-signal processing expert
+
 \subsubsection{Colour mapping}\label{sec:background-colourmapping}
 Mapping of data to colour can be separated into two methods -- pseudocolour and
 false colour.
@@ -199,23 +214,10 @@ Figure~\ref{fig:bonney} shows an example of a recording with three speakers
 (red/orange, blue and light/dark green).
 
 \begin{figure}[ht]
-\centering
-\begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=0.95\linewidth]{figs/bonney.png}
   \caption{Speaker diarizartion through colour based on filtered MFCCs}
   \label{fig:bonney}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/towsey.png}
-  \caption{False colour visualization of environmental recordings, with each
-    line representing one day. Missing data is grey.
-    \citep{Towsey2014}}
-  \label{fig:towsey}
-\end{subfigure}
-  \caption{Further examples of false colour audio visualization}
-\label{fig:falsecolour}
 \end{figure}
 
 False colour has also been used for navigating and summarizing extremely long
@@ -224,6 +226,15 @@ RGB colour for visualizing almost a year of environmental recording.
 Figure~\ref{fig:towsey} shows the recordings from March until October, with
 each line representing one day. The visualization reveals the change in time of
 the dawn and evening choruses throughout the year, amongst other things.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.95\linewidth]{figs/towsey.png}
+  \caption{False colour visualization of environmental recordings, with each
+    line representing one day. Missing data is grey.
+    \citep{Towsey2014}}
+  \label{fig:towsey}
+\end{figure}
 
 \subsubsection{Rescaling}
 The `quintessence waveform' is a visualization developed by Loviscach
@@ -242,6 +253,15 @@ monophonic material, but does not do so well with complex polyphonic material.
 \end{figure}
 
 \subsection{Spectrogram}
+
+Not often used despite availablity
+
+Pros
+- High information density
+
+
+Cons
+- 
 
 \subsubsection{Saliency mapping}
 The University of Illinois have developed and evaluated enhanced spectrograms
