@@ -1,43 +1,77 @@
 % !TeX root = main.tex
 \chapter{Background}\label{chp:background}
 
-\section{Audio visualisation principles}
+Audio is an electronic representation of sound which maps pressure waves to an electrical signal.
 
-Sound is temporal
+Sound is by its very nature time-variant, which makes it both fascinating and challenging.
 
-Vision is spatio-temporal
+This temporal property makes it impossible to `freeze' sound, or to experience it in an instant. Listening is a
+time-consuming activity, because sound must be consumed over time.
 
-Benefits:
-- Screens are prevalent, so usually no extra equipment needed
-- 
+%There have been many attempts to create tools that
+%compress the time needed to listen, which are detailed in Section~\ref{sec:background-auditory}.
+%These tools still require the user to invest time in the task.
 
-In a world of `big data', data visualization is becoming an increasing popular
-subject. Visualization techniques have been applied to audio content for a
-variety of applications including accessibility \citep{Ho-Ching2003}, browsing
-large databases \citep{FontCorbera2010}, browsing small databases \citep{Yoo2011}
-and musical training \citep{Ferguson2005} amonst others.
+% Sound is linear - has a beginning and an end, constrained by the arrow of time
+% Cannot be searched or skimmed
+% Sound is one-dimensional
+% We never stop listening
+% Huge range of frequencies and pressure levels
 
-The development of good visualizations lies somewhere between science and art.
-Tufte's seminal work on good practice \citep{Tufte2001} gives solid guidance on
-creating elegent and unbiased visuals, and Wolfe and Horowitz \citep{Wolfe2004}
-tell us which properties of vision are most critical for visual search.
-However, putting these together in the context of audio requires a certain
-amount of creativity.
+This also poses a challenge when designed interfaces for interacting with audio content. Dealing with large amounts of
+audio in a reasonable time requires the use of tools that can shorten the time needed to complete tasks such as
+navigation.
 
-This project focusses on `visualization of time-oriented data', a good overview
-of which can be found in a Springer book of the same name \citep{Aigner2011}.
-The rest of this section will look at examples of time-oriented visualization
-of audio, grouped by the most common visualization techniques.
+In this chapter, we consider the various approaches that have been used to interact with audio content.
 
-\subsection{Cross-modality}\label{sec:background-crossmodal}
-%TODO What is cross-modality?
-The ``bouba/kiki effect'' is a demonstration of cross-model mapping between vision and audition. It was originally
-discovered in an experiment run by psychologist \citet{Koehler1929}. In the experiment, participants are shown two
-abstract shapes and are asked to assign the name `bouba' to one of them, and `kiki' to the
-%TODO Add original names
-other\footnote{Originally the words XXX and YYY were used, but later changed}. To try out the experiment for yourself,
-look at the shapes in Figure~\ref{fig:boubakiki} and see which shape you think best fits the name `bouba' and which
-best fits `kiki'.
+\section{Audio visualisation}
+
+\subsection{Principles}
+
+Vision is very different medium that varies not only over time, but over space. When you remove the element of time,
+you are left with an image that can be experienced instantanously, searched and skimmed. For this reason, visualisation
+is a good way to interact with time-variant information. \citet{Aigner2011} contains a collection of examples of how
+this can be done.
+
+Visual systems can be used to complement audio interfaces, as they are able to address the key challenges of sound.
+
+In modern society, screens for displaying visual content are widely available.
+
+To be able to represent audio visually, we must map auditory properties to visual properties. We could select these 
+to have a general mapping, which attempts to cover all use cases, or a selective mapping that targets a particular use
+case.
+
+When attempting to link sound and vision, it is desirable to create a mapping that is coherent and makes sense to the
+user. The ultimate goal would be to create an audio visualisation that ``look likes it sounds'', as this would
+allow users to comprehend the sound without having to listen to it.
+
+%In a world of `big data', data visualization is becoming an increasing popular
+%subject. Visualization techniques have been applied to audio content for a
+%variety of applications including accessibility \citep{Ho-Ching2003}, browsing
+%large databases \citep{FontCorbera2010}, browsing small databases \citep{Yoo2011}
+%and musical training \citep{Ferguson2005} amonst others.
+
+%The development of good visualizations lies somewhere between science and art.
+%Tufte's seminal work on good practice \citep{Tufte2001} gives solid guidance on
+%creating elegent and unbiased visuals, and Wolfe and Horowitz \citep{Wolfe2004}
+%tell us which properties of vision are most critical for visual search.
+%However, putting these together in the context of audio requires a certain
+%amount of creativity.
+
+%This project focusses on `visualization of time-oriented data', a good overview
+%of which can be found in a Springer book of the same name \citep{Aigner2011}.
+%The rest of this section will look at examples of time-oriented visualization
+%of audio, grouped by the most common visualization techniques.
+
+Crossmodal perception is a term used to describe interaction between the different senses. This phenomenon has been
+studied over many years by psychologists, who have discovered perceptual mappings between auditory and visual stimuli.
+
+The ``bouba/kiki effect'' is a demonstration of cross-model mapping between vision and audition, originally discovered
+in an experiment run by psychologist \citet{Koehler1929}. In the experiment, participants are shown two abstract shapes
+and are asked to assign the name `bouba' to one of them, and `kiki' to the other\footnote{K\"ohler used the words
+  `baluma' and `takete' in the original experiment, but the result was the same.}. To try out the experiment for
+yourself, look at the shapes in Figure~\ref{fig:boubakiki} and see which shape you think best fits the name `bouba' and
+which best fits `kiki'.
 
 \begin{figure}[ht]
 \centering
@@ -60,8 +94,7 @@ best fits `kiki'.
 K\"{o}hler found that the vast majority of participants chose to name the sharp, pointy shape `kiki' and the curvy,
 rounded shape `bouba'. \citet{Ramachandran2001} found that that this effect holds for 95--98\% of the population. This
 is an example of just one audio-visual mapping that is common amongst the population.
-\citet{Spence2011} reviews a wide range of experiments from the world of psychology that attempt to find the inherint
-cross-modal links in the human brain, including audio-visual mapping.
+
 %\citep{Hubbard1996}
 
 %These audio-visual associations are not just higher-level constructs that our
@@ -75,15 +108,18 @@ cross-modal links in the human brain, including audio-visual mapping.
 %increased cerebral blood flow in the primary visual cortex when presented with
 %sounds alone.''
 
-Two test methods are used to discover these links -- `speeded' and `unspeeded'.  In `speeded' tests, participants are
-asked to press a button as soon as they see/hear an audio-visual stimulus and their reaction time is measured. When the
-reaction times are quicker, the stimuli are considered `congruent' (perceived to be similar). In `unspeeded' tests,
-visual and audio stimuli are presented very quickly, one after the other, and participants are asked to choose which
-one came first. When the just-noticeable difference (JND) time is higher, the stimuli are considered congruent, as they
-are perceived to have merged into one entity.
+\citet{Spence2011} reviewed a wide range of psychology experiments that attempt to find the inherint cross-modal links
+in the human brain, including audio-visual mapping.  There are two common types of test methods used to discover these
+links -- `speeded' and `unspeeded'.  In `speeded' tests, participants are tasked with classifying an audio/visual
+stimulus and their reaction time is measured. When the auditory and visual stimuli are `congruent' (perceived to be
+similar), then their reaction times are quicker. In `unspeeded' tests, visual and audio stimuli are presented very
+quickly, one after the other, and participants are asked to select which stimulus came second. When the stimuli are
+congruent, participants find it more difficult to work out the order of presentation.
 
-\citet{Spence2011} found there to be strong evidence for six audio-visual mappings, which he grouped into three
-categories:
+Through his literature review, \citet{Spence2011} found there to be strong evidence for six audio-visual mappings,
+which he grouped into three categories:
+
+\begin{table}
 {\singlespacing
 \begin{itemize}
   \item Structural
@@ -103,10 +139,13 @@ categories:
   \end{itemize}
 \end{itemize}
 }
+\caption{Audio-visual mappings with strong evidence}
+\label{tab:crossmodal}
+\end{table}
 
-A recent experiment by \citet{Tsiros2014} attempted to measure audio-visual cross-modal link using audio visualization.
-Three audio recordings were used -- a violin, recording of wind noise and impact sound event. For each, images were
-manually created which used different combinations of audio-visual mappings (e.g. dissonance $\to$ texture
+\citet{Tsiros2014} tried a different approach to measure audio-visual crossmodality by using audio visualization
+techniques.  Three audio recordings were used -- a violin, recording of wind noise and impact sound event. For each,
+images were manually created which used different combinations of audio-visual mappings (e.g. dissonance $\to$ texture
 granularity). Participants were played an audio clip and shown an image and were asked whether they are similar or not,
 and to what degree (on a scale of 0--100).  The experiment confirmed previous results which found strong links between
 size/loudness and pitch/elevation, and weaker links between colour/pitch, granularity/dissonance, and colour
@@ -115,9 +154,33 @@ complexity/dissonance.
 %Vision and audition are physiologically separate, but idential in many respects
 %\citep{Tsiros2013}.
 
-\section{Generative techniques}
+In this section, we have seen that
+- the temporal constraints of audio can be overcome by mapping them to spatial properties of vision
+- these mappings can be designed to be general, or task-specific
+- there are underlying links between them that could be exploited
 
-\subsection{Waveform}
+\subsection{Waveforms}
+
+An audio waveform is the graphical representation of an audio signal. It is perhaps the simplest audio visualisation
+technique available and arguably the most commonly used.
+
+The curve of an audio waveform directly represents the pressure waves of the sound, so the amplitude and frequency of
+the sound is mapped to the amplitude and frequency of the plot. This makes it conceptually easy for users to
+understand how the audio is displayed.
+
+Large curves represent loud sounds, and spatially high frequency curves represent high sound frequencies. These
+mappings corrolate with two of the most common cross-modal links (see Table~\ref{tab:crossmodal}.
+
+Waveforms operate in the time domain and can be plotted using a linear function of the audio signal, which makes them
+computationally efficient to generate. 
+
+Given a high enough resolution, waveforms can be losslessly be converted back into the original audio signal. In this
+sense, they can fully represent the information contained in the audio. However for any practical application, the
+waveform image must be downsampled to a smaller image that can be viewed at a reasonable scale. In this case, two
+curves are used to indicate the upper and lower extremes of the waveform, known as the `envelope', which causes some
+information to be lost.
+
+It is the default audio visualisation used in all audio editing software that we have come across.
 
 Benefits:
 - Waveform is most recognisable visualisation
@@ -284,17 +347,17 @@ evaluation are of interest.
 \end{figure}
 
 
-\section{Semantic techniques}
+\subsection{Semantic representation}
 
-\subsection{Segmentation}
+\subsubsection{Segmentation}
 Music structure
 Speaker diarization
 
-\subsection{Transcription}
+\subsubsection{Transcription}
 Music transcription
 Speech to text
 
-\section{Alternatives}
+\section{Auditory and haptic interfaces}\label{sec:background-auditory}
 Haptics
 
 %======================================================================================================================
