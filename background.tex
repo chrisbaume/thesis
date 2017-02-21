@@ -165,6 +165,11 @@ sound and vision that could be exploited to make more perceptually relevant visu
 An audio waveform is the graphical representation of an audio signal. It is perhaps the simplest audio visualisation
 technique available and arguably the most commonly used.
 
+Audio waveforms have long been the universal method of visually representing audio content ever since the first digital
+audio workstations started to appear \citep{Massie1985}. Despite their ubiquity, they display very little relevant
+information and are not well-suited towards most audio navigation or editing tasks. For instance, it is almost
+impossible to distinguish between individual voices with a waveform, even if they sound very different.
+
 % ==== PROS ====
 
 The curve of an audio waveform directly represents the pressure waves of the sound, so the amplitude and frequency of
@@ -189,6 +194,9 @@ sense, they can fully represent the information contained in the audio. However 
 time axis of the waveform must be downsampled so that the waveform can be viewed at a reasonable scale (see
 Figure~\ref{fig:waveforms}).  This downsampling causes the frequency informaton to be lost, and what remains is the
 profile of the audio amplitude.
+
+``Graphically displaying an audio recording as a waveform would generally be inappropriate because, for most users, the
+audio signal spectrum offers no information about content'' \citep{Bouamrane2007}.
 
 \citet{Loviscach2011}
 proposed an elegant solution to this problem using a technique he calls the `quintessence waveform'. This approach
