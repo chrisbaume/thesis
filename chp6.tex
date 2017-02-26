@@ -95,7 +95,9 @@ a timestamp.  Videotater \citep{Diakopoulos2006} was another digital ink interfa
 pre-recorded video clips. A vertical line gesture on a video timeline split the video, and handwritten words could be
 written over a clip. WaCTool \citep{Cattelan2008} extended this functionality by associating user interactions with
 edit commands. For instance, users could assign a `skip' command by pressing buttons at the start and end of an
-unwanted region.  Video as Ink \citep{Cabral2016} allows users to `paint' video frames onto the tablet interface and
+unwanted region.
+RichReview \citep{Yoon2014} was a tablet-based annotation system.
+Video as Ink \citep{Cabral2016} allows users to `paint' video frames onto the tablet interface and
 then edit the video by using an `eraser mode' to remove unwanted frames.
 
 Dynomite \citep{Wilcox1997} was a note-taking system that recorded audio synchronously with digital ink handwritten
@@ -106,12 +108,21 @@ users to navigate the recordings using their pen on a scroll bar on the side of 
 used the Anoto dot pattern to record paper notes during playback of a video. The interface allowed users to click on
 the digital display of the handwritten notes to navigate to that position in the video.
 
+Interfaces to correct errors in transcripts have also been considered, such as that from \citet{Suhm2001}.
+
 These previous studies have approached navigation, editing and annotation of media from five different angles, however
 these have yet to be combined.  Our system primarily merges the first two approaches -- transcript-based editing and
 annotation using digital pens. In this paper, we will consider this technique in the context of professional media
 production.
 
 \section{System requirements}\label{sec:paper-requirements}
+
+%TODO What were the problems?
+
+%TODO What other solutions were considered?
+
+%TODO How was the design of the prototype informed?
+
 We informally tested a paper prototype of our system concept on five radio producers from the BBC. The purpose of the
 test was to validate our assumptions about annotation of transcripts, gather feedback on which features were valued and
 to select an approach of translating annotations to edit commands.  Two of the participants worked in current affairs,
@@ -135,80 +146,61 @@ times and identities of when different people are speaking.
   \label{fig:natural}
 \end{figure}
 
-The transcript was printed double-spaced, with a grey box below each word to
-indicate the underlining area.  Words with a low confidence rating were
-`low-lighted' by shading them grey.  Each line of the transcript had a
-timestamp on the left and a square box on the right, which could be used to
-select a whole line at a time.
+The transcript was printed double-spaced, with a grey box below each word to indicate the underlining area.  Words with
+a low confidence rating were `low-lighted' by shading them grey -- a technique known as confidence
+shading\cite{Vemuri2004}.  Each line of the transcript had a timestamp on the left and a square box on the right, which
+could be used to select a whole line at a time.
 
 \subsection{Method}
-We tested two inactive paper prototypes of the paper interface.
-One used the speaker diarization information 
-to segment the transcript into paragraphs, with the start of each paragraph
-labeled with the speaker identifier in square brackets (e.g.
-\texttt{{[}S1{]}}). The other version did not use any of this 
-information. The users were presented with the normal transcript first,
-followed by the one with speaker information.
+We tested two inactive paper prototypes of the paper interface.  One used the speaker diarization information to
+segment the transcript into paragraphs, with the start of each paragraph labeled with the speaker identifier in square
+brackets (e.g.  \texttt{{[}S1{]}}). The other version did not use any of this information. The users were presented
+with the normal transcript first, followed by the one with speaker information.
 
-For each version, we asked the participants to use a normal pen to annotate the
-first page of the transcript as they would normally, to only use strikethrough
-on the second page and only use underline on the third page. At the end of the
-test, each participant was interviewed about their experience overall and
-with each method.
+For each version, we asked the participants to use a normal pen to annotate the first page of the transcript as they
+would normally, to only use strikethrough on the second page and only use underline on the third page. At the end of
+the test, each participant was interviewed about their experience overall and with each method.
 
 \subsection{Results}
-The reaction to the system was overwhelmingly positive. All of the
-participants could immediately see the value of such a system and remarked that
-it would save them significant amounts of time and \textit{``revolutionise''}
-their production workflow.
+The reaction to the system was overwhelmingly positive. All of the participants could immediately see the value of such
+a system and remarked that it would save them significant amounts of time and \textit{``revolutionise''} their
+production workflow.
 
 \subsubsection{Natural behaviour}
-The participants started the exercise by annotating the transcript any way they
-wanted.  Three of the five participants used underlining to select desired
-words, with one using strikethrough to remove words and the other using both
-methods.  Three drew a line down the side of the page to select multiple lines
-at a time.  Two used short vertical lines between words to signify in- and
-out-points for edits.  Two corrected mistakes in the transcript by writing over
-or above the incorrect word. Finally, one participant selected words using a
-`lasso' technique.
+The participants started the exercise by annotating the transcript any way they wanted.  Three of the five participants
+used underlining to select desired words, with one using strikethrough to remove words and the other using both
+methods.  Three drew a line down the side of the page to select multiple lines at a time.  Two used short vertical
+lines between words to signify in- and out-points for edits.  Two corrected mistakes in the transcript by writing over
+or above the incorrect word. Finally, one participant selected words using a `lasso' technique.
 
-Each participant used a different mixture of annotation techniques. Some of
-these techniques, such as underlining, strikethrough and lines down the side,
-are easy to detect.  Others, such as corrections, lasso and lines between
-words, are less easy to detect. There was no room to write notes at the side of
-the page, but one participant did it anyway and two others expressed an interest
-in doing so if there was a margin. One participant said that they would
-not want a margin.
+Each participant used a different mixture of annotation techniques. Some of these techniques, such as underlining,
+strikethrough and lines down the side, are easy to detect.  Others, such as corrections, lasso and lines between words,
+are less easy to detect. There was no room to write notes at the side of the page, but one participant did it anyway
+and two others expressed an interest in doing so if there was a margin. One participant said that they would not want a
+margin.
 
 \subsubsection{Additional features}
-Four of the five participants found the paragraphs and speaker information
-useful. Typically, interviews have a presenter and contributor and the
-producers find it valuable to know when the presenter is asking a question.
-Three of the participants said that they were able to find the questions much
-more easily with this feature enabled. However, another participant said they
-found the speaker diarization \textit{``distracting''}.
+Four of the five participants found the paragraphs and speaker information useful. Typically, interviews have a
+presenter and contributor and the producers find it valuable to know when the presenter is asking a question.  Three of
+the participants said that they were able to find the questions much more easily with this feature enabled. However,
+another participant said they found the speaker diarization \textit{``distracting''}.
 
-All participants found the timestamps and confidence shading features useful,
-with some commenting that one timestamp per page would be sufficient.  All of
-the participants liked being able to select whole lines at a time, with one
-asking whether a similar function could be available to delete content. It was
-also suggested that the side boxes could be used to rate or star a selection.
+All participants found the timestamps and confidence shading features useful, with some commenting that one timestamp
+per page would be sufficient.  All of the participants liked being able to select whole lines at a time, with one
+asking whether a similar function could be available to delete content. It was also suggested that the side boxes could
+be used to rate or star a selection.
 
-Four of the participants found the transcript was accurate enough to use for
-editing their material.  The interview used by the other participant has a
-strong Scottish accent which affected the transcript quality. Finally, several
-participants noted the importance of listening to the recording and expressed a
-desire to hear the content whilst reading the paper transcript.
+Four of the participants found the transcript was accurate enough to use for editing their material.  The interview
+used by the other participant has a strong Scottish accent which affected the transcript quality. Finally, several
+participants noted the importance of listening to the recording and expressed a desire to hear the content whilst
+reading the paper transcript.
 
 \subsubsection{Select or delete}
-The participants were asked whether
-they preferred selecting or deleting words. Three of them preferred select, with
-one commenting that it \textit{``felt more natural''} and another saying
-deleting felt \textit{``counter-intuitive''}. The other two participants
-preferred deleting, with one commenting that it was \textit{``the way my brain
-  works''} and the other saying they prefer to \textit{``get stuff out of the
-  way''}. As there was no agreement, the system should have options to cater
-for a variety of translation methods.
+The participants were asked whether they preferred selecting or deleting words. Three of them preferred select, with
+one commenting that it \textit{``felt more natural''} and another saying deleting felt \textit{``counter-intuitive''}.
+The other two participants preferred deleting, with one commenting that it was \textit{``the way my brain works''} and
+the other saying they prefer to \textit{``get stuff out of the way''}. As there was no agreement, the system should
+have options to cater for a variety of translation methods.
 
 %- Useful to know where presenter is asking question
 
@@ -295,68 +287,56 @@ for a variety of translation methods.
 %These systems do not provide the user with any pre-written notes.
 %Our system uses speech-to-text to generate a transcript, which the user can
 %then annotate further.
-The participants used a variety of techniques to annotate the transcripts, 
-but underline, strikethrough and lines down the side were common. There were
-strong but mixed opinions on whether selection of desired material, or removal
-of unwanted material, was the best approach to use for editing, so both should
-be made available where possible. However, it is still not clear what should
-happen when underline and strikethrough are used together, and which should
-override the other.
+The participants used a variety of techniques to annotate the transcripts, but underline, strikethrough and lines down
+the side were common. There were strong but mixed opinions on whether selection of desired material, or removal of
+unwanted material, was the best approach to use for editing, so both should be made available where possible. However,
+it is still not clear what should happen when underline and strikethrough are used together, and which should override
+the other.
 
-The transcripts were generated using speech-to-text but were considered good
-enough to edit with. We found that participants enjoyed having paragraphs, speaker
-information, timestamps, confidence shading and being able to select whole lines.
+The transcripts were generated using speech-to-text but were considered good enough to edit with. We found that
+participants enjoyed having paragraphs, speaker information, timestamps, confidence shading and being able to select
+whole lines.
 
-Some participants expressed a desire to listen to the media
-from the paper interface, and this functionality has been shown to be useful
-in previous work. Users could start playback by pressing a word with the
-digital pen. This could be achieved either by wirelessly
-linking the digital pen to a computer that plays the content, or by storing
-the audio on the pen itself similarly to the LiveScribe Sound
+Some participants expressed a desire to listen to the media from the paper interface, and this functionality has been
+shown to be useful in previous work. Users could start playback by pressing a word with the digital pen. This could be
+achieved either by wirelessly linking the digital pen to a computer that plays the content, or by storing the audio on
+the pen itself similarly to the LiveScribe Sound
 Stickers\footnote{\url{http://store.livescribe.com/sound-stickers-1-1.html}}.
 
-Previous work has also shown the benefits of being able to write freehand notes
-which link to specific points in recordings. These could be attached to a
-screen-based interface similarly to ProofRite \citep{Conroy2004}, or handwriting
-recognition could be used to store and organise these notes in a structured
-way. This approach could also be used to fix incorrect words in the transcript.
+Previous work has also shown the benefits of being able to write freehand notes which link to specific points in
+recordings. These could be attached to a screen-based interface similarly to ProofRite \citep{Conroy2004}, or
+handwriting recognition could be used to store and organise these notes in a structured way. This approach could also
+be used to fix incorrect words in the transcript.
 
-Media content is often produced in teams rather than individually.  Although
-our system does not prevent multiple people from working on a transcript, it
-does not exploit opportunities to smoothly handle multiple users.
+Media content is often produced in teams rather than individually.  Although our system does not prevent multiple
+people from working on a transcript, it does not exploit opportunities to smoothly handle multiple users.
 
-We will shortly be conducting a formal evaluation of our system at the BBC
-where it will be used to produce audio and video content for broadcast. 
+We will shortly be conducting a formal evaluation of our system at the BBC where it will be used to produce audio and
+video content for broadcast. 
 
 %Providing a function to align an existing script to the recording would allow
 %this functionality to be used with scripted programmes.
 
 \subsection{Conclusion}
-In this paper, we presented a novel system for editing media content using a
-paper-based interface. We tested this concept using a paper prototype in an
-informal test on five radio producers.
+In this paper, we presented a novel system for editing media content using a paper-based interface. We tested this
+concept using a paper prototype in an informal test on five radio producers.
 
-The participants all reacted very positively to the system. They enjoyed the
-additional features we tested including speaker information, paragraphs,
-timestamps, confidence shading and selection of whole lines. Based on their
-feedback, we also added an optional margin to the interface.
+The participants all reacted very positively to the system. They enjoyed the additional features we tested including
+speaker information, paragraphs, timestamps, confidence shading and selection of whole lines. Based on their feedback,
+we also added an optional margin to the interface.
 
-A variety of annotation marks were used by the participants to indicate edit
-decisions, including underline, strikethrough, lines down the side and lines
-between words.  Participants either preferred to select content they wanted or
-to delete content they didn't want, and felt strongly either way.
+A variety of annotation marks were used by the participants to indicate edit decisions, including underline,
+strikethrough, lines down the side and lines between words.  Participants either preferred to select content they
+wanted or to delete content they didn't want, and felt strongly either way.
 
-There are a number of opportunities to build on the system, including being
-able to capture freehand notes, listen to the content using the paper
-interface, fix incorrect words and work collaboratively.
+There are a number of opportunities to build on the system, including being able to capture freehand notes, listen to
+the content using the paper interface, fix incorrect words and work collaboratively.
 
 \section{System design}\label{sec:paper-design}
-Using the feedback from producers, we designed and created a working prototype
-of the system (see Figure~\ref{fig:diagram}). To build our prototype, we
-collaborated with Anoto who are the manufacturers of the digital pen. We
-developed the interface, speech-to-text and media editing, whilst Anoto
-handled the transcript printing and translation of the annotations to edit
-commands. 
+Using the feedback from producers, we designed and created a working prototype of the system (see
+Figure~\ref{fig:diagram}). To build our prototype, we collaborated with Anoto who are the manufacturers of the digital
+pen. We developed the interface, speech-to-text and media editing, whilst Anoto handled the transcript printing and
+translation of the annotations to edit commands. 
 
 \begin{figure}[h]
   \centering
@@ -365,19 +345,15 @@ commands.
   \label{fig:diagram}
 \end{figure}
 
-Based on the feedback from users, the timestamps, paragraphs, speaker
-information and confidence shading have been retained. However the timestamps
-only appear at the start of each paragraph. An optional margin has also been
-added to allow users to make unstructured notes using their digital pen. 
-It is not currently possible to select a whole line at a time, but this will
-shortly be added.
+Based on the feedback from users, the timestamps, paragraphs, speaker information and confidence shading have been
+retained. However the timestamps only appear at the start of each paragraph. An optional margin has also been added to
+allow users to make unstructured notes using their digital pen.  It is not currently possible to select a whole line at
+a time, but this will shortly be added.
 
-For each word in the transcript, two rectangular active areas are defined on
-the page -- one around the word itself and another in the space directly below
-the word, which is lightly shaded. Any marks made on or below the word label
-that word as `deleted' and `selected', respectively. This allows the user to
-use a digital pen to delete words using a strikethrough, or to select words by
-underlining.  The annotations are automatically uploaded in batch to the system
+For each word in the transcript, two rectangular active areas are defined on the page -- one around the word itself and
+another in the space directly below the word, which is lightly shaded. Any marks made on or below the word label that
+word as `deleted' and `selected', respectively. This allows the user to use a digital pen to delete words using a
+strikethrough, or to select words by underlining.  The annotations are automatically uploaded in batch to the system
 when the pen is docked.
 
 \begin{figure}[h]
@@ -389,14 +365,12 @@ when the pen is docked.
   \label{fig:layout}
 \end{figure}
 
-The uploaded annotations are combined with the word timings to calculate the
-edit commands.  These can be used to directly edit the media (as shown in
-Figure~\ref{fig:diagram}) which removes the unwanted parts of the content. This
-is known as a `destructive' edit.  Alternatively, the edit commands can be used
-to create an edit decision list (`EDL'). An EDL file describes the in- and
-out-point for a series of edits, which can be loaded into audio or video
-editing software.  As it is `non-destructive', this approach allows the user to
-make corrections to the edit before it is rendered. 
+The uploaded annotations are combined with the word timings to calculate the edit commands.  These can be used to
+directly edit the media (as shown in Figure~\ref{fig:diagram}) which removes the unwanted parts of the content. This is
+known as a `destructive' edit.  Alternatively, the edit commands can be used to create an edit decision list (`EDL').
+An EDL file describes the in- and out-point for a series of edits, which can be loaded into audio or video editing
+software.  As it is `non-destructive', this approach allows the user to make corrections to the edit before it is
+rendered. 
 
 %Several approaches can be taken in interpreting the delete and
 %select annotations:
@@ -414,41 +388,31 @@ make corrections to the edit before it is rendered.
 % Explain why video recording wasn't used
 
 \paragraph{Stage 1: Training and usability study}
-Firstly, the participant will be briefed on the background, objectives and
-design of the study as detailed in the protocol.  Should they wish to
-participate, they will be asked to read and agree to the consent form.
+Firstly, the participant will be briefed on the background, objectives and design of the study as detailed in the
+protocol.  Should they wish to participate, they will be asked to read and agree to the consent form.
 
-There are two objectives to the training stage – firstly to introduce the
-participant to the prototype system so that they understand its capabilities,
-and secondly to test the usability of the interface.
+There are two objectives to the training stage – firstly to introduce the participant to the prototype system so that
+they understand its capabilities, and secondly to test the usability of the interface.
 
-The experimenter will set the participant up on the prototype system, including
-giving them access to the web-based interface, giving them a digital pen and
-configuring the pen’s docking system. The participant will then receive
-training on how to operate the web interface, print out transcripts correctly
-and use the pen.
+The experimenter will set the participant up on the prototype system, including giving them access to the web-based
+interface, giving them a digital pen and configuring the pen’s docking system. The participant will then receive
+training on how to operate the web interface, print out transcripts correctly and use the pen.
 
-The participant will then be asked to perform a series of typical tasks. The
-participant can ask questions and, if they become stuck, the experimenter can
-prompt them. However, the experimenter will not give any other directions. The
-experimenter will note whether the participant was able to successfully
-complete the task and document any problems or confusion experienced during the
-execution of the tasks. This process will help to flag any obvious stumbling
-blocks.
+The participant will then be asked to perform a series of typical tasks. The participant can ask questions and, if they
+become stuck, the experimenter can prompt them. However, the experimenter will not give any other directions. The
+experimenter will note whether the participant was able to successfully complete the task and document any problems or
+confusion experienced during the execution of the tasks. This process will help to flag any obvious stumbling blocks.
 
 \paragraph{Stage 2: Observation}
 
-This stage will involve observing the participant editing two pieces of content
-- one using the screen-based interface and the other using the paper-based
-interface. The order of the observation will be alternated between
-participants. The two pieces of content should be similar in nature, but
-different so that the participant isn't already familiar with the content.
+This stage will involve observing the participant editing two pieces of content - one using the screen-based interface
+and the other using the paper-based interface. The order of the observation will be alternated between participants.
+The two pieces of content should be similar in nature, but different so that the participant isn't already familiar
+with the content.
 
-The observation will be done passively to allow natural interaction with the
-system in the participant's normal work environment. The experimenter will sit
-beside them making written notes. When the participant has some 'down-time',
-the experimenter may choose to ask some questions in order to verify or clarify
-something they have observed.
+The observation will be done passively to allow natural interaction with the system in the participant's normal work
+environment. The experimenter will sit beside them making written notes. When the participant has some 'down-time', the
+experimenter may choose to ask some questions in order to verify or clarify something they have observed.
 
 The specific items of interest at this stage include:
 \begin{itemize}
@@ -462,30 +426,26 @@ The specific items of interest at this stage include:
 \item Unanticipated usage
 \end{itemize}
 
-The prototype will be configured to electronically log the actions of the
-participant, which will help provide insights into usage of the various
-features of the prototype.
+The prototype will be configured to electronically log the actions of the participant, which will help provide insights
+into usage of the various features of the prototype.
 
 Software Usability Scale \citep{Brooke1996}
 Perceived Usefulness \citep{Davis1989}
 
-With the participant's permission, photos may be taken of paper notes,
-annotations or the work environment (see 'data protection' section below).
+With the participant's permission, photos may be taken of paper notes, annotations or the work environment (see 'data
+protection' section below).
 
 \paragraph{Stage 3: Interview}
-Following the observation stage, the participant will be left with access to
-the prototype system for at least a further week. This will give them the
-opportunity to use the system as part of their day-to-day work and uncover
-issues which may be appear in the observation.
+Following the observation stage, the participant will be left with access to the prototype system for at least a
+further week. This will give them the opportunity to use the system as part of their day-to-day work and uncover issues
+which may be appear in the observation.
 
-After this period has passed, the participant will be interviewed about their
-experience. The primary objective is to compare the two production methods and
-extract the advantages and disadvantages of both.
+After this period has passed, the participant will be interviewed about their experience. The primary objective is to
+compare the two production methods and extract the advantages and disadvantages of both.
 
-An audio recording will be made of the interview (see 'data protection' section
-below). This will allow the participant to speak their mind and allow the
-experimenter to give the participant their full attention whilst capturing all
-of the provided information.
+An audio recording will be made of the interview (see 'data protection' section below). This will allow the participant
+to speak their mind and allow the experimenter to give the participant their full attention whilst capturing all of the
+provided information.
 
 The questions asked will include:
 \begin{itemize}
@@ -496,41 +456,35 @@ The questions asked will include:
 
 
 \subsection{Participants}
-To make the most of the principal investigator's position in the BBC,
-participants will be recruited exclusively from the BBC. They will be invited
-to volunteer by way of email passed around using existing contacts in various
-departments that produce speech-based content. 
+To make the most of the principal investigator's position in the BBC, participants will be recruited exclusively from
+the BBC. They will be invited to volunteer by way of email passed around using existing contacts in various departments
+that produce speech-based content. 
 
-The nature of the study requires that participants conduct the tasks as part of
-their day-to-day job. Therefore, participants will be required to gain
-permission from their line manager to take part.
+The nature of the study requires that participants conduct the tasks as part of their day-to-day job. Therefore,
+participants will be required to gain permission from their line manager to take part.
 
-Programmes and producers vary significantly in genre and production techniques.
-To take this into account, participants will be recruited so that there is a
-representative range of styles.
+Programmes and producers vary significantly in genre and production techniques.  To take this into account,
+participants will be recruited so that there is a representative range of styles.
 
 \subsubsection{Selection criteria}
 
 \begin{itemize}
 \item The programme being created should be speech-based.
-\item The content of the programme must not contain any sensitive material, as
-the transcription will be sent to a third-party for transcription (see 'data
-protection' section below).
-\item The turn-around time of the programme must be long enough to allow time
-to recover from any technical issues without affecting broadcast output.
+\item The content of the programme must not contain any sensitive material, as the transcription will be sent to a
+  third-party for transcription (see 'data protection' section below).
+\item The turn-around time of the programme must be long enough to allow time to recover from any technical issues
+  without affecting broadcast output.
 \item The participant must have permission from their line manager to take part.
 \end{itemize}
 
-The study will involve between six and nine participants, depending on how many
-meet the criteria. This should uncover over 90\% of usability problems
-\citep{Nielsen1993} whilst covering a range of genres and styles, and being a
+The study will involve between six and nine participants, depending on how many meet the criteria. This should uncover
+over 90\% of usability problems \citep{Nielsen1993} whilst covering a range of genres and styles, and being a
 manageable number given the duration of the experiment.
 
-The study will take place at the participant's own desk at their normal place
-of work. As the prototype is web-based, they can use their own computer. There
-is a standard configuration for BBC desktop computers, so the environment
-should be similar for each participant. Use of display screen equipment is
-already covered under the existing BBC risk assessment process.
+The study will take place at the participant's own desk at their normal place of work. As the prototype is web-based,
+they can use their own computer. There is a standard configuration for BBC desktop computers, so the environment should
+be similar for each participant. Use of display screen equipment is already covered under the existing BBC risk
+assessment process.
 
 \subsection{Analysis}
 
