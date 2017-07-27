@@ -14,3 +14,4 @@ refs.bib
 *.run.xml
 *-blx.bib
 main.pdf
+*.DS_Store
