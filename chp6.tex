@@ -466,6 +466,9 @@ participants will be required to gain permission from their line manager to take
 Programmes and producers vary significantly in genre and production techniques.  To take this into account,
 participants will be recruited so that there is a representative range of styles.
 
+The participants had between 8 and 28 years experience of professional radio production, with a mean average of
+16 years experience.
+
 \subsubsection{Selection criteria}
 
 \begin{itemize}
@@ -523,7 +526,45 @@ assessment process.
 
 \subsection{Metrics}
 
+% Popularity
+\subsubsection{Preference}
+
+\begin{itemize}
+  \item Normal paper: 2
+  \item Screen: 2
+  \item Pen: 4
+\end{itemize}
+
+% Usefulness and usability
+\subsubsection{Usefulness and usability}
+
+\begin{figure}[h]
+  \centering
+	\begin{tikzpicture}
+	\begin{axis}[
+			ybar,
+			ymin=0,
+			enlarge x limits=0.5,
+			legend style={at={(0.5,-0.15)},anchor=north,legend columns=-1},
+			ylabel={\% score},
+			symbolic x coords={Usefulness, Usability},
+			xtick=data,
+			nodes near coords,
+			nodes near coords align={vertical},
+			]
+	\addplot coordinates {(Usefulness,85.42) (Usability,81.67)};
+	\addplot coordinates {(Usefulness,77.78) (Usability,75.21)};
+	\addplot coordinates {(Usefulness,75.00) (Usability,73.33)};
+	\legend{Normal paper, Screen, Pen}
+	\end{axis}
+	\end{tikzpicture}
+  \label{fig:usefulusable}
+  \caption{Mean average scores for usefulness and usability}
+\end{figure}
+
+
 % Speed
+\subsubsection{Speed}
 
 \begin{figure}[h]
   \centering
@@ -549,11 +590,11 @@ assessment process.
     28 22
   }\normaltimes
   \addplot [only marks, mark = *, red] table {\normaltimes};
-  \addlegendentry{Normal results}
-  \addplot [thick, red] table[
+  \addlegendentry{Normal paper}
+  \addplot [thick, red, forget plot] table[
       y={create col/linear regression={y=Y}}
   ]{\normaltimes};
-  \addlegendentry{Normal trend}
+  %\addlegendentry{Normal trend}
 
   % SCREEN
   \pgfplotstableread{
@@ -568,11 +609,11 @@ assessment process.
     33 45
   }\screentimes
   \addplot [only marks, mark = square*, blue] table {\screentimes};
-  \addlegendentry{Screen results}
-  \addplot [thick, dotted, blue] table[
+  \addlegendentry{Screen}
+  \addplot [thick, dotted, blue, forget plot] table[
       y={create col/linear regression={y=Y}}
   ]{\screentimes};
-  \addlegendentry{Screen trend}
+  %\addlegendentry{Screen trend}
 
   % PEN
   \pgfplotstableread{
@@ -587,17 +628,24 @@ assessment process.
     28 41
   }\pentimes
   \addplot [only marks, mark = diamond*, green] table {\pentimes};
-  \addlegendentry{Pen results}
-  \addplot [thick, loosely dashed, green] table[
+  \addlegendentry{Pen}
+  \addplot [thick, loosely dashed, green, forget plot] table[
       y={create col/linear regression={y=Y}}
   ]{\pentimes};
-  \addlegendentry{Pen trend}
+  %\addlegendentry{Pen trend}
 
   \end{axis}
   \end{tikzpicture}
-  \caption{Edit time performance for each editing system}
+  \caption{Edit time performance for each editing system, with linear regression plot}
   \label{fig:penedittime}
 \end{figure}
+
+Mean edit time, per minute of input audio:
+\begin{itemize}
+    \item Normal paper: 59.2 seconds ($-1.33\%$)
+    \item Screen: 59.34 seconds ($-1.10\%$)
+    \item Pen: 49.77 seconds ($-17.05\%$)
+\end{itemize}
 
 % Usefulness
 
