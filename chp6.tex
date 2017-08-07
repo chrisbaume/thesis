@@ -1,17 +1,19 @@
 % !TeX root = main.tex
 \chapter{Paper-based semantic speech editing}\label{chp:paper}
 
-Digital documents are often reviewed and proofread by printing the document and using a pen to annotate the text. This
-approach is still popular, despite the widespread availability of similar functionality in word processors
-\citep{Harper2001}.
+% Need for paper
+One of the findings from Chapter~\ref{chp:screen} was that some producers find their work environment noisy and
+distracting, and do not like working with screens for extended periods. This leads many to print out transcripts of
+speech recordings so that they can review and edit the recordings away from the screen and/or office.
 
-Working on paper offers a number of advantages over working on computer.  Paper is lightweight, portable and does not
-require any power, which allows readers to work anywhere.  It is not back-lit, so is easier on the eyes.
-%It can be annotated freely whilst reading.
-It can be navigated quickly, annotated freely whilst reading and individual pages can be laid out and easily compared.
-Its physical low-tech nature also means that it is intuitive, robust, durable and does not crash or lose data.  These
-advantages mean that reading from paper rather than a screen allows readers to gain a deeper understanding, easily
-cross-reference other documents, and interleave reading and writing \citep{OHara1997, Mangen2013, Singer2017}.
+% Advantage of paper
+Working on paper offers a number of advantages over working on screens. Most of these are self-evident, but still
+worth reviewing.  Paper is lightweight, portable and does not require any power, which allows users to work almost
+anywhere.  It is not back-lit, so is easier on the eyes.  It can be navigated quickly, annotated freely whilst reading,
+and individual pages can be laid out and easily compared.  Its physical low-tech nature also means that it is
+intuitive, robust, durable and does not crash or lose data.  Reading from paper rather than a screen allows readers to
+gain a deeper understanding, easily cross-reference other documents, and interleave reading and writing
+\citep{OHara1997, Mangen2013, Singer2017}.
 
 %Transcripts are often printed out because:
 %- it is easier to read than on screen
@@ -23,46 +25,39 @@ cross-reference other documents, and interleave reading and writing \citep{OHara
 %- reduces battery anxiety,
 %- more trusted by non-tech-savvy users
 
-A similar process happens in the production of media content. The production workflow typically involves recording
-material, selecting which parts of that material to use, then editing the desired material down to the final output
-\citep{Baume2015}.  Many producers will `log' the material after it is recorded by writing transcripts of what was
-said.  This is either done themselves or using a third-party service. These transcripts help producers to recall what
-was said and when, identify themes, and make links between different parts of their content.
+%A similar process happens in the production of media content. The production workflow typically involves recording
+%material, selecting which parts of that material to use, then editing the desired material down to the final output
+%\citep{Baume2015}.  Many producers will `log' the material after it is recorded by writing transcripts of what was
+%said.  This is either done themselves or using a third-party service. These transcripts help producers to recall what
+%was said and when, identify themes, and make links between different parts of their content.
 
-Many producers find this process easier to achieve on paper than directly on the screen, so choose to print the
-transcript. The producer makes hand-written annotations to help them structure their program and make editorial
-decisions.  After they have decided which parts they want to use in their programme, they must use audio or video
-editing software to manually execute these editorial decisions, which is a tedious and slow process.
+% Disadvantage of paper
+Compared to digital media, working with a physical medium like paper introduces restrictions that make it more
+difficult to copy, share, store and archive information. Printing a document breaks the link to its digital source, so
+is normally a one-way process, where any information that is changed/added cannot is not fed back. Additionally,
+freehand annotations are unstructured, and cannot easily be digitised and re-used. This forces users to manually
+re-enter the information into a computer. In the case of radio production, this involves using a DAW to edit the audio
+based on paper notes, which can be slow and tedious.
 
-In this paper, we describe a system which allows users to edit audio and video content directly using a printed
-transcript.  Speech-to-text is used to generate a transcript that has precise timestamps for each word.  The transcript
-is printed with an Anoto dot-pattern \citep{Fahraeus2003}, which allows a compatible digital pen to capture annotations
-make on the paper.  A digital pen is used to annotate the transcript to mark which parts of the transcript the user
-wants to keep or remove.  The audio or video content is then automatically edited to reflect the annotations made on
-the transcript.
+% Digital paper
+There are a number of technological solutions that can be used to create a `digital bridge' between paper and
+its digital source. These offer the possibility to combine the advantages of paper and digital workflows. Using this
+approach, it is possible to link the words on a printed transcript of speech to the time they were spoken in the
+original audio recording. Furthermore, by linking the paper annotations to audio edit commands, the paper could be used
+to directly edit the audio content.
 
-%The producer prints the transcript then uses
-%a digital pen to highlight and strikethrough words to signify the parts they
-%want or don't want (see Figure~\ref{fig:layout}). These marks are then
-%automatically translated into edit commands by using the timestamps of the
-%words to calculate the in-- and out-points for each cut. This produces an edit
-%decision list which can be opened in an audio or video editor.
-
-%In this paper, we describe a system which allows users to edit audio and video
-%content directly using a printed transcript. Speech-to-text is used to extract
-%a transcript with precise timings for each word.
-%The digital pen is used
-%to select or delete parts of the transcript.
-
-%Our system automatically generates a transcript using speech-to-text. Even
-%though it's imperfect, it is good enough to make edit decisions with
-%\citep{Whittaker2004}
+% Intro
+In this chapter, we investigate paper-based workflows in the context of professional radio production. We describe how
+we captured the requirements for a paper-based speech editor, and how we designed and built a working prototype. We
+then describe a contextual study of radio production in which we directly compared screen-based and paper-based
+workflows. 
 
 \section{Background}\label{sec:paper-background}
 Our system combines editing of media using transcripts with annotation of paper using digital pens. These approaches
 have previously been explored individually, alongside related techniques such as navigation of media using paper
 transcripts, digital ink annotation of video and paper-based note taking for media.
 
+\subsection{Screen-based}
 Transcript-based interfaces have already successfully been applied to both audio and video editing. SCANMail
 \citep{Whittaker2002} demonstrated the advantages of navigating voicemail recordings using a transcript, but did not
 include editing capabilities.  The LIDS Editor \citep{Apperley2002}, and later TRAED \citep{Masoodian2006}, used
@@ -74,12 +69,14 @@ applied to video editing. SILVER \citep{Casares2002} was a video editor that had
 generated from subtitles, and Berthouzoz et. al.  \citep{Berthouzoz2012} developed a system that used crowd-sourced
 transcripts and image processing to allow text-based editing of multi-camera video interviews.
 
+\subsection{Digital pens}
 The Anoto dot pattern can be used with digital pens to bridge the gap between paper and digital documents. PADD
 \citep{Guimbretiere2003} was a concept for a system of editing documents that allowed users to move from digital to
 paper and back again. ProofRite \citep{Conroy2004} was an implementation of this, which anchored annotations made on
 paper into a word processor such that they `reflow' with the text they were attached to.  PaperProof \citep{Weibel2008}
 improved on this by interpreting the edit annotations and automatically applying them to the document.
 
+\subsection{Barcodes}
 Paper transcripts have been explored as a method of navigating video recordings by using a device to detect the
 position in the text and play the video from that position. Video Paper \citep{Hull2003} was a system that embedded
 video keyframes with barcodes down the side of the page. It used a PDA to scan the barcodes that linked to a position
@@ -89,6 +86,7 @@ al. \citep{Erol2007} went a step further by embedding the video data in the barc
 HotPaper \citep{Erol2008} removed the need for barcodes by using a camera to measure the whitespace between words and
 matching that to unique patterns in the text.
 
+\subsection{Digital ink}
 Digital ink interfaces on tablet PCs have been explored as a method for annotating and editing video content.  Marquee
 \citep{Weher1994} synchronised handwritten notes with a live video recording by using a horizontal line gesture to mark
 a timestamp.  Videotater \citep{Diakopoulos2006} was another digital ink interface for segmenting and annotating
@@ -100,6 +98,7 @@ RichReview \citep{Yoon2014} was a tablet-based annotation system.
 Video as Ink \citep{Cabral2016} allows users to `paint' video frames onto the tablet interface and
 then edit the video by using an `eraser mode' to remove unwanted frames.
 
+\subsection{Media note-taking}
 Dynomite \citep{Wilcox1997} was a note-taking system that recorded audio synchronously with digital ink handwritten
 notes.  Users could highlight segments of the audio by pressing buttons to begin or end a segment. They could navigate
 the audio through a screen-based timeline interface which displayed the highlighted regions.  The Audio Notebook
@@ -108,8 +107,12 @@ users to navigate the recordings using their pen on a scroll bar on the side of 
 used the Anoto dot pattern to record paper notes during playback of a video. The interface allowed users to click on
 the digital display of the handwritten notes to navigate to that position in the video.
 
+\subsection{Correction}
+There are clearly defined symbols for use in proof correction (e.g. \citet{ISO5776}).
+
 Interfaces to correct errors in transcripts have also been considered, such as that from \citet{Suhm2001}.
 
+\subsection{Summary}
 These previous studies have approached navigation, editing and annotation of media from five different angles, however
 these have yet to be combined.  Our system primarily merges the first two approaches -- transcript-based editing and
 annotation using digital pens. In this paper, we will consider this technique in the context of professional media
@@ -148,7 +151,7 @@ times and identities of when different people are speaking.
 
 The transcript was printed double-spaced, with a grey box below each word to indicate the underlining area.  Words with
 a low confidence rating were `low-lighted' by shading them grey -- a technique known as confidence
-shading\cite{Vemuri2004}.  Each line of the transcript had a timestamp on the left and a square box on the right, which
+shading \citep{Vemuri2004}.  Each line of the transcript had a timestamp on the left and a square box on the right, which
 could be used to select a whole line at a time.
 
 \subsection{Method}
