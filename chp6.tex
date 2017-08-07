@@ -289,16 +289,17 @@ have options to cater for a variety of translation methods.
 %then annotate further.
 The participants used a variety of techniques to annotate the transcripts, but underline, strikethrough and lines down
 the side were common. There were strong but mixed opinions on whether selection of desired material, or removal of
-unwanted material, was the best approach to use for editing, so both should be made available where possible. However,
-it is still not clear what should happen when underline and strikethrough are used together, and which should override
-the other.
+unwanted material, was the best approach to use for editing, so we decided to make both options available.
+
+%TODO What happens when underline and strike same word?
 
 The transcripts were generated using speech-to-text but were considered good enough to edit with. We found that
 participants enjoyed having paragraphs, speaker information, timestamps, confidence shading and being able to select
 whole lines.
 
 Some participants expressed a desire to listen to the media from the paper interface, and this functionality has been
-shown to be useful in previous work. Users could start playback by pressing a word with the digital pen. This could be
+shown to be useful in previous work. %TODO Reference
+Users could start playback by pressing a word with the digital pen. This could be
 achieved either by wirelessly linking the digital pen to a computer that plays the content, or by storing the audio on
 the pen itself similarly to the LiveScribe Sound
 Stickers\footnote{\url{http://store.livescribe.com/sound-stickers-1-1.html}}.
@@ -311,16 +312,7 @@ be used to fix incorrect words in the transcript.
 Media content is often produced in teams rather than individually.  Although our system does not prevent multiple
 people from working on a transcript, it does not exploit opportunities to smoothly handle multiple users.
 
-We will shortly be conducting a formal evaluation of our system at the BBC where it will be used to produce audio and
-video content for broadcast. 
-
-%Providing a function to align an existing script to the recording would allow
-%this functionality to be used with scripted programmes.
-
-\subsection{Conclusion}
-In this paper, we presented a novel system for editing media content using a paper-based interface. We tested this
-concept using a paper prototype in an informal test on five radio producers.
-
+\subsection{Summary}
 The participants all reacted very positively to the system. They enjoyed the additional features we tested including
 speaker information, paragraphs, timestamps, confidence shading and selection of whole lines. Based on their feedback,
 we also added an optional margin to the interface.
@@ -333,17 +325,18 @@ There are a number of opportunities to build on the system, including being able
 the content using the paper interface, fix incorrect words and work collaboratively.
 
 \section{System design}\label{sec:paper-design}
-Using the feedback from producers, we designed and created a working prototype of the system (see
-Figure~\ref{fig:diagram}). To build our prototype, we collaborated with Anoto who are the manufacturers of the digital
-pen. We developed the interface, speech-to-text and media editing, whilst Anoto handled the transcript printing and
-translation of the annotations to edit commands. 
+Using the feedback gathered from our requirements gathering, we designed and created a working prototype of the system
+(see Figure~\ref{fig:diagram}). To build our prototype, we collaborated with Anoto who are the manufacturers of the
+digital pen. Anoto developed a system that generated the print-out and procesed the annotations. We then integrated
+these system with our screen-based semantic speech editor, which includes speech-to-text and EDL generation.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\columnwidth]{figs/uist-sys-diagram}
-  \caption{System diagram, flowing from top to bottom}
-  \label{fig:diagram}
-\end{figure}
+\subsubsection{Paper interface design}
+
+Anoto used an existing product called `Anoto Live Forms' to create the editing system. It works by dividing the paper
+into rectangular zones. When a digital pen draws inside one of these zone, that data can then be extracted digitally.
+Traditionally this is used to work out when someone has ticked a box on a form, or to extract an image of a signature
+drawn inside of a box. However, by creating zones that aligned with the text of a transcript, we were able to use this
+system to digital capture editing annotations.
 
 Based on the feedback from users, the timestamps, paragraphs, speaker information and confidence shading have been
 retained. However the timestamps only appear at the start of each paragraph. An optional margin has also been added to
@@ -358,11 +351,29 @@ when the pen is docked.
 
 \begin{figure}[h]
   \centering
+  \includegraphics[width=\columnwidth]{figs/paper-interface-diagram.pdf}
+  \caption{Diagram of paper interface layout with numbers features. Dotted lines indicate hidden active zones. 1:
+    Timestamp at beginning of each paragraph, 2: Speaker diarization, 3: Word selection, 4: Word removal, 5: Line
+    selection, 6: Margin for freehand notes}
+  \label{fig:paper-interface-diagram}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
   \includegraphics[width=\columnwidth]{figs/interface-darkened}
   \caption{Example of working prototype, showing the shaded box beneath each
     word, paragraph for each speaker with timestamp (06.45) and identity (S19),
     and optional margin for freehand annotations.}
   \label{fig:layout}
+\end{figure}
+
+\subsubsection{Paper interface integration}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\columnwidth]{figs/uist-sys-diagram}
+  \caption{System diagram, flowing from top to bottom}
+  \label{fig:diagram}
 \end{figure}
 
 The uploaded annotations are combined with the word timings to calculate the edit commands.  These can be used to
@@ -380,6 +391,31 @@ rendered.
   %\item Only keep words marked as selected, except those marked as deleted
   %\item Remove words marked as deleted, highlight words marked as selected
 %\end{itemize}
+
+\subsection{Screen interface design}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/discourse-interface-labelled.pdf}
+  \caption{Layout of the screen interface, with numbered features.
+  1: Media storage,
+  2: Media upload,
+  3: Highlight current playback position,
+  4: Print transcript,
+  5: Save edits and corrections to transcript,
+  6: Edit storage and export,
+  7: Display timestamps of selection,
+  8: Underline transcript,
+  9: Confidence shading,
+  10: Strikethrough transcript,
+  11: Duration of edited audio,
+  12: Name of current asset,
+  13: Show/hide strikethrough,
+  14: Underline/strie buttons,
+  15: Playback buttons,
+  16: Speaker diarization}
+  \label{fig:dialogger-interface}
+\end{figure}
 
 \section{Method}\label{sec:method}
 
@@ -434,6 +470,29 @@ Perceived Usefulness \citep{Davis1989}
 
 With the participant's permission, photos may be taken of paper notes, annotations or the work environment (see 'data
 protection' section below).
+{\singlespacing \begin{itemize} \item Using this system in my job would enable me to accomplish tasks more quickly.
+  \item Using this system would improve my job performance.
+  \item Using this system in my job would increase my productivity.
+  \item Using this system would enhance my effectiveness on the job.
+  \item Using this system would make it easier to do my job.
+\end{itemize}
+}
+
+{\singlespacing
+\begin{itemize}
+  \item I would find this system useful in my job.
+  \item I think that I would like to use this system frequently.
+  \item I found the system unnecessarily complex.
+  \item I thought the system was easy to use.
+  \item I think that I would need the support of a technical person to be able to use this system.
+  \item I found the various functions in this system were well integrated.
+  \item I thought there was too much inconsistency in this system.
+  \item I would imagine that most people would learn to use this system very quickly.
+  \item I found the system very cumbersome to use.
+  \item I felt very confident using the system.
+  \item I needed to learn a lot of things before I could get going with this system
+\end{itemize}
+}
 
 \paragraph{Stage 3: Interview}
 Following the observation stage, the participant will be left with access to the prototype system for at least a
