@@ -53,38 +53,63 @@ then describe a contextual study of radio production in which we directly compar
 workflows. 
 
 \section{Background}\label{sec:paper-background}
-Our system combines editing of media using transcripts with annotation of paper using digital pens. These approaches
-have previously been explored individually, alongside related techniques such as navigation of media using paper
-transcripts, digital ink annotation of video and paper-based note taking for media.
+Radio production using a paper interface requires a system that automatically translates annotations on a printed
+transcript to audio edit commands. Such a system requires a method of digitally capturing the annotations and linking
+those annotations to audio timestamps.
+These features have been explored using a variety of different approaches,
+including using digital pens, barcodes, digital ink and synchronised note-taking. In this section, we will outline
+these methods and their benefits and challenges.
 
-\subsection{Screen-based}
-Transcript-based interfaces have already successfully been applied to both audio and video editing. SCANMail
-\citep{Whittaker2002} demonstrated the advantages of navigating voicemail recordings using a transcript, but did not
-include editing capabilities.  The LIDS Editor \citep{Apperley2002}, and later TRAED \citep{Masoodian2006}, used
-automatically-generated transcripts to allow users to navigate and edit lecture recordings by removing and rearranging
-sentences and words. Even though automatically-generated transcripts are imperfect, Whittaker and Amento found they are
-sufficiently accurate to allow navigation and editing \citep{Whittaker2004}.  More recently, Rubin \citep{Rubin2013}
-created a system for using editable crowd-sourced transcripts to create audio stories.  Similar techniques have been
-applied to video editing. SILVER \citep{Casares2002} was a video editor that had an editable transcript window,
-generated from subtitles, and Berthouzoz et. al.  \citep{Berthouzoz2012} developed a system that used crowd-sourced
-transcripts and image processing to allow text-based editing of multi-camera video interviews.
+%\subsection{Screen-based}
+%Transcript-based interfaces have already successfully been applied to both audio and video editing. SCANMail
+%\citep{Whittaker2002} demonstrated the advantages of navigating voicemail recordings using a transcript, but did not
+%include editing capabilities.  The LIDS Editor \citep{Apperley2002}, and later TRAED \citep{Masoodian2006}, used
+%automatically-generated transcripts to allow users to navigate and edit lecture recordings by removing and rearranging
+%sentences and words. Even though automatically-generated transcripts are imperfect, Whittaker and Amento found they are
+%sufficiently accurate to allow navigation and editing \citep{Whittaker2004}.  More recently, Rubin \citep{Rubin2013}
+%created a system for using editable crowd-sourced transcripts to create audio stories.  Similar techniques have been
+%applied to video editing. SILVER \citep{Casares2002} was a video editor that had an editable transcript window,
+%generated from subtitles, and Berthouzoz et. al.  \citep{Berthouzoz2012} developed a system that used crowd-sourced
+%transcripts and image processing to allow text-based editing of multi-camera video interviews.
 
-\subsection{Digital pens}
-The Anoto dot pattern can be used with digital pens to bridge the gap between paper and digital documents. PADD
-\citep{Guimbretiere2003} was a concept for a system of editing documents that allowed users to move from digital to
-paper and back again. ProofRite \citep{Conroy2004} was an implementation of this, which anchored annotations made on
-paper into a word processor such that they `reflow' with the text they were attached to.  PaperProof \citep{Weibel2008}
-improved on this by interpreting the edit annotations and automatically applying them to the document.
+\subsection{Digital pen systems}
+A digital pen is a pen that uses an optical sensor to analyse the paper while you write. Digital pens must be used in
+combination with paper that has a special non-repeating dot pattern printed onto it. By reading this pattern, the pen
+can calculate exactly where it is when touching the page. This information is captured up to 100 times a second
+and recorded digitally onto the pen, which can later be downloaded onto a computer. This technology has been patented
+by Anoto Group \citep{Fahraeus2003}, who exclusively manufacture and licence digital pen products. As such, this
+technique is often referred to as the `Anoto dot pattern'.
+
+\citet{Guimbretiere2003} introduced a concept called `PADD', which was a system of editing documents that uses the
+Anoto pattern to allow users to move from digital to paper and back again. \citet{Conroy2004} created `ProofRite',
+which was the first full implementation of a PADD system. It captured annotations made to a printed text document, and
+overlaid the annotations into a word processor. The annotations are anchored to the text, such that they `reflow' when
+the text is moved.  ProofRite did not attempt to process the annotation to convert them into actions, but this was
+required by users through informal feedback.
+
+\citet{Weibel2008} created `PaperProof', which interpreted the edit annotations and automatically applied them to the
+document. Gestures for delete, insert, replace, move and annotate were translated into modifications in a word
+processor, and intelligent character recognition was used to digitise hand-written text. Processing the annotations
+allows for a two-way interaction between digital and paper representations. There were no user studies of the
+PaperProof system.
+
+Digital pens are an attractive proposition because they are familiar and allow for two-way interaction. However, the
+technology is expensive and closed, which makes development difficult.
 
 \subsection{Barcodes}
 Paper transcripts have been explored as a method of navigating video recordings by using a device to detect the
 position in the text and play the video from that position. Video Paper \citep{Hull2003} was a system that embedded
 video keyframes with barcodes down the side of the page. It used a PDA to scan the barcodes that linked to a position
-in a video, which was downloaded and played on the device. Books with Voices \citep{Klemmer2003} was a similar system
-which tested this approach with oral historians who found it had substantial benefits with minimal overhead. Erol et.
-al. \citep{Erol2007} went a step further by embedding the video data in the barcode, removing the need for the server.
-HotPaper \citep{Erol2008} removed the need for barcodes by using a camera to measure the whitespace between words and
-matching that to unique patterns in the text.
+in a video, which was downloaded and played on the device.  Books with Voices \citep{Klemmer2003} was a similar system
+which tested this approach with oral historians who found it had substantial benefits with minimal overhead.
+
+Erol et.  al. \citep{Erol2007} went a step further by embedding the video data in the barcode, removing the need for
+the server. HotPaper \citep{Erol2008} removed the need for barcodes by using a camera to measure the whitespace
+between words and matching that to unique patterns in the text.
+
+Barcode-based systems provide a link between text and media, however they do not provide a convenient way to capture
+annotations. It would be possible to use a PDA-style device to capture annotations for a particular barcode, but
+due to their size, barcodes have a large granularity which makes precise annotations difficult.
 
 \subsection{Digital ink}
 Digital ink interfaces on tablet PCs have been explored as a method for annotating and editing video content.  Marquee
@@ -98,7 +123,7 @@ RichReview \citep{Yoon2014} was a tablet-based annotation system.
 Video as Ink \citep{Cabral2016} allows users to `paint' video frames onto the tablet interface and
 then edit the video by using an `eraser mode' to remove unwanted frames.
 
-\subsection{Media note-taking}
+\subsection{Synchronised note-taking}
 Dynomite \citep{Wilcox1997} was a note-taking system that recorded audio synchronously with digital ink handwritten
 notes.  Users could highlight segments of the audio by pressing buttons to begin or end a segment. They could navigate
 the audio through a screen-based timeline interface which displayed the highlighted regions.  The Audio Notebook
