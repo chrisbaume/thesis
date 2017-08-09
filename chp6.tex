@@ -98,28 +98,58 @@ technology is expensive and closed, which makes development difficult.
 
 \subsection{Barcodes}
 Paper transcripts have been explored as a method of navigating video recordings by using a device to detect the
-position in the text and play the video from that position. Video Paper \citep{Hull2003} was a system that embedded
-video keyframes with barcodes down the side of the page. It used a PDA to scan the barcodes that linked to a position
-in a video, which was downloaded and played on the device.  Books with Voices \citep{Klemmer2003} was a similar system
-which tested this approach with oral historians who found it had substantial benefits with minimal overhead.
+position in the text and play the video from that position. \citet{Hull2003} describes a system called `Video Paper',
+which embedded video keyframes with barcodes down the side of the page. It used a PDA to scan the barcodes that linked
+to a position in a video, which was downloaded and played on the device. \citet{Klemmer2003} applied Video Paper to
+oral history in a project called `Books with Voices'. An evaluation of 13 users found that it had substantial benefits
+with minimal overhead.  \citet{Erol2007} went a step further by embedding the video in the barcode data, removing the
+need to download the video from a separate source. \citet{Erol2008} removed the need for barcodes by creating a system
+called `HotPaper', which used a camera to measure the whitespace between words and matched that to unique patterns in
+the text.
 
-Erol et.  al. \citep{Erol2007} went a step further by embedding the video data in the barcode, removing the need for
-the server. HotPaper \citep{Erol2008} removed the need for barcodes by using a camera to measure the whitespace
-between words and matching that to unique patterns in the text.
-
-Barcode-based systems provide a link between text and media, however they do not provide a convenient way to capture
-annotations. It would be possible to use a PDA-style device to capture annotations for a particular barcode, but
-due to their size, barcodes have a large granularity which makes precise annotations difficult.
+Barcode-based systems provide a link between text and media, however they do not provide a convenient method of
+capturing annotations. It would be possible to use a PDA-style device to capture annotations and link them to a
+particular barcode. However, this requires that the annotation are entered into a handheld device, rather that just
+written on the paper. Additionally, the size of the barcodes means that the precision of the timestamps would be at a
+sentance-level rather than word-level.
 
 \subsection{Digital ink}
-Digital ink interfaces on tablet PCs have been explored as a method for annotating and editing video content.  Marquee
-\citep{Weher1994} synchronised handwritten notes with a live video recording by using a horizontal line gesture to mark
-a timestamp.  Videotater \citep{Diakopoulos2006} was another digital ink interface for segmenting and annotating
-pre-recorded video clips. A vertical line gesture on a video timeline split the video, and handwritten words could be
-written over a clip. WaCTool \citep{Cattelan2008} extended this functionality by associating user interactions with
-edit commands. For instance, users could assign a `skip' command by pressing buttons at the start and end of an
-unwanted region.
-RichReview \citep{Yoon2014} was a tablet-based annotation system.
+`Digital ink' refers to technology that digitally captures handwriting in its natural form, such as a
+stylus on a tablet PC. Digital ink interfaces have been explored as a method for annotating and editing video content
+during playback by using gestures.
+
+\citet{Weher1994} presented `Marquee', which was a system for supporting the task of logging during a live video
+recording. Users could make synchronised handwritten notes by drawing a horizontal line to mark a timestamp, then
+writing their notes below.  Additionally, they could create a list of keywords, and add them to their notes by pressing
+them at the right moment. An evaluation of the system with three users found that users did not partake in discussions
+while logging, which may prevent such a system being used by a radio presenter during an interview.  The freehand
+nature of the notes meant that it could easily handle the different styles of each user.  Users reported that they
+didn't feel they had to make as many notes as they normally would, because they could easily refer back to the video
+recording. The authors also noted that videos can be further annotated during replay, allowing for an iterative logging
+process.
+
+\citet{Diakopoulos2006} created a digital ink interface for creating and annotating segments of a pre-recorded video,
+called `VideoTater'. Segments could be created by drawing a vertical line on a video timeline, and merged by drawing a
+horizontal line between them. Each segment could be tagged by selecting it and hand-writing text. The back of
+the pen could be used to erase tags. Pen pressure was used to distinguish between selection and tagging, with low
+pressure for selecting and high for tagging. Informal feedback from three users found that the gestures were
+successful, and that the pressure mapping worked well.
+
+\citet{Cattelan2008} added functionality for marking edit commands using digital ink in their system `WaCTool'. The
+system included a variety of features for annotation, editing and real-time collaboration. Users could use a pen to
+write annotations by tapping the video to freeze it, then drawing on the video frame.  Users could apply a `skip'
+command to a segment of the video by using the pen to tap the bottom left of the video at the start of an unwanted
+segment, and tapping the bottom right at the end. The `skip' command is analogous to editing out part of the video.
+Similar commands for looping and slow motion were also available by tapping different regions.
+
+%\citet{Yoon2014} created a collaborative tablet-based document annotation system called `RichReview', which offered
+%users three modalities in which to annotate documents - freeform inking, voice recording and deictic gestures. The
+%voice recordings were displayed using a waveform, overlaid with an automatically generated transcript of the speech.
+%Users could trim or tidy the voice recordings by drawing a line through words or pauses to remove them.  The system was
+%evaluated using a qualitative study of 12 students which found that the editing features were considered easy to use
+%and efficient for removing `umm's and long pauses.  However many participants reported that the transcripts were not
+%accurate enough to use without having to listen to the audio.
+
 Video as Ink \citep{Cabral2016} allows users to `paint' video frames onto the tablet interface and
 then edit the video by using an `eraser mode' to remove unwanted frames.
 
@@ -729,9 +759,9 @@ assessment process.
 
 Mean edit time, per minute of input audio:
 \begin{itemize}
-    \item Normal paper: 59.2 seconds ($-1.33\%$)
-    \item Screen: 59.34 seconds ($-1.10\%$)
-    \item Pen: 49.77 seconds ($-17.05\%$)
+    \item Normal paper: 59.2 seconds (x0.9867 real-time)
+    \item Screen: 59.34 seconds (x0.9890 real-time)
+    \item Pen: 49.77 seconds (x0.8295 real-time)
 \end{itemize}
 
 % Usefulness
