@@ -73,26 +73,27 @@ these methods and their benefits and challenges.
 %transcripts and image processing to allow text-based editing of multi-camera video interviews.
 
 \subsection{Digital pen systems}
-A digital pen is a pen that uses an optical sensor to analyse the paper while you write. Digital pens must be used in
-combination with paper that has a special non-repeating dot pattern printed onto it. By reading this pattern, the pen
-can calculate exactly where it is when touching the page. This information is captured up to 100 times a second
-and recorded digitally onto the pen, which can later be downloaded onto a computer. This technology has been patented
-by Anoto Group \citep{Fahraeus2003}, who exclusively manufacture and licence digital pen products. As such, this
-technique is often referred to as the `Anoto dot pattern'.
+A digital pen is a pen that includes an on-board infrared camera that tracks the position of the pen while it writes on
+paper. Digital pens must be used in combination with paper that has a unique non-repeating dot pattern printed onto it.
+By reading this pattern, the pen can calculate exactly where it is when touching the page. This information is captured
+up to 100 times a second and recorded digitally onto the pen, which can later be downloaded onto a computer. This
+technology has been patented by Anoto Group \citep{Fahraeus2003}, who exclusively manufacture and licence digital pen
+products. As such, this technology is often referred to as the `Anoto dot pattern'.
 
 \citet{Guimbretiere2003} introduced a concept called `PADD', which was a system of editing documents that uses the
-Anoto pattern to allow users to move from digital to paper and back again. \citet{Conroy2004} created `ProofRite',
-which was the first full implementation of a PADD system. It captured annotations made to a printed text document, and
-overlaid the annotations into a word processor. The annotations are anchored to the text, such that they `reflow' when
-the text is moved.  ProofRite did not attempt to process the annotation to convert them into actions, but this was
-required by users through informal feedback.
+Anoto pattern to allow users to move from digital documents to paper and back again. \citet{Conroy2004} created
+`ProofRite', which was the first full implementation of a PADD system. It captured annotations made to a printed text
+document, and overlaid the annotations onto the text in a word processor. The annotations were anchored to the text,
+such that they `reflow' when the text is moved. Through informal feedback, users suggested that their annotations
+should translate into actions such as delete.
 
 \citet{Weibel2008} created `PaperProof', which interpreted the edit annotations and automatically applied them to the
 document. Gestures for delete, insert, replace, move and annotate were translated into modifications in a word
-processor, and intelligent character recognition was used to digitise hand-written text. Processing the annotations
-allows for a two-way interaction between digital and paper representations. There were no user studies of the
+processor, and intelligent character recognition was used to digitise any hand-written text. Processing the annotations
+allows for a two-way interaction between the digital and paper representations. There were no user studies of the
 PaperProof system.
 
+%TODO Make a better summary
 Digital pens are an attractive proposition because they are familiar and allow for two-way interaction. However, the
 technology is expensive and closed, which makes development difficult.
 
@@ -114,19 +115,12 @@ written on the paper. Additionally, the size of the barcodes means that the prec
 sentance-level rather than word-level.
 
 \subsection{Digital ink}
-`Digital ink' refers to technology that digitally captures handwriting in its natural form, such as a
-stylus on a tablet PC. Digital ink interfaces have been explored as a method for annotating and editing video content
-during playback by using gestures.
-
-\citet{Weher1994} presented `Marquee', which was a system for supporting the task of logging during a live video
-recording. Users could make synchronised handwritten notes by drawing a horizontal line to mark a timestamp, then
-writing their notes below.  Additionally, they could create a list of keywords, and add them to their notes by pressing
-them at the right moment. An evaluation of the system with three users found that users did not partake in discussions
-while logging, which may prevent such a system being used by a radio presenter during an interview.  The freehand
-nature of the notes meant that it could easily handle the different styles of each user.  Users reported that they
-didn't feel they had to make as many notes as they normally would, because they could easily refer back to the video
-recording. The authors also noted that videos can be further annotated during replay, allowing for an iterative logging
-process.
+`Digital ink' refers to technology that digitally captures and responds to the moments of a pen, such as a stylus on a
+tablet PC.  Several system have experimented with using pens with interactive sliders to provide advanced control for
+navigating video content, such as `LEAN' \citep{Ramos2003}, `Zlider' \citep{Ramos2005} and MobileZoomSlider/ScrollWheel
+\citep{Huerst2008}. However, these systems are limited to the navigation of content, without changing or labelling it.
+Our interest is primarily in the annotation and editing of media, which the following systems have explored using
+digital ink interfaces.
 
 \citet{Diakopoulos2006} created a digital ink interface for creating and annotating segments of a pre-recorded video,
 called `VideoTater'. Segments could be created by drawing a vertical line on a video timeline, and merged by drawing a
@@ -150,26 +144,69 @@ Similar commands for looping and slow motion were also available by tapping diff
 %and efficient for removing `umm's and long pauses.  However many participants reported that the transcripts were not
 %accurate enough to use without having to listen to the audio.
 
-Video as Ink \citep{Cabral2016} allows users to `paint' video frames onto the tablet interface and
-then edit the video by using an `eraser mode' to remove unwanted frames.
+`Video as Ink' \citep{Cabral2016} took an alternative approach by allowing users to `paint' video frames and segments
+onto a 2D canvas using a pen and tablet interface. The canvas works as a timeline, but extends vertically in both
+directions so that the video can be painted onto multiple rows. The system includes gestures for adding, moving,
+erasing and selecting content. An evaluation of 12 participants found that the canvas allowed users to creatively
+explore different possibilities. However, the interface relies on the visual organisation of images, which does not
+necessarily translate well to audio and text.
 
 \subsection{Synchronised note-taking}
-Dynomite \citep{Wilcox1997} was a note-taking system that recorded audio synchronously with digital ink handwritten
-notes.  Users could highlight segments of the audio by pressing buttons to begin or end a segment. They could navigate
-the audio through a screen-based timeline interface which displayed the highlighted regions.  The Audio Notebook
-\citep{Stifelman2001} was a similar system that used paper and a physical interface that recorded audio and allowed
-users to navigate the recordings using their pen on a scroll bar on the side of the page.  ChronoVis \citep{Fouse2011}
-used the Anoto dot pattern to record paper notes during playback of a video. The interface allowed users to click on
-the digital display of the handwritten notes to navigate to that position in the video.
+A number of previous systems have explored how media can be annotated as it is recorded or replayed. These have often
+been developed for note-taking during meetings or lectures, but could also be applied to radio production. Although we
+did not find that it was commmon to write notes during interviews, we found that producers often listen back to their
+recordings, so these systems could be using during that replay process.
+
+`Marquee' \citep{Weher1994} was a digital ink system for supporting the task of logging during a live video recording.
+Users could make synchronised handwritten notes by drawing a horizontal line to mark a timestamp, then writing their
+notes below.  Additionally, they could create a list of keywords, and add them to their notes by pressing them at the
+right moment.  An evaluation of the system with three participants found that users did not partake in discussions
+while logging, which may prevent such a system being used during an interview.  The freehand nature of the notes meant
+that it could easily handle the different styles of each user.  Users reported that they didn't feel they had to make
+as many notes as they normally would, because they could later refer back to the video recording. The authors also
+noted that videos can be further annotated during replay, allowing for an iterative logging process.
+
+`Dynomite' \citep{Wilcox1997} was a virtual notebook that recorded audio synchronously with digital ink handwritten
+notes. The user's notes could be assigned to different `properties', either before or after they were written, to
+indicate an action point, for example, or a user-specified keyword.  Users could also highlight a portion of the audio
+by pressing a `mark' button or making a specific gesture.  This would highlight the audio for a specified time period,
+unless the `extend' or `end mark' buttons were pressed.  Any notes made during this period were displayed in bold and
+the highlighted segments were displayed using colours on a horizontal timeline. An evaluation of nine users found that
+users took fewer notes when using the audio highlighting, and that they wanted to go back and use the audio to improve
+the notes afterwards. Both of these findings mirror those from \citet{Weher1994}.
+
+`The Audio Notebook' \citep{Stifelman2001} was a system that used a physical pen and paper interface in combination
+with a device that recorded audio synchronously with the page and vertical location of the written notes.  The device
+could also replay the audio from a page and display which notes relate to the current playback position using an LED
+scrollbar display at the side of the page. Users could also use the scrollbar to control the position of the audio
+playback.  A longitudinal study of six participants over five months again found that users needed to take fewer notes,
+and made more notes during replay. Two of the participants were reporters who used the system while recording
+interviews. One reporter made minimal notes during the interview, but replayed the interview and made additional notes,
+including star symbols to indicate important moments. They also extracted quotes of interest by typing them into a
+computer. The other reporter was skeptical of the system, so made detailed notes so not to rely on the audio. However,
+they were later able to use the system to recall bits of the interview, which was many times faster than their existing
+technique of fully transcribing the audio recording.
+
+ChronoVis \citep{Fouse2011} used the Anoto dot pattern to record paper notes during playback of a video. The on-screen
+playback interface allowed users to click on the digital display of the handwritten notes to navigate to that position
+in the video, or browse a list of timestamped notes. Alternatively, they could reprint their notes and use a
+wirelessly-connected digital pen to tap on the notes, which controlled the playback position.
 
 \subsection{Correction}
+In chapter~\ref{chp:screen}, we identified that some producers were interested in correcting the transcript for sharing
+with others, or for later publication.
+
 There are clearly defined symbols for use in proof correction (e.g. \citet{ISO5776}).
 
 Interfaces to correct errors in transcripts have also been considered, such as that from \citet{Suhm2001}.
 
 \subsection{Summary}
-These previous studies have approached navigation, editing and annotation of media from five different angles, however
-these have yet to be combined.  Our system primarily merges the first two approaches -- transcript-based editing and
+
+In short, our review of the literature indicates that while many of the issues with which we are concerned – 
+annotation, navigation and editing of media – have been
+explored individually by various researchers, they have yet to be explored in combination.
+
+Our system primarily merges the first two approaches -- transcript-based editing and
 annotation using digital pens. In this paper, we will consider this technique in the context of professional media
 production.
 
