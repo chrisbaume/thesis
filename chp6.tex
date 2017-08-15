@@ -154,6 +154,8 @@ Similar commands for looping and slow motion were also available by tapping diff
 %and efficient for removing `umm's and long pauses.  However, many participants reported that the transcripts were not
 %accurate enough to use without having to listen to the audio.
 
+%TODO Add Yoon2014
+
 `Video as Ink' \citep{Cabral2016} took an alternative approach by allowing users to `paint' video frames and segments
 onto a 2D canvas using a pen and tablet interface. The canvas works as a timeline, but extends vertically in both
 directions so that the video can be painted onto multiple rows. The system includes gestures for adding, moving,
@@ -169,6 +171,8 @@ exactly where it is when touching the page. This information is captured up to 1
 digitally onto the pen, which can later be downloaded onto a computer. This technology has been patented by Anoto Group
 \citep{Fahraeus2003}, who exclusively manufacture and licence digital pen products. As such, this technology is often
 referred to as the `Anoto dot pattern'.
+
+%TODO Two types of pens
 
 \subsubsection{Proof-reading}
 
@@ -224,28 +228,56 @@ recognise specific symbols and add notes on top of existing notes.
 %In chapter~\ref{chp:screen}, we identified that some producers were interested in correcting the transcript for sharing
 %with others, or for later publication.
 
-%There are clearly defined symbols for use in proof correction (e.g. \citet{ISO5776}).
+%TODO There are clearly defined symbols for use in proof correction (e.g. \citet{ISO5776}).
 
-%Interfaces to correct errors in transcripts have also been considered, such as that from \citet{Suhm2001}.
+%TODO Interfaces to correct errors in transcripts have also been considered, such as that from \citet{Suhm2001}.
 
 \subsection{Summary}
 
-% Mechanisms - digital ink, digital pen, barcode
+% MECHANISMS
+% - digital ink vs digital pen vs barcode
 In this section, we have seen how barcodes, digital ink and digital pens have been used to link written documents to
 timed media.
 
-Barcodes provide a simple mechanism for linking physical printed paper to digital media. They are easy and free to
-generate, and are robust to photocopying.
+Barcodes provide a simple mechanism for linking physical printed paper to digital media. This provides the
+benefits that come with reading from and annotating paper, but with a link to the source media. The barcodes are easy
+to generate, don't need a licence and are robust to photocopying.  We need a device to read the barcodes, but we
+could do this using the camera on a mobile phone.  The systems to date have only provided a one-way link from paper to
+media.  It would be possible to implement a feedback mechanism, but the data would have to be entered into the scanning
+device rather than the paper. This means that the freehand annotation are not supported, not would they be accessible
+without using the device. Barcodes also take up a lot of space, so it is only practical to have them at the end
+of a line, rather than for each word. This limits the precision with which they can be used.
 
-A device is needed to read the barcodes, but this could be done using a mobile phone.
-However, barcodes only provide a one-way link from paper to media. It would be possible to implement a feedback
-mechanism, but the data would have to be entered into the scanning device rather than the paper. 
+Digital ink interfaces are vastly more feature-rich as they use a device with a screen that is capable of advanced
+two-way interaction. The device can integrate with media playback to allow users listen to the audio. Freehand
+annotations can be used to annotate documents, and these can easily be undone or erased. Pressure mapping can also be
+used to interact in several different modes.  However, digital ink interfaces use screens rather than physical paper,
+so do not benefit from improved comprehension and cross-referencing. The screen in digital ink devices mean that they
+are often bulky and have a short battery life. Additionally, because the device must be used to access the information,
+this is lost in the event of device failure.
+
+Digital pen interfaces combine most of the benefits of both barcode and digital ink interfaces. They use physical
+paper, which is better for reading, but also allow a two-way interaction with freehand annotation. The pen-based
+interface is very natural and familiar, and because the annotations are made on the paper itself, information is both
+accessible and backed-up in the event of device failure. However, there are some limitations to digital pen systems.
+A colour laser printer must be used with proprietary software to print the required dot pattern, and the printouts
+cannot be photocopied. There is no easy way to undo or erase annotations, although this is an inherint problem with
+pens in general.
+
+% GAP IN LITERATURE
+% - previous paper or pen-based systems have concentrated on navigation and annotation
+% - some simple editing functionality was present in digital ink systems, but these didn't use transcripts
+% - PaperProof allowed editing of text, but this didn't link to media
+% - haven't considered audio, only audio-visual; not always translatable (e.g. video as ink)
 
 % Time dimension - time vs spatial representation
 
 % Multiple iterations
 
 \section{System requirements}\label{sec:paper-requirements}
+
+% DECIDE ON DIGITAL PEN OVER OTHERS
+
 
 %TODO What were the problems?
 
@@ -282,6 +314,13 @@ shading \citep{Vemuri2004}.  Each line of the transcript had a timestamp on the 
 could be used to select a whole line at a time.
 
 \subsection{Method}
+
+%TODO Explain interview protocol and analysis
+
+%TODO Why are participants asked to adopt three different strategies?
+
+%TODO Explain design decisions, e.g. double-spacing, confidence shading
+
 We tested two inactive paper prototypes of the paper interface.  One used the speaker diarization information to
 segment the transcript into paragraphs, with the start of each paragraph labelled with the speaker identifier in square
 brackets (e.g.  \texttt{{[}S1{]}}). The other version did not use any of this information. The users were presented
@@ -455,6 +494,14 @@ There are a number of opportunities to build on the system, including being able
 the content using the paper interface, fix incorrect words and work collaboratively.
 
 \section{System design}\label{sec:paper-design}
+
+%TODO Why are some desired features not included, e.g. vertical lines for in/out, lasso
+
+%TODO How are the results of the edit presented back to the user?
+
+%TODO Underline/strikethrough interaction
+
+
 Using the feedback gathered from our requirements gathering, we designed and created a working prototype of the system
 (see Figure~\ref{fig:diagram}). To build our prototype, we collaborated with Anoto who are the manufacturers of the
 digital pen. Anoto developed a system that generated the print-out and procesed the annotations. We then integrated
