@@ -264,7 +264,7 @@ A colour laser printer must be used with proprietary software to print the requi
 cannot be photocopied. There is no easy way to undo or erase annotations, although this is an inherint problem with
 pens in general.
 
-% GAP IN LITERATURE
+%TODO GAP IN LITERATURE
 % - previous paper or pen-based systems have concentrated on navigation and annotation
 % - some simple editing functionality was present in digital ink systems, but these didn't use transcripts
 % - PaperProof allowed editing of text, but this didn't link to media
@@ -276,12 +276,17 @@ pens in general.
 
 \section{System requirements}\label{sec:paper-requirements}
 
-% DECIDE ON DIGITAL PEN OVER OTHERS
+% Decided to use digital pens
+In Chapter~\ref{chp:screen} we found that producers don't like spending too much time working with screens. Digital
+pens offer many of the same features as digital ink interfaces, but use paper instead of screens. For this reason, we
+chose to use digital pens to create our prototype paper-based semantic speech editor.
+
+% Collaborated with Anoto
+
+% Need to better understand requirements, so we created a paper prototype (of a paper interface)
 
 
 %TODO What were the problems?
-
-%TODO What other solutions were considered?
 
 %TODO How was the design of the prototype informed?
 
@@ -291,7 +296,16 @@ to select an approach of translating annotations to edit commands.  Two of the p
 two in science and one in documentaries. The participants had between 7 and 13 years experience working as a radio
 producer.
 
-\subsection{Paper prototype}
+\subsection{Prototype design}
+
+% Limitations of Anoto system, used normal pen for prototype
+
+% Transcript, from speech-to-text system
+
+% Edit commands: selector beneath word (double-spaced) and at end of line, removal by crossing word
+
+% Additional features: paragraphs and speaker ID with gender, timestamp at start of line, confidence shading
+
 Each participant was asked to provide an interview they had recently recorded, which was automatically transcribed.  We
 used a speech-to-text engine based on Kaldi\footnote{\url{http://kaldi-asr.org}}, trained on subtitled television
 broadcasts, to extract a transcript from each recording. In addition to providing precise timings for the start and
@@ -313,7 +327,7 @@ a low confidence rating were `low-lighted' by shading them grey -- a technique k
 shading \citep{Vemuri2004}.  Each line of the transcript had a timestamp on the left and a square box on the right, which
 could be used to select a whole line at a time.
 
-\subsection{Method}
+\subsection{Evaluation method}
 
 %TODO Explain interview protocol and analysis
 
@@ -321,32 +335,115 @@ could be used to select a whole line at a time.
 
 %TODO Explain design decisions, e.g. double-spacing, confidence shading
 
-We tested two inactive paper prototypes of the paper interface.  One used the speaker diarization information to
-segment the transcript into paragraphs, with the start of each paragraph labelled with the speaker identifier in square
-brackets (e.g.  \texttt{{[}S1{]}}). The other version did not use any of this information. The users were presented
-with the normal transcript first, followed by the one with speaker information.
+To evaluate our paper prototype, we ran a short experiment in which radio producers used our inactive prototype to
+annotate real transcripts as if they were editing them.  We asked them to edit the transcripts in different ways, and
+interviewed them afterward to compare the various approached. Producers are very busy, so to gain enough participants
+in the time we had available, we designed the experiment so it could be completed within an hour.
 
-For each version, we asked the participants to use a normal pen to annotate the first page of the transcript as they
-would normally, to only use strikethrough on the second page and only use underline on the third page. At the end of
-the test, each participant was interviewed about their experience overall and with each method.
+We recruited five producers by using the contacts that we made from previous experiments. Two of the participants
+worked in current affairs, two in science and one in documentaries.  The participants had between 7 and 13 years
+experience working as a radio producer.
+
+For the transcript, we asked each participant to provide us with a recent interview they had made, which we ran through
+our speech-to-text system. We used this automated transcript for each participant's experiment so that they were
+working with authentic speech, and a transcript that would be the same as that from a working system.
+
+To help explore our questions about annotation and editing gestures, we directed participants to employ three different
+strategies when using the prototype. This forced them to experience different ways of interacting with the prototype,
+which they could later reflect on and compare. We instructed them to follow these directions for the first three
+pages of their transcript: 
+
+\begin{itemize}
+  \item \textit{Page 1}: Undirected\\Edit the speech by annotating the transcript as you would normally.
+  \item \textit{Page 2}: Underline only\\Edit the speech only by underlining words that you want to keep.
+  \item \textit{Page 3}: Strikethrough only\\Edit the speech only by putting a line through words you don't want to keep.
+\end{itemize}
+
+The `undirected' strategy allowed us to see what gestures producers currently use, or want to use, without being
+influenced by the design of the prototype or constrained by its limitations. We included the underline and
+strikethrough strategies as we believed these to be the two most commons approaches, and we wanted the participants to
+compare them directly.
+
+We were also interested in learning about additional features and their value. To get feedback on the value of speaker
+diarization, we produced two versions of each participant's transcript -- one with speaker diarization and one without.
+The speaker information was used to segment the transcript into paragraphs, and the start of each paragraph was
+labelled with the speaker identifier in square brackets (e.g.  \texttt{{[}S1{]}}).  For \textit{Page 4}, each
+participant was presented with a transcript that included speaker diarization, and asked to edit the speech by
+annotating the transcript any way they wished.
+
+Timestamps, line selection and confidence shading were included with all of the prototypes. For these features, we
+chose not to produce versions with/without as participants should be able to judge their value without having to see
+them removed. Producing different versions for each would also unduly lengthen the experiment.
+
+At the end of the test, we conducted a semi-structured interview with each participant. The following questions were
+asked, but we also let the participants talk about whatever else they wanted to.
+
+{\singlespacing
+\begin{itemize}
+  \item How do you normally use a pen to edit the transcript?
+  \item Do you prefer to select parts you want to keep, or remove parts you don't want to keep?
+  \item Which features of the prototype did you find useful?
+  \item Were there any features missing that you would want added?
+\end{itemize}
+}
+
+The experimenter wrote down the participants responses from the interview. These were then categorised into natural
+gestures, edit gestures and additional features. We counted the frequency of each response within the categories to
+see how popular the different approaches and features were. The participant's annotated transcripts were also
+collected.
 
 \subsection{Results}
 The reaction to the system was overwhelmingly positive. All of the participants could immediately see the value of such
-a system and remarked that it would save them significant amounts of time and \textit{``revolutionise''} their
+a system and most remarked that it would save them significant amounts of time and \textit{``revolutionise''} their
 production workflow.
 
-\subsubsection{Natural behaviour}
-The participants started the exercise by annotating the transcript any way they wanted.  Three of the five participants
-used underlining to select desired words, with one using strikethrough to remove words and the other using both
-methods.  Three drew a line down the side of the page to select multiple lines at a time.  Two used short vertical
-lines between words to signify in- and out-points for edits.  Two corrected mistakes in the transcript by writing over
-or above the incorrect word. Finally, one participant selected words using a `lasso' technique.
+\subsubsection{Natural gestures}
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{ l c }
+    Underline               & 4 \\
+    Line down side          & 3 \\
+    Strikethrough           & 2 \\
+    In/out marks            & 2 \\
+    Correction              & 2 \\
+    Lasso                   & 1 \\
+    Scribble-out mistake    & 1 \\
+    Line through paragraph  & 1 \\
+  \end{tabular}
+  \caption{Natural gestures used to edit transcripts, with number of participants who used them}
+  \label{tab:natural-gestures}
+\end{table}
+
+The participants started the experiment by editing the transcript using any gestures they wanted.
+Table~\ref{tab:natural-gestures} lists the gestures that were used, and by how many participants.
+
+Four different gestures were used to select content -- underline, line down side, in/out marks and lasso.  Underline
+was used by all participants but one, who exclusively deleted unwanted content.  Drawing a line down the side was used
+by three participants, as it is quicker and more efficient than underlining for selecting large chunks of material.
+Some participants combined both by using underline to be more precise about the start and end of their selection.
+One of the participants made a mistake when underlining, so scribbled out the underline to undo it.
+
+`In/out marks' refers to drawing short vertical or diagonal lines before and after the words of the desired part. These
+indicate the in- and out-points for edits. One participant drew an analogy between these marks and the splicing of
+magnetic tape, which was how radio programmes were edited before the digital age. `Lasso' refers to selecting a number
+of words by drawing a line around them.
+
+Two gestures were used to delete content -- strikethrough and drawing a line through a paragraph. These parallel the
+underline and line down side gestures that are used for selection, but instead involve drawing a line through the words
+themselves.  Finally, two participants corrected mistakes in the transcript by writing the correction over/above the
+word, or to the side of the page.
 
 Each participant used a different mixture of annotation techniques. Some of these techniques, such as underlining,
 strikethrough and lines down the side, are easy to detect.  Others, such as corrections, lasso and lines between words,
-are less easy to detect. There was no room to write notes at the side of the page, but one participant did it anyway
-and two others expressed an interest in doing so if there was a margin. One participant said that they would not want a
-margin.
+are less easy to detect.
+
+\subsubsection{Edit gestures}
+The participants were asked whether they preferred selecting or deleting words. Three of them preferred select, with
+one commenting that it \textit{``felt more natural''} and another saying deleting felt \textit{``counter-intuitive''}.
+The other two participants preferred deleting, with one commenting that it was \textit{``the way my brain works''} and
+the other saying they prefer to \textit{``get stuff out of the way''}. As there was no agreement, the system should
+have options to cater for a variety of translation methods.
 
 \subsubsection{Additional features}
 Four of the five participants found the paragraphs and speaker information useful. Typically, interviews have a
@@ -364,12 +461,9 @@ used by the other participant has a strong Scottish accent which affected the tr
 participants noted the importance of listening to the recording and expressed a desire to hear the content whilst
 reading the paper transcript.
 
-\subsubsection{Select or delete}
-The participants were asked whether they preferred selecting or deleting words. Three of them preferred select, with
-one commenting that it \textit{``felt more natural''} and another saying deleting felt \textit{``counter-intuitive''}.
-The other two participants preferred deleting, with one commenting that it was \textit{``the way my brain works''} and
-the other saying they prefer to \textit{``get stuff out of the way''}. As there was no agreement, the system should
-have options to cater for a variety of translation methods.
+There was no room to write notes at the side of the page, but one participant did it anyway
+and two others expressed an interest in doing so if there was a margin. One participant said that they would not want a
+margin.
 
 %- Useful to know where presenter is asking question
 
