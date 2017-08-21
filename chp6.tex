@@ -146,16 +146,6 @@ command to a segment of the video by using the pen to tap the bottom left of the
 segment, and tapping the bottom right at the end. The `skip' command is analogous to editing out part of the video.
 Similar commands for looping and slow motion were also available by tapping different regions.
 
-%\citet{Yoon2014} created a collaborative tablet-based document annotation system called `RichReview', which offered
-%users three modalities in which to annotate documents - freeform inking, voice recording and deictic gestures. The
-%voice recordings were displayed using a waveform, overlaid with an automatically generated transcript of the speech.
-%Users could trim or tidy the voice recordings by drawing a line through words or pauses to remove them.  The system was
-%evaluated using a qualitative study of 12 students which found that the editing features were considered easy to use
-%and efficient for removing `umm's and long pauses.  However, many participants reported that the transcripts were not
-%accurate enough to use without having to listen to the audio.
-
-%TODO Add Yoon2014
-
 `Video as Ink' \citep{Cabral2016} took an alternative approach by allowing users to `paint' video frames and segments
 onto a 2D canvas using a pen and tablet interface. The canvas works as a timeline, but extends vertically in both
 directions so that the video can be painted onto multiple rows. The system includes gestures for adding, moving,
@@ -163,16 +153,30 @@ erasing and selecting content. An evaluation of 12 participants found that the c
 explore different possibilities. However, the interface relies on the visual organisation of images, which does not
 necessarily translate well to audio and text.
 
+\subsubsection{Proof-reading}
+
+\citet{Yoon2014} created a collaborative digital ink document annotation system called `RichReview', which offered
+users three modalities in which to annotate documents - freeform inking, voice recording and deictic gestures. The
+voice recordings were displayed using a waveform, overlaid with an automatically generated transcript of the speech.
+Users could trim or tidy the voice recordings by drawing a line through words or pauses to remove them.  The system was
+evaluated using a qualitative study of 12 students which found that the editing features were considered easy to use
+and efficient for removing `umm's and long pauses.  However, many participants reported that the transcripts were not
+accurate enough to use without having to listen to the audio.
+
 \subsection{Digital pens}
 A digital pen looks and functions as a normal pen, but includes an on-board infrared camera that tracks the position of
 the pen while it writes on paper. Digital pens must be used in combination with paper that has a unique non-repeating
 dot pattern printed onto it using a standard colour laser printer.  By reading this pattern, the pen can calculate
 exactly where it is when touching the page. This information is captured up to 100 times a second and recorded
-digitally onto the pen, which can later be downloaded onto a computer. This technology has been patented by Anoto Group
+digitally onto the pen. Depending on which pen and which software you're using, this information can either be streamed
+live via Bluetooth, or downloaded as a batch onto a computer. This technology has been patented by Anoto Group
 \citep{Fahraeus2003}, who exclusively manufacture and licence digital pen products. As such, this technology is often
 referred to as the `Anoto dot pattern'.
 
-%TODO Two types of pens
+% Pens
+%Livescribe Pulse
+%Live Pen 1 (DP-201)
+%Live Pen 2
 
 \subsubsection{Proof-reading}
 
@@ -270,6 +274,15 @@ pens in general.
 % - PaperProof allowed editing of text, but this didn't link to media
 % - haven't considered audio, only audio-visual; not always translatable (e.g. video as ink)
 
+We have seen that digital pen technology has successfully been applied to text editing \citep{Weibel2008} and media
+annotation \citep{Fouse2011}. We could not find any previous literature which has combined these approaches by linking
+text to the transcript of recorded speech.
+
+Video editing functionality was present in \textit{VideoTater} \citep{Diakopoulos2006}, \textit{WaCTools}
+\citep{Cattelan2008} and \textit{Video as Ink} \citep{Cabral2016}. However, all of these systems relied on the
+manipulation of video thumbnails, which cannot be translated to audio editing. None of them considered text or
+transcript-based editing.
+
 % Time dimension - time vs spatial representation
 
 % Multiple iterations
@@ -277,55 +290,77 @@ pens in general.
 \section{System requirements}\label{sec:paper-requirements}
 
 % Decided to use digital pens
-In Chapter~\ref{chp:screen} we found that producers don't like spending too much time working with screens. Digital
-pens offer many of the same features as digital ink interfaces, but use paper instead of screens. For this reason, we
-chose to use digital pens to create our prototype paper-based semantic speech editor.
+In the background section, we found that digital pens have successfully been applied to text editing and media
+annotation. We aimed to combine these into a paper-based audio editing system for radio production. We hoped this
+would combine the portability, familiarity and readability of paper with the efficiency of text-based audio editing. 
 
 % Collaborated with Anoto
+Digital pen technology is based on a set of techniques that are protected by a number of patents \citep{Fahraeus2003}.
+These are owned by Anoto Group, who exclusively license this technology and manufacture a number of products. Creating
+custom solutions can be expensive, so we collaborated with Anoto to develop our audio editing system. The system was
+based on their Live Forms platform, which is designed for processing documents to capture digital information from
+handwritten annotations.
 
-% Need to better understand requirements, so we created a paper prototype (of a paper interface)
+In order to build our prototype, we needed to design the layout of the document and define a set of gestures for
+editing the content.  As there were no previous systems on which to base our design, this process raised a number of
+questions about what information to include in the layout, and which gestures should be used for interaction.
+We formulated the following three questions that we wanted to explore:
 
+{\singlespacing
+\begin{itemize}
+  \item What gestures are currently used by radio producers to annotate transcripts?
+  \item Do producers prefer to select content they want to keep, remove content they don't want, or a mixture of the
+    two?
+  \item Which additional features (e.g. timestamps, speaker labelling, confidence shading) should be included in the
+    layout?
+\end{itemize}
+}
 
-%TODO What were the problems?
+To answer these questions, we created a paper prototype of our paper interface. The prototype used a normal pen rather
+than a digital pen, so did not edit the audio. However, the prototype allowed us to test an initial design of our
+interface with users before building the functional system.
+In this section, we describe the design of our paper prototype, explain how we evaluated it and outline our findings.
 
-%TODO How was the design of the prototype informed?
-
-We informally tested a paper prototype of our system concept on five radio producers from the BBC. The purpose of the
-test was to validate our assumptions about annotation of transcripts, gather feedback on which features were valued and
-to select an approach of translating annotations to edit commands.  Two of the participants worked in current affairs,
-two in science and one in documentaries. The participants had between 7 and 13 years experience working as a radio
-producer.
-
-\subsection{Prototype design}
-
-% Limitations of Anoto system, used normal pen for prototype
+\subsection{Paper prototype design}
 
 % Transcript, from speech-to-text system
+The basis of our inital design was a printed transcript. The transcript was generated using an automated speech-to-text
+system. We chose to use this rather than a perfect transcript as the errors contained within the automated transcript
+may affect user behaviour.
+
+% Limitations of Anoto system, used normal pen for prototype
+The Anoto Live Forms platform, which we used to create our system, works by dividing the page into rectangular zones.
+When a digital pen draws inside one of these zones, that data can then be captured digitally and processed.
+Traditionally this is used to detect when someone has ticked a box on a form, or to extract an image of a signature
+drawn inside of a box. However, by creating zones that align with the text of a transcript, we would be able to use
+this system to digital capture editing annotations.
+
+Having to divide the page into rectangular zones imposes some limitations on the design.
 
 % Edit commands: selector beneath word (double-spaced) and at end of line, removal by crossing word
+From what we had witnessed from previous experiments, the most common annotations used by producers were underline,
+strikethrough and drawing a line down the side of the page.
+Double-spaced to leave enough room for underline.
+The transcript was printed double-spaced, with a grey box below each word to indicate the underlining area.
+Each line of the transcript had a timestamp on the left and a square box on the right, which
+could be used to select a whole line at a time.
 
 % Additional features: paragraphs and speaker ID with gender, timestamp at start of line, confidence shading
-
-Each participant was asked to provide an interview they had recently recorded, which was automatically transcribed.  We
-used a speech-to-text engine based on Kaldi\footnote{\url{http://kaldi-asr.org}}, trained on subtitled television
-broadcasts, to extract a transcript from each recording. In addition to providing precise timings for the start and
-duration of each word, the speech-to-text system provides a confidence rating to signify the probability of that word
-being correct. A speaker diarization \citep{AngueraMiro2012} algorithm was also run on the content to estimate the
-times and identities of when different people are speaking.
+The speech-to-text system provided additional information about the speech.
+Speaker diarization
+Confidence shading information provided by speech-to-text
+Timestamps
+Words with
+a low confidence rating were `low-lighted' by shading them grey -- a technique known as confidence
+shading \citep{Vemuri2004}.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{figs/mockup}
-  \caption{Paper prototype with natural annotations, including
-    underlining, line down the side with notes, word corrections, and a
-    vertical line to indicate the end of an edit.}
-  \label{fig:natural}
+  \includegraphics[width=\columnwidth]{figs/paper-prototype-design}
+  \caption{Design of the paper prototype}
+  \label{fig:paper-prototype-design}
 \end{figure}
 
-The transcript was printed double-spaced, with a grey box below each word to indicate the underlining area.  Words with
-a low confidence rating were `low-lighted' by shading them grey -- a technique known as confidence
-shading \citep{Vemuri2004}.  Each line of the transcript had a timestamp on the left and a square box on the right, which
-could be used to select a whole line at a time.
 
 \subsection{Evaluation method}
 
@@ -401,19 +436,41 @@ production workflow.
 
 \begin{table}[ht]
   \centering
-  \begin{tabular}{ l c }
-    Underline               & 4 \\
-    Line down side          & 3 \\
-    Strikethrough           & 2 \\
-    In/out marks            & 2 \\
-    Correction              & 2 \\
-    Lasso                   & 1 \\
-    Scribble-out mistake    & 1 \\
-    Line through paragraph  & 1 \\
+  \begin{tabular}{|l|c|c|c|c|c|c|}
+    \hline
+                            & P1        & P2        & P3        & P4        & P5        & Count \\
+    \hline
+    Underline               & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ &           & 4 \\
+    \hline
+    Strikethrough           & $\bullet$ & $\bullet$ &           & $\bullet$ & $\bullet$ & 4 \\
+    \hline
+    Line down side          & $\bullet$ & $\bullet$ & $\bullet$ &           & $\bullet$ & 4 \\
+    \hline
+    Comments                & $\bullet$ & $\bullet$ &           &           & $\bullet$ & 3 \\
+    \hline
+    Correction              & $\bullet$ &           &           &           & $\bullet$ & 2 \\
+    \hline
+    In/out marks            & $\bullet$ &           &           & $\bullet$ &           & 2 \\
+    \hline
+    Scribble-out mistake    &           & $\bullet$ & $\bullet$ &           &           & 2 \\
+    \hline
+    Lasso                   &           &           &           &           & $\bullet$ & 1 \\
+    \hline
+    Line through paragraph  &           &           &           &           & $\bullet$ & 1 \\
+    \hline
   \end{tabular}
-  \caption{Natural gestures used to edit transcripts, with number of participants who used them}
+  \caption{Natural gestures used by each participant to edit their transcripts}
   \label{tab:natural-gestures}
 \end{table}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/mockup}
+  \caption{Paper prototype with natural annotations, including
+    underlining, line down the side with notes, word corrections, and a
+    vertical line to indicate the end of an edit.}
+  \label{fig:natural}
+\end{figure}
 
 The participants started the experiment by editing the transcript using any gestures they wanted.
 Table~\ref{tab:natural-gestures} lists the gestures that were used, and by how many participants.
@@ -424,19 +481,22 @@ by three participants, as it is quicker and more efficient than underlining for 
 Some participants combined both by using underline to be more precise about the start and end of their selection.
 One of the participants made a mistake when underlining, so scribbled out the underline to undo it.
 
-`In/out marks' refers to drawing short vertical or diagonal lines before and after the words of the desired part. These
+`In/out marks' refers to drawing short vertical or diagonal lines before and after the words of a selection. These
 indicate the in- and out-points for edits. One participant drew an analogy between these marks and the splicing of
 magnetic tape, which was how radio programmes were edited before the digital age. `Lasso' refers to selecting a number
 of words by drawing a line around them.
 
 Two gestures were used to delete content -- strikethrough and drawing a line through a paragraph. These parallel the
 underline and line down side gestures that are used for selection, but instead involve drawing a line through the words
-themselves.  Finally, two participants corrected mistakes in the transcript by writing the correction over/above the
-word, or to the side of the page.
+themselves.
+%TODO Expand
 
-Each participant used a different mixture of annotation techniques. Some of these techniques, such as underlining,
-strikethrough and lines down the side, are easy to detect.  Others, such as corrections, lasso and lines between words,
-are less easy to detect.
+Finally, two participants corrected mistakes in the transcript by writing the correction over/above the
+word, or to the side of the page.
+%TODO Expand
+
+Each participant used a different mixture of annotation techniques.
+%TODO Expand
 
 \subsubsection{Edit gestures}
 The participants were asked whether they preferred selecting or deleting words. Three of them preferred select, with
@@ -603,11 +663,6 @@ these system with our screen-based semantic speech editor, which includes speech
 
 \subsubsection{Paper interface design}
 
-Anoto used an existing product called `Anoto Live Forms' to create the editing system. It works by dividing the paper
-into rectangular zones. When a digital pen draws inside one of these zone, that data can then be extracted digitally.
-Traditionally this is used to work out when someone has ticked a box on a form, or to extract an image of a signature
-drawn inside of a box. However, by creating zones that aligned with the text of a transcript, we were able to use this
-system to digital capture editing annotations.
 
 Based on the feedback from users, the timestamps, paragraphs, speaker information and confidence shading have been
 retained. However the timestamps only appear at the start of each paragraph. An optional margin has also been added to
