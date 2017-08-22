@@ -301,10 +301,10 @@ custom solutions can be expensive, so we collaborated with Anoto to develop our 
 based on their Live Forms platform, which is designed for processing documents to capture digital information from
 handwritten annotations.
 
-In order to build our prototype, we needed to design the layout of the document and define a set of gestures for
+In order to build our system, we needed to design the layout of the document and define a set of gestures for
 editing the content.  As there were no previous systems on which to base our design, this process raised a number of
-questions about what information to include in the layout, and which gestures should be used for interaction.
-We formulated the following three questions that we wanted to explore:
+questions about what information we should include in the layout, and which gestures we should use for interaction.
+Specifically we were interested in answering the following questions:
 
 {\singlespacing
 \begin{itemize}
@@ -316,43 +316,18 @@ We formulated the following three questions that we wanted to explore:
 \end{itemize}
 }
 
-To answer these questions, we created a paper prototype of our paper interface. The prototype used a normal pen rather
-than a digital pen, so did not edit the audio. However, the prototype allowed us to test an initial design of our
-interface with users before building the functional system.
-In this section, we describe the design of our paper prototype, explain how we evaluated it and outline our findings.
+To try and answer these questions, we created a paper prototype of our paper interface. The prototype used a normal pen
+rather than a digital pen, so did not process the gestures, but the paper prototype gave an almost identical
+expeirience. This allowed us to test an initial design of our interface with users before building the functional
+system.  In this section, we describe the design of our paper prototype, explain how we evaluated it and outline our
+findings.
 
 \subsection{Paper prototype design}
 
 % Transcript, from speech-to-text system
-The basis of our inital design was a printed transcript. The transcript was generated using an automated speech-to-text
-system. We chose to use this rather than a perfect transcript as the errors contained within the automated transcript
-may affect user behaviour.
-
-% Limitations of Anoto system, used normal pen for prototype
-The Anoto Live Forms platform, which we used to create our system, works by dividing the page into rectangular zones.
-When a digital pen draws inside one of these zones, that data can then be captured digitally and processed.
-Traditionally this is used to detect when someone has ticked a box on a form, or to extract an image of a signature
-drawn inside of a box. However, by creating zones that align with the text of a transcript, we would be able to use
-this system to digital capture editing annotations.
-
-Having to divide the page into rectangular zones imposes some limitations on the design.
-
-% Edit commands: selector beneath word (double-spaced) and at end of line, removal by crossing word
-From what we had witnessed from previous experiments, the most common annotations used by producers were underline,
-strikethrough and drawing a line down the side of the page.
-Double-spaced to leave enough room for underline.
-The transcript was printed double-spaced, with a grey box below each word to indicate the underlining area.
-Each line of the transcript had a timestamp on the left and a square box on the right, which
-could be used to select a whole line at a time.
-
-% Additional features: paragraphs and speaker ID with gender, timestamp at start of line, confidence shading
-The speech-to-text system provided additional information about the speech.
-Speaker diarization
-Confidence shading information provided by speech-to-text
-Timestamps
-Words with
-a low confidence rating were `low-lighted' by shading them grey -- a technique known as confidence
-shading \citep{Vemuri2004}.
+We based the design of our prototype around a printed transcript, which we enhanced with additional information and
+arranged to simplify the capture of structured annotations. An example of the design is shown in
+Figure~\ref{fig:paper-prototype-design}.
 
 \begin{figure}[h]
   \centering
@@ -361,6 +336,32 @@ shading \citep{Vemuri2004}.
   \label{fig:paper-prototype-design}
 \end{figure}
 
+The transcript was generated using an automated speech-to-text system, which contained ocassional errors. We chose to
+use this rather than a perfect transcript as we wanted to use automated transcription for the final system, and
+removing the errors may affect user behaviour.
+
+% Limitations of Anoto system, used normal pen for prototype
+The Anoto Live Forms platform, which we used to create our system, works by dividing the page into rectangular active
+zones.  When a digital pen draws inside one of these zones, that data can then be captured digitally and processed.
+Traditionally this is used to detect when someone has ticked a box on a form, or to extract an image of a signature
+drawn inside of a box.  To capture edit annotations that linked to the text of the transcript, we designed our layout
+to use rectangular active zones that aligned with the location of each word.
+
+% Edit commands: selector beneath word (double-spaced) and at end of line, removal by crossing word
+From what we had witnessed from previous experiments, the most common annotations producers used were underline,
+strikethrough and drawing a line down the side of the page.  To capture strikethrough, we drew an invisible active zone
+on top of each word, so that when a line is drawn through the word, the zone is triggered. For underline, we draw a
+shaded active zone directly below each word, so that drawing a line underneath a word triggers the zone. The transcript
+was printed double-spaced to leave enough room for these boxes. Finally, we draw a shaded active zone at the end of
+each line. Drawing a line through this zone would select the whole line.
+
+% Additional features: paragraphs and speaker ID with gender, timestamp at start of line, confidence shading
+The speech-to-text system we used provided additional information with the transcript.  Each word came with a timestamp
+and a confidence rating. We wrote the timestamp at the beginning of each line in \textit{MM:SS} format, and used
+confidence shading to grey-out lower confidence words.  The speech-to-text system also used speaker diarization
+techniques to segment the transcript by speaker. This provided a speaker label and estimated gender for each segment.
+We used paragraphs to segment the transcript, and wrote the speaker label at the start of each paragraph. We used blue
+colouring for male speakers, and red for female speakers.
 
 \subsection{Evaluation method}
 
@@ -434,6 +435,9 @@ production workflow.
 
 \subsubsection{Natural gestures}
 
+The participants started the experiment by editing the transcript using any gestures they wanted.
+Table~\ref{tab:natural-gestures} lists the gestures that were used, and by which participants.
+
 \begin{table}[ht]
   \centering
   \begin{tabular}{|l|c|c|c|c|c|c|}
@@ -465,21 +469,18 @@ production workflow.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{figs/mockup}
+  \includegraphics[width=\columnwidth]{figs/mockup-cropped}
   \caption{Paper prototype with natural annotations, including
     underlining, line down the side with notes, word corrections, and a
     vertical line to indicate the end of an edit.}
   \label{fig:natural}
 \end{figure}
 
-The participants started the experiment by editing the transcript using any gestures they wanted.
-Table~\ref{tab:natural-gestures} lists the gestures that were used, and by how many participants.
-
 Four different gestures were used to select content -- underline, line down side, in/out marks and lasso.  Underline
-was used by all participants but one, who exclusively deleted unwanted content.  Drawing a line down the side was used
-by three participants, as it is quicker and more efficient than underlining for selecting large chunks of material.
-Some participants combined both by using underline to be more precise about the start and end of their selection.
-One of the participants made a mistake when underlining, so scribbled out the underline to undo it.
+was used by all participants but one, who was mainly interested in deleted unwanted content.  Drawing a line down the
+side was used by three participants, as it is quicker and more efficient than underlining for selecting large chunks of
+material.  Some participants combined both by using underline to be more precise about the start and end of their
+selection.  One of the participants made a mistake when underlining, so scribbled out the underline to undo it.
 
 `In/out marks' refers to drawing short vertical or diagonal lines before and after the words of a selection. These
 indicate the in- and out-points for edits. One participant drew an analogy between these marks and the splicing of
@@ -499,31 +500,44 @@ Each participant used a different mixture of annotation techniques.
 %TODO Expand
 
 \subsubsection{Edit gestures}
-The participants were asked whether they preferred selecting or deleting words. Three of them preferred select, with
-one commenting that it \textit{``felt more natural''} and another saying deleting felt \textit{``counter-intuitive''}.
-The other two participants preferred deleting, with one commenting that it was \textit{``the way my brain works''} and
-the other saying they prefer to \textit{``get stuff out of the way''}. As there was no agreement, the system should
-have options to cater for a variety of translation methods.
+We asked each participant whether they preferred selecting or deleting words for editing the transcript.  P1, P3 and P4
+reported that they preferred selecting, P1 commented that it \textit{``felt more natural''} to them and P4 said
+deleting felt \textit{``counter-intuitive''}.
+
+P2 and P5 reported that they preferred deleting words. P2 commented that \textit{``the challenge is to nibble away''}
+and it was \textit{``the way my brain works''}. P5 said they prefer to \textit{``get stuff out of the way''}.
+
+All of the participants were certain about which they preferred, but there was no overall consensus. Additionally, we
+can see in Table~\ref{tab:natural-gestures} that all participants used a mixture of select and delete gestures during
+the undirected annotation.
 
 \subsubsection{Additional features}
+
+% speaker diarization
 Four of the five participants found the paragraphs and speaker information useful. Typically, interviews have a
-presenter and contributor and the producers find it valuable to know when the presenter is asking a question.  Three of
+presenter and contributor, and the producers find it valuable to know when the presenter is asking a question. Three of
 the participants said that they were able to find the questions much more easily with this feature enabled. However,
-another participant said they found the speaker diarization \textit{``distracting''}.
+P2 said they found the speaker diarization to be \textit{``distracting''}, particularly when it was inaccurate.
 
-All participants found the timestamps and confidence shading features useful, with some commenting that one timestamp
-per page would be sufficient.  All of the participants liked being able to select whole lines at a time, with one
-asking whether a similar function could be available to delete content. It was also suggested that the side boxes could
-be used to rate or star a selection.
+% timestamps/confidence shading
+All participants found the timestamps and confidence shading features useful, but P2 said that the timestamps are
+\textit{``not needed on every line''} and P5 suggested that one timestamp per page would be sufficient. All of the
+participants liked being able to select whole lines at a time. P5, who prefers to remove words, asked whether a similar
+function could be available to delete content.
 
-Four of the participants found the transcript was accurate enough to use for editing their material.  The interview
-used by the other participant has a strong Scottish accent which affected the transcript quality. Finally, several
-participants noted the importance of listening to the recording and expressed a desire to hear the content whilst
-reading the paper transcript.
-
+% margins
 There was no room to write notes at the side of the page, but one participant did it anyway
 and two others expressed an interest in doing so if there was a margin. One participant said that they would not want a
 margin.
+
+% listening/playback
+Several participants noted the importance of listening to the recording and expressed a desire to hear the content
+whilst reading the paper transcript.
+
+% highlighting
+P3, P4 and P5 remarked that they often mark more important bits of transcripts using asterisks or stars.
+P1 and P3 also suggested that something could be highlighted by underlining twice.
+It was also suggested that the side boxes could be used to rate or star a selection.
 
 %- Useful to know where presenter is asking question
 
@@ -596,8 +610,76 @@ margin.
   %- Neal would like to press and hear word (on laptop?)
     %- Wes: Don't know what sounds good
   %- Wes works in a team of 3/4. They use Box to collaborate
+  %P4 reported that they usually work in teams of 3 or 4 people. They use Google Docs to collaborate on a central
+  %programme script, so they can all edit the document simultaneously.
 
 \subsection{Discussion}
+
+In this section, we set out to answer three questions about the gestures producers use to edit printed transcripts, and
+which features we should include in our paper-based audio editing interface. We did this by evaluating a paper
+prototype of our interface on five radio producers using real content.
+
+We started by observing which gestures the producers used to edit the transcript when not given any directions. The
+most popular gestures were underline, strikethrough and drawing a line down the side of the page. These gestures
+corresponded with our initial design for the prototype. Other gestures that participants used include in/out marks and
+lasso for selection, and drawing a line through a paragraph for deletion. Handwritten text was also used to make
+corrections to the transcript, and to label parts of the transcript.
+
+There were mixed but strong opinions on whether it was better to select good content or remove bad content.
+Most participants used a mixture of both approaches when undirected. Given the lack of consensus, it would be best to
+give producers the option to do both, but this raises the issue of what should happen when a word is both selected and
+deleted. If one overrides the other, then it could function as an undo mechanism. The more conservative approach would
+be for selection to override deletion, so that speech can always be recovered. However the system does not delete any
+audio, so this is not a risk.
+
+Selection and deletion could be used together at different scales, where one is used to select/delete large chunks,
+then the other is used to select/delete smaller words or chunks within the larger ones. Our results indicate that
+selecting large chunks is more popular than deletion. Also, there is likely to be more interest in removing individual
+words, such as for `de-umming', than there is for selecting individual words. This suggests that it may be better for
+delete to override select.
+
+Most participants valued the additional features we tested -- speaker diarization, timestamps and confidence shading,
+but reported that timestamps on every line are unnecessarily frequent. During our testing, we also identified missing
+functionality for labelling, correction, highlighting and playback.
+
+% labelling
+Three participants made notes on the side of the page to label their content or to make a note for themselves. Two of
+the participants remarked that there was no free space in which to make notes, and suggested that it may be worth
+adding a margin. 
+
+% correction
+Two participants corrected words in the transcript by writing over or above the incorrect word.
+
+% highlighting
+Most participants remarked that they normally mark important bits of the transcript, often with asterisks or
+stars. 
+
+% playback
+Some participants expressed a desire to listen to the media from the paper interface, and this functionality has been
+shown to be useful in previous work. %TODO Reference
+An external device, such as a phone, computer or portable media player could be used to replay the audio while using
+the paper interface.
+
+Users could start playback by pressing a word with the digital pen. This could be
+achieved either by wirelessly linking the digital pen to a computer that plays the content, or by storing the audio on
+the pen itself similarly to the LiveScribe Sound
+Stickers\footnote{\url{http://store.livescribe.com/sound-stickers-1-1.html}}.
+
+% natural annotation:
+% underline, strike and line down side most used, reinforced design decision
+% comments and correction were popular, no space to write them
+% in/out marks, lasso also used for selection, line through paragraph used for deletion, but to lesser extent
+
+% edit gestures:
+% no consensus on best approach, both used when naturally annotating, so both should be available
+% what to do when using both? underline override strike or vice-versa?
+
+% additional features:
+% speaker diarization - yes
+% timestamps - yes, but less frequently
+% confidence shading - yes
+
+
 %Our system performs the same function as these systems, but uses a paper
 %interface rather than a screen-based one.
 %Our system
@@ -616,37 +698,6 @@ unwanted material, was the best approach to use for editing, so we decided to ma
 
 %TODO What happens when underline and strike same word?
 
-The transcripts were generated using speech-to-text but were considered good enough to edit with. We found that
-participants enjoyed having paragraphs, speaker information, timestamps, confidence shading and being able to select
-whole lines.
-
-Some participants expressed a desire to listen to the media from the paper interface, and this functionality has been
-shown to be useful in previous work. %TODO Reference
-Users could start playback by pressing a word with the digital pen. This could be
-achieved either by wirelessly linking the digital pen to a computer that plays the content, or by storing the audio on
-the pen itself similarly to the LiveScribe Sound
-Stickers\footnote{\url{http://store.livescribe.com/sound-stickers-1-1.html}}.
-
-Previous work has also shown the benefits of being able to write freehand notes which link to specific points in
-recordings. These could be attached to a screen-based interface similarly to ProofRite \citep{Conroy2004}, or
-handwriting recognition could be used to store and organise these notes in a structured way. This approach could also
-be used to fix incorrect words in the transcript.
-
-Media content is often produced in teams rather than individually.  Although our system does not prevent multiple
-people from working on a transcript, it does not exploit opportunities to smoothly handle multiple users.
-
-\subsection{Summary}
-The participants all reacted very positively to the system. They enjoyed the additional features we tested including
-speaker information, paragraphs, timestamps, confidence shading and selection of whole lines. Based on their feedback,
-we also added an optional margin to the interface.
-
-A variety of annotation marks were used by the participants to indicate edit decisions, including underline,
-strikethrough, lines down the side and lines between words.  Participants either preferred to select content they
-wanted or to delete content they didn't want, and felt strongly either way.
-
-There are a number of opportunities to build on the system, including being able to capture freehand notes, listen to
-the content using the paper interface, fix incorrect words and work collaboratively.
-
 \section{System design}\label{sec:paper-design}
 
 %TODO Why are some desired features not included, e.g. vertical lines for in/out, lasso
@@ -657,7 +708,7 @@ the content using the paper interface, fix incorrect words and work collaborativ
 
 
 Using the feedback gathered from our requirements gathering, we designed and created a working prototype of the system
-(see Figure~\ref{fig:diagram}). To build our prototype, we collaborated with Anoto who are the manufacturers of the
+(see Figure~\ref{fig:diagram}). To build our system, we collaborated with Anoto who are the manufacturers of the
 digital pen. Anoto developed a system that generated the print-out and procesed the annotations. We then integrated
 these system with our screen-based semantic speech editor, which includes speech-to-text and EDL generation.
 
