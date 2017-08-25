@@ -736,108 +736,106 @@ unwanted material, was the best approach to use for editing, so we decided to ma
 %TODO Underline/strikethrough interaction
 
 
-Using the feedback gathered from our requirements gathering, we designed and created a working prototype of the system
-(see Figure~\ref{fig:diagram}). To build our system, we collaborated with Anoto who are the manufacturers of the
-digital pen. Anoto developed a system that generated the print-out and procesed the annotations. We then integrated
-these system with our screen-based semantic speech editor, which includes speech-to-text and EDL generation.
+Using the feedback gathered from our requirements gathering, we designed and implemented a working prototype of the
+paper-based semantic speech editing system. To build our system, we collaborated with Anoto to use their Live Forms
+platform. We integrated the paper interface with an updated version of our screen-based semantic speech editor, so that
+it could support audio input and output.  In this secton, we will explain the design of the paper-based interface and
+its functionality, and the updates we made to the screen-based interface.
 
 \subsection{Paper interface}
 
+We used the results of our paper prototyping experiment to inform the design of the interface for our paper-based
+semantic speech editor. We will explain the design choices that we made, describe the layout and functions of the final
+system, and show how we added audio input and output by integrating it with our screen-based interface.
+
 \subsubsection{Design decisions}
 
-We chose three methods for selecting and deleting material - underline, strikethrough and line down the side. Underline
-represented a highlighted region which can be used to select desired material. Along with line down the side.  We did
-not include in/out marks, lasso or drawing a line through a paragraph as these were not as popular, and were harder to
-detect using the Anoto Live Forms system.
+We chose to use three methods for selecting and deleting material - underline, strikethrough and line down the side.
+We did not include in/out marks, lasso or drawing a line through a paragraph as these were not as popular, and would
+have been much harder to detect using the Anoto Live Forms system.
 
-We chose to use speaker diarization and confidence shading, as the majority of participants in the paper prototype
-wanted to keep it.  We also chose to keep timestamps, but reduced the frequency of them to once per paragraph, rather
-than on every line.
+We included speaker diarization and confidence shading, as the majority of participants in the paper prototype found
+these valuable. We also chose to keep timestamps, but opted to reduce the frequency to one timestamp per paragraph,
+rather than on every line. We expected this to provide a sufficiently narrow search reason without occupying more space
+than necessary.
 
-We added a margin to allow users to write freehand notes without accidentally editing the audio. This was done by
-drawing a rectangular area on the right side where no active zones are present.
+We added a margin to allow users to write freehand notes without the risk of accidentally editing the audio. We did
+this by drawing a rectangular box on the right side to indicate where the user could safely write.
+We set the margin to be approximately 25\% of the width of the page, based on informal feedback from producers.
+For the margin, we decided to allow users to draw freehand in the margin, rather than attempt to structure and capture
+these annotation. We did this because of the variety of annotations and techniques producers use for annotations.
 
-We did not include any correction functionality as it would get confused with the edit functionality. Additionally, it
-would be difficult to distinguish between edit gestures and words written as corrections.
+In the paper prototyping experiment, we saw that some participants wrote corrections on or above wrongly transcribed
+words. However, we chose not to include any correction functionality, partly due to the limitations of the Live Forms
+system, and partly to keep the interface simple. The active zones on or below each word could be used to write
+corrections, but this would prevent underline or strikethrough gestures being used. The correct word would have to be
+written within these active zones, which are quite small. Corrections often span more than one word, which would be
+difficult to detect.
 
-We did not include any linked playback features as the system we were using did not support live wireless link to the
-computer.
+We did not include any linked playback features as this would require a live wireless link between the pen and a
+playback device. The system we used to build our system only operated in batch mode, where the pen must be
+connected to a dock to upload the recorded gestures. Although this prevented the user from navigating the audio using
+the pen, they could of course replay the audio on a separate device and use the timestamps to navigate to the correct
+location.
 
-To integrate the pen system with the audio editing functionality, we integrated it with a screen-based interface. The
-screen was used for asset management, including uploading new content and printing the transcript, and for
-viewing/changing the edits made using the pen, and exporting the resulting audio or edit decision list.
+\subsubsection{System description}
 
-For the line down the side selection, we opted to draw a long rectangle from the top to the bottom of the page, as this
-made more sense than individual square boxes, which did not align as well with how the participants used the paper
-prototype.
+This section describes the final design we used for the paper interface for our semantic speech editing system.
+Figures~\ref{fig:paper-interface-diagram} and \ref{fig:paper-interface-example} on page
+\pageref{fig:paper-interface-diagram} show the final design of the interface.
 
-For the margin, we did not process any of the information so as to let the users work freehand.
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/paper-interface-diagram.pdf}
+  \caption{Diagram of the paper interface layout with timestamps at beginning of each paragraph (1), speaker
+  diarization (2), word selection (3), word deletion (4), confidence shading (5), line selection (6) and a margin for
+  freehand notes (7). Dotted lines indicate hidden active zones.}
+  \label{fig:paper-interface-diagram}
+\end{figure}
 
-To include audio editing functionality with the pen system, we integrated it with a screen-based interface. The screen
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/paper-interface-example-annotations.png}
+  \caption{Example of the paper interface system, with freehand annotations that demonstrate its use.}
+  \label{fig:paper-interface-example}
+\end{figure}
+
+For each word in the transcript, two rectangular active zones are defined on the page -- one on the word itself and
+another in the space directly below the word.  Any marks made on or below the word label that word as `deleted' and
+`selected', respectively.  This allows the user to use a digital pen to delete words using a strikethrough, or to
+select words by underlining.  The zone below is lightly shaded so that the user can see where the boundary lies between
+the two regions.
+
+For selection by drawing a line down the side, we opted to draw a long thin rectangle from the top to the bottom of the
+page to the right of the transcript, rather than draw individual square boxes at the end of each line. We did this to
+save some space, and to align with how the participants used the paper prototype.
+
+The paper must be annotated using an Anoto Live Pen 2. This records the gestures made by the users digitally on the
+pen.
+
+To include audio editing functionality with the pen system, we integrated it with a screen-based interface. A diagram
+of this integration is shown in Figure~\ref{fig:paper-screen-integration}. The screen
 was used for asset management, including uploading new content and printing the transcript, and for viewing/changing
 the edits made using the pen, and exporting the resulting audio or edit decision list.
 
-For the line down the side selection, we opted to draw a long rectangle from the top to the bottom of the page, as this
-made more sense than individual square boxes, which did not align as well with how the participants used the paper
-prototype.
+When the pen is connected to its USB dock, the gestures are automatically uploaded to some Anoto software running
+on the local computer, which processes the information from the pen. This is then sent to our server, which creates an
+edited version of the transcript. This can then be accessed through the screen interface.
 
-For the margin, we did not process any of the information so as to let the users work freehand.
+In addition to creating an edited version of the transcript, a PDF document of the transcript with the user's
+annotations is created. This PDF can be viewed through the screen-based interface, so that they can refer to any notes
+they made in the margins.
 
-Based on the feedback from users, the timestamps, paragraphs, speaker information and confidence shading have been
-retained. However the timestamps only appear at the start of each paragraph. An optional margin has also been added to
-allow users to make unstructured notes using their digital pen.  It is not currently possible to select a whole line at
-a time, but this will shortly be added.
-
-For each word in the transcript, two rectangular active areas are defined on the page -- one around the word itself and
-another in the space directly below the word, which is lightly shaded. Any marks made on or below the word label that
-word as `deleted' and `selected', respectively. This allows the user to use a digital pen to delete words using a
-strikethrough, or to select words by underlining.  The annotations are automatically uploaded in batch to the system
-when the pen is docked.
-
-\subsubsection{System integration}
+The user can export the audio from the edited transcript using the screen interface. Two types of export format are
+supported. The user can download an EDL of the edits for either the SADiE or StarTrack audio editing systems.
+Alternatively, they can download an edited version of the audio as a WAV file.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.5\columnwidth]{figs/uist-sys-diagram}
-  \caption{System diagram, flowing from top to bottom}
-  \label{fig:diagram}
+  \caption{Integration between the paper and screen interfaces, flowing from top to bottom.}
+  \label{fig:paper-screen-integration}
 \end{figure}
-
-\subsubsection{System description}
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\columnwidth]{figs/paper-interface-diagram.pdf}
-  \caption{Diagram of paper interface layout with numbers features. Dotted lines indicate hidden active zones. 1:
-    Timestamp at beginning of each paragraph, 2: Speaker diarization, 3: Word selection, 4: Word removal, 5: Confidence
-    shading, 6: Line selection, 7: Margin for freehand notes}
-  \label{fig:paper-interface-diagram}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\columnwidth]{figs/interface-darkened}
-  \caption{Example of working prototype, showing the shaded box beneath each
-    word, paragraph for each speaker with timestamp (06.45) and identity (S19),
-    and optional margin for freehand annotations.}
-  \label{fig:layout}
-\end{figure}
-
-The uploaded annotations are combined with the word timings to calculate the edit commands.  These can be used to
-directly edit the media (as shown in Figure~\ref{fig:diagram}) which removes the unwanted parts of the content. This is
-known as a `destructive' edit.  Alternatively, the edit commands can be used to create an edit decision list (`EDL').
-An EDL file describes the in- and out-point for a series of edits, which can be loaded into audio or video editing
-software.  As it is `non-destructive', this approach allows the user to make corrections to the edit before it is
-rendered. 
-
-%Several approaches can be taken in interpreting the delete and
-%select annotations:
-%\begin{itemize}
-  %\itemsep0em
-  %\item Remove words marked as deleted, except those marked as selected
-  %\item Only keep words marked as selected, except those marked as deleted
-  %\item Remove words marked as deleted, highlight words marked as selected
-%\end{itemize}
 
 \subsection{Screen interface}
 
@@ -845,30 +843,37 @@ rendered.
 
 \subsubsection{System description}
 
-\begin{figure}[ht]
+\begin{figure}[p]
   \centering
   \includegraphics[width=\columnwidth]{figs/discourse-interface-labelled.pdf}
-  \caption{Layout of the screen interface, with numbered features.
-  1: Media storage,
-  2: Media upload,
-  3: Highlight current playback position,
-  4: Print transcript,
-  5: Save edits and corrections to transcript,
-  6: Edit storage and export,
-  7: Display timestamps of selection,
-  8: Underline transcript,
-  9: Confidence shading,
-  10: Strikethrough transcript,
-  11: Duration of edited audio,
-  12: Name of current asset,
-  13: Show/hide strikethrough,
-  14: Underline/strie buttons,
-  15: Playback buttons,
-  16: Speaker diarization}
+  \caption{Layout of the screen interface, which features 
+    media storage (1),
+    media upload (2),
+    highlight of the current playback position (3),
+    printing the transcript (4),
+    saving edits and corrections to transcript (5),
+    edit storage and export (6),
+    displaying timestamps of the current selection (7),
+    underlining words (8),
+    confidence shading (9),
+    strikethrough of words (10),
+    display of edited audio duration (11),
+    name of current asset (12),
+    show/hide strikethrough (13),
+    underline/strike buttons (14),
+    playback buttons (15)
+  and speaker diarization (16)}
   \label{fig:dialogger-interface}
 \end{figure}
 
-\section{Evaluation method}\label{sec:method}
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=0.4\columnwidth]{figs/discourse-download-pdf.png}
+  \caption{Close-up of the edits sidebar showing the button to export audio, and the option to download a PDF.}
+  \label{fig:download-pdf}
+\end{figure}
+
+\section{Evaluation methodology}\label{sec:method}
 
 \subsection{Design and procedure}
 
