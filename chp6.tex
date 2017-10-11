@@ -1429,7 +1429,8 @@ P5, P6 and P8 felt that the pen interface was user friendly, intuitive and simpl
 workflow of some producers and uses the same materials, which may have helped make some of the participants more
 comfortable.
 
-\textit{``It's nice to hold a pen and go on real paper, which has the feel of every day life''} (P7)
+\textit{``It feels like you're working analogue, but you're actually working digitally. [...] It's nice to hold a pen
+and go on real paper, which has the feel of every day life.''} (P7)
 %\textit{``I do like a nice pen and paper I just do like to write stuff down and I'm quite scribbler.''} (P5)
 
 % GESTURES
@@ -1589,6 +1590,8 @@ access to the audio.
 
 \subsubsection{Annotation}
 
+%TODO P6 created a Box document to take notes
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=\columnwidth]{figs/pen-annotations-p5-cropped.jpg}
@@ -1691,6 +1694,9 @@ reason they gave for fully correcting the transcript at the beginning was that i
 we observed that the rest of the participants chose only to correct errors that impacted on their ability to read the
 transcript, or caused them to be distracted.
 
+\textit{``It's good to have the option to sharpen it up as you go along because, obviously, reading back it'll slow
+you down if it's completely the wrong word.''} (P2)
+
 P7 said that fully correcting the transcript would only be necessary if the transcript was going to be
 published, or if it was requested for legal reasons. They said that correcting the transcript amounted to nothing more
 than pedantry, and was therefore an unnecessary part of the editing process.
@@ -1703,9 +1709,6 @@ then it's going to create problems for you.''} (P7)
 If the transcript is fully corrected at the start, then there is a risk that some of it will be immediately discarded,
 whereas the decision to discard it could have been made without it being corrected.
 
-%The speech-to-text system also included a post-processing stage which punctuated the transcript. This was expected to
-%make the transcript easier to read, but P4 found the errors in the punctuation distracting and was interested in
-%correcting those mistakes.
 
 % REPEAT ERRORS
 
@@ -1735,81 +1738,158 @@ mistranscribed.
 
 \subsubsection{Accuracy}
 
-% PERFORMANCE
+All of the systems we tested are based on speech-to-text and therefore impacted by the accuracy of the transcript.  The
+speech-to-text system we used for this study was different to that used in Chapter~\ref{chp:screen}.  However, the
+systems were both based on the same framework (Kaldi) so performed similarly, and the participants in this study
+reported similar weaknesses to participants in the previous study.
 
-The speech-to-text system we used for this study was different to that from the previous study. However, the two
-systems performed similarly and had the same weaknesses as reported by the participants. The accuracy dropped when
-there was excessive background noise or speakers with heavy accents. The transcription process also performed speaker
-diarization to estimate where different people were speaking. Our speech-to-text system overguessed, so usually
-reported there to be more speakers than there actually were. It also occassionally had problems correctly identifying
-speaker gender. The transcription also came with confidence shading, but sometimes had a high confidence for an
-incorrect word. This caused P3 to mistrust the confidence shading.
+All of the participants were successfully able to use the transcript to edit their material as part of the production
+of their radio programme. All of the participants reported that the transcripts were sufficiently accurate for the
+purpose of editing their content. Similarly to the study in Chapter~\ref{chp:screen}, the most common complaints were
+of reduced accuracy due to heavy accents or background noise, and problems with speaker diarization and confidence
+shading.
 
-% SATISFACTION
+When we started the experiment, P7 had already been using a speech-to-text system to generate their transcripts. Based
+on his experience, he reported that the accuracy of the transcript was affected by formality of speech, background
+noise and accents.
 
-Most participants were satisfied with the accuracy of the transcripts for the purpose of editing their content. P4 had
-mixed opinions, but said that they could use their memory of the recording to make up for some of the inaccuracies.
+\textit{``What we're finding these [speech-to-text] systems very useful for are for formal interview in well-spoken
+English. What they're not good for is for informal interviews on-location with a lot of noise and heavy accents.''}
+(P7)
 
-A reduction in the accuracy of the transcript results in a number of different consequences. Correction becomes more of
-a necessity when more of the words are incorrect.
+% speaker diarization
+As part of the transcription process, speaker diarization was used to estimate where in the recording different people
+were speaking.  Our system over-guessed, so usually reported there to be more speakers than there actually were. It
+also had occassional problems correctly identifying speaker gender. P2 and P3 reported that because of these problems,
+they found that the speaker segmentation wasn't useful.
 
-% PUNCTUATION
+\textit{``[The speaker diarization] didn't seem to work at all at the moment, because not only was it saying there were
+lots of different people speaking when there was only two, but it often couldn't distinguish between a male and a
+female voice.''} (P3)
 
-The speech-to-text system also included punctuation, which is added in a post-processing stage. P4 reported that they
-found the errors in the punctuation distracting, but it was not mentioned by the other participants.
+% confidence shading
+We used confidence shading to `low-light' words that the speech-to-text system was less sure of. This was designed to
+make erroneous transcripts easier to read, by making the incorrect words less visible.  However, sometimes the
+speech-to-text system gave a high confidence score to an incorrect word, or a low confidence score to a correct word.
+This caused P3 to mistrust the confidence shading.
+
+\textit{``The things it wasn't sure about weren't actually very often the real mistakes.''} (P3)
+
+%The speech-to-text system also included a post-processing stage which punctuated the transcript. This was expected to
+%make the transcript easier to read, but P4 reported that they found the errors in the punctuation distracting and were
+%interested in correcting those mistakes. However, this was not mentioned by other participants.
 
 % CONSEQUENCES
 
-%TODO After time?
-P7 and P8 reported that lower accuracy made the transcripts harder to understand after time.
+As part of their normal working practice, P6 uses perfect transcripts to guide them in the editing process. They
+reported that the mistakes in the automated transcripts caused them to refer to the audio more often.
 
-P6 reported that it meant they had to refer to the audio more often. P2 said that it slowed down the editing process.
+\textit{``I'm used to working with a transcript that is 100\% accurate, which means I don't have to go back to the
+audio as much. With [these systems], I had to go back to the audio more than I was used to, so I did feel that slowed
+me down a little bit.''} (P6)
+
+%P2 said that it slowed down the editing process.
+
+%\textit{``Obviously reading back, it'll slow you down if it's completely the wrong word.''} (P2)
+
+Erroneous transcripts may also cause producers to select more than is necessary, which would create more work for them
+further down the line. P8 suggested that the accuracy of the transcript affected their confidence in making edit
+decisions, causing them to make rougher edits than would otherwise be the case with a perfect transcript.
+
+\textit{``The English was a bit confusing so I felt on that one, I could only do quite gross editing, topping and
+tailing and taking chunks out.''} (P8)
+
+P7 and P8 pointed out that because they can use their memory to make up for the mistakes in the transcript,
+the transcript becomes less useful over time. This, in effect, gives automated transcripts a `shelf-life' of usefuless,
+during which the producer can remember enough of the interview recording to make up for the inaccuracies. After a
+while, the producer may need to correct the transcript before being able to use it.
+
+\textit{``The fact that it wasn't very accurate in places made it difficult [partly because] it's been a long time
+since I did those interviews. Normally it wouldn't be such a big break between recording and editing them.''} (P8)
 
 \subsubsection{Transcript generation}
 
+The participants in this study re-iterated what was said in Chapter~\ref{chp:screen} regarding their frustration with
+manual transcription and the benefits of having the transcript automatically generated.  One of the participants (P7)
+reported that they already make regular use of a commercial speech-to-text system called `VoiceBase' to automatically
+generate transcripts. They said that in addition to saving them having to write it themselves, it also helped them to
+share transcripts with third parties. P5 had previously tried a different commercial system called `Trint', but could
+not continue due to the cost. None of the other participants reported as having used automatic transcripts as part of
+their existing workflows.
+
+P1 and P3 stated that they thought the automatic transcript itself was the largest benefit of the semantic speech
+editing systems.  Although not stated as explicitly, the remaining participants suggested that the transcript
+generation was a primary benefit of the systems we tested.
+
+\textit{``The transcription thing is for me is eighty percent of the advantage.''} (P3)
+
+P4 reported that they are normally not able to use a transcript due to time constraints. Access to affordable
+speech-to-text would solve this problem.
+
+\textit{``Almost all the time I don't have [a transcript] purely because it takes too much time to transcribe stuff.''}
+(P4)
+
+P8 stores the transcripts that they create because they sometimes find them to be useful later on. Ocassionally they
+will go back to use parts of recordings they have made previously for their current programme.
+
+\textit{``They're very useful to have and I always keep them. Quite often you might want them for a different reason.
+For that programme that we were doing today, I did a [similar] programme about four years ago, so I know where the log
+is and I'll go back and take some chunks out of that.''} (P8)
+
+
 % BENEFITS
 
-The transcript was also reported to make it easier to go back and find bits that were not originally selected, but were
-later needed, which also saved the participants having to re-listen to those bits.
+%The transcript was also reported to make it easier to go back and find bits that were not originally selected, but were
+%later needed, which also saved the participants having to re-listen to those bits.
 
-Most participants repeated that their normal process is to create transcripts manually, and that this is challenging,
-time consuming and takes a long time. Ocassiaonally a third party is used to transcribe overnight, but this is costly
-and normally unaffordable.
+%Most participants repeated that their normal process is to create transcripts manually, and that this is challenging,
+%time consuming and takes a long time. Ocassiaonally a third party is used to transcribe overnight, but this is costly
+%and normally unaffordable.
 
-P4 suggested that transcript were only necessary for recordings longer than 20 minutes, which supported our decision to
-restrict the study to longer recordings.
+%P4 suggested that transcript were only necessary for recordings longer than 20 minutes, which supported our decision to
+%restrict the study to longer recordings.
 
-P1 said that it was best to start transcribing as soon after the recording as possible, as it is much fresher in the
-mind. This may also apply to the editing process.
+%P1 said that it was best to start transcribing as soon after the recording as possible, as it is much fresher in the
+%mind. This may also apply to the editing process.
 
 % EXISTING SPEECH-TO-TEXT USE
 
-P7 reported that they already use a speech-to-text system called VoiceBase to generate automatic transcripts of their
-content. They found that this vastly improves their workflow by saving them having to do it themselves, but also by
-allowing them to share transcripts with third parties. None of the other participants had used automatic transcripts as
-part of their workflows.
 
 % TRANSCRIPT ITSELF
 
-P1 and P3 expressed that they thought the automatic transcript itself gave the largest benefit of the semantic speech
-editing systems. This may not be the case for P7 though, as they already use automated transcripts as part of their
-existing workflow.
 
 % TRANSLATION
 
-P1 suggested that it may be useful to extend the transcription process to translation. They often have to deal with
-recordings of speech in foreign languages, which is tricky when they don't speak the language. The recordings are
-normally sent to a colleague who can translate the audio, and provide a recorded translation of the bits the producer
-is interested in using. These are then dubbed over the original recording. However, it can be difficult to know where
-to position the translation over the original, as there are no timing references provided. A service such a Google
-Translate could be used to produce a rough translation that could be used to display the text of what was said in the
-producer's native language.
+P1 worked on programmes for the BBC World Service, which covers current affair stories around the world.  They often
+have to deal with recordings of speech in foreign languages, which is especially tricky when they don't speak the
+language. P1 said that their department spends money on translation services to help with this process. The recordings
+are then normally sent to a colleague who can translate the audio, and provide a recorded translation of the parts the
+producer is interested in using. These are then dubbed over the original recording. However, it can be difficult to
+know where to position the translation over the original, as there are no timing references provided.
+
+\textit{``This department doesn't realise how much money they spend on [...] the translation that we get done. I don't
+know if you can do this in a different language?''} (P1)
+
+Our speech-to-text process could be combined with automated translation to enable producers to navigate audio content
+in their native language. There may also be scope to provide some level of editing capability, but due to differences
+in word ordering (e.g. adjectives before/after nouns), the editing may only be possible at the sentence level. However,
+the success of this is dependent on the accuracy of the translation, and P1 suggested this may require a good human
+translator.
+
+\textit{``I've had bad translators and just [gotten] gobbledygook as they've done a literal translation. I mean Google
+Translate doesn't make any sense at all.''} (P1)
 
 % DETECTING NON-SPEECH
 
 The transcript did not include umms or breaths, but P8 showed an interest in being able to use the transcript to de-umm
-the content. This would only be possible at this stage if the speech-to-text system explicitly transcribed umms and
-breaths, rather than attempting to ignore them.
+the content. The speech-to-text system we used was trained to ignore umms and breaths, but sometimes they were
+transcribed into various incorrect words.
+
+\textit{``I think you could de-umm it very quickly, which is something we spend a lot of our time doing.  It's quite
+funny working out what the umms were, because they are all sorts of different words.''} (P8)
+
+Efficient de-umming would only really be possible if the speech-to-text system was explicitly trained to transcribe
+umms and breaths, rather than attempting to ignore them.
 
 \subsubsection{Paper}
 
@@ -1818,6 +1898,21 @@ breaths, rather than attempting to ignore them.
 Most participants commented that working with paper had a number of benefits to their workflow. P1, P2, P6 and P7 said
 that it was easier on the eye and gave them a break from working on screen. P2, P5 and P8 said they found it easier to
 read from paper than screen. P2, P5 and P7 enjoyed that paper was physical, tangible and had the feel of everyday life.
+
+P8 reported that they found it easier to remember the content of the transcript when reading on paper rather than a
+screen.
+
+\textit{``I find it easier to read off paper, and easier to remember stuff.''} (P8)
+
+This aligns with the findings from \citet{Singer2017} in which students could recall key points and other relevant
+information better from printed text than digital text.
+
+%\textit{``I much prefer to have paper. Even if I've got them on screen, [...]
+  %%. Um. I do use them on screen, but I.
+%I do find the paper version easier.''} (P5)
+
+\textit{``If I've got a lengthy article, I won't even... well, I'll start off reading it on screen to check whether or
+not it's relevant, but then I'll just have to stop and print it.''} (P5)
 
 % ABILITIES
 
@@ -1832,8 +1927,14 @@ on the page.
 
 P1 thought that the paper interface allowed them to think more widely. This may be due in part to the fact that pages.
 
-P8 reported that using paper transcripts made it easier for them to remember what was said. This echoes finding from
-previous studies such as XYZ.
+\textit{``It's essential to print. [...]
+  %. I think I especially if you're doing the first thing with the SADiE
+  %I like to have the transcripts printed out because at the moment how I work is
+I have the transcripts on my computer, but I still need to print them out to be able to edit because when I'm
+coming to write this script, I have to kind of think more widely. What bits am I going to put where? What's my
+structure? Where am I going to put this bit? Mentally, it is easier for me to refer to the [paper] transcript so
+that I know where everything is.''} (P1)
+  %for when it comes to me actually using one of the bits. that I want
 
 % ORIENTATION
 
@@ -1853,15 +1954,20 @@ Physical paper also degrades subtely, and this could be used to aid orientation.
 
 % PRINTING AND WASTE
 
-Paper does come with some drawbacks, however. Often transcripts can be very long, which requires a large amount of
-paper. Although this is recycled, it could be considered wasteful when screen interfaces are available.
+The physical nature of paper presents some well-understood challenges that are distinct from the screen interface.
+Often transcripts can be very long, so printing them requires a large amount of paper. P2 used quite a long recording
+for the experiment, which resulted in over 50 sheets of paper being printed. Although waste paper is recycled at the
+BBC, it is still much more wasteful than using a screen interface.
 
-P3 didn't like that the pen required a printer, and P5 was concerned about the waste caused by encoraging producers to
-use printed paper rather than screens.
+\textit{``50 sheets of paper is rather a lot, yeah -- quite wasteful.''} (P2)
 
-Printing requires access to a printer. This is not usually a problem in an office environment, but can be an issue
-outside, when travelling, or when working at home. However, printing is not uncommon and the colour laser printer that
-is required for the Anoto system is not special or uncommon.
+%P3 didn't like that the pen required a printer, and P5 was concerned about the waste caused by encoraging producers to
+%use printed paper rather than screens.
+
+% printer
+Printing also requires access to a printer. This is not usually a problem in an office environment, but can be an issue
+when travelling, or possibly when working at home, as the Anoto system requires a colour laser printer. However,
+printing is not uncommon and colour laser printers are already commonplace within the BBC and other workplaces.
 
 \subsection{Listening}
 
@@ -2253,6 +2359,14 @@ would allow users to use transcripts for the later stages of editing.
 \subsection{Listening}
 
 \subsection{Transcripts}
+
+Participants suggested that the accuracy of the transcript may affect the editing workflow in a number of ways. 
+
+- have to rely more on the audio
+- greater need for correction
+- slows down edit process ??
+- taking more than is necessary
+- shorter shelf life
 
 % Accuracy affects amount people take, which implies that it impairs decision making
 
