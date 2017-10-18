@@ -268,6 +268,12 @@ A colour laser printer must be used with proprietary software to print the requi
 cannot be photocopied. There is no easy way to undo or erase annotations, although this is an inherint problem with
 pens in general.
 
+Electronic paper is a technology that attempts to emulate the benefits of reading from paper. Although it has been
+commercially successful through its use in e-readers, studies have found that e-paper has a higher reading time, worse
+comprehension and higher eye fatigue than reading from normal paper \citep{Jeong2012, Daniel2013}.
+Additionally, we could not find any systems that provided the digital ink interaction that would be needed to mark-up a
+transcript.
+
 %TODO GAP IN LITERATURE
 % - previous paper or pen-based systems have concentrated on navigation and annotation
 % - some simple editing functionality was present in digital ink systems, but these didn't use transcripts
@@ -1801,9 +1807,10 @@ reported that the mistakes in the automated transcripts caused them to refer to 
 audio as much. With [these systems], I had to go back to the audio more than I was used to, so I did feel that slowed
 me down a little bit.''} (P6)
 
-%P2 said that it slowed down the editing process.
+P2, P4 and P6 said that gross inaccuracies in the transcript distracted them, which caused them to read slower and
+impacted the editing speed.
 
-%\textit{``Obviously reading back, it'll slow you down if it's completely the wrong word.''} (P2)
+\textit{``Obviously reading back, it'll slow you down if it's completely the wrong word.''} (P2)
 
 Erroneous transcripts may also cause producers to select more than is necessary, which would create more work for them
 further down the line. P8 suggested that the accuracy of the transcript affected their confidence in making edit
@@ -1894,8 +1901,8 @@ Translate doesn't make any sense at all.''} (P1)
 
 % DETECTING NON-SPEECH
 
-The transcript did not include umms or breaths, but P8 showed an interest in being able to use the transcript to de-umm
-the content. The speech-to-text system we used was trained to ignore umms and breaths, but sometimes they were
+The transcript did not include umms or breaths, but P7 and P8 showed an interest in being able to use the transcript to
+de-umm the content. The speech-to-text system we used was trained to ignore umms and breaths, but sometimes they were
 transcribed into various incorrect words.
 
 \textit{``I think you could de-umm it very quickly, which is something we spend a lot of our time doing.  It's quite
@@ -2022,7 +2029,7 @@ going into two sensory inputs so it's easier.''} (P8)
 
 \textit{``It sort of reinforces what you're reading and vice versa.''} (P2)
 
-The benefits of multi-modal sensory input have been studied in previous work such as ABC, which found XYZ.
+%The benefits of multi-modal sensory input have been studied in previous work such as ABC, which found XYZ.
 
 %All participants chose to listen to the audio whilst using the transcript. Section X discusses possible benefits of
 %using a multimodal input, such as improved comprehension and retention. Participants also reported additional benefits
@@ -2436,47 +2443,185 @@ unexpectedly high, as the paper transcript doesn't have any semantic editing fea
 %would allow users to use transcripts for the later stages of editing.
 
 Through our study, we wanted to learn how professional radio producers were impacted when performing semantic speech
-editing using a pen-based interface compared to a screen-based interface.  We found that neither interface was best
-overall, but that each was better for certain things in different situations.  Broadly speaking, we found that our pen
-interface was better suited for making simple edits involving quick decisions, where the producer is familiar with the
-content and has a high-quality transcript, when they are working with others in the same room or away from the desk.
-By contrast, we found that our screen interface was better suited to more complicated editing involving complex
-decisions, where the producer is less familiar with the content and has a lower accuracy transcript, when they are
-working with people remotely or at their desk.
+editing using a pen-based interface compared to a screen-based interface.  We found that neither interface was best in
+all situations, but that each was better suited to different uses and circumstances.  Broadly speaking, we found that
+our pen interface was better for making simple edits involving quick decisions, using familiar content with a
+high-quality transcript, for producers working away from their desk, or with others in the same room.  By contrast, we
+found that our screen interface was better suited to more complicated editing involving complex decisions, using less
+familiar content with a lower accuracy transcript, for producers working at their desk, or with other people remotely.
 
-The main difference between the pen and screen interfaces was that the screen included integrated playback and
-correction features, whereas the pen did not.  Participants reported that the simplicity of the pen interface, in
-combination with the benefits of using paper, was faster and made it easier to make decisions. However, the more
-feature-rich screen interface was reported to be better for more in-depth, complicated editing.
+Three of the participants reported that they could edit faster and more easily using the pen interface compared to the
+screen. Additionally, the mean relative edit time of the pen was faster than the screen, but this was not statistically
+significant. We found that this may have been in part due to the faster reading speed of paper and the more natural
+edit gesture of the pen.  However, it may be also partly due to the lack of integrated playback and correction
+features.  This caused participants to focus more on the editing task at hand, rather than being distracted by
+correcting or navigating the transcript.
 
-Due to technical limitations, the design of our paper interface involved generating edit commands based on marks in
-rectangular boxes. There were interpreted very literally, which created a potential source of errors, and forced the
-participants to draw carefully when editing. Humans are not good at drawing straight lines in freehand, so it would be
-better to create a system that was more forgiving in this respect.
+% integrated playback and correction
+The screen interface included integrated playback and correction, which made it a more powerful tool.  Participants
+reported this this made it suitable for more challenging editing tasks or exploring less familiar content, where the
+producer needs to be able to listen and navigate efficiently. It also made it better for working with less familiar or
+lower accuracy transcripts. Participants found errors in the transcript to be distracting, which impacted the
+granularity of their edits. They could tolerate the errors by using their memory of what was said, by listening or by
+correcting the errors. The screen makes it easier to listen and correct the errors, so is a better choice for editing
+less familiar content or lower quality transcript. 
 
+% collaboration
+Producers do not work alone and need to collaborate with others during production. The physical nature of paper made
+the pen interface suitable for working with others in the same room, as it allowed them to work around a desk,
+spatially arrange the pages and refer to the transcript by pointing. However, this also makes it impossible for the pen
+interface to be used remotely. The digital nature of the screen interface makes it easy to work with remote
+collaborators. There is also potential to extend the interface to use operatial transformation, which would allow
+multiple users to edit the same content simultaneously.
 
-\subsection{Listening}
+% portability
+The participants reported that they like to work away from their desk or office as it helps them to focus. Pen and
+paper is naturally very portable and can be used almost anywhere. As it is does not use a screen, it is smaller,
+lighter, easier on the eyes and has a longer battery life. Participants reported that this makes it more suitable for
+travel, and would allow them to work in more comfortable places. However, the requirement to print the transcripts
+makes it unsuitable for working on the road. By using a laptop or tablet, the screen interface is also portable. The
+screen also include the advantages of integrated playback and correction, and could be used on the road as it doesn't
+need a printer.
+
+% improvements
+Our study identified a number of improvements that could be made to the pen and screen interfaces. Participants
+reported that the interfaces could currently only be used for rough editing as they lacked features for labelling or
+re-ordering material. For the pen interface, handwriting recognition could be used to label a specified region, or the
+nearest selected content.  Participants also requested that the labels should be included in the exported EDL, so that
+they would integrate with their existing tools.  Some participants said they would prefer to use a highlighter pen than
+to underline, and others suggested using multiple ink colours to label content or to indicate multiple iterations.
+However, we are not aware of any digital pens that support highlighting or quickly swapping nibs.
+
+% implementation constraints
+Our choice of technology for implementing the pen interface introduced some constraints that affected our design.
+Users edited the content by underlining or striking text within a set of rectangular boxes. There were interpreted
+literally, which created a potential source of errors, and forced the participants to draw carefully. This design also
+prevented us from including correction features, and the batch-mode operation of the pen prevented us from including
+integrated playback.  By overcoming the constraints of our implementation, a pen interface with integrated listening
+and correction could be created. We expect that this would allow users to combine the benefits of working with paper
+with the full feature-set of the screen interface. However, there is also a risk that by adding more features to the
+pen interface, the benefits of its simplicity would be lost.
+
+%As humans are not
+%good at drawing straight lines in freehand, it would be better to create a system that was more forgiving in this
+%respect.
+
+Electronic paper may provide the technical solution that could bypass these constraints. At the time we were developing
+our pen interface, there were no e-paper devices that supported digital ink interaction, but these will become
+available in the near future.  For example, the reMarkable tablet\footnote{\url{https://remarkable.com/}} is an e-paper
+device with a digital ink interface that will be available in late 2017. Although e-paper displays do not seem to
+currently match paper for reading speed, comprehenson or eye fatigue, they are likely to improve over time and may
+provide a good middle-ground between paper-based and screen-based systems. 
 
 \subsection{Transcripts}
 
-Participants suggested that the accuracy of the transcript may affect the editing workflow in a number of ways. 
+All of the participants were able to use the automated transcript to edit speech recordings for their radio programme,
+supporting what we found in Chapter~\ref{chp:screen}. One of the participants in this study had already started using
+speech-to-text as part of their normal workflow. As automated transcription becomes more widely available, it is
+important to design tools that make the best use of the extra information.
 
-- have to rely more on the audio
-- greater need for correction
-- slows down edit process ??
-- taking more than is necessary
-- shorter shelf life
+As the semantic editing tools we tested are based around transcripts, the accuracy of the transcript has a direct
+effect on the tool's performance and usage. We identified five different areas that were affected by transcript
+accuracy: correction, reading speed, reliance on listening, longevity and edit granularity.
 
-% Accuracy affects amount people take, which implies that it impairs decision making
+% correction, reading speed
+Clearly, the more errors that occur, the more likely it is that corrections will be needed. However, the vast majority
+of participants were only interested in correcting mistakes that were distracting and impacted their ability to read
+the transcript. Three participants reported that the distraction of transcript errors slowed down their reading speed,
+which impacts the editing speed.
+For the most part, full correction is only needed if the transcript is to be
+published or is required for legal reasons. Publication of transcripts is not yet required, but doing so would make
+radio programmes more easily discoverable and searchable.
 
-% Paper better for solo working
-% - notes don't have to be digitised/shared
+%This is similar to \citet{Ranjan2006}, which found that search time falls as the accuracy increases.
 
-% Screen better for collaboration
-% - can be done remotely
-% - annotations are digital, interface can be updated
+With the automated transcript, unknown words were often mistranscribed into a variety of different words, which means
+they must all be corrected individually. This usually occured with words specific to the programme, such as names of
+contributors. To avoid this, unknown words could be added to the dictionary of the speech-to-text system prior to
+transcription. By providing additional contextual information, such as the programme topic or number of speakers, the
+transcription system could improve the transcript accuracy by using this to better calculate the likelihood of a given
+word occuring or limiting the number of unique speaker segments.
 
+Two participants showed an interested in using semantic editing to remove `umm's and breaths. The speech-to-text
+system we used was not designed to detect and transcribe these noises. As with other unknown words, they would be
+transcribed into a variety of words, which makes it difficult to find them. By explicitly including umms and breaths in
+the speech-to-text training data, these noises could be highlighted in the transcript and we could give users the
+options of removing them automatically.
+
+% listening/memory, longevity
+The participants in our study using listening and memory to make up for inaccuracies in the transcript. A lower
+accuracy transcript required participants to listen more, so they could hear what was actually said. Alternatively, if
+they could remember what was said, this reduced the need to replay the audio and increased the readability of the
+transcript.  Whilst transcripts are most useful when editing content for the current programme, they can also be
+retained to help producers search through previously recorded material. As the producer's memory fades, the errors in
+the transcript of previously recorded material becomes more of a problem. The accuracy of the transcript thus affects
+its longevity, as its usefulness deteriorates over time.
+
+% edit granularity
+One participant reported that as the accuracy of the transcript decreased, the granularity of their edits increased
+and they selected more material than was needed. This may be due to a lack of confidence that what they're selecting is
+usable, as some of the words may not be correct. Selecting too much material creates more work for the producer at a
+later stage, as they will have to edit their programme down to a specific time.
+
+% other
+Participants reported that using paper rather than a screen made it it easier to read transcripts, remember
+information, think widely and orientate themselves. This aligns with previous research that compares reading on paper
+and screen, and shows that the benefits of paper translate to radio production using erroneous transcripts.
+
+% suggestions
+One participant suggested that semantic editing creates an opportunity to handle speech content in a different
+language, in their experience, the quality of automated translation is not yet sufficient.  The benefit of automated
+translation is that the timestamp information, which is necessary for semantic editing, could be translated from the
+original transcript. However, the different grammatical rules of different languages mean this translation would be
+complex, and may limit the granularity of editing to whole sentences rather than individual words.
+
+\subsection{Listening}
+
+We found in Chapter~\ref{chp:screen} that listening was an important part of the editing process. Through our study, we
+learned more about how the participants listened and the reasons for doing so.
+
+% re-listening
+Two participants reported that they like to re-listen to their recordings in full. As well as giving them an
+opportunity to refresh their memory, it allows them to start making decisions on what to use for their programme.
+Re-listening in full adds a lot of overhead to the editing process, but the fact that some producers consider it
+worthwhile underlines the importance of listening. One participant suggested that the current practice of manual
+transcription gives producers an opportunity to re-listen. The introduction of automated transcription removes this
+opportunity, so there is a risk that semantic editing may influence producers to base their decison more so on
+transcripts than audio.
+
+% no need for transcripts
+Half of the participants reported that they sometimes edit audio without a transcript. Two reasons were given for
+this. As we found in Chapter~\ref{chp:screen}, if a recording is short, then the producer can remember most of what was
+said and when, which reduces the need for a transcript. P4 suggested that the threshold for when a transcript becomes
+useful lies somewhere between 15 and 25 minutes. The other reason for not needing a transcript is for programmes that
+place a high value on the auditory experience. In these cases, the editorial decisions will be led by what sounds good
+rather than what is said. This cannot currently be represented by a transcript, so it does not add value to this
+process.
+
+% criteria
+Participants gave three main reasons for listening to the audio -- processing information, judging quality and
+identifying non-speech sounds. Two participants said that simultaneousy reading and listening made it easier to process
+the information in the speech, making the edit process more efficient. This falls in line with previous findings that
+providing transcripts allows users to process voicemail messages more efficiently \citep{Whittaker2002}, and improves
+the comprehension of time-compressed audio \citep{Vemuri2004}. In addition to improved efficiency, listening allowed
+users to comprehend what the transcript could not tell them. Examples include identifying mistakes or omissions in the
+transcript, finding where there are non-speech sounds and working out whether the quality of the speech is sufficiently
+good for inclusion in their programme.
+
+% improvements
+Listening is a time-consuming process, but this could be reduced either by using speech skimming \citep{Arons1997} to
+increase the listening speed, or using semantic audio techniques to enhance the transcript. For example, automated
+sound tagging \citep{Duan2014} could be used to identify regions of environmental noise and label them. Including this
+information in the transcript could help producers pick out sounds they want, perhaps to help set a scene, or avoid
+sounds they don't want, such as a car horn. Producers would also benefit from automated tools that could help them
+identify poor quality speech, such as `umm's and breaths, or help them see which edits would work.  For example, a
+graphical representation of the intonation of speech may help producers identify whether an edit would sound good or
+not.
 
 \section{Conclusion}\label{sec:paper-conclusion}
 
 \subsection{Future work}
+
+% digital ink with electronic paper
+% speech to text prior info and umm detecton
+% identification of umms/breaths, display intonation
