@@ -7,13 +7,12 @@ distracting, and do not like working with screens for extended periods. This lea
 speech recordings so that they can review and edit the recordings away from the screen and/or office.
 
 % Advantage of paper
-Working on paper offers a number of advantages over working on screens. Most of these are self-evident, but still
-worth reviewing.  Paper is lightweight, portable and does not require any power, which allows users to work almost
-anywhere.  It is not back-lit, so is easier on the eyes.  It can be navigated quickly, annotated freely whilst reading,
-and individual pages can be laid out and easily compared.  Its physical low-tech nature also means that it is
-intuitive, robust, durable and does not crash or lose data.  Reading from paper rather than a screen allows readers to
-gain a deeper understanding, easily cross-reference other documents, and interleave reading and writing
-\citep{OHara1997,Mangen2013,Singer2017}.
+Working on paper offers a number of advantages over working on screens.  Paper is lightweight, portable and does not
+require any power, which allows users to work almost anywhere.  It is not back-lit, so is easier on the eyes.  It can
+be navigated quickly, annotated freely whilst reading, and individual pages can be laid out and easily compared.  Its
+physical low-tech nature also means that it is intuitive, robust, durable and does not crash or lose data.  Reading
+from paper rather than a screen also improves comprehension \citep{Mangen2013}, recollection \citep{Singer2017}, sense
+of structure and cross-referencing \citep{OHara1997}.
 
 %Transcripts are often printed out because:
 %- it is easier to read than on screen
@@ -36,15 +35,15 @@ Compared to digital media, working with a physical medium like paper introduces 
 difficult to copy, share, store and archive information. Printing a document breaks the link to its digital source, so
 is normally a one-way process, where any information that is changed/added cannot is not fed back. Additionally,
 freehand annotations are unstructured, and cannot easily be digitised and re-used. This forces users to manually
-re-enter the information into a computer. In the case of radio production, this involves using a DAW to edit the audio
-based on paper notes, which can be slow and tedious.
+re-enter the information into a computer. In the case of radio production, paper notes are manually translated into
+edit commands using a digital audio workstation, which can be slow and tedious.
 
 % Digital paper
 There are a number of technological solutions that can be used to create a `digital bridge' between paper and
 its digital source. These offer the possibility to combine the advantages of paper and digital workflows. Using this
 approach, it is possible to link the words on a printed transcript of speech to the time they were spoken in the
-original audio recording. Furthermore, by linking the paper annotations to audio edit commands, the paper could be used
-to directly edit the audio content.
+original audio recording. Furthermore, by linking the paper annotations to audio edit commands, the paper transcript
+could be used to directly edit the audio content.
 
 % Intro
 In this chapter, we investigate paper-based workflows in the context of professional radio production. We describe how
@@ -54,23 +53,21 @@ workflows.
 
 \section{Background}\label{sec:paper-background}
 Radio production using a paper interface requires a system that automatically translates annotations on a printed
-transcript to audio edit commands. Such a system requires a method of linking paper to media.
+transcript to audio edit commands. Such a system requires a method of linking paper to media.  We identified three
+main approaches for achieving this, using barcodes, digital ink and digital pens.  In this section, we will review
+previous systems and studies that have used these techniques to link media with written documents.
 
-`The Audio Notebook' \citep{Stifelman2001} was a system that used a physical pen and paper interface in combination
-with a device that recorded audio synchronously with the page and vertical location of the written notes.  The device
-could also replay the audio from a page and display which notes relate to the current playback position using an LED
-scrollbar display at the side of the page. Users could also use the scrollbar to control the position of the audio
-playback.  A longitudinal study of six participants over five months again found that users needed to take fewer notes,
-and made more notes during replay. Two of the participants were reporters who used the system while recording
-interviews. One reporter made minimal notes during the interview, but replayed the interview and made additional notes,
-including star symbols to indicate important moments. They also extracted quotes of interest by typing them into a
-computer. The other reporter was skeptical of the system, so made detailed notes so not to rely on the audio. However,
-they were later able to use the system to recall bits of the interview, which was many times faster than their existing
-technique of fully transcribing the audio recording.
-
-We have identified three main approaches for achieving this, using barcodes, digital ink and digital pens.
-In this section, we will review previous systems and studies that have used these techniques to link media with written
-documents.
+%`The Audio Notebook' \citep{Stifelman2001} was a system that used a physical pen and paper interface in combination
+%with a device that recorded audio synchronously with the page and vertical location of the written notes.  The device
+%could also replay the audio from a page and display which notes relate to the current playback position using an LED
+%scrollbar display at the side of the page. Users could also use the scrollbar to control the position of the audio
+%playback.  A longitudinal study of six participants over five months again found that users needed to take fewer notes,
+%and made more notes during replay. Two of the participants were reporters who used the system while recording
+%interviews. One reporter made minimal notes during the interview, but replayed the interview and made additional notes,
+%including star symbols to indicate important moments. They also extracted quotes of interest by typing them into a
+%computer. The other reporter was skeptical of the system, so made detailed notes so not to rely on the audio. However,
+%they were later able to use the system to recall bits of the interview, which was many times faster than their existing
+%technique of fully transcribing the audio recording.
 
 %\subsection{Screen-based}
 %Transcript-based interfaces have already successfully been applied to both audio and video editing. SCANMail
@@ -87,23 +84,25 @@ documents.
 \subsection{Barcodes}
 Paper transcripts have been explored as a method of navigating video recordings by using a device to detect the
 position in the text and play the video from that position. \citet{Hull2003} describes a system called `Video Paper',
-which embedded video keyframes with barcodes down the side of the page. It used a PDA to scan the barcodes that linked
-to a position in a video, which was downloaded and played on the device. \citet{Klemmer2003} applied Video Paper to
-oral history in a project called `Books with Voices'. An evaluation of 13 users found that it had substantial benefits
-with minimal overhead.  \citet{Erol2007} went a step further by embedding the video in the barcode data, removing the
-need to download the video from a separate source. \citet{Erol2008} removed the need for barcodes by creating a system
-called `HotPaper', which used a camera to measure the whitespace between words and matched that to unique patterns in
-the text.
+which embedded video keyframes with barcodes down the side of the page. A PDA was used to scan the barcodes that linked
+to a position in a video, which was downloaded and played on the device. \citet{Klemmer2003} used Video Paper as part
+of an oral history project called `Books with Voices'. An evaluation of 13 users found that it had ``substantial
+benefits with minimal overhead''.  \citet{Erol2007} went a step further by embedding the video in the barcode data,
+removing the need to download the video from a separate source. \citet{Erol2008} removed the need for barcodes by
+creating a system called `HotPaper', which used a camera to measure the whitespace between words and matched that to
+unique patterns in the text.
 
 Barcode-based systems provide a link between text and media, however they do not provide a convenient method of
-capturing annotations. It would be possible to use a PDA-style device to capture annotations and link them to a
-particular barcode. However, this requires that the annotation are entered into a handheld device, rather that just
-written on the paper. Additionally, the size of the barcodes means that the precision of the timestamps would be at a
-sentance-level rather than word-level.
+capturing annotations. It would be possible to use a PDA to capture annotations and link them to a particular barcode.
+However, this would require that the annotations are entered into a handheld device, rather that just written on the
+paper.  Additionally, the size of barcodes means that they cannot be used for each word, which affects the precision of
+the system.
 
 \subsection{Digital ink}
-`Digital ink' refers to technology that digitally captures and responds to the moments of a pen, such as a stylus on a
-tablet PC.
+`Digital ink' refers to technology that digitally captures and responds to the movements of a pen, such as a stylus.
+Typically, digital ink systems use a device with a backlit screen and a touch-sensitive interface like a tablet PC.
+We found that previous systems fall into three main use-cases: synchronised note-taking, video editing and
+proof-reading.
 
 \subsubsection{Synchronised note-taking}
 `Marquee' \citep{Weher1994} was a digital ink system for supporting the task of logging during a live video recording.
@@ -126,13 +125,13 @@ users took fewer notes when using the audio highlighting, and that they wanted t
 the notes afterwards. Both of these findings mirror those from \citet{Weher1994}.
 
 \subsubsection{Video editing}
-Several systems have experimented with using pens with interactive sliders to provide advanced control for
+Several systems have experimented with using a stylus with interactive sliders to provide advanced control for
 navigating video content, such as `LEAN' \citep{Ramos2003}, `Zlider' \citep{Ramos2005} and MobileZoomSlider/ScrollWheel
 \citep{Huerst2008}. However, these systems are limited to the navigation of content, without changing or labelling it.
 Our interest is primarily in the annotation and editing of media, which the following systems have explored using
 digital ink interfaces.
 
-\citet{Diakopoulos2006} created a digital ink interface for creating and annotating segments of a pre-recorded video,
+\citet{Diakopoulos2006} developed a digital ink interface for creating and annotating segments of a pre-recorded video,
 called `VideoTater'. Segments could be created by drawing a vertical line on a video timeline, and merged by drawing a
 horizontal line between them. Each segment could be tagged by selecting it and hand-writing text. The back of
 the pen could be used to erase tags. Pen pressure was used to distinguish between selection and tagging, with low
@@ -143,7 +142,7 @@ successful, and that the pressure mapping worked well.
 system included a variety of features for annotation, editing and real-time collaboration. Users could use a pen to
 write annotations by tapping the video to freeze it, then drawing on the video frame.  Users could apply a `skip'
 command to a segment of the video by using the pen to tap the bottom left of the video at the start of an unwanted
-segment, and tapping the bottom right at the end. The `skip' command is analogous to editing out part of the video.
+segment, and tapping the bottom right at the end. The `skip' command is analogous to removing part of the video.
 Similar commands for looping and slow motion were also available by tapping different regions.
 
 `Video as Ink' \citep{Cabral2016} took an alternative approach by allowing users to `paint' video frames and segments
@@ -160,18 +159,19 @@ users three modalities in which to annotate documents - freeform inking, voice r
 voice recordings were displayed using a waveform, overlaid with an automatically generated transcript of the speech.
 Users could trim or tidy the voice recordings by drawing a line through words or pauses to remove them.  The system was
 evaluated using a qualitative study of 12 students which found that the editing features were considered easy to use
-and efficient for removing `umm's and long pauses.  However, many participants reported that the transcripts were not
-accurate enough to use without having to listen to the audio.
+and efficient for removing `umm's and long pauses.
+%However, many participants reported that the transcripts were not
+%accurate enough to use without having to listen to the audio.
 
 \subsection{Digital pens}
 A digital pen looks and functions as a normal pen, but includes an on-board infrared camera that tracks the position of
 the pen while it writes on paper. Digital pens must be used in combination with paper that has a unique non-repeating
 dot pattern printed onto it using a standard colour laser printer.  By reading this pattern, the pen can calculate
-exactly where it is when touching the page. This information is captured up to 100 times a second and recorded
-digitally onto the pen. Depending on which pen and which software you're using, this information can either be streamed
-live via Bluetooth, or downloaded as a batch onto a computer. This technology has been patented by Anoto Group
-\citep{Fahraeus2003}, who exclusively manufacture and licence digital pen products. As such, this technology is often
-referred to as the `Anoto dot pattern'.
+exactly where it is when touching the page. The pen records its position up to 100 times a second and stores this onto
+the pen. Depending on which pen and software you're using, this information can either be streamed live via Bluetooth,
+or downloaded as a batch onto a computer. This technology has been patented by Anoto Group \citep{Fahraeus2003}, who
+exclusively manufacture and licence digital pen products. As such, this technology is commonly referred to as the
+`Anoto dot pattern'.
 
 % Pens
 %Livescribe Pulse
@@ -190,15 +190,15 @@ should translate into actions such as delete.
 \citet{Weibel2008} created `PaperProof', which interpreted the edit annotations and automatically applied them to the
 document. Gestures for delete, insert, replace, move and annotate were translated into modifications in a word
 processor, and intelligent character recognition was used to digitise any hand-written text. Processing the annotations
-allows for a two-way interaction between the digital and paper representations. There were no user studies of the
-PaperProof system.
+allows for a two-way interaction between the digital and paper representations. We could not find any user studies of
+the PaperProof system.
 
 \subsubsection{Synchronised note-taking}
 
-ChronoVis \citep{Fouse2011} used the Anoto dot pattern to record paper notes during playback of a video. The on-screen
-playback interface allowed users to click on the digital display of the handwritten notes to navigate to that position
-in the video, or browse a list of timestamped notes. Alternatively, they could reprint their notes and use a
-wirelessly-connected digital pen to tap on the notes, which controlled the playback position.
+ChronoVis \citep{Fouse2011} used the Anoto dot pattern to record paper notes during playback of a video. After writing
+the notes, an on-screen playback interface allowed users to click on the digital display of the handwritten notes to
+navigate to that position in the video, or browse a list of timestamped notes. Alternatively, they could reprint their
+notes and use a wirelessly-connected digital pen to tap on the notes, which controlled the playback position.
 ChronoVis can also coordinate multiple data sources, such as GPS logs.
 
 \citet{Weibel2012} conducted a longitudinal study of ChronoViz for use in observational research. They studied how
@@ -243,35 +243,34 @@ recognise specific symbols and add notes on top of existing notes.
 In this section, we have seen how barcodes, digital ink and digital pens have been used to link written documents to
 timed media.
 
-Barcodes provide a simple mechanism for linking physical printed paper to digital media. This provides the
-benefits that come with reading from and annotating paper, but with a link to the source media. The barcodes are easy
-to generate, don't need a licence and are robust to photocopying.  We need a device to read the barcodes, but we
-could do this using the camera on a mobile phone.  The systems to date have only provided a one-way link from paper to
-media.  It would be possible to implement a feedback mechanism, but the data would have to be entered into the scanning
-device rather than the paper. This means that the freehand annotation are not supported, not would they be accessible
-without using the device. Barcodes also take up a lot of space, so it is only practical to have them at the end
-of a line, rather than for each word. This limits the precision with which they can be used.
+Barcodes provide a simple mechanism for linking physical printed paper to digital media. This provides the benefits
+that come with reading from and annotating paper, but with a link to the source media. Barcodes are easy to generate
+and robust to photocopying.  We need a device to read the barcodes, but we could do this using the camera on a mobile
+phone.  The systems to date have only provided a one-way link from paper to media.  It would be possible to implement a
+feedback mechanism, but the data would have to be entered into the scanning device rather than the paper. Although
+users can write freely on the paper, these notes would not be accessible without entering them into a device. Barcodes
+also take up a lot of space, so it is only practical to have them at the end of a line, rather than for each word. This
+limits the precision with which they can be used.
 
 Digital ink interfaces are vastly more feature-rich as they use a device with a screen that is capable of advanced
-two-way interaction. The device can integrate with media playback to allow users listen to the audio. Freehand
-annotations can be used to annotate documents, and these can easily be undone or erased. Pressure mapping can also be
-used to interact in several different modes.  However, digital ink interfaces use screens rather than physical paper,
-so do not benefit from improved comprehension and cross-referencing. The screen in digital ink devices mean that they
-are often bulky and have a short battery life. Additionally, because the device must be used to access the information,
-this is lost in the event of device failure.
+two-way interaction. The device can integrate with media playback to allow users listen to the audio and navigate using
+the transcript. Freehand annotations can be used to annotate documents, and these can easily be undone or erased.
+Pressure mapping can also be used to interact in several different modes.  However, digital ink interfaces use screens
+rather than physical paper, so do not benefit from improved comprehension and cross-referencing. The screen in digital
+ink devices mean that they are often bulky and have a short battery life. Additionally, because the device must be used
+to access the information, this is lost in the event of device failure.
 
 Digital pen interfaces combine most of the benefits of both barcode and digital ink interfaces. They use physical
 paper, which is better for reading, but also allow a two-way interaction with freehand annotation. The pen-based
-interface is very natural and familiar, and because the annotations are made on the paper itself, information is both
-accessible and backed-up in the event of device failure. However, there are some limitations to digital pen systems.
-A colour laser printer must be used with proprietary software to print the required dot pattern, and the printouts
-cannot be photocopied. There is no easy way to undo or erase annotations, although this is an inherint problem with
-pens in general.
+interface is natural and familiar, and because the annotations are made on the paper itself, information is both
+accessible and backed-up in the event of device failure. However, a colour laser printer must be used with proprietary
+software to print the required dot pattern, and the printouts cannot be photocopied. There is no easy way to undo or
+erase annotations, although this is an inherint problem with pens in general.
 
 Electronic paper is a technology that attempts to emulate the benefits of reading from paper. Although it has been
 commercially successful through its use in e-readers, studies have found that e-paper has a higher reading time, worse
 comprehension and higher eye fatigue than reading from normal paper \citep{Jeong2012, Daniel2013}.
-Additionally, we could not find any systems that provided the digital ink interaction that would be needed to mark-up a
+Additionally, we could not find any systems that provided the level of interaction that would be needed to mark-up a
 transcript.
 
 %TODO GAP IN LITERATURE
@@ -280,14 +279,14 @@ transcript.
 % - PaperProof allowed editing of text, but this didn't link to media
 % - haven't considered audio, only audio-visual; not always translatable (e.g. video as ink)
 
-We have seen that digital pen technology has successfully been applied to text editing \citep{Weibel2008} and media
-annotation \citep{Fouse2011}. We could not find any previous literature which has combined these approaches by linking
-text to the transcript of recorded speech.
-
 Video editing functionality was present in \textit{VideoTater} \citep{Diakopoulos2006}, \textit{WaCTools}
 \citep{Cattelan2008} and \textit{Video as Ink} \citep{Cabral2016}. However, all of these systems relied on the
 manipulation of video thumbnails, which cannot be translated to audio editing. None of them considered text or
 transcript-based editing.
+
+We have seen that digital pen technology has successfully been applied to text editing \citep{Weibel2008} and media
+annotation \citep{Fouse2011}, but we could not find any previous literature which has combined these approaches to
+allow semantic editing of speech content.
 
 % Time dimension - time vs spatial representation
 
@@ -296,18 +295,19 @@ transcript-based editing.
 \section{System requirements}\label{sec:paper-requirements}
 
 % Decided to use digital pens
-In the background section, we found that digital pens have successfully been applied to text editing and media
-annotation. We aimed to combine these into a paper-based audio editing system for radio production. We hoped this
-would combine the portability, familiarity and readability of paper with the efficiency of text-based audio editing. 
+In the background, we saw that digital pens have successfully been applied individually to text editing and media
+annotation. We aimed to combine these into a paper-based audio editing system for radio production. We chose to base
+our semantic editing system on digital pen technology over digital ink and barcodes as it combines many of the benefits
+of each, is highly portable, and uses paper, which provides better readability and more natural interaction.
 
 % Collaborated with Anoto
 Digital pen technology is based on a set of techniques that are protected by a number of patents \citep{Fahraeus2003}.
 These are owned by Anoto Group, who exclusively license this technology and manufacture a number of products. Creating
-custom solutions can be expensive, so we collaborated with Anoto to develop our audio editing system. The system was
-based on their Live Forms platform, which is designed for processing documents to capture digital information from
+custom solutions can be expensive, so we collaborated with Anoto to develop our audio editing system.  Anoto gave us
+access to their Live Forms platform, which is designed for processing documents to capture digital information from
 handwritten annotations.
 
-In order to build our system, we needed to design the layout of the document and define a set of gestures for
+In order to build our system, we needed to design the layout of the paper document and define a set of gestures for
 editing the content.  As there were no previous systems on which to base our design, this process raised a number of
 questions about what information we should include in the layout, and which gestures we should use for interaction.
 Specifically we were interested in answering the following questions:
@@ -315,16 +315,15 @@ Specifically we were interested in answering the following questions:
 {\singlespacing
   \begin{itemize}
     \item What gestures are currently used by radio producers to annotate transcripts?
-    \item Do producers prefer to select content they want to keep, remove content they don't want, or a mixture of the
-      two?
+    \item Do producers prefer to select content they want to keep, remove content they don't want, or a mixture of both?
     \item Which additional features (e.g. timestamps, speaker labelling, confidence shading) should be included in the
       layout?
   \end{itemize}
 }
 
-To try and answer these questions, we created a paper prototype of our paper interface. The prototype used a normal pen
-rather than a digital pen, so did not process the gestures, but the paper prototype gave an almost identical
-expeirience. This allowed us to test an initial design of our interface with users before building the functional
+To try and answer these questions, we created a paper prototype of our paper interface. For the prototype, we used a
+normal pen rather than a digital pen, so did not process the gestures, but the paper prototype gave an almost identical
+experience. This allowed us to test an initial design of our interface with users before building the functional
 system.  In this section, we describe the design of our paper prototype, explain how we evaluated it and outline our
 findings.
 
@@ -344,26 +343,27 @@ Figure~\ref{fig:paper-prototype-design}.
 
 The transcript was generated using an automated speech-to-text system, which contained ocassional errors. We chose to
 use this rather than a perfect transcript as we wanted to use automated transcription for the final system, and
-removing the errors may affect user behaviour.
+removing the errors may have affected user behaviour.
 
 % Limitations of Anoto system, used normal pen for prototype
 The Anoto Live Forms platform, which we used to create our system, works by dividing the page into rectangular active
-zones.  When a digital pen draws inside one of these zones, that data can then be captured digitally and processed.
+zones.  When a digital pen draws inside one of these zones, that data is captured digitally and processed.
 Traditionally this is used to detect when someone has ticked a box on a form, or to extract an image of a signature
 drawn inside of a box.  To capture edit annotations that linked to the text of the transcript, we designed our layout
 to use rectangular active zones that aligned with the location of each word.
 
 % Edit commands: selector beneath word (double-spaced) and at end of line, removal by crossing word
-From what we had witnessed from previous experiments, the most common annotations producers used were underline,
-strikethrough and drawing a line down the side of the page.  To capture strikethrough, we drew an invisible active zone
-on top of each word, so that when a line is drawn through the word, the zone is triggered. For underline, we draw a
-shaded active zone directly below each word, so that drawing a line underneath a word triggers the zone. The transcript
-was printed double-spaced to leave enough room for these boxes. Finally, we draw a shaded active zone at the end of
-each line. Drawing a line through this zone would select the whole line.
+From what we had witnessed from the study in Chapter~\ref{chp:screen}, the most common annotations producers used were
+underline (for selecting words), strikethrough (for removing words) and drawing a line down the side of the page (for
+selecting a whole line).  To capture strikethrough, we drew an invisible active zone on top of each word, so that when
+a line is drawn through the word, the zone is triggered. For underline, we draw a shaded active zone directly below
+each word, so that drawing underneath a word triggers the zone. We printed the transcript double-spaced to leave enough
+room for these boxes. Finally, we draw a shaded active zone at the end of each line. Drawing a line through this zone
+would select the whole line.
 
 % Additional features: paragraphs and speaker ID with gender, timestamp at start of line, confidence shading
 The speech-to-text system we used provided additional information with the transcript.  Each word came with a timestamp
-and a confidence rating. We wrote the timestamp at the beginning of each line in \textit{MM:SS} format, and used
+and a confidence rating. We wrote a timestamp at the beginning of each line in \textit{MM:SS} format, and used
 confidence shading to grey-out lower confidence words.  The speech-to-text system also used speaker diarization
 techniques to segment the transcript by speaker. This provided a speaker label and estimated gender for each segment.
 We used paragraphs to segment the transcript, and wrote the speaker label at the start of each paragraph. We used blue
@@ -382,16 +382,16 @@ annotate real transcripts as if they were editing them.  We asked them to edit t
 interviewed them afterward to compare the various approached. Producers are very busy, so to gain enough participants
 in the time we had available, we designed the experiment so it could be completed within an hour.
 
-We recruited five producers by using the contacts that we made from previous experiments. Two of the participants
-worked in current affairs, two in science and one in documentaries.  The participants had between 7 and 13 years
-experience working as a radio producer.
+We recruited five producers by using the contacts that we made from the study in Chapter~\ref{chp:screen}. Two of the
+participants worked in current affairs, two in science and one in documentaries.  The participants had between 7 and 13
+years experience in working as a radio producer.
 
 For the transcript, we asked each participant to provide us with a recent interview they had made, which we ran through
 our speech-to-text system. We used this automated transcript for each participant's experiment so that they were
-working with authentic speech, and a transcript that would be the same as that from a working system.
+working with authentic speech, and a transcript that would be similar in quality as that from a working system.
 
 To help explore our questions about annotation and editing gestures, we directed participants to employ three different
-strategies when using the prototype. This forced them to experience different ways of interacting with the prototype,
+strategies when using the prototype. This forced them to try different ways of interacting with the prototype,
 which they could later reflect on and compare. We instructed them to follow these directions for the first three
 pages of their transcript: 
 
@@ -414,8 +414,9 @@ participant was presented with a transcript that included speaker diarization, a
 annotating the transcript any way they wished.
 
 Timestamps, line selection and confidence shading were included with all of the prototypes. For these features, we
-chose not to produce versions with/without as participants should be able to judge their value without having to see
-them removed. Producing different versions for each would also unduly lengthen the experiment.
+chose not to produce versions with/without to reduce the number of permutations. We expected that participants should
+be able to judge their value without having to see them removed, and producing different versions for each would have
+unduly lengthened the experiment.
 
 At the end of the test, we conducted a semi-structured interview with each participant. The following questions were
 asked, but we also let the participants talk about whatever else they wanted to.
@@ -430,14 +431,14 @@ asked, but we also let the participants talk about whatever else they wanted to.
 }
 
 The experimenter wrote down the participants responses from the interview. These were then categorised into natural
-gestures, edit gestures and additional features. We counted the frequency of each response within the categories to
-see how popular the different approaches and features were. The participant's annotated transcripts were also
-collected.
+gestures, edit gestures and additional features. We counted the frequency of each response within the categories to see
+how popular the different approaches and features were. A number of the participant's annotated transcripts were also
+photographed for later analysis.
 
 \subsection{Results}
 The reaction to the system was overwhelmingly positive. All of the participants could immediately see the value of such
-a system and most remarked that it would save them significant amounts of time and \textit{``revolutionise''} their
-production workflow.
+a system and most remarked that it would save them significant amounts of time.
+%and \textit{``revolutionise''} their production workflow.
 
 \subsubsection{Natural gestures}
 
@@ -458,7 +459,7 @@ Table~\ref{tab:natural-gestures} lists the gestures that were used, and by which
     \hline
     Comments                & $\bullet$ & $\bullet$ &           &           & $\bullet$ & 3 \\
     \hline
-    Correction              & $\bullet$ &           &           &           & $\bullet$ & 2 \\
+    Corrections             & $\bullet$ &           &           &           & $\bullet$ & 2 \\
     \hline
     In/out marks            & $\bullet$ &           &           & $\bullet$ &           & 2 \\
     \hline
@@ -483,22 +484,23 @@ Table~\ref{tab:natural-gestures} lists the gestures that were used, and by which
 \end{figure}
 
 Four different gestures were used to select content -- underline, line down side, in/out marks and lasso.  Underline
-was used by all participants but one, who was mainly interested in deleted unwanted content.  Drawing a line down the
-side was used by three participants, as it is quicker and more efficient than underlining for selecting large chunks of
-material.  Some participants combined both by using underline to be more precise about the start and end of their
-selection.  One of the participants made a mistake when underlining, so scribbled out the underline to undo it.
+was used by all participants except for P5, who said they were mainly interested in deleted unwanted content.  Drawing
+a line down the side was used by three participants, as it is quicker and more efficient than underlining for selecting
+large chunks of material.  Some participants combined both by using underline to be more precise about the start and
+end of their selection.  One of the participants made a mistake when underlining, so scribbled out the underline to
+undo it.
 
 `In/out marks' refers to drawing short vertical or diagonal lines before and after the words of a selection. These
 indicate the in- and out-points for edits. One participant drew an analogy between these marks and the splicing of
 magnetic tape, which was how radio programmes were edited before the digital age. `Lasso' refers to selecting a number
 of words by drawing a line around them.
 
-Two gestures were used to delete content -- strikethrough and drawing a line through a paragraph. These parallel the
-underline and line down side gestures that are used for selection, but instead involve drawing a line through the words
-themselves.
+Two gestures were used to delete content -- strikethrough and drawing a line through a paragraph. These are the
+opposite to the underline and line down side gestures that are used for selection, but instead involve drawing a line
+through the words themselves.
 %TODO Expand
 
-Finally, two participants corrected mistakes in the transcript by writing the correction over/above the
+Finally, P1 and P5 corrected mistakes in the transcript by writing the correction over/above the
 word, or to the side of the page.
 %TODO Expand
 
@@ -542,8 +544,8 @@ P1 and P3 also suggested that the underline gesture could be extended so that un
 being more important.
 
 % labelling, margins
-Three participants made notes on the side of the page to label their content or to make a note for themselves. Due to
-the limited space, the notes were often scrawled sideways in small writing. If the prototype was active, writing notes
+Three participants made notes on the side of the page to label their content or to make a note for themselves. As there
+was no margin, the notes were often scrawled sideways in small writing. If the prototype was active, writing notes
 on the transcript itself would likely have triggered the active zones located on and below each word. This would cause
 the user to inadvertantly create edits to the audio. P3 suggested that it may be worth adding a margin. Providing an
 inactive margin would give users a `safe space' to make freehand notes without editing the audio.
@@ -643,36 +645,30 @@ prototype of our interface on five radio producers using real content.
 
 We observed that the participants used a variety of gestures to select and delete content, with underline,
 strikethrough and a line down the side being the most common.  This confirms our assumptions about these being the most
-popular annotations, which drove the design of our prototype.  The other gestures included in/out marks and lasso for
-selection, and drawing a line through a paragraph for deletion.  In \citet{Weibel2008}, strikethrough was also used for
-delete, but something similar to in/out marks was used for annotating a specific region.
+popular annotations. The other gestures included in/out marks and lasso for selection, and drawing a line through a
+paragraph for deletion.  In \citet{Weibel2008}, strikethrough was also used for delete, but something similar to in/out
+marks was used for annotating a specific region.
 
 There were mixed but strong opinions on whether it was better to select good content or remove bad content.  Most
 participants used a mixture of both approaches when undirected. Given the lack of consensus, it would be best to give
 producers the option to do both, but this raises the issue of what should happen when a word is both selected and
 deleted.  If one overrides the other, then it could function as an undo mechanism. The more conservative approach would
-be for selection to override deletion, so that speech can always be recovered. However the system does not delete any
-audio, so this is not a risk.
+be for selection to override deletion, so that speech can always be recovered. However the system does not actually
+delete any audio, so this is not a risk.
 
 Selection and deletion could be used together at different scales, where one is used to select/delete large chunks,
-then the other is used to refine the choise by selecting/deleting smaller words or chunks within the larger ones. In
+then the other is used to refine the choice by selecting/deleting smaller words or chunks within the larger ones. In
 our results, we saw that selecting large chunks is more popular than deleting large chunks. Also, there is likely to be
 more interest in removing individual words, such as for `de-umming', than there is for selecting individual words. For
 this style of use, it may be better for delete to override select.
-
-When underline is used to select content, it implies that everything else should be discarded except for the underlined
-parts. Alternatively, underline could be used to highlight parts of interest. In a later stage, the user could then
-choose to either keep everything except the deleted words, or to keep only the highlighted words minus the deleted
-words. This would give greater flexibility to different modes of use, like we saw in
-Section~\ref{sec:paper-proto-edit-gestures}.
 
 Most participants valued the additional features we tested -- speaker diarization, timestamps and confidence shading,
 but reported that timestamps on every line are unnecessarily frequent. During our testing, we also identified missing
 functionality for labelling, correction, highlighting and playback.
 
 % Missing features
-Handwritten text was also used to make
-corrections to the transcript, and to label parts of the transcript.
+%Handwritten text was also used to make
+%corrections to the transcript, and to label parts of the transcript.
 
 % labelling
 Three participants made notes on the side of the page to label their content or to make a note for themselves. Two of
@@ -682,22 +678,24 @@ Providing an inactive margin would allow users to make freehand notes without in
 
 % correction
 Two participants corrected words in the transcript by writing over or above the incorrect word. 
-Potentially users could write the replacement word in an active zone, but...
+Potentially users could write the replacement word in an active zone, but this would be incompatible with the underline
+or strikethrough gestures.
 
 % highlighting
-Most participants remarked that they normally mark important bits of the transcript, often with asterisks or
-stars. Underlining twice could also introduce a two-tier selection system.
-Possibly the side boxes could be used to rate or star a selection.
+Highlighting was a desired feature, and two participants suggested a double underline could be used, however this may
+be hard to detect. Alternatively, by giving the user an option to keep all of the content except for deleted words,
+underline could then be used to highlight parts of interest.  This would give greater flexibility to different modes of
+use.
+%Most participants remarked that they normally mark important bits of the transcript, often with asterisks or
+%stars. Underlining twice could also introduce a two-tier selection system.
+%Possibly the side boxes could be used to rate or star a selection.
 
 % playback
-Some participants expressed a desire to listen to the media from the paper interface, and this functionality has been
-shown to be useful in previous work. %TODO Reference
-An external device, such as a phone, computer or portable media player could be used to replay the audio while using
-the paper interface.
-
-Users could start playback by pressing a word with the digital pen. This could be
-achieved either by wirelessly linking the digital pen to a computer that plays the content, or by storing the audio on
-the pen itself similarly to the LiveScribe Sound
+Some participants expressed a desire to listen to the media from the paper interface, such as was possible in
+\citet{Fouse2011}.  An external device, such as a phone, computer or portable media player could be used to replay the
+audio while using the paper interface.  Users could start playback by pressing a word with the digital pen. This could
+be achieved either by wirelessly linking the digital pen to a computer that plays the content, or by storing the audio
+on the pen itself similarly to the LiveScribe Sound
 Stickers\footnote{\url{http://store.livescribe.com/sound-stickers-1-1.html}}.
 
 % natural annotation:
@@ -727,9 +725,10 @@ Stickers\footnote{\url{http://store.livescribe.com/sound-stickers-1-1.html}}.
 %These systems do not provide the user with any pre-written notes.
 %Our system uses speech-to-text to generate a transcript, which the user can
 %then annotate further.
-The participants used a variety of techniques to annotate the transcripts, but underline, strikethrough and lines down
-the side were common. There were strong but mixed opinions on whether selection of desired material, or removal of
-unwanted material, was the best approach to use for editing, so we decided to make both options available.
+
+%The participants used a variety of techniques to annotate the transcripts, but underline, strikethrough and lines down
+%the side were common. There were strong but mixed opinions on whether selection of desired material, or removal of
+%unwanted material, was the best approach to use for editing, so we decided to make both options available.
 
 %TODO What happens when underline and strike same word?
 
@@ -742,7 +741,7 @@ unwanted material, was the best approach to use for editing, so we decided to ma
 %TODO Underline/strikethrough interaction
 
 
-Using the feedback gathered from our requirements gathering, we designed and implemented a working prototype of the
+Using the feedback gathered from our paper prototyping, we designed and implemented a working prototype of the
 paper-based semantic speech editing system. To build our system, we collaborated with Anoto to use their Live Forms
 platform. We integrated the paper interface with an updated version of our screen-based semantic speech editor, so that
 it could support audio input and output.  In this secton, we will explain the design of the paper-based interface and
@@ -752,36 +751,36 @@ its functionality, and the updates we made to the screen-based interface.
 
 We used the results of our paper prototyping experiment to inform the design of the interface for our paper-based
 semantic speech editor. We will explain the design choices that we made, describe the layout and functions of the final
-system, and show how we added audio input and output by integrating it with our screen-based interface.
+system, and show how we handled audio input and output by integrating it with our screen-based interface.
 
 \subsubsection{Design decisions}
 
 We chose to use three methods for selecting and deleting material - underline, strikethrough and line down the side.
 We did not include in/out marks, lasso or drawing a line through a paragraph as these were not as popular, and would
-have been much harder to detect using the Anoto Live Forms system.
+have been difficult to detect using the Anoto Live Forms system.
 
 We included speaker diarization and confidence shading, as the majority of participants in the paper prototype found
 these valuable. We also chose to keep timestamps, but opted to reduce the frequency to one timestamp per paragraph,
-rather than on every line. We expected this to provide a sufficiently narrow search reason without occupying more space
-than necessary.
+rather than on every line. We expected this to provide a sufficiently narrow search area without cluttering the page.
 
-We added a margin to allow users to write freehand notes without the risk of accidentally editing the audio. We did
-this by drawing a rectangular box on the right side to indicate where the user could safely write.
-We set the margin to be approximately 25\% of the width of the page, based on informal feedback from producers.
-For the margin, we decided to allow users to draw freehand in the margin, rather than attempt to structure and capture
-these annotation. We did this because of the variety of annotations and techniques producers use for annotations.
+We added an inactive margin to allow users to write freehand notes without the risk of accidentally editing the audio.
+We did this by drawing a rectangular box on the right side to indicate where the user could safely write.  We set the
+margin to be approximately 25\% of the width of the page, based on informal feedback from producers.  For the margin,
+we decided to allow users to draw freehand in the margin, rather than attempt to structure and capture these
+annotation. We did this because there were a wide variety of annotations and techniques that producers use for
+annotations.
 
 In the paper prototyping experiment, we saw that some participants wrote corrections on or above wrongly transcribed
 words. However, we chose not to include any correction functionality, partly due to the limitations of the Live Forms
-system, and partly to keep the interface simple. The active zones on or below each word could be used to write
-corrections, but this would prevent underline or strikethrough gestures being used. The correct word would have to be
-written within these active zones, which are quite small. Corrections often span more than one word, which would be
+system, and partly to keep the interface simple. The active zones on or below each word could have been used to write
+corrections, but this would prevent underline or strikethrough gestures being used. The correct word would also have to
+be written within these active zones, which are quite small. Some corrections span more than one word, which would be
 difficult to detect.
 
 We did not include any linked playback features as this would require a live wireless link between the pen and a
-playback device. The system we used to build our system only operated in batch mode, where the pen must be
+playback device. We only had access to the Anoto Live Forms system that operated in batch mode, where the pen must be
 connected to a dock to upload the recorded gestures. Although this prevented the user from navigating the audio using
-the pen, they could of course replay the audio on a separate device and use the timestamps to navigate to the correct
+the pen, they could still replay the audio on a separate device and use the timestamps to navigate to the correct
 location.
 
 \subsubsection{System description}
@@ -807,34 +806,36 @@ Figures~\ref{fig:paper-interface-diagram} and \ref{fig:paper-interface-example} 
 \end{figure}
 
 For each word in the transcript, two rectangular active zones are defined on the page -- one on the word itself and
-another in the space directly below the word.  Any marks made on or below the word label that word as `deleted' and
-`selected', respectively.  This allows the user to use a digital pen to delete words using a strikethrough, or to
-select words by underlining.  The zone below is lightly shaded so that the user can see where the boundary lies between
-the two regions.
+another in the space directly below the word.  Any marks made on or below the word label that word as `deleted' or
+`selected', respectively.  This allows the user to use a digital pen to mark words as deleted using a strikethrough, or
+to mark words as selected by underlining.  The zone below is lightly shaded so that the user can see where the boundary
+lies between the two regions.
 
 For selection by drawing a line down the side, we opted to draw a long thin rectangle from the top to the bottom of the
 page to the right of the transcript, rather than draw individual square boxes at the end of each line. We did this to
 save some space, and to align with how the participants used the paper prototype.
 
-The paper must be annotated using an Anoto Live Pen 2. This records the gestures made by the users digitally on the
-pen.
-
 To include audio editing functionality with the pen system, we integrated it with a screen-based interface. A diagram
-of this integration is shown in Figure~\ref{fig:paper-screen-integration}. The screen
-was used for asset management, including uploading new content and printing the transcript, and for viewing/changing
-the edits made using the pen, and exporting the resulting audio or edit decision list.
+of this integration is shown in Figure~\ref{fig:paper-screen-integration}. The screen was used for asset management,
+including uploading new content, printing the transcript, viewing/changing the edits made using the pen, and exporting
+the resulting audio or edit decision list.
 
-When the pen is connected to its USB dock, the gestures are automatically uploaded to some Anoto software running
+The paper must be annotated using an Anoto Live Pen 2. This records the gestures made by the users digitally on the
+pen.  When the pen is connected to its USB dock, the gestures are automatically uploaded to Anoto's software running
 on the local computer, which processes the information from the pen. This is then sent to our server, which creates an
 edited version of the transcript. This can then be accessed through the screen interface.
 
 In addition to creating an edited version of the transcript, a PDF document of the transcript with the user's
-annotations is created. This PDF can be viewed through the screen-based interface, so that they can refer to any notes
+annotations is created. This PDF can be viewed through the screen-based interface, so that they can view any notes
 they made in the margins.
 
 The user can export the audio from the edited transcript using the screen interface. Two types of export format are
 supported. The user can download an EDL of the edits for either the SADiE or StarTrack audio editing systems.
 Alternatively, they can download an edited version of the audio as a WAV file.
+
+Anoto wrote the software that draws the transcript onto the page, and the software that translates the pen annotations
+into structured data. These can be seen on the left side of the diagram in Figure~\ref{fig:paper-screen-integration}.
+We built the rest of the system, including the integration of the pen with the screen.
 
 \begin{figure}[ht]
   \centering
@@ -844,39 +845,37 @@ Alternatively, they can download an edited version of the audio as a WAV file.
 \end{figure}
 
 \subsection{Screen interface}
-We updated the screen-based interface used in Chapter 5 to integrate the changes suggested by our findings. This gives
-us something which we can compare the paper-based interface with.
+We updated the screen-based interface used in Chapter~\ref{chp:screen} to implement some of the
+changes suggested by our findings.
 The previous screen-based system is shown in Figure~\ref{fig:interface} on page \pageref{fig:interface}, and the
 updated interface is shown in Figure~\ref{fig:dialogger-interface} on page \pageref{fig:dialogger-interface}.
-The two major differences are that underline and strikethrough are used instead on drag-and-drop, and that only one
+The two major differences are that underline and strikethrough are used instead of drag-and-drop, and that only one
 recording can be edited at any one time.
 
-\subsubsection{Design decisions}
-
-We replaced drag-and-drop with an underline/strikethrough method for three reasons.
-Firstly, we found that there was not enough room to handle large clips, which was what most users were interested in.
-Secondly, we found that users mostly used the tools for rough editing, so weren't as interested in mixing different
-recordings together. This meant that we could concentrate on one file at a time.
-Finally, we wanted the edit scheme to match our paper-based interface, as this would allow us to compare the two
-modalities side-by-side.
+We replaced drag-and-drop with an underline/strikethrough method for three reasons.  Firstly, we found that there was
+not enough room to handle large clips, which was what most users were interested in.  Secondly, we found that users
+mostly used the tool for rough editing, so weren't interested in mixing different recordings together.  Finally, we
+wanted the edit scheme to match our paper-based interface, as this would allow us to compare the different modalities
+side-by-side, rather than different edit techniques.
 
 There were many other smaller changes we made to the interface. We added double-speed playback to allow users to listen
-faster than real-time, as requested by participant in our previous experiment. Previously, users could only make a
+faster than real-time, as requested by participants in our previous experiment. Previously, users could only make a
 single edit per project. For the updated version, we allowed users to make multiple different edits of the same
-recording by separating the original 'media' from the modified 'edits'. We also added a Save As button so that edits
-could be branched.
+recording by separating the original 'media' from the modified 'edits'. We used collapsible sidebars to store the
+media on the left and edits on the right. We also added a
+`Save As' feature so that edits could be branched.
 
-We adjusted the speaker diarization display using a line down the side of each paragraph, coloured by gender and with a
-label to the left to distinguish between speakers. We included confidence shading, but opted to use a dotted red
-underline to indicate low confidence in order to match the style of word processors, and also to make it clearer.
+We included speaker diarization using a line down the side of each paragraph, coloured by gender and with a label, and
+included confidence shading using a dotted red underline to indicate low confidence in order to match the style of word
+processors.
 
-\subsubsection{System description}
+%\subsubsection{System description}
 
-Users can login using their normal BBC account. They are then presented with the edit screen, which
-has hidden sidebars on the left and right. Media that is uploaded is stored on the left-hand side, and any edits are
-stored on the right-hand side. Edits can be exported either as an EDL or as an edited audio file. Users can only edit
-one recording at a time, and multiple recordings must be mixed together at a later stage. Speakers are shown by a line
-on the left of each paragraph, and any words with a low confidence are underlined with a dotted red line.
+%Users can login using their normal BBC account. They are then presented with the edit screen, which
+%has hidden sidebars on the left and right. Media that is uploaded is stored on the left-hand side, and any edits are
+%stored on the right-hand side. Edits can be exported either as an EDL or as an edited audio file. Users can only edit
+%one recording at a time, and multiple recordings must be mixed together at a later stage. Speakers are shown by a line
+%on the left of each paragraph, and any words with a low confidence are underlined with a dotted red line.
 
 \begin{figure}[p]
   \centering
@@ -904,82 +903,75 @@ on the left of each paragraph, and any words with a low confidence are underline
 \begin{figure}[p]
   \centering
   \includegraphics[width=0.4\columnwidth]{figs/discourse-download-pdf.png}
-  \caption{Close-up of the edits sidebar showing the button to export audio, and the option to download a PDF.}
+  \caption{Close-up of the edits sidebar showing a button to export audio, and a dropdown menu with the option to
+  download a PDF.}
   \label{fig:download-pdf}
 \end{figure}
 
 \section{Evaluation methodology}\label{sec:method}
 
-To compare the paper and screen interfaces, we designed and conducted a user study.
-The objective of our study was to 
+To compare the paper and screen interfaces, we designed and conducted a user study.  The objective of our study was to
+see whether professional radio producers could use a paper-based semantic speech editing interface as part of their
+workflow, and to understand how paper-based and screen-based interfaces differently affected this process.
 
 \subsection{Design and procedure}
-We ran a within-subjects user study in which we tested three different conditions: the pen interface, the screen
-interface and a normal printed transcript. The printed transcript acted as a control, and was inactive in the sense
-that it did not make use of the Anoto dot pattern technology.  The transcripts for all three conditions were generated
-by the same speech-to-text system. In this study, we did not want to test the impact of the transcript itself, but
-rather impact of the interface that is used to interact with the transcript.
+We ran a within-subjects user study in which we tested radio producers editing speech recordings under three different
+conditions: a digital pen interface, a screen interface and a normal printed transcript. The printed transcript acted
+as a control and was inactive, in the sense that it did not make use of the Anoto dot pattern technology.  The
+transcripts for all three conditions were generated by the same speech-to-text system. In this study, we did not want
+to test the impact of the transcript itself, but rather impact of the interface that was used to interact with the
+transcript.
 
-We recruited professional radio producers exclusively from BBC Radio so that we could take advantage of the access that
-was available to us. We recruited participants by sending an invitation by email to the current affairs, science and
+We recruited professional radio producers exclusively from BBC Radio so that we could take advantage of the access 
+available to us. We recruited participants by sending an invitation by email to the current affairs, science and
 documentaries teams in BBC Radio.  Through this, we recruited eight participants who had between 8 and 28 years
 experience of professional radio production, with a mean average of 16 years experience.
 
 %TODO Talk about length of recruitment, difficulty in completing study
 
-We asked each participant to provide the audio recordings from three recent interviews they had made, so that the
-content was genuine and fresh in their mind. We set a minimum duration of 20 minutes for each recording, as we found in
-our previous study that there was no much advantage in using transcript-based editors for short recordings.
+We asked each participant to provide audio recordings from three recent interviews they had made, so we could use
+content that was genuine and fresh in their mind. We set a minimum duration of 20 minutes for each recording, as we
+found in the study in Chapter~\ref{chp:screen} that there was not much advantage in using transcripts for
+short recordings.
 
 We divided our study into three stages, explained below:
 
 \paragraph{Stage 1: Training}
 
 Firstly, the participant was briefed on the study and asked to sign a consent form.  We then trained the
-participant on the paper and screen interfaces using a test recording.  The experimenter explained all of the features
+participant on the paper and screen interfaces using a test recording.  The investigator explained all of the features
 of the interfaces, and asked the participant to perform a sequence of actions based on a script. This allowed the
 participant to use and experience all of the features for themselves. The participants were given the opportunity to
-ask questions and play with each interface until they felt comfortable with how they worked and could be used.
+ask questions and play with each interface until they felt comfortable with using them.
 
 \paragraph{Stage 2: Observation}
 
-The second stage of the study was observing the participant edit three different recordings, each under one of the
-three conditions.  The order of the conditions was counterbalanced to avoid carryover effects.  The tasks performed by
-the participants overlapped with the work they needed to do already, which ensured that the tasks were genuine.  We
-needed to use different recordings for each condition to ensure the tasks weren't just being repeated, but we asked the
+The second stage of the study was observing the participant whilst they edited three different recordings, each under
+one of the three conditions.  The order of the conditions was counterbalanced to avoid carryover effects.  The editing
+tasks performed by the participants overlapped with the work they needed to do, which ensured that the tasks
+were genuine and part of a real production.  We needed to use different recordings for each condition, but we asked the
 participant to choose recordings from the same programme to ensure they were as similar as possible.
 
 The observation took place at the participant's normal work environment, which in all cases was at their desk in an
 open plan office. As the systems we built could be accessed using a web browser, the participant used their own
-computer and desk. We considered recording the task using a video camera, but chose not to as we wanted to run the
-study in the normal work environment. Due to the open-plan nature of the offices, this would have caused problems with
-information security.
+computer and desk. We considered recording the task using a video camera, but due to the open-plan nature of the
+offices, this would have caused problems with information security.
 
-During the observation, the experimenter sat beside the participant and made written notes detailing what the
-they were doing, and noting anything of interest. If the participant had any `down-time', the experimenter used this to
-clarify anything they didn't understand. Items of interest included:
-
-The specific items of interest at this stage include:
-\begin{itemize}[noitemsep]
-  \item Editing workflow
-  \item Tools used
-  \item Data generated
-  \item Usability challenges and problems
-  \item Navigation and edit actions
-  \item Time taken to complete tasks
-  \item Unexpected reactions
-  \item Unanticipated usage
-\end{itemize}
+During the observation, the investigator sat beside the participant and made written notes detailing their behaviour
+and noting anything of interest. If the participant had any `down-time', the investigator used this to clarify anything
+they didn't understand. Items of interest at this stage included editing workflow, tools used, data generated,
+usability challenges and problems, navigation and edit actions, time taken to complete tasks, unexpected reactions and
+unanticipated usage
 
 During each task, the experimenter kept track of how long it took the participant to complete the task, excluding any
-time not spent on the task at hand (e.g. phone calls, making tea). We also logged the length of each recording being
+time not spent on the task at hand (e.g. phone calls, making tea) and the length of each recording being
 edited.
 
 %TODO What was the expected result?
 
-After each task was completed, the experimenter asked the participant to fill out a questionnairre to measure the
-usefulness and usability of the interface using Perceived Usefulness \citep{Davis1989}, shown in
-Table~\ref{tab:usefulness}, and the Software Usability Scale \citep{Brooke1996}, shown in Table~\ref{tab:usability}.
+After each task was completed, the investigator asked the participant to fill out a questionnairre to measure the
+usefulness and usability of the interface. We chose to use Perceived Usefulness \citep{Davis1989}, shown in
+Table~\ref{tab:perceived-usefulness}, and the Software Usability Scale \citep{Brooke1996}, shown in Table~\ref{tab:sus}.
 Photographs were taken of the paper annotation and work environment, with the participant's permission.
 
 \begin{table}
@@ -1022,7 +1014,7 @@ Photographs were taken of the paper annotation and work environment, with the pa
 \end{table}
 
 After completing all of the tasks, we asked the participant to fill out a form to measure user preference. The form
-simply asked
+asked
 
 \textit{``Of the three systems you have just tried, which of them would you most prefer to continue
 using?''}
@@ -1042,7 +1034,7 @@ We asked the participant the following questions:
 {\singlespacing
   \begin{enumerate}
     \item Can you please describe your existing process for editing audio?
-    \item What did you like or dislike about the paper-based system?
+    \item What did you like or dislike about the pen-based system?
     \item What did you like or dislike about the screen-based system?
     \item What did you like or dislike about using normal paper?
     \item Overall, which of these systems would you most prefer to continue using, and why?
@@ -1052,33 +1044,33 @@ We asked the participant the following questions:
 The first question was included to understand more about the participant's current approach, in case that affected
 their preferences or usage of the systems.  The order of questions 2--4 were adjusted to match the order in which the
 conditions were presented to the participant.  The final question was identical to that asked at the end of Stage 2, so
-this gave the participant an opportunity to explain that decision.
+this gave the participant an opportunity to explain their decision.
 
 \subsection{Analysis}
 
 We performed both qualitative and quantitative analysis on the data we collected during our study.
 
 For the qualitative analysis, we transcribed all of the audio recorded during the interviews by using our screen-based
-interface to run speech-to-text and then correcting the words manually. This process produced 23,000 words of
-transcripts. Using grounded theory, the principal investigator then openly coded the transcripts using the RQDA
-software package. This produced 229 different codes. The principal investigator used mind-mapping software to group
-these codes into 15 categories, then grouped the categories into three high-level themes. RQDA was also used to extract
-representative quotes from the interviews to illustrate the points made.
+interface to run speech-to-text and then correcting the words manually. This process produced approximately 23,000
+words of transcripts. Using grounded theory, the principal investigator then openly coded the transcripts and
+observation notes using the RQDA software package. This produced 229 different codes. The principal investigator used
+mind-mapping software to group these codes into 15 categories, then grouped the categories into three high-level
+themes. For each category, we extracted representative quotes from the interviews to illustrate the key points made.
 
-During the study, we collected data about task duration, system preference, usefulness and usability.
-We plotted the task duration measurements against the duration of the audio being edited. For each condition, we drew
-the linear regression to see how the edit time is affected by longer or shorter recordings, and to compare the the edit
-time of the three conditions.
-The questionnaire data measuring the usefulness and usability were separately converted into scores between 0 and 100.
-This follows the procedure described in \citet{Davis1989} for usefulness, and \citet{Brooke1996} for usability.
-For the system preference data, we simply reported the count of the participants' preference for each system.
+During the study, we collected data about task duration, system preference, usefulness and usability.  We plotted the
+task duration measurements against the duration of the audio being edited. For each condition, we drew the linear
+regression to see how the edit time is affected by longer or shorter recordings, and to compare the the edit time of
+the three conditions.  The questionnaire data measuring the usefulness and usability were individually converted into
+scores between 0 and 100.  This follows the procedure described in \citet{Davis1989} for usefulness, and
+\citet{Brooke1996} for usability.  For the system preference data, we simply reported the count of the participants'
+preference for each system.
 
 \section{Study results}\label{sec:paper-results}
 
 In this section, we will present the qualitative results that emerged from the interviews with the participants,
-followed by the quantitative data that we also collected.  The codes that resulted from the analysis of the interview
-transcripts and observation notes are shown in Table~\ref{tab:paper-codes}. Three themes emerged from this coding
-process -- `editing', `transcript' and `listening' -- and these are presented below individually. 
+followed by the quantitative data that we also collected.  The themes and categories that resulted from the analysis of
+the interview transcripts and observation notes are shown in Table~\ref{tab:paper-codes}. Three themes emerged from
+this coding process -- `editing', `transcript' and `listening' -- and these are presented below individually. 
 
 \begin{table}[h]
   \centering
@@ -1166,17 +1158,16 @@ many of the participants reported that they opted to perform a multi-stage edit,
 first, and the less obvious ones are done later. This then allows them to spend more time focussing on the most
 difficult edits.
 
-P1 also reported that they use transcripts to go back after editing to ensure that nothing important was missed in the
-material they had not used.
+%P1 also reported that they use transcripts to go back after editing to ensure that nothing important was missed in the
+%material they had not used.
 
-\textit{``Sometimes I take a break from the screen and just have a look to check there's no crucial clips of bits of
-audio I might want to use that I haven't put in the script.''} (P1)
+%\textit{``Sometimes I take a break from the screen and just have a look to check there's no crucial clips of bits of
+%audio I might want to use that I haven't put in the script.''} (P1)
 
 P6 said they would have liked to perform multiple editing iterations using the pen interface, but were unable to using
 the current design. They suggested that it may be possible to use different colour pens for each iteration, so that
 they could be distinguished. For example, a red pen would show the edit gestures for the first iteration, blue for the
-second etc. Implementing this would require an easy way for swapping the ink in the pen, which is currently not
-possible without using tools.
+second etc. Implementing this would require an easy way for swapping the ink in the pen.
 
 % ROUGH EDIT
 P1, P6 and P8 reported that the systems we tested were best suited to doing a rough edit as the first stage.  They used
@@ -1186,16 +1177,16 @@ that they definitely were going to use.
 \textit{``This paper edit stage is normally what I do just as a rough first thing to do. It's not for when I'm actually
 editing the clips''} (P1)
 
-We identified two reasons which may make the interfaces less useful for the later stages of editing -- re-ordering and
-labelling.
+We identified two missing features which may make the interfaces unsuitable for the later stages of editing --
+re-ordering and labelling.
 
 % RE-ORDERING
 
-After rough editing their material, the participants wanted to order their selections into a rough narrative to see and
-hear how it would work. This is analagous to cut-and-paste in word processing, which many participants already use to
-play around with re-arranging pieces of the transcript in their script. The interfaces we tested were designed for the
-rough-edit stage, so did not allow the users to re-order content or mix content from different interviews. However,
-there appeared to be an appetite for using the interfaces to go beyond the rough edit stage.
+After rough editing their material, the participants wanted to order their selections into a rough narrative to play
+around with re-arranging pieces of the transcript to see and hear how they would work, similar to cut-and-paste in word
+processing.  The interfaces we tested were designed for the rough-edit stage, so did not allow the users to re-order
+content or mix content from different interviews. However, there appeared to be an appetite for using the interfaces to
+go beyond the rough edit stage.
 
 \textit{``Doing a cut which jumps from three different interviewees who are talking about the same topic that seems
 like the next natural step''} (P3)
@@ -1226,10 +1217,10 @@ save twenty minutes suddenly in a single go.''} (P3)
 
 \subsubsection{Edit decisions}\label{sec:paper-edit-decisions}
 
-It is already known that reading from paper rather than a screen improves comprehension, but P4, P5 and P8 reported
-that they could make editorial decisions faster and more easily on paper compared to the screen. The primary
-reasons cited for this were the reduced fuctionality of the interface, uninterrupted playback of the audio and edit
-gestures.
+It is already known that reading from paper rather than a screen improves comprehension, recollection, sense of
+structure and cross-referencing, but P4, P5 and P8 reported that they could make editorial decisions faster and more
+easily on paper compared to the screen. The primary reasons cited for this were the reduced fuctionality of the
+interface, uninterrupted playback of the audio, edit gestures and reading speed.
 
 P4 reported that the limitations of the pen-based interface made the decision-making process faster. Without the
 distractions of additional features such as correcting the transcript or navigating the audio, they were better able to
@@ -1240,30 +1231,27 @@ concentrate on deciding whether to keep or lose the piece of audio under conside
   %And so I was trying to approach it in several ways
   simultaneously correcting the transcript and trying to edit the content. [...]
   %and that's probably why it took as long.
-  With the pen, I couldn't edit the transcript so there's no point stopping and [...]
+  With the pen, I couldn't [correct] the transcript so there's no point stopping and [...]
   %also because I had a good
   %interviewee then I could just listen in real time. I knew roughly what I wanted him to say and 
   %I knew roughly where the good points were,
   so I could just listen through and then just go `no, yes, no, yes'.
 I don't think I've ever done an edit that fast, where it was literally real time, so that was quite pleasing.''} (P4)
 
-The screen interface we tested included integrated playback of the audio. Users could edit the transcript by using
-their mouse to drag from the start to the end of their selection, and applying underline or strikethrough to mark the
-words as selected or deleted. During playback, the audio would skip over any words marked as deleted.  If an edit was
-made to the transcript during playback, this caused the playback system to pause while it calculated and applied the
-audio edits.  The user had to manually restart the playback to keep listening.
+The screen interface we tested included integrated playback of the audio, which would skip over any words marked as
+deleted.  If an edit was made to the transcript during playback, this caused the playback system to pause while it
+calculated and applied the audio edits.  The user had to manually restart the playback to keep listening.
 
-By contrast, the pen interface did not include any integrated playback, so participants used a separate device to
-replay the audio. This meant that the playback was not affected when any edits were made using the pen. Furthermore,
-edits were made by drawing a line below or through the selection, which meant that the user could start to select or
-delete words as they were listening, without knowing where they would stop.  P4 and P8 said that these differences
-allowed them to edit as the audio played, in real time, without interruption.
+By contrast, the pen interface did not include any integrated playback and the participants used a separate device to
+replay the audio, so the playback was not affected when any edits were made using the pen. Furthermore, the user could
+start to select or delete words as they were listening, without knowing where they would stop.  P4 and P8 said that
+these differences allowed them to edit as the audio played, in real time, without stopping.
 
 \textit{``On the screen one, you're stopping and starting and it's slightly more cumbersome. I couldn't listen and edit
 at the same time, whereas I could listen and edit with the pen.''} (P8)
 
 Integrated playback is almost certainly a benefit, but interruptions to the playback risk slowing down the editing
-process. However, this problem is technical and could be solved to allow uninterrupted playback while editing on screen.
+process. However, this problem could be solved technologically to allow uninterrupted playback while editing on screen.
 
 %P7 felt that the pen system gave a different dynamic to the screen. They viewed the pen system as a way to make fast
 %decisions on whether to keep or remove something.
@@ -1284,23 +1272,15 @@ keep up with the playback on the screen made it more difficult to decide.
 everything', because you don't want to miss something.''} (P5)
 
 % physicality, finger pointing
-The ability to physically interact with the printed transcript may have also made it easier to follow than the
-transcript on the screen. P5 talked about how they use their finger to follow their position on the paper. Although the
-screen interface highlights the current playback position, the fact that it's being done for the user rather than by
-the user may impact on their ability to process the information.
+%The ability to physically interact with the printed transcript may have also made it easier to follow than the
+%transcript on the screen. P5 talked about how they use their finger to follow their position on the paper. Although the
+%screen interface highlights the current playback position, the fact that it's being done for the user rather than by
+%the user may impact on their ability to process the information.
 
-\textit{``I don't know why [the paper interface feels slower]. I wonder whether there's not a thing where
-  you've got your finger being able to run along the line and hear it with your ears, whereas on the screen you're not
-doing that in the same way. I'm not sure.''} (P5) 
+%\textit{``I don't know why [the paper interface feels slower]. I wonder whether there's not a thing where
+  %you've got your finger being able to run along the line and hear it with your ears, whereas on the screen you're not
+%doing that in the same way. I'm not sure.''} (P5) 
 
-The pen interface did not include any undo functionality, although the screen interface could be used to change the
-edits at a later stage. Although writing with a pen on paper is already considered permanent, it is common to undo
-mistake by scribbling out lines, for example. P3 and P6 said that they did not like that there wasn't any way to undo
-the edits using the pen. P6 suggested that the lack of undo functionality may influence their editing process by
-forcing them to be more decisive.
-
-\textit{``It's harder to say `oh no I've changed my mind, I want to go back', so you almost have to be much more
-decisive, which maybe is a good discipline.''} (P6)
 
 %The participants in our study reported that having a transcript aided the edit decision-making process in several ways.
 %It allowed them to save time by reading ahead and reading back.
@@ -1372,8 +1352,8 @@ of the audio was integrated into the interface, and they could correct and annot
 having to use separate systems for audio playback or word processing. The pen interface did not support integrated
 playback or correction while in use.
 
-The lack of integrated audio playback and navigation in the pen interface made it difficult for participants to
-interact with the audio content.  Although participants could use a separate playback device to navigate the audio,
+The lack of integrated audio playback and navigation in the pen interface made it more difficult for participants to
+navigate the audio content.  Although participants could use a separate playback device to navigate the audio,
 they either had to do this `blind', or use the timestamps on the transcript to guide themselves to the desired
 position. With the screen interface, participants could use the text to see where they were navigating to, making it
 much easier to move around non-linearly.  We observed that when using the pen interface, many participants chose to
@@ -1416,7 +1396,7 @@ home, to help them focus and get more work done.
 \textit{``I do go away from my desk. I find it useful to have thinking time away. [...] Sometimes I just like to have a
 break from the screen.''} (P1)
 
-P8 suggested that the pen interface was well-suited for travel, such as during commuting, which may provide an
+P7 and P8 suggested that the pen interface was well-suited for travel, such as during commuting, which may provide an
 opportunity to be productive in what would otherwise be considered downtime.
 
 \textit{``I'd probably spend a couple of days at home to get it into shape [because] it's quieter [...]
@@ -1425,8 +1405,9 @@ opportunity to be productive in what would otherwise be considered downtime.
   %couldn't you, because you can edit on a train. That would be more accurate... easier then editing on a train.
 or on a bus. You could do it anywhere as long as it's not too bumpy.''} (P8)
 
-P7 agreed, but thought that the screen interface would also work well. In either case, P7 said that noise-cancelling
-headphones would be necessary so that the audio could be heard clearly.
+P7 also thought that the screen interface could be useful for travel by using a laptop, or perhaps a tablet. This would
+have the advantage of integrated playback, but would require a bulkier and heavier device. In either case, P7 said that
+noise-cancelling headphones would be necessary so that the audio could be heard clearly.
 
 Comfort was another factor that participants mentioned. P5 did not enjoy spending too long sitting upright at their
 desk, and P7 cited comfort as a factor in where they prefer to work.
@@ -1438,11 +1419,13 @@ really have your work-life balance sorted, wouldn't it?''} (P7)
 \subsubsection{Pen}
 
 This section discusses the pros and cons of the pen interface, as reported by the participants in our study.
+Participants liked the simplicity of the interface and said it felt more precise, but had concerns about the
+inflexibility of the edit gestures, lack of undo and having to share the digital pen with others.
 
 % USER FRIENDLINESS
 
 P5, P6 and P8 felt that the pen interface was user friendly, intuitive and simple. It closely replicates the existing
-workflow of some producers and uses the same materials, which may have helped make some of the participants more
+workflow of some producers who already work on paper, which may have helped make some of the participants more
 comfortable.
 
 \textit{``It feels like you're working analogue, but you're actually working digitally. [...] It's nice to hold a pen
@@ -1454,14 +1437,14 @@ and go on real paper, which has the feel of every day life.''} (P7)
 The design of our pen interface forced users to select or delete content by drawing lines within strictly defined
 regions. The benefit of this design was that it was easily machine readable and could automatically edit the audio
 accurately. However, the inflexibility of this approach meant that users could not freely draw on the page, other than
-in the margin. P3, P5, P7 and P8 mentioned that they did not like having to draw within the fixed boundaries.
+in the margin. P3, P5, P7 and P8 mentioned that they disliked having to draw within the fixed boundaries.
 
 \textit{``[The pen interface] doesn't have the convenience of paper, which is that there's no real rules [and] you can
 write anywhere on the paper.''} (P3)
 
 In addition to restricting the gestures that users can make, the inflexibility of the system means that the gestures
 are interpereted explicitly. P3 and P7 were concerned about potential errors that could be introduced if the lines they
-were drawing strayed outside of these boundaries, which could lead to problems further down the line.
+drew strayed outside of these boundaries, as it could lead to problems further down the line.
 
 \textit{``If you're sloppy, then you're going to get a squiggle in the wrong area.''} (P7)
 
@@ -1474,10 +1457,10 @@ were drawing strayed outside of these boundaries, which could lead to problems f
 
 %TODO Examples of margin writing
 We included a margin on the right side of our page layout to allow users to make freehand annotations. All of the
-participants used margin to write labels about the content, and make notes for themselves. You can see examples of this
-in Figure X. We did not attempt to digitise these notes, as this would require them to be written in a more structured
-way. However, P3 would have like them to be transcribed and digitised along with the edits, as this would save them
-having to do this manually afterwards.
+participants used margin in some way, by writing labels about the content and making notes for themselves.  We did not
+attempt to digitise these notes, as this would require them to be written in a more formalised structured way. However,
+P3 said they would have like them to be transcribed and digitised along with the edits, as this would save them having
+to do this manually afterwards.
 
 %\textit{``you usually scribble in margin notes that go 'I don't need this, I need that' and 'where's this?'. Yeah, it's
 %all part of the building block of the programme''} (P7)
@@ -1492,21 +1475,30 @@ Participants could select words by underlining them, or select whole lines by dr
 that using the line down the side was a faster way to edit the speech, and that the precision was sufficient for
 doing a rough edit as they normally would.
 
-P8 felt as though
-the pen was more accurate than the screen. Although this is technically not the case, performing a physical underline
-gesture may be less cumbersome than using the mouse to highlight the words on the screen.
+%P8 felt as though
+%the pen was more accurate than the screen. Although this is technically not the case, performing a physical underline
+%gesture may be less cumbersome than using the mouse to highlight the words on the screen.
 
-P8 said they felt that the pen allowed them to be more precise than with the screen. This is technically not the case,
-as both of them are accurate to the word level. However, the action of physically underlining the word rather
-than using the mouse pointer to drag a selection might have felt more precise to them.
-
-\textit{``[The pen felt] more accurate first time round and therefore maybe you only have to do two takes rather than
-several. [...] You could get more precision I think.''} (P8)
+P8 said they felt that the pen allowed them to be more precise with their edits than with the screen. This is
+technically not the case, as both of them edit at the word level. However, the action of physically underlining the
+word rather than using the mouse pointer to drag a selection might have felt more precise to them.
 
 One possible reason for this is because the pen can be used to draw a selection as the user is listening, but on the
 screen, selection is a two-stage process where a button is pressed after the selection. Another possible reason is that
 the participant may have been more comfortable with making the selection using a physical pen rather than a mouse
-pointer.
+pointer.  This may result in time savings from having to make fewer edit iterations.
+
+\textit{``[The pen felt] more accurate first time round and therefore maybe you only have to do two takes rather than
+several. [...] You could get more precision I think.''} (P8)
+
+The pen interface did not include any undo functionality, although the screen interface could be used to change the
+edits at a later stage. Although writing with a pen on paper is already considered permanent, it is common to undo
+mistake by scribbling out lines, for example. P3 and P6 said that they did not like that there wasn't any way to undo
+the edits using the pen. P6 suggested that the lack of undo functionality may influence their editing process by
+forcing them to be more decisive.
+
+\textit{``It's harder to say `oh no I've changed my mind, I want to go back', so you almost have to be much more
+decisive, which maybe is a good discipline.''} (P6)
 
 % COST, SHARING
 
@@ -1537,17 +1529,17 @@ and the solution for many desks is that the headphones are actually bolted down.
 
 % PEOPLE
 
-Producing a radio programme is not a purely solo effort and requires input from many other parties. Most
-often, a producer will work with a presenter who is the voice of the show. They are usually involved in the
-editing to some degree, depending on their level of interest and availability.
+Producing a radio programme is not a purely solo effort and requires input from many other parties. A producer will
+almost always work with a presenter who is the voice of the show. They are usually involved in the editing to some
+degree, depending on their level of interest and availability.
 
-In addition to the presenter, the other people who may want to be involved in editing are assistant producers (although
-this was not common amongst the producers we worked with), contributors to the programme and third parties, such as an
-organisation that may have contributed to the production.
+In addition to the presenter, the other people who may want to be involved in editing are assistant producers (to help
+with bigger or time-critical programmes), contributors to the programme and third party organisations that
+may have contributed to the production.
 
 The involvement of other parties is usually to provide feedback on the edits the producer has made. Participants
 reported that this is done in the form of sharing notes through a word processor or on paper, or having a meeting to
-run through the current edit.
+review the current edit.
 
 % TRANSCRIPT
 
@@ -1556,20 +1548,19 @@ refer to.
 
 \textit{``Obviously, working from transcripts makes it easier to compare notes and sort of work as a team''} (P6)
 
-Text documents do not occupy must disk space, so can be transferred quickly and easily.
-They can also be annotated without any specialist software. Audio recordings often take up a lot of storage and are
-therefore more difficult to send to others. There is also not easy way for people to annotate audio recordings without
-specialist software installed.
+Text documents do not occupy much disk space, so can be transferred quickly and easily, and can also be annotated
+without any specialist software. Audio recordings can take up a lot of storage and are therefore more difficult to
+send to others. There is also not easy way for people to annotate audio recordings without using specialist software.
 
-\textit{``Whoever the presenter is and myself - we would have heard some of it and then we decide together on paper. As
-  they are writing the script, I'm editing the clips. I'm listening to it and sometimes I have to amend what we've
-decided on paper because it doesn't quite work. There's a sort of back and forth going on.''} (P6)
+%\textit{``Whoever the presenter is and myself - we would have heard some of it and then we decide together on paper. As
+  %they are writing the script, I'm editing the clips. I'm listening to it and sometimes I have to amend what we've
+%decided on paper because it doesn't quite work. There's a sort of back and forth going on.''} (P6)
 
 % PAPER
 
 Transcripts may be shared either on screen or on paper. When the people collaborating are in the same room, paper has a
-number of advantages. Pagination can make it easier to point at something as the reference points do not scroll as they
-do on screen. The physical nature of paper allows people to hand transcripts to one another.
+number of advantages.  The physical nature of paper allows people to hand transcripts to one another and point at
+things, and pagination means the reference points do not move as they do on a scrolling screen.
 
 \textit{``The way we're doing it is printing out our transcripts and we can all go `page fifteen' or you can
 use timecodes, but there's a common reference, whereas if you're just doing audio it's harder.''} (P6)
@@ -1580,10 +1571,11 @@ Collaborating using screen-based transcripts is a powerful way to work with peop
 \textit{``Keeping it all on screen makes it much easier to share and be collaborative with people who are not in the
 same room.''} (P3)
 
+P6 reported that they use Google Docs to allow them and their presenter to simultaneously write and edit the script.
 Services like Google Docs allow multiple users to work on the same document at the same time, even if they are on
-opposite sides of the world. P6 reported that they already use Google Docs for this reason. However, currently the text
-cannot be linked to media, so audio editing is unsupported. The same idea of collaborative simultaneous editing could
-be applied to media, which would allow two people to compare notes and edit the audio at the same time.
+opposite sides of the world.  However, currently the text cannot be linked to media, so audio editing is unsupported.
+The same idea of collaborative simultaneous editing could be applied to media, which would allow two people to compare
+notes and edit the audio at the same time.
 
 \textit{``I think of the three, [the screen] has the most potential to be a collaborative thing. I'm not quite sure how
   it would work out yet. [...]
@@ -1591,18 +1583,18 @@ be applied to media, which would allow two people to compare notes and edit the 
   Maybe if you could have two scripts side by side to have my transcripts with my bits highlighted and the presenters,
 with their bits highlighted.''} (P6)
 
-As it is paper-based, the pen interface does not support collaboration outside of the same physical space. However,
-it could still be used as part of the production, so long as it integrates with the collaborative tools.
+%As it is paper-based, the pen interface does not support collaboration outside of the same physical space. However,
+%it could still be used as part of the production, so long as it integrates with the collaborative tools.
 
-\textit{``I would say in that case if you're sharing with your presenters or contributors or production staff, then
-  you're going to be using the screen-based system. But you may have already used the pen to get to where you're
-getting.''} (P7)
+%\textit{``I would say in that case if you're sharing with your presenters or contributors or production staff, then
+  %you're going to be using the screen-based system. But you may have already used the pen to get to where you're
+%getting.''} (P7)
 
-% LISTENING
+%% LISTENING
 
-With both paper and screen collaboration, listening is not often central to the process. Decisions are often entirely
-based on the text. Integrating audio preview with a collaborative system may redress this balance by providing easy
-access to the audio.
+%With both paper and screen collaboration, listening is not often central to the process. Decisions are often entirely
+%based on the text. Integrating audio preview with a collaborative system may redress this balance by providing easy
+%access to the audio.
 
 \subsubsection{Annotation}
 
@@ -1611,8 +1603,8 @@ access to the audio.
 \begin{figure}[h]
   \centering
   \includegraphics[width=\columnwidth]{figs/pen-annotations-p5-cropped.jpg}
-  \caption{Annotation by P5 in which the content is segmented using horizontal lines and labels in the margin. The
-  middle segment is marked as removed using a diagonal line.}
+  \caption{Annotations made by P5. The content is segmented using horizontal lines and labels in the margin. The
+  middle segment is marked as not needed using a diagonal line.}
   \label{fig:p5-annotations}
 \end{figure}
 
@@ -1620,13 +1612,21 @@ access to the audio.
 
 Participants used a variety of annotations as part of their editing workflow. Most used some form of highlighting to
 select the parts they judged to be particularly good. Our system used an underline gesture to select words, but P1 and
-P6 both suggested that they would prefer using a highlighter pen style mark.
+P6 both suggested that they would prefer using a highlighter pen style mark.  This would also mean that the transcript
+wouldn't have to be double-spaced, but it would require a system that can distinguish between a strikethrough and
+highlight.
 
 \textit{``You did an underline, but I would like to have it as a highlighter pen as you've got that option on Word''}
 (P1)
 
-This would also mean that the transcript wouldn't have to be double-spaced, but it would require a system that can
-distinguish between a strikethrough and highlight.
+Participants used different marks to rate the importance of their selections, including stars and astericies, which we
+have seen previously. However, both P2 and P6 suggested using colours as a way of marking up different selections.
+Rather than using this just as a rating system (e.g. one is better than other), it could equally be used as a
+categorial system for whatever context is needed for that producer.
+
+\textit{``Maybe if you had different colours you could do your first one in red [then]
+  %and this was like kind of o.k. The first draft and you say okay, that I like. And then you'd go through it and somehow could
+change the colour and underline it a second time.''} (P6)
 
 % MARKING SPECIAL REGIONS
 
@@ -1645,34 +1645,24 @@ music reporting form.
 
 % COLOURS
 
-Participants used a variety of marks to rate the importance of their selections, including stars and astericies, which
-we have seen previously. However, both P2 and P6 suggested using colours as a way of marking up different selections.
-
-\textit{``Maybe if you had different colours you could do your first one in red [then]
-  %and this was like kind of o.k. The first draft and you say okay, that I like. And then you'd go through it and somehow could
-change the colour and underline it a second time.''} (P6)
-
-Rather than using this just as a rating system (e.g. one is better than other), it could equally be used as a
-categorial system for whatever context is needed for that producer.
 
 \subsubsection{Export}
 
-Both the screen and pen interfaces that we tested included a feature to export an edit decision list (EDL) of the
-user's edits to a DAW. This allowed the participants to make changes to their edits using their existing tools, and to
-integrate with their existing workflow.  P2 and P6 expressed frustration that annotations were not included in the
-export.
+Both the screen and pen interfaces that we tested included a feature to export an edit decision list (EDL) to a DAW.
+This allowed the participants to make changes to their edits using their existing tools, and to integrate with their
+existing workflow.  P2 and P6 expressed frustration that annotations were not included in the export.
 
 \textit{``Once you have put it into SADiE you have to [label the content] again. It's almost like you've gone forwards
 then you have to take half a step back and you lose a bit of momentum.''} (P2)
 
-If user annotations could be captured in a structured way, then they could be used to label the clips that are exported
+If user annotations could be captured in a structured way, then they could be used to label the clips 
 in the EDL.
 
 The other frustration with the export feature was that in the EDL, the selected clips were all pushed together without
 any gaps. P3, P5 and P6 said that they would like there to have been gaps between clips, so that it would be more
-obvious where the edits are when listening back. When editing using the normal printed transcript, P5 and P8 moved
-their selected clips to a different track (see Figure~\ref{fig:p5-screen}). This allowed them to see where the clips
-were in the original recording.
+obvious where the edits are when listening back. Instead of using gaps P5 and P8 moved their selected clips to a
+different track in the DAW (see Figure~\ref{fig:p5-screen}) when editing with the normal printed transcripts. This
+allowed them to see where the clips were in the original recording.
 
 \begin{figure}[h]
   \centering
@@ -1692,44 +1682,43 @@ were in the original recording.
 
 The screen interface allowed users to correct words by editing the transcript. The normal paper allowed users to write
 anywhere on the page, which could be used for correction, but the pen interface restricted users to writing in the
-margin.  Five participants (P1, P2, P3, P4 and P7) corrected words while using the screen interface, compared to three
-(P1, P2, P3) who made corrections on the normal printed transcript. The participants were unable to make corrections
-using the pen interface, but P3 used the margin to write some corrections. 
+margin.  Five participants (P1, P2, P3, P4 and P7) corrected words while using the screen interface, three (P1, P2, P3)
+made corrections on the normal printed transcript.  One participant (P3) used the margin to write some corrections with
+the pen interface.
 
-Users are able to first correct the transcript using the screen interface before moving to the pen or printed
-transcript.  This would change the workflow into a two-stage process of correction and editing, rather than a mixture
-as it currently is. P3 said that they would rather do both tasks simultaneously.
+To get around the limitations of the pen interface, users could first correct the transcript using the screen interface
+before moving to the pen or printed transcript.  This would change the workflow into a two-stage process of correction
+and editing, rather than a mixture as it currently is. P3 said that they would rather do both tasks simultaneously.
 
 \textit{``If I was given a magic pen and told to work this way I would end up doing a whole transcription correction
   process on the screen and probably just through impatience I would then start immediately selecting bits that
   are interesting for me. [...] I want to be able to do that all in one and I can't see a way of doing that with the
 pen process at the moment.''} (P3)
 
-Only one of the eight participants (P1) said that they wanted to correct all of the mistakes in the transcript. The
-reason they gave for fully correcting the transcript at the beginning was that it would save time later on. However,
-we observed that the rest of the participants chose only to correct errors that impacted on their ability to read the
+We observed that all of the participants chose only to correct errors that impacted on their ability to read the
 transcript, or caused them to be distracted.
 
 \textit{``It's good to have the option to sharpen it up as you go along because, obviously, reading back it'll slow
 you down if it's completely the wrong word.''} (P2)
 
-P7 said that fully correcting the transcript would only be necessary if the transcript was going to be
-published, or if it was requested for legal reasons. They said that correcting the transcript amounted to nothing more
-than pedantry, and was therefore an unnecessary part of the editing process.
+Only one of the eight participants (P1) said that they were interested in correcting all of the mistakes in the
+transcript, because doing so would save time later on.  P7 said that fully correcting the transcript would only be
+necessary if the transcript was going to be published, or if it was requested for legal reasons, but otherwise thought
+it to be unnecessary.
 
 \textit{``I would say [correction is necessary] only for a final transcript, or for a transcript that could have legal
   implications or factual implications where if the words are very wrong [...]
   %and you're trying to distribute that as some kind of material,
 then it's going to create problems for you.''} (P7)
 
-If the transcript is fully corrected at the start, then there is a risk that some of it will be immediately discarded,
-whereas the decision to discard it could have been made without it being corrected.
+If time is invested to fully correct the transcript at the start, then there is a risk that some of it will be
+immediately discarded, whereas the decision to discard it could have been made without it being corrected.
 
 
 % REPEAT ERRORS
 
 Often, the speech-to-text system would make repeated mistakes on an unknown word that came up multiple times during the
-interview. During our observation, this often occured with uncommon names of people that were mentioned in the
+interview. We observed that this often occured with uncommon names of people that were mentioned in the
 interview. P3 showed an interest in being able to correct these repeated errors efficiently, such as a find/replace
 operation. However, the words were usually mistranscribed as a variety of different words, which makes the task more
 complicated than a simple replacement.
@@ -1740,7 +1729,7 @@ complicated than a simple replacement.
 Correction only usually happens after the speech-to-text process has completed, but tying the correction process back
 into the speech-to-text system may provide opportunities to improve the transcript quality.  P3 and P7 asked whether it
 would be possible to provide some sort of custom training to the speech-to-text system to increase the accuracy for
-their specific context. For example, if the producer informs the speech-to-text system about the topic of the
+their specific programme. For example, if the producer informs the speech-to-text system about the topic of the
 programme, then it could expand its vocabulary to include words related to that subject, or weight existing words as
 being more likely to occur. This could also be used to assist the speech-to-text system in correctly transcribing the
 names of contributors, or people mentioned in the interview, which would otherwise be unknown and therefore
@@ -1760,10 +1749,9 @@ systems were both based on the same framework (Kaldi) so performed similarly, an
 reported similar weaknesses to participants in the previous study.
 
 All of the participants were successfully able to use the transcript to edit their material as part of the production
-of their radio programme. All of the participants reported that the transcripts were sufficiently accurate for the
-purpose of editing their content. Similarly to the study in Chapter~\ref{chp:screen}, the most common complaints were
-of reduced accuracy due to heavy accents or background noise, and problems with speaker diarization and confidence
-shading.
+of their radio programme, and all reported that the transcripts were sufficiently accurate for the purpose of editing
+their content. Similarly to the study in Chapter~\ref{chp:screen}, the most common complaints were of reduced accuracy
+due to heavy accents or background noise, and problems with speaker diarization and confidence shading.
 
 When we started the experiment, P7 had already been using a speech-to-text system to generate their transcripts. Based
 on his experience, he reported that the accuracy of the transcript was affected by formality of speech, background
@@ -1816,10 +1804,11 @@ decisions, causing them to make rougher edits than would otherwise be the case w
 \textit{``The English was a bit confusing so I felt on that one, I could only do quite gross editing, topping and
 tailing and taking chunks out.''} (P8)
 
-P7 and P8 pointed out that because they can use their memory to make up for the mistakes in the transcript,
-the transcript becomes less useful over time. This, in effect, gives automated transcripts a `shelf-life' of usefuless,
-during which the producer can remember enough of the interview recording to make up for the inaccuracies. After a
-while, the producer may need to correct the transcript before being able to use it.
+P7 and P8 pointed out that they can use their memory to make up for the mistakes in the transcript.  As the producer's
+memory fades, then the readability of the transcript will be reduced, and the less accurate a transcript is, the more
+of a problem this will be.  In effect, this gives automated transcripts a `shelf-life' of usefuless, during which the
+producer can remember enough of the interview recording to make up for the inaccuracies. After a while, the producer
+may need to correct the transcript before being able to use it.
 
 \textit{``The fact that it wasn't very accurate in places made it difficult [partly because] it's been a long time
 since I did those interviews. Normally it wouldn't be such a big break between recording and editing them.''} (P8)
@@ -1829,22 +1818,24 @@ since I did those interviews. Normally it wouldn't be such a big break between r
 The participants in this study re-iterated what was said in Chapter~\ref{chp:screen} regarding their frustration with
 manual transcription and the benefits of having the transcript automatically generated.  One of the participants (P7)
 reported that they already make regular use of a commercial speech-to-text system called `VoiceBase' to automatically
-generate transcripts. They said that in addition to saving them having to write it themselves, it also helped them to
+generate transcripts. The transcripts are accessible through an online interface that includes integrated playback and
+transcript navigation. They said that in addition to saving them having to write it themselves, it also helped them to
 share transcripts with third parties. P5 had previously tried a different commercial system called `Trint', but could
-not continue due to the cost. None of the other participants reported as having used automatic transcripts as part of
+not continue due to the cost. None of the other participants reported having used automatic transcripts as part of
 their existing workflows.
 
 P1 and P3 stated that they thought the automatic transcript itself was the largest benefit of the semantic speech
-editing systems.  Although not stated as explicitly, the remaining participants suggested that the transcript
-generation was a primary benefit of the systems we tested.
+editing systems.
+%Although not stated as explicitly, the remaining participants suggested that the transcript
+%generation was a primary benefit of the systems we tested.
 
 \textit{``The transcription thing is for me is eighty percent of the advantage.''} (P3)
 
-P4 reported that they are normally not able to use a transcript due to time constraints. Access to affordable
-speech-to-text would solve this problem.
+%P4 reported that they are normally not able to use a transcript due to time constraints. Access to affordable
+%speech-to-text would solve this problem.
 
-\textit{``Almost all the time I don't have [a transcript] purely because it takes too much time to transcribe stuff.''}
-(P4)
+%\textit{``Almost all the time I don't have [a transcript] purely because it takes too much time to transcribe stuff.''}
+%(P4)
 
 P8 stores the transcripts that they create because they sometimes find them to be useful later on. Ocassionally they
 will go back to use parts of recordings they have made previously for their current programme.
@@ -1879,10 +1870,10 @@ is and I'll go back and take some chunks out of that.''} (P8)
 
 P1 worked on programmes for the BBC World Service, which covers current affair stories around the world.  They often
 have to deal with recordings of speech in foreign languages, which is especially tricky when they don't speak the
-language. P1 said that their department spends money on translation services to help with this process. The recordings
-are then normally sent to a colleague who can translate the audio, and provide a recorded translation of the parts the
-producer is interested in using. These are then dubbed over the original recording. However, it can be difficult to
-know where to position the translation over the original, as there are no timing references provided.
+language.  The recordings and translation are then normally sent to a colleague who can record translated speech of the
+parts the producer is interested in using. These are then dubbed over the original recording. However, it can be
+difficult to know where to position the translation over the original, as there are no timing references provided.  P1
+said that their department spends money on translation services to help with this process.
 
 \textit{``This department doesn't realise how much money they spend on [...] the translation that we get done. I don't
 know if you can do this in a different language?''} (P1)
@@ -1899,8 +1890,8 @@ Translate doesn't make any sense at all.''} (P1)
 % DETECTING NON-SPEECH
 
 The transcript did not include umms or breaths, but P7 and P8 showed an interest in being able to use the transcript to
-de-umm the content. The speech-to-text system we used was trained to ignore umms and breaths, but sometimes they were
-transcribed into various incorrect words.
+de-umm the content. Typically, speech-to-text systems are trained to ignore umms and breaths, but when they do get
+transcribed, they appear as a variety of different words.
 
 \textit{``I think you could de-umm it very quickly, which is something we spend a lot of our time doing.  It's quite
 funny working out what the umms were, because they are all sorts of different words.''} (P8)
@@ -1914,7 +1905,8 @@ umms and breaths, rather than attempting to ignore them.
 
 Most participants commented that working with paper had a number of benefits to their workflow. P1, P2, P6 and P7 said
 that it was easier on the eye and gave them a break from working on screen. P2, P5 and P8 said they found it easier to
-read from paper than screen. P2, P5 and P7 enjoyed that paper was a physical, tangible medium which they could touch.
+read from paper than screen. P2, P5 and P7 said they enjoyed that paper was a physical, tangible medium which they
+could touch.
 
 % memory
 P8 reported that they found it easier to remember the content of the transcript when reading on paper rather than a
@@ -1932,6 +1924,7 @@ relevant information better from printed text than digital text.
 
 \textit{``I find it easier to read off paper, and easier to remember stuff.''} (P8)
 
+P1 and P5 commented that using paper transcripts made it easier for them to orientate themselves, and
 P1 thought that the paper interface allowed them to think more widely.
 
 \textit{``It's essential to print. [...]
@@ -1943,15 +1936,13 @@ P1 thought that the paper interface allowed them to think more widely.
 that I know where everything is.''} (P1)
 %for when it comes to me actually using one of the bits. that I want
 
+This is likely due to the difference in technique for handling large bodies of text. Paper uses pagination to break the
+text up into fixed chunks, wheras screen using a scrolling body of text. Scrolling interfaces have fewer points of
+reference, which can make it difficult to orientate and navigate.  Screens have a limited amount of space in which to
+display the text, so use scrolling to display large amounts of text.  P1 and P7 were frustrated by the limited space
+offered by the screen, which caused them to have to 'flick through' different windows.
 
 % ORIENTATION
-P1 and P5 commented that using paper transcripts made it easier for them to orientate themselves. This is likely due to
-the difference in technique for handling large bodies of text. Paper uses pagination to break the text up into fixed
-chunks, wheras screen using a scrolling body of text. Scrolling interfaces have fewer points of reference, which can
-make it difficult to orientate and navigate.
-Screens have a limited amount of space in which to display the text, so use scrolling to display large amounts of text.
-P1 and P7 were frustrated by the limited space offered by the screen, which caused them to have to 'flick through'
-different windows.
 
 \textit{``I think I just prefer to have a printed version. I find it kind of easier to have that to hand all the time,
 rather than having to flick through screens all the time, back and forth through screens.''} (P1)
@@ -1967,7 +1958,7 @@ you think, `this is not new to me', even if it feels new, I've been over this be
 
 % PRINTING AND WASTE
 
-The physical nature of paper presents some well-understood challenges that are distinct from the screen interface.
+The physical nature of paper also presents some well-understood challenges that are distinct from the screen interface.
 Often transcripts can be very long, so printing them requires a large amount of paper. P2 used quite a long recording
 for the experiment, which resulted in over 50 sheets of paper being printed. Although waste paper is recycled at the
 BBC, it is still much more wasteful than using a screen interface.
@@ -1989,7 +1980,7 @@ printing is not uncommon and colour laser printers are already commonplace withi
 %Although an edit may work well based on the transcript, it may not sound correct when you hear the audio. There are a
 %number of reasons for this, and the participants were listening to the audio to try and avoid these situations.
 
-We found in Chapter~\ref{chp:screen} that listening is an important part of the editing process, and so we are
+We found in Chapter~\ref{chp:screen} that listening is an important part of the editing process, and so we were
 interested to understand why it is so important. In this study, all of the participants chose to listen to the audio
 while editing with the transcripts. In our interviews with the participants, they cited three reasons that listening
 was necessary: processing information, judging quality and identifying non-speech sounds.
@@ -2014,7 +2005,7 @@ they needed to listen to the audio as the transcript was insufficient on its own
 
 One practical benefit of combining listening and reading is that the mistakes in the transcript can be identified or 
 ignored, depending on the goal.  P1 and P6 said this helped them to find where corrections needed to be made to the
-transcript to make it readable for others. Also, as P1 pointed out, sometimes the transcript shows a word that is
+transcript to make it readable for others. Also, P1 pointed out that sometimes the transcript shows a word that is
 actually inaudible or not present. Mistakes such as these need to be identified early on so that there is time to fix
 them.
 
@@ -2069,7 +2060,7 @@ usually not apparent that they exist without listening to the audio.
 
 Finally, the participants were also interested in identifying non-speech sounds. Although speech-based radio programmes
 are primarily concerned with voice, they are often mixed in with environmental sounds and music to enrich the listening
-experience. Some producers even prefer to conduct their interviews outside of recording studios, as it can give the
+experience. Some producers prefer to conduct interviews outside of recording studios, as it can give the
 programme more life. However, this could cause problems with speech-to-text systems and make it more difficult to edit
 together later.
 
@@ -2130,44 +2121,79 @@ reasons.
 underline your key bits -- but it's also a clerical thing that takes a lot of time, which we don't really have.''} (P2)
 
 Although removing the requirement to manually transcribe recordings reduces the burden on producers, there is a risk
-that it takes away the opportunity to re-listen to material. This may introduce an unintended negative impact in that
+that it takes away an opportunity to re-listen to material. This may introduce an unintended negative impact in that
 edit decisions are based more on the words that were spoken and less on how the sound and auditory experience.
 
 % THINKING/BUFFERING
 
-In the existing workflow, P7 de-ummed the audio as they listened to it. They reported that they did so because, for
-them, de-umming performed a similar function to `umm'ing itself, in that it gave their mind an opportunity to buffer.
-This helps them to process and retain the information they are hearing.
+%In the existing workflow, P7 de-ummed the audio as they listened to it. They reported that they did so because, for
+%them, de-umming performed a similar function to `umm'ing itself, in that it gave their mind an opportunity to buffer.
+%This helps them to process and retain the information they are hearing.
 
-\textit{```Umming' is a way of the mind buffering and `de-umming' is also a way of the mind buffering whilst you edit.
-You waste 45 seconds or whatever on a de-umm, but you don't actually waste it as you're listening to the audio.''} (P7)
+%\textit{```Umming' is a way of the mind buffering and `de-umming' is also a way of the mind buffering whilst you edit.
+%You waste 45 seconds or whatever on a de-umm, but you don't actually waste it as you're listening to the audio.''} (P7)
 
 \subsubsection{Listening navigation}
 
-P4 talked about how they used the timestamps written on the page to navigate forwards or backwards. This is a step up
-from their existing workflow where they have to do this without the timestamps. However, they pointed out that this
-would be much simpler if the audio could be navigated using the pen interface.
+P2, P4, P5 and P7 spoke of how they used listening in combination with the transcript to efficiently navigate and edit
+the audio. Participants reported that they used the transcript as a guide for skipping forwards when what they were
+hearing was not usable. Having the transcript made it easier for them to work out precisely where to jump to. Without
+the transcript, they would have to guess how far to jump, which is much less efficient.
 
-P2 also reported that they used their memory to skip parts that they remembered were not worth using.
+\textit{``It does save you time I think, when you are listening and reading at the same time, you think
+  `oh, I remember this stage of the interview -- absolutely useless', and so you just go ahead a few pages and
+find where it got good again.''} (P2)
+
+The transcript was also useful when jumping backwards, to review content that had already been listened to. This was
+sometimes done for more complex editing in which different parts of the recording are pieced together. 
+The lack of integrated playback in the pen interface made this more difficult.
+
+\textit{``I had to go back several times to see if I could match something from the end of his answer to the beginning [...]
+  That kind of jumping around wouldn't be possible [...]
+  %with I mean it would be possible
+with the pen because of the way I was listening.''} (P4)
+
+%\textit{``If it got a bit waffly then I'd start looking at the transcription and [...]
+  %%think `okay how much longer is this going to go on?', um o.k. It goes on for another two minutes so Right, well I'll
+%just skip ahead to the next question.''} (P4) 
+
+Having the transcript available also allowed the participants to see if the upcoming audio was something of interest.
+If it wasn't, then they could avoid listening to it altogether, which would save them time.
+
+\textit{``You can glance at the transcript and just see there's a paragraph of stuff that really is not really relevant
+  %. Even though it's quite interesting. So you can glance down. See that summarise it's about a giraffe and you want
+  %stuff on A rhino
+[...] and just discount it, whereas with your ears you've got to listen to the whole thing.''} (P5) 
+
+As was seen in Chapter~\ref{chp:screen}, most participants increased the playback speed when listening using the screen
+interface or their DAW to skip through material they thought they might not want to use.
+
+\textit{``If you know it's going to be a boring bit, you can just go fast.''} (P8)
+
+%P4 talked about how they used the timestamps written on the page to navigate forwards or backwards. This is a step up
+%from their existing workflow where they have to do this without the timestamps. However, they pointed out that this
+%would be much simpler if the audio could be navigated using the pen interface.
+
+%P2 also reported that they used their memory to skip parts that they remembered were not worth using.
 
 \subsection{Metrics}
 
 % Preference
-\subsubsection{Preference}
+\subsubsection{Preference}\label{sec:pen-preference}
 
 Directly after each participant completed the three tasks, we asked them to select which of the interfaces they would
-prefer to continue using. As shown in Figure~\ref{fig:preference}, four of the eight participants chose the pen
+prefer to continue using. As shown in Figure~\ref{fig:pen-preference}, four of the eight participants chose the pen
 interface, with two (P3 and P6) choosing the screen and two (P1 and P4) choosing the normal paper transcript.
 
-Although we expected participants to be split between the paper and screen interfaces, we did not expect anybody to
-prefer the normal transcript, as it did not include any semantic editing functionality.  Both P1 and P4 preferred the
-normal paper transcript because it allowed them to continue to use their existing workflow, which they found easiest
-and most comfortable.
+Although we expected that participants may be split between the paper and screen interfaces, we did not expect anybody
+to prefer the normal transcript, as it did not include any semantic editing functionality.  Both P1 and P4 preferred
+the normal paper transcript because it allowed them to continue to use their existing workflow, which they found
+easiest and most comfortable.
 
 \textit{``I can retro fit it into the way that I currently work most easily because it is essentially the same way that
 I do work, but with an extra paper transcript.''} (P4)
 
-\textit{``That is the most natural to me that is what I felt most comfortable with doing.''} (P1)
+%\textit{``That is the most natural to me that is what I felt most comfortable with doing.''} (P1)
 
 The paper transcript allowed participants to use their existing tools, which they used regularly, and therefore could
 achieve the same objective without having to learn how to use new systems or interfaces. Although the normal printed
@@ -2175,9 +2201,9 @@ transcripts did not include any features other than the transcript itself, the f
 prefer to use it demonstrates the value of the transcript itself and the familiarity with the toolset.
 
 \begin{figure}[p]
-  \begin{subfigure}[b]{0.5\textwidth}
+  %\begin{subfigure}[b]{0.5\textwidth}
     \centering
-    \resizebox{\linewidth}{!}{
+    %\resizebox{\linewidth}{!}{
       \begin{tikzpicture}
         \begin{axis}[
           ybar,
@@ -2192,34 +2218,34 @@ prefer to use it demonstrates the value of the transcript itself and the familia
           \addplot coordinates {(Paper,4) (Screen,2) (Normal,2)};
         \end{axis}
       \end{tikzpicture}
-    }
-    \label{fig:preference}
+    %}
     \caption{System preference}
-  \end{subfigure}
-  ~
-  \begin{subfigure}[b]{0.5\textwidth}
-    \centering
-    \resizebox{\linewidth}{!}{
-      \begin{tikzpicture}
-        \begin{axis}[
-          ybar,
-          ymin=0,
-          enlarge x limits=0.5,
-          legend style={at={(0.5,-0.15)},anchor=north,legend columns=-1},
-          ylabel={Edit time/Audio duration},
-          symbolic x coords={Paper, Screen, Normal},
-          xtick=data,
-          nodes near coords,
-          ]
-          \addplot coordinates {(Paper,0.8295) (Screen,0.9890) (Normal,0.9867)};
-        \end{axis}
-      \end{tikzpicture}
-    }
-    \label{fig:paperspeed}
-    \caption{Mean edit time, relative to the duration of the audio being edited. There is no statistically significant
-    difference between the times.}
-  \end{subfigure}
-  \caption{Comparison of metrics}
+    \label{fig:pen-preference}
+  %\end{subfigure}
+  %~
+  %\begin{subfigure}[b]{0.5\textwidth}
+    %\centering
+    %\resizebox{\linewidth}{!}{
+      %\begin{tikzpicture}
+        %\begin{axis}[
+          %ybar,
+          %ymin=0,
+          %enlarge x limits=0.5,
+          %legend style={at={(0.5,-0.15)},anchor=north,legend columns=-1},
+          %ylabel={Edit time/Audio duration},
+          %symbolic x coords={Paper, Screen, Normal},
+          %xtick=data,
+          %nodes near coords,
+          %]
+          %\addplot coordinates {(Paper,0.8295) (Screen,0.9890) (Normal,0.9867)};
+        %\end{axis}
+      %\end{tikzpicture}
+    %}
+    %\label{fig:pen-speed}
+    %\caption{Mean edit time, relative to the duration of the audio being edited. There is no statistically significant
+    %difference between the times.}
+  %\end{subfigure}
+  %\caption{Comparison of metrics}
 \end{figure}
 
 % Usefulness and usability
@@ -2245,13 +2271,13 @@ prefer to use it demonstrates the value of the transcript itself and the familia
       \legend{Normal paper, Screen, Pen}
     \end{axis}
   \end{tikzpicture}
-  \label{fig:usefulusable}
   \caption{Mean average scores for usefulness and usability. There is no statistically significant difference between
   the scores.}
+  \label{fig:pen-useful-usable}
 \end{figure}
 
 % calculated using http://www.statisticslectures.com/calculators/anovawithin/index.php
-Figure~\ref{fig:usefulusable} shows the mean average scores of the usefulness and usability of the three systems.  We
+Figure~\ref{fig:pen-useful-usable} shows the mean average scores of the usefulness and usability of the three systems.  We
 performed one-way within-subjects ANOVA on the usefulness and usabilty scores. This found that there were no
 statistically significant differences between the three systems for usefulness [$F(2,14)=0.788, p>0.05$], nor usability
 [$F(2,14)=1.068, p>0.05$].
@@ -2262,10 +2288,11 @@ the SUS score into a representative grade between A and F.  The grades for norma
 respectively. This shows that, generally speaking, the tools seem to work well.
 
 Although there was no statistically significant difference, the higher scores received by the normal printed transcript
-are concerning. This could imply that the semantic editing features offered by the screen and pen interfaces have a
-negative impact on the usefulness and usability of the system. However, it is also possible that participants scored
-the normal paper system higher as they felt more comfortable and familiar using their normal toolset rather than a
-prototype.
+are unexpected. This could imply that the semantic editing features offered by the screen and pen interfaces have a
+negative impact on the usefulness and usability of the system, although this was not supported by the qualitative
+results. It is also possible that participants scored the normal paper system higher as they felt more
+comfortable and familiar using their normal toolset rather than a prototype, as mentioned in
+Section~\ref{sec:pen-preference}.
 
 %Several participants felt as though the existing workflow was the most comfortable or easiest of the three conditions
 %we tested. P7 said that having a printed transcript was useful as an aide memoire.
@@ -2279,91 +2306,92 @@ prototype.
 % Speed
 \subsubsection{Speed}
 
-%\begin{figure}[p]
-%\centering
-%\begin{tikzpicture}
-%\begin{axis}[
-%legend pos=outer north east,
-%legend cell align=left,
-%xmin=0,
-%ymin=0,
-%xlabel={Audio length (mins)},
-%ylabel={Edit time (mins)}]
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+legend pos=outer north east,
+legend cell align=left,
+xmin=0,
+ymin=0,
+xlabel={Audio length (mins)},
+ylabel={Edit time (mins)}]
 
-%% NORMAL
-%\pgfplotstableread{
-%X Y
-%30 30
-%58 43
-%32 23
-%35 53
-%28 35
-%28 32
-%47 62
-%28 22
-%}\normaltimes
-%\addplot [only marks, mark = *, red] table {\normaltimes};
-%\addlegendentry{Normal paper}
-%\addplot [thick, red, forget plot] table[
-%y={create col/linear regression={y=Y}}
-%]{\normaltimes};
-%%\addlegendentry{Normal trend}
+% NORMAL
+\pgfplotstableread{
+X Y
+30 30
+58 43
+32 23
+35 53
+28 35
+28 32
+47 62
+28 22
+}\normaltimes
+\addplot [only marks, mark = *, red] table {\normaltimes};
+\addlegendentry{Normal paper}
+\addplot [thick, red, forget plot] table[
+y={create col/linear regression={y=Y}}
+]{\normaltimes};
+%\addlegendentry{Normal trend}
 
-%% SCREEN
-%\pgfplotstableread{
-%X Y
-%37 24
-%61 61
-%30 30
-%25 49
-%26 31
-%41 28
-%37 37
-%33 45
-%}\screentimes
-%\addplot [only marks, mark = square*, blue] table {\screentimes};
-%\addlegendentry{Screen}
-%\addplot [thick, dotted, blue, forget plot] table[
-%y={create col/linear regression={y=Y}}
-%]{\screentimes};
-%%\addlegendentry{Screen trend}
+% SCREEN
+\pgfplotstableread{
+X Y
+37 24
+61 61
+30 30
+25 49
+26 31
+41 28
+37 37
+33 45
+}\screentimes
+\addplot [only marks, mark = square*, blue] table {\screentimes};
+\addlegendentry{Screen}
+\addplot [thick, dotted, blue, forget plot] table[
+y={create col/linear regression={y=Y}}
+]{\screentimes};
+%\addlegendentry{Screen trend}
 
-%% PEN
-%\pgfplotstableread{
-%X Y
-%12 9
-%75 56
-%31 17
-%22 19
-%27 27
-%38 37
-%33 33
-%28 41
-%}\pentimes
-%\addplot [only marks, mark = diamond*, green] table {\pentimes};
-%\addlegendentry{Pen}
-%\addplot [thick, loosely dashed, green, forget plot] table[
-%y={create col/linear regression={y=Y}}
-%]{\pentimes};
-%%\addlegendentry{Pen trend}
+% PEN
+\pgfplotstableread{
+X Y
+12 9
+75 56
+31 17
+22 19
+27 27
+38 37
+33 33
+28 41
+}\pentimes
+\addplot [only marks, mark = diamond*, green] table {\pentimes};
+\addlegendentry{Pen}
+\addplot [thick, loosely dashed, green, forget plot] table[
+y={create col/linear regression={y=Y}}
+]{\pentimes};
+%\addlegendentry{Pen trend}
 
-%\end{axis}
-%\end{tikzpicture}
-%\caption{Edit time performance for each editing system, with linear regression plot}
-%\label{fig:penedittime}
-%\end{figure}
+\end{axis}
+\end{tikzpicture}
+\caption{Edit time versus audio duration for each condition, with linear regression plots.}
+\label{fig:pen-speed}
+\end{figure}
 
-We measured the time it took for the participants to complete each of their editing tasks during the experiment.
-Longer audio files take longer to edit, so we also measured the the duration of the original audio recording that they
-used. We then divided the edit time by the audio duration to produce the relative edit time.
+Figure~\ref{fig:pen-speed} shows the edit time for each condition, plotted against the duration of the audio being
+edited.
+% calculated using http://www.statisticslectures.com/calculators/anovawithin/index.php
+We performed one-way within-subjects ANOVA on the relative edit time and did not find any statistically significant
+difference [$F(2,14) = 0.931, p > 0.05$], which may be due to the small sample size.  We have also plotted the linear
+regression to show the trend for each condition. The gradient of the lines are comparable, which indicates that the
+audio duration affects the edit time similarly for each condition.  If we divide the edit time by the audio duration,
+we can calculate the mean relative edit time which is 0.83 for the pen, 0.99 for the screen and 0.99 for the normal
+paper.
 
 %The mean edit time per minute of input audio was 59.2, 59.34 and 49.77 seconds for the normal paper, screen and pen
 %interfaces, respectively.
-
-% calculated using http://www.statisticslectures.com/calculators/anovawithin/index.php
-The mean average of the relative edit time for each system is shown in Figure~\ref{fig:paperspeed}. We performed
-one-way within-subjects ANOVA on the relative edit time and did not find any statistically significant difference
-[$F(2,14) = 0.931, p > 0.05$], which may be due to the small sample size.
 
 The screen and normal paper interfaces had the same mean relative edit time, but the pen was faster by 16\%.  This was
 surprising, as we expected the screen interface to be faster than both the pen and normal paper due to its more
