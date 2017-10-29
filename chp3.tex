@@ -266,22 +266,21 @@ Table~\ref{tab:clips}.
 \begin{table}[htbp]
   \begin{center}
     {\small
-    \begin{tabular}{|l|l|l|l|l|l|}
+    \begin{tabular}{l l l l l l}
       \hline
-      \multicolumn{1}{|l|}{\textbf{Clip}} & \textbf{Network} & \textbf{Title} 
-      & \textbf{Prog format} & \textbf{Music genre} \\ \hline
-      Training & Radio 4 & Desert Island Discs & Interview & Ambient \\ \hline
-      1 & 1 Xtra & Sian Anderson & Breakfast & Dance \\ \hline
-      2 & 6 Music & Lauren Laverne & Single & Indie \\ \hline
-      3 & Radio 2 & Ken Bruce & Phone quiz & Lounge \\ \hline
-      4 & Radio 3 & Breakfast show & Single & Classical \\ \hline
-      5 & 5 Live & Sports report & Sports & Band \\ \hline
-      6 & Radio 1 & Zane Lowe & Interview & Rap \\ \hline
-      7 & Radio 2 & Jo Whiley & Review & Pop \\ \hline
-      8 & Radio 4 & Afternoon drama & Drama & Classical \\ \hline
+      \textbf{Clip} & \textbf{Network} & \textbf{Prog name} & \textbf{Prog format} & \textbf{Music genre} \\ \hline
+      Training & Radio 4 & Desert Island Discs & Interview & Ambient \\
+      1 & 1 Xtra & Sian Anderson & Breakfast & Dance \\
+      2 & 6 Music & Lauren Laverne & Single & Indie \\
+      3 & Radio 2 & Ken Bruce & Phone quiz & Lounge \\
+      4 & Radio 3 & Breakfast show & Single & Classical \\
+      5 & 5 Live & Sports report & Sports & Band \\
+      6 & Radio 1 & Zane Lowe & Interview & Rap \\
+      7 & Radio 2 & Jo Whiley & Review & Pop \\
+      8 & Radio 4 & Afternoon drama & Drama & Classical \\
       9 & Radio 4 & Front Row & Interview & Alternative \\ \hline
     \end{tabular}
-    }
+  }
   \end{center}
   \caption{Descriptions of the radio programmes used for the evaluation}
   \label{tab:clips}
@@ -294,21 +293,20 @@ participant, and to ensure balanced conditions with no carryover effects.
 \subsection{Sequence}\label{sec:studysequence}
 
 We chose to group the presentation of the conditions rather than interleave them (e.g. AAABBBCCC instead of ACACBABCB).
-We did this to be able to capture task load feedback directly after each condition, and to avoid confusions caused
-by switching too often.
-After all tasks we completed, we asked the participant the comparions questions.
+We did this do we could capture task load feedback directly after each condition, and to avoid possible confusion due
+to switching too often.  After all tasks were completed, we asked the participant to select the easiest and most
+frustrating conditions.
 
 Each audio clip can only be used once per participant, otherwise they would be able to remember where the music was.
-To generate the sequence of nine audio clips, we used a Williams design Latin square, which we generated using the
-`crossdes' package\footnote{\url{http://cran.r-project.org/web/packages/crossdes/index.html}} in R.  We used Latin
-squares to block out variation from participants and the order of presentation, and used the Williams design as it is
-balanced for first-order carryover effects. As the sequence length is odd, the Williams design uses two latin squares
-to produce an $18\times9$ matrix.
+To define the sequence of the nine audio clips, we used a Williams design Latin square, generated using the `crossdes'
+package\footnote{\url{http://cran.r-project.org/web/packages/crossdes/index.html}} in R.  We used Latin squares to
+block out the effect of the order of presentation. The Williams design is balanced for first-order carryover effects.
+As the sequence length is an odd number, the Williams design uses two latin squares to produce an $18\times9$ matrix.
 
 To generate the visualisation sequence, we needed to produce a balanced $18\times3$ matrix. We did this by taking three
-columns from our $18\times9$ and mapping the values $1-3$, $4-6$ and $7-9$ to 1, 2 and 3, respectively.  By testing
-each column of the $18\times9$ matrix, we found that the middle three columns produced a balanced sequence with and
-minimised the carryover effects.
+columns from our $18\times9$ and mapping the values 1--3, 4--6 and 7--9 to 1, 2 and 3, respectively.  By calculating
+the carryover effect of each column of the $18\times9$ matrix, we found that the middle three columns had the minimum
+carryover effect, so we used them for our visualisation sequence.
 
 %\begin{table}
 %\centering
@@ -394,15 +392,14 @@ For the TLX metrics, we used repeated measures ANOVA to test for statistically s
 responses. We then used Tukey's honest significant difference (HSD) post-hoc test to make pairwise comparisons between
 the visualisation for each metric.
 
-For the usage data, we couldn't re-use the audio clips, so the participants only experienced a subset of all
-combinations of visualisations and audio clips. This resulted in missing data, which prevented using from using
-repeated measures ANOVA. Instead, we used a linear mixed model as it can tolerate missing values and account for the
-fact that multiple responses from the same person are more similar than responses from other people.
+We couldn't re-use audio clips for the tasks, so each participant only experienced a subset of the combinations of
+visualisations and audio clips. This resulted in missing data, which prevented us from using from using repeated
+measures ANOVA. Instead, we used a mixed model as it can account for missing values and a repeated measures design.
 
 We used SPSS to perform a linear mixed effects analysis of the relationship between visualisation and seek actions. As
 fixed effects, we entered visualisation into the model. As random effects, we had intercepts for subjects and audio
 clips. Visual inspection of residual plots did not reveal any obvious deviations from homoscedasticity or normality.
-P-values were obtained by likelihood ratio tests of the full model with the effect in question against the model
+$p$-values were obtained by likelihood ratio tests of the full model with the effect in question against the model
 without the effect in question.
 
 %\paragraph{Box plot}
@@ -469,6 +466,8 @@ in more detail about Vampeyer and BeatMap in Sections \ref{sec:vampeyer} and \re
 also released both systems as open source software.
 
 \section{Results}
+All participants knew what a waveform was.
+
 63 responses were completed in the three weeks the experiment ran. Emails linking to the experiment were sent to
 roughly 450 people, which gives a conversion rate of 14\%. This was much higher than expected. Informal feedback
 suggested that many people enjoyed participating due to the listening and task-based nature of the experiment. 
@@ -479,48 +478,129 @@ participants had experience of using a professional audio editor, suggesting tha
 to inexperience with audio interfaces.
 
 \begin{figure}[ht]
+\centering
+\begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=0.5\textwidth]{figs/reject-daw.pdf}
-  \caption{Response of rejected participants when asked whether they had previously used consumer/professional audio
-    editing software}
-  \label{fig:rejectdaw}
+  \begin{tikzpicture}
+    \begin{axis}[
+      height=0.75\textwidth,
+      width=0.9\textwidth,
+      enlarge y limits=0.25,
+      xbar stacked,
+      ytick=data,
+      xlabel=Participants,
+      symbolic y coords={Professional,Consumer,None},
+    ]
+    \addplot[fill=black!20] coordinates
+      {(29,Professional) (6,Consumer) (6,None)};
+    \addplot[fill=white] coordinates
+      {(17,Professional) (5,Consumer) (0,None)};
+    \legend{Accepted,Rejected}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{DAW experience}
+  \label{fig:daw-experience}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      height=0.75\textwidth,
+      width=0.9\textwidth,
+      legend pos=south east,
+      enlarge y limits=0.15,
+      xbar stacked,
+      ytick=data,
+      xmin=0,
+      ylabel=Years,
+      xlabel=Participants,
+      symbolic y coords={31--40,21--30,11--20,6--10,1--5,0},
+    ]
+    \addplot[fill=black!20] coordinates
+      {(0,31--40) (3,21--30) (3,11--20) (6,6--10) (13,1--5) (16,0)};
+    \addplot[fill=white] coordinates
+      {(2,31--40) (2,21--30) (5,11--20) (3,6--10) (5,1--5) (5,0)};
+    \legend{Accepted,Rejected}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Professional experience}
+  \label{fig:pro-experience}
+\end{subfigure}
+\caption{Participant demographics}
+\label{fig:demographics}
 \end{figure}
+
+\begin{figure}[ht]
+\centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      height=0.5\textwidth,
+      %width=0.9\textwidth,
+      legend pos=south east,
+      legend cell align=left,
+      xbar stacked,
+      ytick=data,
+      xmin=0,
+      ylabel=Clip,
+      xlabel=Rejected responses,
+      symbolic y coords={9,8,7,6,5,4,3,2,1},
+    ]
+    \addplot[fill=black!15] coordinates
+      {(4,9) (2,8) (1,7) (1,6) (6,5) (3,4) (2,3) (3,2) (3,1)};
+    \addplot[fill=black!40] coordinates
+      {(1,9) (5,8) (0,7) (3,6) (3,5) (3,4) (0,3) (4,2) (1,1)};
+    \addplot[fill=black!65] coordinates
+      {(2,9) (1,8) (0,7) (0,6) (5,5) (8,4) (2,3) (3,2) (0,1)};
+    \legend{None,Waveform,Enhanced}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Rejected clips}
+  \label{fig:rejected-clips}
+\end{figure}
+
+%\begin{figure}[ht]
+  %\centering
+  %\includegraphics[width=0.5\textwidth]{figs/reject-daw.pdf}
+  %\caption{Response of rejected participants when asked whether they had previously used consumer/professional audio
+    %editing software}
+  %\label{fig:rejectdaw}
+%\end{figure}
 
 Figure~\ref{fig:rejectvis} plots the number of incorrect responses received for each visualisation, which shows that no
 particular visualisation is responsible for the mistakes. However, Figure~\ref{fig:rejectclip} shows that there is
 variation in the mistakes made for each clip, particularly clips 4 and 5. An analysis of the incorrect in and out
 points for these clips found that the mistakes were varied and don't suggest a systematic problem. 
 
-\begin{figure}[ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figs/rejects-vis.pdf}
-  \caption{By visualisation}
-  \label{fig:rejectvis}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figs/rejects-clip.pdf}
-  \caption{By clip}
-  \label{fig:rejectclip}
-\end{subfigure}
-\caption{Analysis of incorrect responses}
-\label{fig:rejects}
-\end{figure}
+%\begin{figure}[ht]
+%\centering
+%\begin{subfigure}{.5\textwidth}
+  %\centering
+  %\includegraphics[width=\linewidth]{figs/rejects-vis.pdf}
+  %\caption{By visualisation}
+  %\label{fig:rejectvis}
+%\end{subfigure}%
+%\begin{subfigure}{.5\textwidth}
+  %\centering
+  %\includegraphics[width=\linewidth]{figs/rejects-clip.pdf}
+  %\caption{By clip}
+  %\label{fig:rejectclip}
+%\end{subfigure}
+%\caption{Analysis of incorrect responses}
+%\label{fig:rejects}
+%\end{figure}
 
 \subsection{Demographics}
 The demographic of the participants showed a heavy bias (80\%) of male participants, and a larger proportion in the
 26-45 age range (see Figure~\ref{fig:age}). This reflects the population to which the experiment was promoted (see
 Section~\ref{sec:promo}) and is not expected to skew the results.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\textwidth]{figs/age.pdf}
-  \caption{Age and gender of participants. Male/female ratio was 32/8
-    (80\%/20\%). One participant declined to respond to the question.}
-  \label{fig:age}
-\end{figure}
+%\begin{figure}[ht]
+  %\centering
+  %\includegraphics[width=0.5\textwidth]{figs/age.pdf}
+  %\caption{Age and gender of participants. Male/female ratio was 32/8
+    %(80\%/20\%). One participant declined to respond to the question.}
+  %\label{fig:age}
+%\end{figure}
 
 Most participants had previous experience of using both consumer and professional audio editing software (see
 Figure~\ref{fig:experiencedaw}), with 29\% of participants only having experience of consumer software or no experience
@@ -531,23 +611,23 @@ remainder being spread out up to a maximum of 25 years (see Figure~\ref{fig:expe
 answer people gave peaks at the 5 and 10--year marks, where people may have given a rounded number rather than an
 accurate figure.
 
-\begin{figure}[ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\textwidth]{figs/daw.pdf}
-  \caption{Previous use of audio editing software}
-  \label{fig:experiencedaw}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figs/experience.pdf}
-  \caption{Years of professional audio experience}
-  \label{fig:experienceyears}
-\end{subfigure}
-\caption{Response of participants to questions about experience}
-\label{fig:experience}
-\end{figure}
+%\begin{figure}[ht]
+%\centering
+%\begin{subfigure}{.5\textwidth}
+  %\centering
+  %\includegraphics[width=\textwidth]{figs/daw.pdf}
+  %\caption{Previous use of audio editing software}
+  %\label{fig:experiencedaw}
+%\end{subfigure}%
+%\begin{subfigure}{.5\textwidth}
+  %\centering
+  %\includegraphics[width=\linewidth]{figs/experience.pdf}
+  %\caption{Years of professional audio experience}
+  %\label{fig:experienceyears}
+%\end{subfigure}
+%\caption{Response of participants to questions about experience}
+%\label{fig:experience}
+%\end{figure}
 
 
 \subsection{Performance metrics}\label{sec:studymetrics}
@@ -739,20 +819,70 @@ shown in Figure~\ref{fig:compare}.
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{figs/easiest.pdf}
-  \caption{Easiest to use}
+  \begin{tikzpicture}
+    \begin{axis}[
+      height=0.6\textwidth,
+      width=0.9\textwidth,
+      %xmin=0,
+      %xmax=38,
+      enlarge y limits=0.25,
+      xbar,
+      ytick=data,
+      xlabel=Participants,
+      symbolic y coords={Enhanced,Waveform,None},
+      %nodes near coords, nodes near coords align={horizontal},
+    ]
+    \addplot[fill=black!20] coordinates
+      {(31,Enhanced) (7,Waveform) (3,None)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Easiest}
   \label{fig:easiest}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{figs/frustrating.pdf}
+  \begin{tikzpicture}
+    \begin{axis}[
+      height=0.6\textwidth,
+      width=0.9\textwidth,
+      %xmin=0,
+      %xmax=32,
+      enlarge y limits=0.25,
+      xbar,
+      ytick=data,
+      xlabel=Participants,
+      symbolic y coords={Enhanced,Waveform,None},
+      %nodes near coords, nodes near coords align={horizontal},
+    ]
+    \addplot[fill=black!20] coordinates
+      {(6,Enhanced) (8,Waveform) (27,None)};
+    \end{axis}
+  \end{tikzpicture}
   \caption{Most frustrating}
   \label{fig:frustrating}
 \end{subfigure}
-\caption{Response of participants when asked to compare the visualisations
-  using different criteria}
-\label{fig:compare}
+\caption{Preferences}
+\label{fig:preferences}
 \end{figure}
+
+%\begin{figure}[ht]
+%\centering
+%\begin{subfigure}{.5\textwidth}
+  %\centering
+  %\includegraphics[width=\textwidth]{figs/easiest.pdf}
+  %\caption{Easiest to use}
+  %\label{fig:easiest}
+%\end{subfigure}%
+%\begin{subfigure}{.5\textwidth}
+  %\centering
+  %\includegraphics[width=\linewidth]{figs/frustrating.pdf}
+  %\caption{Most frustrating}
+  %\label{fig:frustrating}
+%\end{subfigure}
+%\caption{Response of participants when asked to compare the visualisations
+  %using different criteria}
+%\label{fig:compare}
+%\end{figure}
 
 76\% of participants thought that the colourised waveform was the easiest to use, with the normal waveform receiving
 17\% of votes and 7\% for no waveform.  The strong preference for the colourised waveform over the others shows that
@@ -894,22 +1024,22 @@ distributions of the standardised scores for each visualization are shown in Fig
 \definecolor{lightred}{RGB}{255,204,204}
 \definecolor{lightamber}{RGB}{255,204,153}
 \definecolor{lightgreen}{RGB}{204,255,204}
-\newcommand{\highsig}{\cellcolor{lightgreen}}
-\newcommand{\medsig}{\cellcolor{lightamber}}
-\newcommand{\nosig}{\cellcolor{lightred}}
+\newcommand{\highsig}{\cellcolor{black!20}}
+\newcommand{\medsig}{\cellcolor{black!10}}
+\newcommand{\nosig}{\cellcolor{white}}
 \begin{table}
 \resizebox{\textwidth}{!}{
-\begin{tabular}{ | l | l | l | l | }
+\begin{tabular}{l l l l}
 \hline
-  & Audio vs Waveform & Audio vs Coloured & Waveform vs Coloured \\ \hline
-	Seek actions & \highsig$<0.01$ & \highsig$<0.01$ & \highsig$<0.01$ \\ \hline
-	Error & \nosig$>0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\ \hline
-	Time & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\ \hline
-	TLX Effort & \medsig$<0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\ \hline
-	TLX Frustration & \medsig$<0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\ \hline
-	TLX Mental & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\ \hline
-	TLX Performance & \nosig$>0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\ \hline
-	TLX Physical & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\ \hline
+& \textbf{Audio vs Waveform} & \textbf{Audio vs Coloured} & \textbf{Waveform vs Coloured} \\ \hline
+	Seek actions & \highsig$<0.01$ & \highsig$<0.01$ & \highsig$<0.01$ \\
+	Error & \nosig$>0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\
+	Time & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
+	TLX Effort & \medsig$<0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
+	TLX Frustration & \medsig$<0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\
+	TLX Mental & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
+	TLX Performance & \nosig$>0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\
+	TLX Physical & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
   TLX Temporal & \nosig$>0.05$ & \nosig$>0.05$ & \medsig$<0.05$ \\ \hline
 \end{tabular}}
 \caption{$p$-values of pairwise comparisons}
