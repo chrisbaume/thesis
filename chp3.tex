@@ -109,33 +109,83 @@ a function of the moving average \citep{Ericsson2009}, or a function of the movi
 After empirically testing a variety of radio programme recordings, we chose the latter and configured our threshold as
 the third percentile of RMS energy in a one second sliding window.
 
+%Metric does not return perfect results, so user must interpret them
+
 %music tonality \citep{Sell2014}
 %energy density analysis \citep{Kacprzak2013}
 %??? \citep{Goodwin2004}
 %application to TV \citep{Seyerlehner2007}
 
 % mapping the feature
-We coloured the waveform by mapping the low energy ratio to a gradient between two easily distinguished colours.
-We used blue to represent speech and pink to represent music.
-We chose blue, to match the waveform colour of the BBC's radio production system, and its inverse colour pink.
-
+We coloured the waveform by mapping the low energy ratio to a gradient between two easily distinguished colours.  We
+used blue to represent speech and pink to represent music.  We chose blue to match the colour of the waveforms in the
+BBC's radio production system, and the inverse of its colour, pink.
 
 \subsection{Hypotheses}
 
-The experiment presented in this paper is designed to test the effectiveness of combining speech-recognizer-generated
-transcripts in conjunction with pitch-normalized time- compressed speech. In particular, the following hypotheses are
-examined:
+We were interested in testing the effectiveness of audio visualisation for navigating and editing audio content. In
+particular, we wanted to examine the following hypotheses:
 
 \newcommand{\subscript}[2]{$#1 _ #2$}
 \begin{enumerate}[label=H\arabic*.]
-  \item \textbf{Effort}: The audio visualisation affects the effort required to complete the task, in decreasing order
-    of C1, C2 and C3.
-  \item \textbf{Time}: The audio visualisation affects the time taken to complete the task, in decreasing order of C1,
-    C2 and C3.
-  \item \textbf{Accuracy}: The audio visualisation affects the accuracy of the result, in increasing order of C1, C2
-    and C3.
+  \item \textbf{Effort}: Audio visualisation affects the effort required to segment music from speech, in
+    decreasing order of C1, C2 and C3.
+  \item \textbf{Time}: Audio visualisation affects the time taken to segment music from speech, in decreasing
+    order of C1, C2 and C3.
+  \item \textbf{Accuracy}: Audio visualisation affects the accuracy of segmenting music from speech, in
+    increasing order of C1, C2 and C3.
     %\item The audio visualisation affects the reported task load, in decreasing order of C1, C2 and C3.
 \end{enumerate}
+
+\subsection{Metrics}
+
+Our audio segmentation task involves finding the target audio (in this case, music) and marking the start and end of
+the desired region. The two primary activities involved in this are seeking through the audio (by clicking on the
+visualisation), and marking the segment (using the buttons or sliders). To measure effort, we counted the number of
+seek actions used to complete the task.
+
+To measure time, we calculated how long it took to complete each task. To avoid including `downtime' at the start and
+end of the task, we calculated the task completion time as the difference between the first user action (e.g.
+play/seek/mark) and the last mark action.
+
+For accuracy, we measured the error of the result. We calculated this by using ground truth data about the precise
+start and end time of the music in the audio, then finding the sum of the absolute error of the selected in-point and
+out-point.
+
+In addition to the above metrics, we included a questionnaire to gather perceptual data about the task. For this, we
+used the NASA Task Load Index, or `NASA-TLX', \citep{Hart1988} questions, listed below. Responses are captured using on
+a scale between -10 and 10 with the following labels.
+
+%\begin{table}[ht]
+  %\begin{center}
+    %{\small
+    %\begin{tabular}{l l l l}
+      %\hline
+      %Mental demand & How mentally demanding was the task? & very low & very high \\
+      %Physical demand & How physically demanding was the task? & very low & very high \\
+      %Temporal demand & How hurried or rushed was the pace of the task? & very low & very high \\
+      %Performance & How successful were you in accomplishing what you were asked to do? & perfect & failure \\
+      %Effort & How hard did you have to work to accomplish your level of performance? & very low & very high \\
+      %Frustration & How insecure, discouraged, irritated, stressed, and annoyed were you? & very low & very high \\
+      %\hline
+    %\end{tabular}
+  %}
+  %\end{center}
+  %\caption{NASA Task Load Index metrics}\
+  %\label{tab:nasatlx}
+%\end{table}
+
+{\singlespacing
+\begin{itemize}
+  \item Mental demand -- How mentally demanding was the task? [very low/very high]
+  \item Physical demand -- How physically demanding was the task? [very low/very high]
+  \item Temporal demand -- How hurried or rushed was the pace of the task?  [very low/very high]
+  \item Performance -- How successful were you in accomplishing what you were asked to do? [perfect/failure]
+  \item Effort -- How hard did you have to work to accomplish your level of performance? [very low/very high]
+  \item Frustration -- How insecure, discouraged, irritated, stressed, and annoyed were you? [very low/very high]
+\end{itemize}
+}
+
 
 %{\singlespacing
 %\begin{enumerate}
@@ -157,128 +207,95 @@ examined:
 %\end{enumerate}
 %}
 
-% Effort
-% number of seek actions
-% reported TLX
-To measure effort, we used both qualitative and quantitative data.
+\subsection{Recruitment}
+We wanted to recruit approximately 50 participants so that our results would have statistical significance.  The radio
+production community is relatively small, producers are very busy and they are not used to participating in academic
+studies. To get enough respondents, we opted to recruit from a larger pool of technology researchers with experience in
+media technology and production.  Additionally, we designed our study so that it could be completed online in 15 mins
+or less.  We used email distribution lists to advertise our study to everyone working at BBC Research and Development,
+and the Electronics and Computer Science department at Queen Mary Univerisity of London.
 
-% Time
-% first action to task completion
+\subsection{Test interface}
+To conduct the experiment, we developed a web-based test interface, shown in Figure~\ref{fig:visualisation-interface}.
+The interface enabled the participant to listen to and navigate the audio, then mark and submit a segment of the audio.
+It also provided training and captured responses to questionnaires. A detailed technical explanation of the interface
+can be found in Section~\ref{sec:browser-audio-interface}.
 
-% Accuracy
-% error
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\columnwidth]{figs/browser-audio-interface.pdf}
+\caption{Screenshot of the test interface with the following features:
+zoomed-in audio visualisation (1),
+overview audio visualisation (2),
+play/pause control (3),
+zoom in/out control (4),
+mark in/out buttons (5),
+selection slider (6),
+selection highlighting (7),
+and training pop-ups (8).}
+\label{fig:visualisation-interface}
+\end{figure}
 
-We measured how quickly and accurately participants completed the task, and how many actions they took to get there. We
-also used questionnaires to collect qualitative information on task load and preference.
-We recruited users with experience of using professional audio editing software.
+The interface displayed the overall visualisation as well as a zoomed in view above.  Either view could be used to
+navigate the audio by clicking on it, or to adjust the segment by dragging its edge.  The participant could play/pause
+the audio, control the zoom level, and mark in-- and out-points using buttons at the bottom.  Training was conducted
+using a `pop-up tour', which guided the user through the interface's operation using a series of pop-up text boxes for
+each feature.
 
-% Recruitment
-We recruited participants using two email lists which covered all staff in BBC Research and Development (approx. 150
-people) and all residents in the Electronics and Computer Science department at Queen Mary University of London
-(approx. 300 people). Although there are a large number of audio specialists working in both groups, the recipients are
-mostly non-experts.
+%We configured the interface to log and timestamp every action the user made, including each seek, play/pause, select
+%and zoom action. We also used these metrics to calculate the task completion time, defined as the time between the
+%first user action and the last select action.
 
-Recruiting a large number of radio producers to take part in the study would be difficult as it is a small community
-that are not used to participating in scientific trials. For this reason we chose to recruit participants that have
-experience with using professional audio editing software. We ran the trial online to reach as many people as possible.
+We generated the visualisations of the audio clips using a plugin framework we developed called `Vampeyer', which
+mapped the results of an audio analysis algorithm to a bitmap image. We then integrated those images into our test
+interface using in an interactive web-based audio visualisation library we developed called `BeatMap'.  Sections
+\ref{sec:vampeyer} and \ref{sec:beatmap} contain more detail about Vampeyer and BeatMap, respectively.
 
-
-%Three conditions were tested -- no waveform, a normal waveform and a colourised waveform.
-%Each condition was presented three times, for a 
-%Low-energy ratio was used to colourise the waveform, as it is well understood speech/music discriminator.
-%Audio from real radio programmes was used
-
-% Conditions
-%Colour generated by very simple speech/music discriminaton metric
-%Metric does not return perfect results, so user must interpret them
-%Three conditions - no waveform, waveform and coloured waveform
-%Real radio programmes, 5 min clips x 9
-%Within-subjects
-%Counterbalanced
-
-% Metrics
-%We measured speed using the overall time taken to complete the task. To measure effort, we used a combination of user
-%actions required to complete the task, and short questionnairre.
-
-% Test data
 
 \subsection{Procedure}
 
-Wanted to be able to complete the task in 15 mins.
+Before the study began, we asked the participant to read an informaton sheet and agree to a consent form. There were
+four stages to the study:
 
-Before the experiment started, we asked the participant about
-their gender, age and the following questions, which attempted to gauge their level of
-experience.
+
+\paragraph{Stage 1: Demographics}
+We asked the participant about their gender, age and the following questions, to gauge their level of experience:
 
 {\singlespacing
 \begin{itemize}
   \item Do you understand what an audio waveform is? [Yes/No]
-  \item Have you previously used any consumer audio editing software? (e.g.
-    Audacity, GarageBand) [Yes/No]
-  \item Have you previously used any professional audio editing software? (e.g.
-    ProTools, Logic, Cubase/Nuendo, SADiE, Startrack) [Yes/No]
-  \item How many years (if any) have you worked with audio in a professional
-    capacity? [\textit{number}]
+  \item Have you previously used any consumer audio editing software? (e.g.  Audacity, GarageBand) [Yes/No]
+  \item Have you previously used any professional audio editing software? (e.g.  ProTools, Logic, Cubase/Nuendo, SADiE,
+    Startrack) [Yes/No]
+  \item How many years (if any) have you worked with audio in a professional capacity? [\textit{number}]
 \end{itemize}
 }
 
-The experiment was divided into four stages:
+\paragraph{Stage 2: Training}
+We used a `pop-up tour' to overlay a sequence of text boxes on the interface (see
+Figure~\ref{fig:visualisation-interface}). These explained the features and operation of the test interface, then
+prompted the user to complete and submit a training task. We measured the error of the training task and did not allow
+the participant to continue until they had completed the task successfully.
 
-\paragraph{Stage 1: Training}
-They were then taken through a training stage where a series of
-pop-up boxes explained how to use the interface and they were assisted in making their first submission.
+\paragraph{Stage 3: Segmentation and task load questionnairre}
+The participant used the test interface to mark the position of music in a speech recording, then submit their result.
+We logged and timestamped the participant's actions, including seek, play/pause, zoom and mark.  This exercise was
+repeated three times for each condition, for a total of nine tasks.  We chose to group the presentation of the
+conditions rather than interleave them (e.g. AAABBBCCC instead of ACACBABCB).  We did this do we could capture feedback
+directly after each condition, and to avoid possible confusion due to switching too often.
 
-In order to attract a sufficient number of participants while collecting enough data, we designed the experiment so it
-could be completed in 10--15 mins. This led to to repeat each condition three times, for a total of nine tasks.
-Each of the conditions were presented in groups to avoid potential confusion caused by jumping between conditions, and
-to allow a questionnaire to be presented after each condition.
-
-\paragraph{Stage 2: Task}
-
-In order to make it possible for the experiment to completed in 10-15 mins, we used a sequence of nine tasks.
-
-\paragraph{Stage 3: Task load questionairre}
-
-After completing the tasks for a given condition, we asked participants to rate the workload of each task using the
-NASA Task Load Index (NASA-TLX) metric \citep{Hart1988}.  With NASA-TLX, subjects rate the task using six subscales,
-then make pairwise comparisons on the perceived importance of the subscales. The importance weightings are used to
-combine the subscales into an overall rating for the task. For our experiment, we chose to exclude the second part of
-the measurement to collect what is commonly called `Raw TLX' \citep{Hart2006}. We did this to reduce the time required
-for data collection, and to allow us to analyse each subscale individually.
-
-The TLX subscales are listed below:
-
-{\singlespacing
-\begin{itemize}
-  \item Mental Demand -- How mentally demanding was the task? [very low/very high]
-  \item Physical Demand -- How physically demanding was the task? [very low/very high]
-  \item Temporal Demand -- How hurried or rushed was the pace of the task?  [very low/very high]
-  \item Performance -- How successful were you in accomplishing what you were asked to do? [perfect/failure]
-  \item Effort -- How hard did you have to work to accomplish your level of performance? [very low/very high]
-  \item Frustration -- How insecure, discouraged, irritated, stressed, and annoyed were you? [very low/very high]
-\end{itemize}
-}
+After completing the three tasks for each condition, the participant rated the workload of those tasks
+using the NASA-TLX metrics. We captured the responses using sliders with the question-dependent labels on each end.
 
 \paragraph{Stage 4: Comparison}
-At the end of the experiment, participants were asked to compare the conditions directly by selecting which they
-thought were the easiest and most frustrating. A thumbnail image representing each visualisation was shown to remind
-the participants of how they looked.
-
-\subsection{Metrics}
-We configured the interface to log and timestamp every action the user made, including each seek, play/pause, select
-and zoom action. We also used these metrics to calculate the task completion time, defined as the time between the
-first user action and the last select action.
-
-%\paragraph{Other}
-%In addition to the above measures, we recorded the browser and operating system each participant used, and the date
-%and time at which they submitted each data point.
+We asked the participant to select which condition they thought was the easiest, and which was the most frustrating,
+using the thumbnail images in Figure~\ref{fig:conditions}.
 
 \subsection{Test data}
 We used radio programme clips for the audio data, by choosing a representative selection of programme formats, musical
-genres and radio stations.  We sourced the audio content from BBC recordings of transmission (ROT) and selected
-five-minute clips that contained only one section that could be categorised as music.  The clips are described in
-Table~\ref{tab:clips}.
-
+genres and radio stations, shown in Table~\ref{tab:clips}.  We sourced the audio content from BBC recordings of
+transmission (ROT). We selected five-minute clips that contained one section of music, with speech before and after. We
+cut the clips so that the music was in a different position in each clip.
 
 \begin{table}[htbp]
   \begin{center}
@@ -303,22 +320,12 @@ Table~\ref{tab:clips}.
   \label{tab:clips}
 \end{table}
 
-We used latin squares were used to generate the test sequences so that each audio clip was only used once per
-participant, and to ensure balanced conditions with no carryover effects.
-
-
-\subsection{Sequence}\label{sec:studysequence}
-
-We chose to group the presentation of the conditions rather than interleave them (e.g. AAABBBCCC instead of ACACBABCB).
-We did this do we could capture task load feedback directly after each condition, and to avoid possible confusion due
-to switching too often.  After all tasks were completed, we asked the participant to select the easiest and most
-frustrating conditions.
-
-Each audio clip can only be used once per participant, otherwise they would be able to remember where the music was.
-To define the sequence of the nine audio clips, we used a Williams design Latin square, generated using the `crossdes'
-package\footnote{\url{http://cran.r-project.org/web/packages/crossdes/index.html}} in R.  We used Latin squares to
-block out the effect of the order of presentation. The Williams design is balanced for first-order carryover effects.
-As the sequence length is an odd number, the Williams design uses two latin squares to produce an $18\times9$ matrix.
+Each audio clip can only be used once per participant, otherwise they would be able to remember the location of the the
+music. To define a balanced sequence for the audio clips, we used a Williams design Latin square, generated using the
+`crossdes' package\footnote{\url{http://cran.r-project.org/web/packages/crossdes/index.html}} in R.  We used Latin
+squares to block out the effect of the order of presentation, and a Williams design, which is balanced for first-order
+carryover effects.  As the sequence length is an odd number, the Williams design uses two latin squares to produce an
+$18\times9$ matrix.
 
 To generate the visualisation sequence, we needed to produce a balanced $18\times3$ matrix. We did this by taking three
 columns from our $18\times9$ and mapping the values 1--3, 4--6 and 7--9 to 1, 2 and 3, respectively.  By calculating
@@ -390,6 +397,7 @@ carryover effect, so we used them for our visualisation sequence.
     %\label{tab:clipseq}
 %\end{table}
 
+
 \subsection{Analysis}
 We wanted to ensure that all participants completed their tasks correctly.  To do so, we rejected any participant that
 submitted a segment with an error of more than five seconds. We calculated the error as the sum of the absolute error
@@ -405,9 +413,11 @@ of the in-point and out-point.
   %\label{eq:accept}
 %\end{figure}
 
-For the TLX metrics, we used repeated measures ANOVA to test for statistically significant differences in the task load
-responses. We then used Tukey's honest significant difference (HSD) post-hoc test to make pairwise comparisons between
-the visualisation for each metric.
+For the TLX metrics, we used the `Raw TLX' values by excluding the second part of the measurement in which the
+importance of each subscale is rated \citep{Hart2006}.  We did this to reduce the time required for data collection,
+and to be able to analyse each subscale individually. We used repeated measures ANOVA to test for statistically
+significant differences in the task load responses. We then used Tukey's honest significant difference (HSD) post-hoc
+test to make pairwise comparisons between the visualisation for each metric.
 
 We couldn't re-use audio clips for the tasks, so each participant only experienced a subset of the combinations of
 visualisations and audio clips. This resulted in missing data, which prevented us from using from using repeated
@@ -448,106 +458,12 @@ without the effect in question.
 %Standardisation maps observations to the `\textbf{standard score}'. This is a dimensionless unit which represents the
 %number of standard deviations an observation is above the mean.
 
-\subsection{System description}
-
-To conduct the experiment, we developed a web-based test interface, shown in Figure~\ref{fig:visualisation-interface}.
-The interface enabled the user to listen to and navigate the audio, then mark and submit a selection. It also provided
-training and captured responses to questionnaires.  A detailed technical explanation of the interface can be found in
-Section~\ref{sec:browser-audio-interface}.
-
-The interface displayed the overall visualisation as well as a zoomed in view. The user could play/pause the audio and
-control the zoom level, and mark in-- and out-points using buttons. The user could also use either of the
-visualisations to navigate the audio, by clicking on it, or adjust their segment by dragging on the edge.  Training was
-conducted using a `pop-up tour', which guided the user through the interface's operation using a series of pop-up text
-boxes for each feature.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\columnwidth]{figs/browser-audio-interface.pdf}
-\caption{Screenshot of the test interface with the following features:
-zoomed-in audio visualisation (1),
-overview audio visualisation (2),
-play/pause control (3),
-zoom in/out control (4),
-mark in/out buttons (5),
-selection slider (6),
-selection highlighting (7),
-and training pop-ups (8).}
-\label{fig:visualisation-interface}
-\end{figure}
-
-We generated the visualisations from the audio clips using a plugin framework we developed called `Vampeyer', which
-maps the results of an audio analysis algorithm to a bitmap image. We then integrated those images into our test
-interface using in an interactive web-based audio visualisation library we developed called `BeatMap'.  We have written
-in more detail about Vampeyer and BeatMap in Sections \ref{sec:vampeyer} and \ref{sec:beatmap}, respectively. We have
-also released both systems as open source software.
-
 \section{Results}
-All participants knew what a waveform was.
+Of the 63 participants who completed the study, 41 (65\%) passed the acceptance criteria. This was lower than expected,
+so we analysed the rejected tasks and participants to look for anything that might explain the high number of
+rejections.
 
-63 responses were completed in the three weeks the experiment ran. Emails linking to the experiment were sent to
-roughly 450 people, which gives a conversion rate of 14\%. This was much higher than expected. Informal feedback
-suggested that many people enjoyed participating due to the listening and task-based nature of the experiment. 
-
-Of the 63 experiments completed, only 41 passed the acceptance criteria (see Section~\ref{sec:study1-acceptance}
-meaning that 35\% of participants were rejected. Figure~\ref{fig:rejectdaw} shows that none of the rejected
-participants had experience of using a professional audio editor, suggesting that the mistakes may have been made due
-to inexperience with audio interfaces.
-
-\begin{figure}[ht]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      height=0.75\textwidth,
-      width=0.9\textwidth,
-      enlarge y limits=0.25,
-      xbar stacked,
-      ytick=data,
-      xlabel=Participants,
-      symbolic y coords={Professional,Consumer,None},
-    ]
-    \addplot[fill=black!20] coordinates
-      {(29,Professional) (6,Consumer) (6,None)};
-    \addplot[fill=white] coordinates
-      {(17,Professional) (5,Consumer) (0,None)};
-    \legend{Accepted,Rejected}
-    \end{axis}
-  \end{tikzpicture}
-  \caption{DAW experience}
-  \label{fig:daw-experience}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      height=0.75\textwidth,
-      width=0.9\textwidth,
-      legend pos=south east,
-      enlarge y limits=0.15,
-      xbar stacked,
-      ytick=data,
-      xmin=0,
-      ylabel=Years,
-      xlabel=Participants,
-      symbolic y coords={31--40,21--30,11--20,6--10,1--5,0},
-    ]
-    \addplot[fill=black!20] coordinates
-      {(0,31--40) (3,21--30) (3,11--20) (6,6--10) (13,1--5) (16,0)};
-    \addplot[fill=white] coordinates
-      {(2,31--40) (2,21--30) (5,11--20) (3,6--10) (5,1--5) (5,0)};
-    \legend{Accepted,Rejected}
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Professional experience}
-  \label{fig:pro-experience}
-\end{subfigure}
-\caption{Participant demographics}
-\label{fig:demographics}
-\end{figure}
-
-\begin{figure}[ht]
+\begin{figure}[h]
 \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -575,6 +491,81 @@ to inexperience with audio interfaces.
   \label{fig:rejected-clips}
 \end{figure}
 
+Figure~\ref{fig:rejected-clips} shows the number of clips and conditions that were used for the rejected responses.
+Although clips 4 and 5 had a higher number of rejections, the responses came from all clips and all conditions. There
+was also no combination of clips and conditions that caused an unusually high number of rejections.  We did not find
+any notable difference in error between the in-points and out-points.  Figure~\ref{fig:demographics} shows the
+demographics of the participants.  We did not find any correlation between rejection and DAW experience, professional
+experience, age or gender.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      height=0.75\textwidth,
+      width=0.85\textwidth,
+      enlarge y limits=0.25,
+      xbar stacked,
+      ytick=data,
+      yticklabel style={font=\footnotesize,text width=2.2cm,align=right},
+      xlabel=Participants,
+      symbolic y coords={Consumer and professional,Consumer,None},
+      legend style={font=\footnotesize},
+    ]
+    \addplot[fill=black!20] coordinates
+      {(29,Consumer and professional) (6,Consumer) (6,None)};
+    \addplot[fill=white] coordinates
+      {(17,Consumer and professional) (5,Consumer) (0,None)};
+    \legend{Accepted,Rejected}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{DAW experience}
+  \label{fig:daw-experience}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      height=0.75\textwidth,
+      width=0.85\textwidth,
+      legend pos=south east,
+      enlarge y limits=0.15,
+      xbar stacked,
+      ytick=data,
+      yticklabel style={font=\footnotesize},
+      xmin=0,
+      ylabel=Years,
+      xlabel=Participants,
+      symbolic y coords={31--40,21--30,11--20,6--10,1--5,0},
+      legend style={font=\footnotesize},
+    ]
+    \addplot[fill=black!20] coordinates
+      {(0,31--40) (3,21--30) (3,11--20) (6,6--10) (13,1--5) (16,0)};
+    \addplot[fill=white] coordinates
+      {(2,31--40) (2,21--30) (5,11--20) (3,6--10) (5,1--5) (5,0)};
+    \legend{Accepted,Rejected}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Professional experience}
+  \label{fig:pro-experience}
+\end{subfigure}
+\caption{Participant demographics}
+\label{fig:demographics}
+\end{figure}
+
+We were unable to find any systematic reasons for the rejected responses. However, as the test was online and
+unsupervised, this may have led some participants to perform the task to a lower standard than was required.
+
+Figure~\ref{fig:demographics} shows that the vast majority of participants had previous experience of using both
+consumer and professional audio editing software. 61\% of participants also had professional experience of working with
+audio. All participants reported that they understood what an audio waveform was.
+%The demographic of the participants showed a heavy bias (80\%) of male participants, and a larger proportion in the
+%26-45 age range (see Figure~\ref{fig:age}). This reflects the population to which the experiment was promoted (see
+%Section~\ref{sec:promo}) and is not expected to skew the results.
+
+
 %\begin{figure}[ht]
   %\centering
   %\includegraphics[width=0.5\textwidth]{figs/reject-daw.pdf}
@@ -582,11 +573,6 @@ to inexperience with audio interfaces.
     %editing software}
   %\label{fig:rejectdaw}
 %\end{figure}
-
-Figure~\ref{fig:rejectvis} plots the number of incorrect responses received for each visualisation, which shows that no
-particular visualisation is responsible for the mistakes. However, Figure~\ref{fig:rejectclip} shows that there is
-variation in the mistakes made for each clip, particularly clips 4 and 5. An analysis of the incorrect in and out
-points for these clips found that the mistakes were varied and don't suggest a systematic problem. 
 
 %\begin{figure}[ht]
 %\centering
@@ -606,11 +592,6 @@ points for these clips found that the mistakes were varied and don't suggest a s
 %\label{fig:rejects}
 %\end{figure}
 
-\subsection{Demographics}
-The demographic of the participants showed a heavy bias (80\%) of male participants, and a larger proportion in the
-26-45 age range (see Figure~\ref{fig:age}). This reflects the population to which the experiment was promoted (see
-Section~\ref{sec:promo}) and is not expected to skew the results.
-
 %\begin{figure}[ht]
   %\centering
   %\includegraphics[width=0.5\textwidth]{figs/age.pdf}
@@ -618,15 +599,6 @@ Section~\ref{sec:promo}) and is not expected to skew the results.
     %(80\%/20\%). One participant declined to respond to the question.}
   %\label{fig:age}
 %\end{figure}
-
-Most participants had previous experience of using both consumer and professional audio editing software (see
-Figure~\ref{fig:experiencedaw}), with 29\% of participants only having experience of consumer software or no experience
-at all.
-
-When asked about years of professional audio experience, 39\% of participants reported having no experience, with the
-remainder being spread out up to a maximum of 25 years (see Figure~\ref{fig:experienceyears}). Interestingly, the
-answer people gave peaks at the 5 and 10--year marks, where people may have given a rounded number rather than an
-accurate figure.
 
 %\begin{figure}[ht]
 %\centering
@@ -646,12 +618,15 @@ accurate figure.
 %\label{fig:experience}
 %\end{figure}
 
+\subsection{Performance metrics}
 
-\subsection{Performance metrics}\label{sec:studymetrics}
-An analysis was carried out on the performance metrics that were measured while participants used the interface (see
-Section~\ref{sec:metrics}).
+We analysed the performance metrics using a linear mixed model. We configured the visualisations as a fixed effect and
+the audio clips and participants as random effects.  Our model found statistically significant differences between the
+three conditions for seek actions, task time, and task error.  Figure~\ref{fig:visualisation-metrics} shows the mean
+values and confidence intervals of the performance metrics and Table~\ref{tab:pairwise} lists the statistical
+significance of the pairwise comparisons between the conditions.
 
-\begin{figure}
+\begin{figure}[ht]
   \centering
   \begin{subfigure}[t]{0.5\textwidth}
     \centering
@@ -660,7 +635,7 @@ Section~\ref{sec:metrics}).
       width=\textwidth,
       ylabel=Seek actions (count),
       xtick={1,2,3},
-      xticklabels={Audio,Waveform,Coloured}]
+      xticklabels={None,Waveform,Enhanced}]
       \addplot[black,mark=*]
         plot[error bars/.cd, y dir=both, y explicit]
         coordinates {
@@ -678,9 +653,9 @@ Section~\ref{sec:metrics}).
     \begin{tikzpicture} 
     \begin{axis}[
       width=\textwidth,
-      ylabel=Error (seconds),
+      ylabel=Task error (seconds),
       xtick={1,2,3},
-      xticklabels={Audio,Waveform,Coloured}]
+      xticklabels={None,Waveform,Enhanced}]
       \addplot[black,mark=*]
         plot[error bars/.cd, y dir=both, y explicit]
         coordinates {
@@ -690,7 +665,7 @@ Section~\ref{sec:metrics}).
         };
     \end{axis} 
     \end{tikzpicture}
-    \caption{Error}
+    \caption{Task error}
   \end{subfigure}
 
   \begin{subfigure}[t]{0.5\textwidth}
@@ -698,9 +673,9 @@ Section~\ref{sec:metrics}).
     \begin{tikzpicture} 
     \begin{axis}[
       width=\textwidth,
-      ylabel=Time (seconds),
+      ylabel=Task time (seconds),
       xtick={1,2,3},
-      xticklabels={Audio,Waveform,Coloured}]
+      xticklabels={None,Waveform,Enhanced}]
       \addplot[black,mark=*]
         plot[error bars/.cd, y dir=both, y explicit]
         coordinates {
@@ -710,76 +685,79 @@ Section~\ref{sec:metrics}).
         };
     \end{axis} 
     \end{tikzpicture}
-    \caption{Time}
+    \caption{Task time}
   \end{subfigure}
-  \caption{Mean metric values with 95\% confidence intervals}
+  \caption{Mean performance metric values with 95\% confidence intervals}
+  \label{fig:visualisation-metrics}
 \end{figure}
 
-\paragraph{Seek action}
-The number of seek actions made was standardised for each participant. This was done to reduce variation due to
-different search styles (i.e. frequent aimless seeking along the timeline vs. infrequent purposeful seeking)
+\definecolor{lightred}{RGB}{255,204,204}
+\definecolor{lightamber}{RGB}{255,204,153}
+\definecolor{lightgreen}{RGB}{204,255,204}
+\newcommand{\highsig}{\cellcolor{black!20}}
+\newcommand{\medsig}{\cellcolor{black!10}}
+\newcommand{\nosig}{\cellcolor{white}}
+\begin{table}[ht]
+  %\footnotesize
+  \begin{threeparttable}
+%\resizebox{\textwidth}{!}{
+    \begin{tabular}{L{.35\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.23\textwidth-2\tabcolsep}}
+\hline
+& \textbf{None vs Waveform} & \textbf{None vs Enhanced} & \textbf{Waveform vs Enhanced} \\ \hline
+	Seek actions        & \highsig$<0.01$ & \highsig$<0.01$ & \highsig$<0.01$ \\
+	Task error          & \nosig$>0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\
+	Task time           & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
+  TLX Effort\tnote{1} & \medsig$<0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
+	TLX Frustration     & \medsig$<0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\
+	TLX Mental demand   & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
+	TLX Performance     & \nosig$>0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\
+	TLX Physical demand & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
+  TLX Temporal demand\tnote{1} & \nosig$>0.05$ & \nosig$>0.05$ & \medsig$<0.05$ \\ \hline
+\end{tabular}
+\caption{$p$-values of pairwise comparisons}
+\label{tab:pairwise}
+\begin{tablenotes}
+    \item[1] Mauchly's Test of Sphericity indicated that the assumption of sphericity had been violated for the effort
+      metric [$\chi^2(2) = 9.657, p=.008$] and temporal demand metric [$\chi^2(2) = 17.918, p<.001$]. Therefore, we
+      have adjusted the degrees of freedom for the univariate tests using the conservative Greenhouse-Geisser
+      Correction.
+  \end{tablenotes}
+%}
+  \end{threeparttable}
+\end{table}
 
-ANOVA found there to be a difference between the visualizations for $p < 0.01$ and Tukey's HSD test (see
-Figure~\ref{fig:seektukey}) showed that the number of seek actions are different for each visualization in favour of
-the colourised version, again for $p < 0.01$. Even without standardisation, the same result holds for $p < 0.05$.
 
-%\begin{figure}[ht]
-%\centering
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/seek-std.pdf}
-  %\caption{Box plot}
-  %\label{fig:seekbox}
-%\end{subfigure}%
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/seek-std-tukey99.pdf}
-  %\caption{Tukey's test (99\% confidence interval)}
-  %\label{fig:seektukey}
-%\end{subfigure}
-%\caption{Number of seek actions, standardised per participant}
-%\label{fig:seek}
-%\end{figure}
+\subsubsection{Seek actions}
+The audio visualisation had a significant effect on the number of seek actions used to complete the task
+[$F(3,366)=93.871, p<.00001$]. On average, the enhanced waveform required 7.5 (30\%) fewer seek actions than the
+normal waveform, and 12.7 (43\%) fewer than having no visualisation. Additionally, the normal waveform required 5.2
+(17\%) fewer seek actions than having no visualisation. The difference in seek actions between all three conditions
+were statistically significant ($p<.01$).
 
-\paragraph{Selection time}
-The time taken to make a selection was calculated as the difference between the time the play button was first pressed
-and the time the final selection was made. This reduces variation due to participants not starting the task immediately
-and participants who made a selection, then checked the rest of the recording for other pieces of music. The mean and
-standard deviation of the selection time was standardised for each participant to reduce the effect of people's natural
-pace.
+\subsubsection{Task time}
+The audio visualisation had a significant effect on the time required to complete the task [$F(3,366)=25.261,
+p<.00001$].  On average, the task was completed 9 seconds (13\%) faster using the enhanced waveform compared to the
+normal waveform ($p<.01$), and 10.9 seconds (15\%) faster compared to having no visualisation ($p<.01$). There was no
+statistically significant difference in task completion time between the normal waveform and no visualisation. 
 
-%\begin{figure}[ht]
-%\centering
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/playstart-to-selectend-std.pdf}
-  %\caption{Box plot}
-  %\label{fig:selecttimebox}
-%\end{subfigure}%
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/playstart-to-selectend-std-tukey95.pdf}
-  %\caption{Tukey's test (95\% confidence interval)}
-  %\label{fig:selecttimetukey}
-%\end{subfigure}
-%\caption{Selection time (time between start of playback and final selection), standardised per participant}
-%\label{fig:selecttime}
-%\end{figure}
+\subsubsection{Task error}
+The audio visualisation had a significant effect on the accuracy of the task result [$F(3,366)=42.462, p<.00001$].  On
+average, the error when using the enhanced waveform was 87ms (14\%) lower than when using the normal waveform
+($p<.05$), and 122ms (19\%) lower than when there was no visualisation ($p<.01$). There was no statistically
+significant difference in task error between the normal waveform and no visualisation.
 
-ANOVA showed that there was a significant difference between visualizations for $p < 0.05$. Tukey's test (see
-Figure~\ref{fig:selecttimetukey}) found that there was a difference between no visualization and the colourised version,
-but not between either of them and the normal waveform.
+%\begin{figure}[ht] \centering \begin{subfigure}{.5\textwidth} \centering
+%\includegraphics[width=\textwidth]{figs/seek-std.pdf} \caption{Box plot} \label{fig:seekbox} \end{subfigure}%
+%\begin{subfigure}{.5\textwidth} \centering \includegraphics[width=\linewidth]{figs/seek-std-tukey99.pdf}
+%\caption{Tukey's test (99\% confidence interval)} \label{fig:seektukey} \end{subfigure} \caption{Number of seek
+%actions, standardised per participant} \label{fig:seek} \end{figure}
 
-\paragraph{Error}
-The absolute error of the selections made by each participant were calculated for the inpoint, outpoint and sum of
-both. ANOVA found there to be no difference between the visualisations for the inpoint or the sum, but found a
-significant difference ($p < 0.05$) for the outpoint.  Tukey's test (see Figure~\ref{fig:outpointerrtukey}) found that
-the absolute error of the outpoint for the colourised visualization was significantly lower than the other two
-visualizations, but that the other two were no different.
-
-This is an unexpected result which is difficult to explain, as the inpoint and sum errors were not even close to
-rejecting the null hypothesis ($p > 0.3$).  Although the result is significant, the improvement in accuracy is only
-about 150ms which is small in the context of 5-minute recordings.
+%\begin{figure}[ht] \centering \begin{subfigure}{.5\textwidth} \centering
+%\includegraphics[width=\textwidth]{figs/playstart-to-selectend-std.pdf} \caption{Box plot} \label{fig:selecttimebox}
+%\end{subfigure}% \begin{subfigure}{.5\textwidth} \centering
+%\includegraphics[width=\linewidth]{figs/playstart-to-selectend-std-tukey95.pdf} \caption{Tukey's test (95\% confidence
+%interval)} \label{fig:selecttimetukey} \end{subfigure} \caption{Selection time (time between start of playback and
+%final selection), standardised per participant} \label{fig:selecttime} \end{figure}
 
 %\begin{figure}[ht]
 %\centering
@@ -828,9 +806,164 @@ about 150ms which is small in the context of 5-minute recordings.
 %displays roughly one minute of audio across 1045 pixels ($\sim$50ms per pixel). Other than the x5 level, x15 was more
 %popular than x10 for all visualizations and x20 was barely used at all.
 
+\subsection{Task load ratings}
+
+We analysed the task load ratings using repeated measures multivariate ANOVA, which found that the audio visualisation
+had a significant effect on the number of task load ratings from participants [$F(12,152)=3.552, p<0.001$].
+Figure~\ref{fig:tlx-results} shows the mean values and confidence intervals of the task load metrics and
+Table~\ref{tab:pairwise} lists the statistical significance of the pairwise comparisons between the conditions.
+
+
+Participants reported that compared to both the normal waveform and no visualisation, the enhanced waveform was less
+mentally and physically demanding, had better performance, was less frustrating and required less effort.  They also
+rated the enhanced waveform as less temporally demanding than the normal waveform. Compared to having no visualisation,
+participants rated the normal waveform as being less frustrating and requiring less effort. 
+
+\begin{figure}[p]
+  \centering
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \begin{tikzpicture} 
+    \begin{axis}[
+      width=\textwidth,
+      ylabel=Effort,
+      xtick={1,2,3},
+      xticklabels={None,Waveform,Enhanced}]
+      \addplot[black,mark=*]
+        plot[error bars/.cd, y dir=both, y explicit]
+        coordinates {
+          (1, -0.122) +- (1.49,1.49)
+          (2, -2.244) +- (1.51,1.51)
+          (3, -4.220) +- (1.28,1.28)
+        };
+    \end{axis} 
+    \end{tikzpicture}
+    \caption{Effort}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \begin{tikzpicture} 
+    \begin{axis}[
+      width=\textwidth,
+      ylabel=Frustration,
+      xtick={1,2,3},
+      xticklabels={None,Waveform,Enhanced}]
+      \addplot[black,mark=*]
+        plot[error bars/.cd, y dir=both, y explicit]
+        coordinates {
+          (1, -0.829) +- (2.03,2.03)
+          (2, -2.976) +- (1.67,1.67)
+          (3, -5.268) +- (1.24,1.24)
+        };
+    \end{axis} 
+    \end{tikzpicture}
+    \caption{Frustration}
+  \end{subfigure}%
+
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \begin{tikzpicture} 
+    \begin{axis}[
+      width=\textwidth,
+      ylabel=Mental demand,
+      xtick={1,2,3},
+      xticklabels={None,Waveform,Enhanced}]
+      \addplot[black,mark=*]
+        plot[error bars/.cd, y dir=both, y explicit]
+        coordinates {
+          (1, -1.390) +- (1.68,1.68)
+          (2, -2.585) +- (1.45,1.45)
+          (3, -4.585) +- (1.23,1.23)
+        };
+    \end{axis} 
+    \end{tikzpicture}
+    \caption{Mental demand}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \begin{tikzpicture} 
+    \begin{axis}[
+      width=\textwidth,
+      ylabel=Performance,
+      xtick={1,2,3},
+      xticklabels={None,Waveform,Enhanced}]
+      \addplot[black,mark=*]
+        plot[error bars/.cd, y dir=both, y explicit]
+        coordinates {
+          (1, -5.415) +- (1.10,1.10)
+          (2, -6.317) +- (1.11,1.11)
+          (3, -7.341) +- (0.88,0.88)
+        };
+    \end{axis} 
+    \end{tikzpicture}
+    \caption{Performance}
+  \end{subfigure}%
+
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \begin{tikzpicture} 
+    \begin{axis}[
+      width=\textwidth,
+      ylabel=Physical demand,
+      xtick={1,2,3},
+      xticklabels={None,Waveform,Enhanced}]
+      \addplot[black,mark=*]
+        plot[error bars/.cd, y dir=both, y explicit]
+        coordinates {
+          (1, -3.122) +- (1.81,1.81)
+          (2, -4.098) +- (1.45,1.45)
+          (3, -6.171) +- (1.08,1.08)
+        };
+    \end{axis} 
+    \end{tikzpicture}
+    \caption{Physical demand}
+  \end{subfigure}%
+  ~
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \begin{tikzpicture} 
+    \begin{axis}[
+      width=\textwidth,
+      ylabel=Temporal demand,
+      xtick={1,2,3},
+      xticklabels={None,Waveform,Enhanced}]
+      \addplot[black,mark=*]
+        plot[error bars/.cd, y dir=both, y explicit]
+        coordinates {
+          (1, -3.171) +- (1.75,1.75)
+          (2, -3.268) +- (1.51,1.51)
+          (3, -4.878) +- (1.39,1.39)
+        };
+    \end{axis} 
+    \end{tikzpicture}
+    \caption{Temporal demand}
+  \end{subfigure}%
+  \caption{Mean TLX values with 95\% confidence intervals}
+  \label{fig:tlx-results}
+\end{figure}
+
+%\begin{figure}[p]
+  %\centering
+  %\includegraphics[width=\textwidth]{figs/tlx-std.pdf}
+  %\caption{Standard score of NASA Task Load Index responses for each visualization, standardised per participant.}
+  %\label{fig:tlx}
+%\end{figure}
+
+%\begin{figure}[p]
+  %\centering
+  %\includegraphics[width=\textwidth]{figs/tlx-std-tukey95.pdf}
+  %\caption{Standard score of NASA Task Load Index responses for each visualization, standardised per participant.}
+  %\label{fig:tlxtukey}
+%\end{figure}
+
 \subsection{Comparison}
-Participants were asked to directly compare the three visualizations at the end of the experiment. The results are
-shown in Figure~\ref{fig:compare}.
+Participants were asked to select which audio visualisation was the easiest to use, and which was the most frustrating.
+The results are shown in Figure~\ref{fig:visualisation-comparison}.  The enhanced waveform was rated as the easiest
+audio visualisation to use by 76\% of the participants.  Having no visualisation was rated as the most frustrating
+condition by two-thirds of the participants. The normal waveform was not considered by many to be the easiest, nor the
+most frustrating.
 
 \begin{figure}[ht]
 \centering
@@ -878,9 +1011,29 @@ shown in Figure~\ref{fig:compare}.
   \caption{Most frustrating}
   \label{fig:frustrating}
 \end{subfigure}
-\caption{Preferences}
-\label{fig:preferences}
+\caption{Preferences of participants}
+\label{fig:visualisation-comparison}
 \end{figure}
+
+\subsection{Hypotheses}
+
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{l c c}
+    \hline
+                  & C1 $<$ C2           & C2 $<$ C3 \\
+    \hline
+    H1 (effort)   & \textbf{Confirmed}  & \textbf{Confirmed} \\
+    H2 (time)     & Unconfirmed         & \textbf{Confirmed} \\
+    H3 (accuracy) & Unconfirmed         & \textbf{Confirmed} \\
+    \hline
+  \end{tabular}
+  \caption{Summary of hypothesis testing}
+  \label{tab:hypotheses}
+\end{table}
+
 
 %\begin{figure}[ht]
 %\centering
@@ -901,194 +1054,9 @@ shown in Figure~\ref{fig:compare}.
 %\label{fig:compare}
 %\end{figure}
 
-76\% of participants thought that the colourised waveform was the easiest to use, with the normal waveform receiving
-17\% of votes and 7\% for no waveform.  The strong preference for the colourised waveform over the others shows that
-participants thought the additional information added using colour made their task easier.
-
-Having no waveform was considered by two-thirds of participants to be the most frustrating condition, followed by the
-normal waveform at 20\% and colourised waveform at 15\%. Although this is another strong result in favour of using
-waveforms, the results are not quite as strong as the ones on ease of use. It is possible that the false positives and
-negatives present in the colourised waveform caused some people to select it as the most frustrating.
-
-\subsection{Task load index}
-The TLX responses were standardised to account for variation in the way different people assign scores. The
-distributions of the standardised scores for each visualization are shown in Figure~\ref{fig:tlx}.
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Effort,
-      xtick={1,2,3},
-      xticklabels={Audio,Waveform,Coloured}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -0.122) +- (1.49,1.49)
-          (2, -2.244) +- (1.51,1.51)
-          (3, -4.220) +- (1.28,1.28)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Effort}
-  \end{subfigure}%
-  ~
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Frustration,
-      xtick={1,2,3},
-      xticklabels={Audio,Waveform,Coloured}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -0.829) +- (2.03,2.03)
-          (2, -2.976) +- (1.67,1.67)
-          (3, -5.268) +- (1.24,1.24)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Frustration}
-  \end{subfigure}%
-
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Mental demand,
-      xtick={1,2,3},
-      xticklabels={Audio,Waveform,Coloured}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -1.390) +- (1.68,1.68)
-          (2, -2.585) +- (1.45,1.45)
-          (3, -4.585) +- (1.23,1.23)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Mental demand}
-  \end{subfigure}%
-  ~
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Performance,
-      xtick={1,2,3},
-      xticklabels={Audio,Waveform,Coloured}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -5.415) +- (1.10,1.10)
-          (2, -6.317) +- (1.11,1.11)
-          (3, -7.341) +- (0.88,0.88)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Performance}
-  \end{subfigure}%
-
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Physical demand,
-      xtick={1,2,3},
-      xticklabels={Audio,Waveform,Coloured}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -3.122) +- (1.81,1.81)
-          (2, -4.098) +- (1.45,1.45)
-          (3, -6.171) +- (1.08,1.08)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Physical demand}
-  \end{subfigure}%
-  ~
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Temporal demand,
-      xtick={1,2,3},
-      xticklabels={Audio,Waveform,Coloured}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -3.171) +- (1.75,1.75)
-          (2, -3.268) +- (1.51,1.51)
-          (3, -4.878) +- (1.39,1.39)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Temporal demand}
-  \end{subfigure}%
-  \caption{Mean TLX values with 95\% confidence intervals}
-\end{figure}
-
-\definecolor{lightred}{RGB}{255,204,204}
-\definecolor{lightamber}{RGB}{255,204,153}
-\definecolor{lightgreen}{RGB}{204,255,204}
-\newcommand{\highsig}{\cellcolor{black!20}}
-\newcommand{\medsig}{\cellcolor{black!10}}
-\newcommand{\nosig}{\cellcolor{white}}
-\begin{table}
-\resizebox{\textwidth}{!}{
-\begin{tabular}{l l l l}
-\hline
-& \textbf{Audio vs Waveform} & \textbf{Audio vs Coloured} & \textbf{Waveform vs Coloured} \\ \hline
-	Seek actions & \highsig$<0.01$ & \highsig$<0.01$ & \highsig$<0.01$ \\
-	Error & \nosig$>0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\
-	Time & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
-	TLX Effort & \medsig$<0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
-	TLX Frustration & \medsig$<0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\
-	TLX Mental & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
-	TLX Performance & \nosig$>0.05$ & \highsig$<0.01$ & \medsig$<0.05$ \\
-	TLX Physical & \nosig$>0.05$ & \highsig$<0.01$ & \highsig$<0.01$ \\
-  TLX Temporal & \nosig$>0.05$ & \nosig$>0.05$ & \medsig$<0.05$ \\ \hline
-\end{tabular}}
-\caption{$p$-values of pairwise comparisons}
-\end{table}
-
-%\begin{figure}[p]
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/tlx-std.pdf}
-  %\caption{Standard score of NASA Task Load Index responses for each visualization, standardised per participant.}
-  %\label{fig:tlx}
-%\end{figure}
-
-%\begin{figure}[p]
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/tlx-std-tukey95.pdf}
-  %\caption{Standard score of NASA Task Load Index responses for each visualization, standardised per participant.}
-  %\label{fig:tlxtukey}
-%\end{figure}
-
-ANOVA found there to be significant differences between the visualizations in all TLX metrics for $p < 0.01$. Tukey's
-test (see Figure~\ref{fig:tlxtukey}) found that for $p < 0.05$, the colourised waveform outperformed no waveform in all
-metrics except temporal demand, and outperformed the normal waveform in all metrics except frustration. The normal
-waveform outperformed no waveform in mental demand, performance, effort and frustration.
-
-Some scepticism should be given to the physical and temporal demand metrics, as it's not entirely clear what is meant
-by that terminology in the context of the task. Participants are not working against the clock, not are they doing
-anything other than moving the mouse. Although some participants may consider fewer clicks of the mouse to represent
-reduced physical demand, we cannot assume that others thought the same.
-
-\subsection{Interaction behaviour}
-This section looks at how participants used the features available in the online audio interface, full described in
-Section~\ref{sec:iface}.
+%\subsection{Interaction behaviour}
+%This section looks at how participants used the features available in the online audio interface, full described in
+%Section~\ref{sec:iface}.
 %Informal observation of some participants as they completed the experiment
 %revealed that some people used the interface in different ways. For example,
 %when one participant had completed their selection, they scanned through the
@@ -1203,6 +1171,8 @@ Section~\ref{sec:iface}.
 %Two-thirds thought that having no waveform was the most frustrating condition with 20\% choosing the normal waveform.
 
 \section{Discussion}
+
+
 
 \section{Conclusion}
 The normal waveform required fewer seek actions than nothing but was not significantly faster. It scored better than
