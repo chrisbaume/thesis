@@ -1,43 +1,62 @@
 % !TeX root = main.tex
 \chapter{Use of audio editors in radio production}\label{chp:ethno}
 
-The process of creating radio programmes has evolved over nearly a century amid a rapidly changing technological
-landscape. Outside of the radio industry, the production process is not well understood and it can be difficult for
-those who want to learn more to gain access. Books \citep{Hausman2012} and studies \citep{Dunaway2000} on radio
-production have been written, but as they focus on editorial concerns, they do not reveal much about practical issues
-that producers face.  The lack of available information can make it difficult for researchers and designers to
-understand the real-world challenges and needs of radio production.
+% link to previous chapter
 
-Although most radio content is broadcast live, a significant proportion of programmes, such as documentaries, are
-created offline using audio editing software. The audio editing tools used by radio producers are often very basic in
-the features they offer and where more advanced software is used, it is typically designed for production of music
-rather than speech.
+We saw in Chapter~\ref{chp:colourised} that we can improve the performance of at least one audio editing task by
+enhancing the audio visualization. We were interested in exploring how we could apply these techniques to radio
+production, to help producers create programmes more efficiently.  To continue this research, we needed to decide which
+production tasks we should target. This required an understanding of the tasks involved in radio production, and of the
+challenges producers face in their roles.
 
-\section{Background}
+% radio production is not well documented and hard to access
 
-\citet{Dunaway2000} talks about introduction of digital processes into radio.
+%Radio production is conducted globally on a large scale. The BBC alone has 9 national and 40 local radio stations,
+%%and BBC World Service, which broadcasts in 29 languages. 
+%each of which broadcast 24/7.
 
-There are many semantic audio and user interface technologies that have the potential to improve the production
-environment. Automatic segmentation algorithms for speech/music discrimination \citep{Wieser2014} and speaker
-diarization \citep{AngueraMiro2012} are relatively mature and have already been applied to radio \citep{Raimond2014}.
+There are two classic books that document the radio production process. \citet{McLeish2015}, now in its sixth edition,
+provides a broad overview of the practice of radio production with an emphasis on editorial, organisational and
+business concerns.  \citet{Hausman2012}, currently in its ninth edition, covers the more practical aspects of radio
+production including the use and operation of tools and equipment.  Despite the valuable contribution of these
+publications, they present a high-level overview of production practice that does not fully address the real-life
+challenges and issues that radio producers face in the industry.
+
+It can be difficult for those working outside of the radio industry to learn about the challenges of radio production.
+We could only find one published study that involved radio producers, by \citet{Dunaway2000}, which was based on his
+experience of being a documentary producer. This lack of studies may be a result of the limited number of radio
+producers, and their demanding workload, which can make it challenging to recruit them for research.  For example,
+\citet{Kim2003} worked with National Public Radio (NPR) to develop a system for searching speech archives.  Despite
+working directly with NPR, they were unsuccessful in recruiting radio producers to evaluate their system as there were
+not many producers, and they did not volunteer because they were too busy.
+
+% hard for researchers to develop solutions without understanding challenges and problems
+% lots of technology could help, but how to choose which?
+
+There are many semantic audio and user interface technologies that have the potential to improve the radio production
+workflow. Speech/music discrimination \citep{Wieser2014}, speaker diarization \citep{AngueraMiro2012}, speaker
+identification \citep{Lee1999a} and automatic speech recognition \citep{Junqua1995} can all be benefitial for use in
+radio systems \citep{Raimond2014,Bell2015}. However, it is difficult to know how best to apply these techniques without
+a solid understanding of the radio production process.
+
+Without a good understanding of how radio production works in reality, and the challenges that producers face in their
+work, it can be difficult for researchers outside of the industry to contribute developments that might benefit radio
+producers.
+
+
 Experiments into the use of higher-level representations like text are starting to appear, such as the video editors
-from Loviscach \citep{Loviscach2011a} and Hyperaudio \citep{Boas2011}.  However, without a detailed understanding of
-the production workflows, it can be difficult to know which of these technologies have the most potential, or how they
-can be integrated into the workflow.
+from Loviscach \citep{Loviscach2011a} and Hyperaudio \citep{Boas2011}.
 
-\section{Study overview}
+However, without a detailed understanding of the production workflows, it can be difficult to know which of these
+technologies have the most potential, or how they can be integrated into the workflow.
 
-In order to gain a better understanding of the radio production process, a study was conducted at BBC Radio in London.
-Section~\ref{sec:ethno-method} outlines the methodology behind the study, Section~\ref{sec:ethno-results}
-presents the results of three case studies, Section~\ref{sec:ethno-discussion} discusses the findings and
+% what we did in this chapter
+To help us better understand the radio production process, we conducted three ethnographic case studies of practice in
+BBC Radio.
+In Section~\ref{sec:ethno-method} we outline the design of our study.
+Section~\ref{sec:ethno-results} presents the results of each case studies,
+Section~\ref{sec:ethno-discussion} discusses the findings and
 Section~\ref{sec:ethno-conclusion} presents the conclusion.
-
-\paragraph{A note on terminology}
-The vast majority of radio production work in the BBC uses a networked audio production system called \textit{dira!}
-\citep{SCISYS2015}. It is colloquially known as `VCS', after the former name of the company that makes it. All audio
-content is kept on distributed storage and the system is accessed using various pieces of software: `StarTrack' is a
-multi-track audio editor, `Orion' is an audio recorder and single-track editor and `Highlander' is used to browse
-recordings and metadata. 
 
 \section{Method}\label{sec:ethno-method}
 Previous studies of professional broadcast environments have focused on how producers collaborate during live
@@ -45,7 +64,16 @@ production \citep{Engstroem2010,Perry2009}, by using video recordings to analyse
 The scope of this study was much wider and covered the production of programmes over a number of weeks. As such, an
 ethnographic approach was taken so that all aspects of the production could be considered.
 
+We followed a ``maximum variation sampling'' strategy \citep[p. 172]{Patton1990}
+
 \subsection{Objective and scope}
+
+% focus on audio editing
+Although most radio content is broadcast live, a significant proportion of programmes, such as documentaries, are
+created offline using audio editing software.
+
+% objective of study
+
 The objective of the study was to discover how radio programmes are created, in order to identify opportunities for
 assisting or improving the process using technology. Although the focus was on production tools, the entire production
 workflow was considered so that use of tools could be understood in context.
@@ -73,7 +101,13 @@ work in and the production workflow from beginning to end. Challenges and opport
 then identified, and potential technology-based solutions were considered.  These were examined to find any strong
 themes that were common across the three case studies, or any significant opportunities that resulted from them.
 
-\section{Results}\label{sec:ethno-results}
+\section{Study results}\label{sec:ethno-results}
+
+The vast majority of radio production work in the BBC uses a networked audio production system called \textit{dira!}
+\citep{SCISYS2015}. It is colloquially known as `VCS', after the former name of the company that makes it. All audio
+content is kept on distributed storage and the system is accessed using various pieces of software: `StarTrack' is a
+multi-track audio editor, `Orion' is an audio recorder and single-track editor and `Highlander' is used to browse
+recordings and metadata. 
 
 \subsection{News bulletin}\label{sec:news}
 The summaries team at BBC News (known just as ``summaries'') create hourly news bulletins for the national radio
@@ -109,6 +143,27 @@ monitor displays the BBC News channel. However by design, most communication is 
   \label{fig:newsroom}
 \end{figure}
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/news-desktop.jpg}
+  \caption{Desk of the radio summaries assistant editor.}
+  \label{fig:news-desktop}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/news-intake-pixelated.jpg}
+  \caption{Arrivals board in BBC newsroom.}
+  \label{fig:news-arrivals}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/news-layout.pdf}
+  \caption{Layout of radio summaries within the BBC newsfloor.}
+  \label{fig:newsroom-layout}
+\end{figure}
+
 Most of the work is based at a desktop PC and primarily done on the Electronic News Production System (ENPS). This is
 an industry standard software package for writing scripts and compiling news bulletins. It integrates with the
 \textit{dira!} radio production system using a plugin called Media Object Server (MOS). This allows users to browse and
@@ -120,6 +175,14 @@ the time of day (e.g. midday bulletins are longer). Even if the stories being co
 each network are written separately so that they suit that network's audience. This is done by varying the number of
 items, the amount of detail and the level of assumed knowledge. The team aims to finish bulletins 15 mins before they
 are aired.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/news-workflow.pdf}
+  \caption{Flowchart of news summaries production.}
+  \label{fig:ethno-drama-recording}
+\end{figure}
+
 
 \paragraph{Scripts}
 Using ENPS, the team write text summaries of the current big news stories and compile them into a bulletin. The
@@ -205,14 +268,42 @@ mixing desk and level meters.
 
 \begin{figure}[ht]
   \centering
+  \includegraphics[width=\columnwidth]{figs/drama-layout.pdf}
+  \caption{Physical layout of the drama studio and cubicle.}
+  \label{fig:drama-layout}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
   \includegraphics[width=\columnwidth]{figs/60a.jpg}
   \caption{Cubicle of studio 60A.}
   \label{fig:drama-studio}
 \end{figure}
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/drama-edit.jpg}
+  \caption{Radio drama edit suite.}
+  \label{fig:drama-edit}
+\end{figure}
+
 \subsubsection{Workflow}
 Prior to the recording, the cast will have done a read-through where the broadcast assistant notes the time taken to
 perform each scene.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/drama-recording-workflow.pdf}
+  \caption{Flowchart of drama recording.}
+  \label{fig:ethno-drama-recording}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/drama-editing-workflow.pdf}
+  \caption{Flowchart of drama editing.}
+  \label{fig:ethno-drama-recording}
+\end{figure}
 
 \paragraph{Recording}
 The whole team is present during recordings and they normally record at least one episode in a day. The scenes are done
@@ -261,9 +352,9 @@ are missed and must be removed later. The sound level is adjusted to be consiste
 mouse for in/out fades or by recording automation with a mixing desk slider.
 
 Sound effects that are listed in the script but were not played at the time of recording are added at this stage.
-Roughly 600GB of effects are stored on the local computer and their metadata can be searched using text. It takes skill
-and experience to know which words to use for the search or to know which CDs or collections to use for certain
-effects.
+Roughly 900 hours of pre-recorded sound effects are stored on the local computer and their metadata can be searched
+using text. It takes skill and experience to know which words to use for the search or to know which CDs or collections
+to use for certain effects.
 
 The recordings are listened to so that any unmarked errors are identified, such as noise caused by actors handling the
 script during recording. Long sequences are played at double-speed to save time.
@@ -330,6 +421,14 @@ control room. Each studio is acoustically treated and contains a PC, mixing desk
 \subsubsection{Workflow}
 The three weeks it takes to create the programme can be very roughly divided into research, interviews and editing.
 However in reality these activities are dependent on external factors and can overlap significantly.
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/docs-workflow.pdf}
+  \caption{Flowchart of documentary production.}
+  \label{fig:ethno-drama-recording}
+\end{figure}
 
 \paragraph{Research}
 The purpose of the research stage is to take the idea behind the programme and form an interesting and relevant
