@@ -162,7 +162,7 @@ approach and any suggested improvements that could be made.
 
 In this section, we present the results of our three ethnographic case studies. For each study, we describe the roles
 and responsibilities of the team members, and the environment and tools that are used. We then detail the results of
-the task analysis we performed, before listing the challenges we identified.
+the task analysis we performed, and list the challenges we identified.
 
 %The vast majority of radio production work in the BBC uses a networked audio production system called \textit{dira!}
 %\citep{SCISYS2015}. It is colloquially known as `VCS', after the former name of the company that makes it. All audio
@@ -277,7 +277,7 @@ description of the workflow is written below.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=4in]{figs/news-workflow.pdf}
-	\caption{Flowchart of news summaries production.}
+  \caption{Operational sequence diagram of news summaries production, partitioned by role and location.}
 	\label{fig:news-flowchart}
 \end{figure}
 
@@ -346,313 +346,355 @@ When creating clips from television broadcasts, the broadcast journalists must s
 segments.  To find the audio, they would seek through the recording, listening for a particular voice or mention of the
 topic of interest.  The \textit{MOS} plugin interface they used displayed a waveform, but this did not seem to help
 them find the audio.  This made finding and cutting clips a time-consuming and difficult task, particularly when
-performed under pressure.
+performed under pressure.  Application of segmentation or speech-to-text technology could help by indicating where
+people are speaking, displaying keywords that are mentioned, or allowing the recording to be searched by text.
 
 The bulletins written by the broadcast journalists must target a specific duration for when they are broadcast. It is
 difficult for them to write and edit the script so that it contains all the facts, is balanced and reads well while
 hitting the correct duration. However, in addition to this, they have no indication of how long it takes to read a
 piece of text. They must therefore estimate this based on experience, or reading it in their head.
+By developing a system that estimates the duration of spoken text, broadcast journalists may be able to target a
+specific duration more efficiently. 
+
+When it comes to inserting clips into the script, in and out words must be manually entered so that the clip can be
+recognised, but there is not enough time to transcribe the whole clip.  Speech-to-text technology would be able to
+automate this and full transcription could further help the journalists to recall the clip and write the script around
+it.
 
 \subsection{Drama}\label{sec:drama}
 Radio 4's ``15 Minute Drama'' is a series of original drama and book dramatisations, broadcast twice-daily. Production
-of radio drama is radically different from that of news as it is based on a script of a radio play and is created over
-a number of weeks.
+of drama is very different from most other genres in radio, as it is based on a pre-written script of a radio play. The
+drama is created over several weeks. The researcher observed the production over two full days -- one for the recording
+of the drama and the other for the editing process.  The observation did not include the writing of the script.
 
-\subsubsection{Roles}
-The production team is made up of five members, plus a cast of actors. The \textit{director} is the owner of the
-programme and works with the team to create their interpretation of the radio play. The \textit{broadcast assistant}
-handles the administrative side and during the recording, they annotate the script with detailed notes. There are three
-\textit{studio managers} (SMs). The \textit{panel SM} leads the recording process and operates the mixing desk.  The
-\textit{grams SM}\footnote{`Grams' refers to gramophones, originally the only way to play back sound effects.} makes
-the recordings and plays pre-recorded sound effects.  The \textit{spot SM} works in the studio where they place
-microphones and create spot effects\footnote{Known as `foley' in the movie industry.}.
+\subsubsection{Roles and responsibilities}
+The production team is led by a \textit{director} who works with a \textit{broadcast assistant} and three studio
+managers (SMs) -- a \textit{panel SM}, \textit{grams SM} and \textit{spot SM}. The team record a \textit{cast} of
+actors who perform the drama.
 
-\subsubsection{Environment}
-The observed drama was recorded in studio 60A, which is a purpose-built flexible performance space at BBC New
-Broadcasting House in London. It contains spaces with different acoustic properties including movable absorbers and a
-foam-lined spiral corridor, used to simulate distance. There are many fixtures and props for re-creating common
-environmental sounds including various doors/windows, a staircase with both wood and carpet, a bedroom and a working
-kitchen.
+The director is responsible for leading the team and making editorial and creative decisions. Before the recording,
+they will have commissioned a writer to create the script, and worked with them to refine it. During the recording,
+they announce the start and end of takes, and give feedback to the cast about their performances.  They also work with
+the SMs to ensure the drama has the right sound.
 
-The studio is connected by a large acoustically-isolated window to the cubicle where the production team sit (see
-Figure~\ref{fig:drama-studio}). The mixing desk is in front of the window with the broadcast assistant to the right and
-the director behind. The grams SM sits at the back of the room, while the spot SM spends most of their time in the
-studio.
+The director is supported by a broadcast assistant who handles much of the administrative work before and after the
+recording, such as making copies of the script, booking the cast, producers and rooms, and processing payments.
+During the recording, they annotate the script with detailed notes about the position and length of each take, and mark
+any mistakes or re-takes.
 
-Post-production is done in an editing suite which is a compact acoustically-treated room with a PC, speakers, small
-mixing desk and level meters.
+The panel SM is responsible for the sound of the drama. They lead the other two SMs during the recording process and
+operate the mixing desk in the cubicle. They work with the spot SM to position the actors and microphones to achieve
+they sound they want. They also make a backup recording of each performance onto CDs. After the recording, they work
+with the director to edit the drama into the final version.
 
-\begin{figure}[ht]
+The grams SM prepares and plays pre-recorded sound effects during the recording, and is also responsible for recording
+the performances using a DAW.  ``Grams'' refers to gramophones, which were historically used to play pre-recorded sound
+effects.  After each take, the grams SM labels the recording with the episode, scene and take numbers, which are later
+used to assemble the final programme.  When the director wants to listen back to a performance, the grams SM uses the
+DAW to find and replay the desired take.
+
+The spot SM works in the studio, rather than the cubicle, where they set up and position microphones and create spot
+effects, also known as ``foley'' in the movie industry. The effects are produced using a large variety of props that
+are kept in the studio to emulate common effects such as doors, windows, locks, telephones and footsteps to name a few.
+
+The cast are hired by the director specifically for the drama being recorded. Often the cast are sourced from the BBC
+Radio Drama Company (RDC), which is a rotating group of actors that are employed by the BBC. The cast perform the
+radio play in the studio, working under instruction from the director.
+
+\subsubsection{Environment and tools}
+The drama we observed was recorded in Studio 60A, which is a purpose-built flexible performance space at BBC New
+Broadcasting House in London. The studio contains spaces with different acoustic properties, including movable
+absorbers and a foam-lined spiral corridor that used to simulate distance. There are many fixtures and props for
+re-creating common environmental sounds including freestanding doors/windows with a variety of knockers and letter
+boxes, a staircase with wood, concrete and carpet steps, an upstairs bedroom and a fully working kitchen.  In addition,
+there are a wide range of props that are used to create spot effects.  The studio is a large space, so there are four
+CCTV cameras which are used to allow the producers in the cubicle to see parts of the studio that are out of view. 
+
+The studio is connected by a large acoustically-isolated window to the cubicle where the production team sit.
+Figure~\ref{fig:drama-studio} shows the view of the studio from the cubicle, and Figure~\ref{fig:drama-layout} shows
+the layout of the spaces. The mixing desk is operated by the panel SM and is positioned directly in front of the
+window.  The broadcast assistant sits to the right of the panel SM and the director sits directly behind them. The
+grams SM sits at the back of the room, while the spot SM spends most of their time in the studio.
+%TODO Intercom
+
+The panel SM sets the sound levels and balances the audio using the mixing desk, and makes a backup recording of the
+performances using a CD recorder located in a rack to the left of the mixing desk.  Under the mixing desk, there is a
+foot pedal which controls a light in the studio to silently indicate the start of a performance, known as a ``cue
+light''. The panel SM also controls warning lights displayed above the door to the studio to stop people from walking
+in mid-performance.  The grams SM uses software called ``SpotOn'' to select and play pre-recorded sound effects. They
+use the ProTools DAW to record each performance, and label them with the episode, scene and take numbers.
+
+Figure~\ref{fig:drama-edit} shows the editing suite where the panel SM and director perform the post-production work.
+The editing suite is a compact acoustically-treated room which houses a PC running ProTools, stereo speakers, a small
+mixing desk and level meters.  The left monitor is used to find pre-recorded sound effects and the right monitor is
+used to arrange and edit the drama recordings. The panel SM uses an annotated copy of the script to guide their
+editing.
+
+\begin{figure}[p]
   \centering
   \includegraphics[width=3.5in]{figs/drama-layout.pdf}
-  \caption{Physical layout of the drama studio and cubicle.}
+  \caption{Physical layout of the drama studio and cubicle, showing the director (1), broadcast assistant (2), cast
+  (3), panel SM (4), grams SM (5) and spot SM (6).}
   \label{fig:drama-layout}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[p]
   \centering
   \includegraphics[width=\columnwidth]{figs/60a.jpg}
   \caption{Cubicle of studio 60A.}
   \label{fig:drama-studio}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[p]
   \centering
   \includegraphics[width=\columnwidth]{figs/drama-edit-labelled.pdf}
-  \caption{Radio drama edit suite, showing the sound effects library interface (1), the annotated script being edited (2), a mixing desk (3), the ProTools DAW with a list of recorded and labelled audio clips (4) and the edit time-line (5).}
+  \caption{Radio drama edit suite, showing the sound effects library interface (1), the annotated script being edited
+  (2), a mixing desk (3), the ProTools DAW with a list of recorded and labelled audio clips (4) and the edit time-line
+  (5), and level meters (6).}
   \label{fig:drama-edit}
 \end{figure}
 
-\subsubsection{Workflow}
-Prior to the recording, the cast will have done a read-through where the broadcast assistant notes the time taken to
-perform each scene.
+\subsubsection{Task analysis}
+Figures~\ref{fig:ethno-drama-recording} and \ref{fig:ethno-drama-editing} show the operational sequence diagrams of the
+radio drama recording and editing process, respectively. Descriptions of each workflow are presented individually
+below.
 
-\begin{figure}[ht]
+\begin{figure}[p]
   \centering
   \includegraphics[width=5in]{figs/drama-recording-workflow.pdf}
-  \caption{Flowchart of drama recording.}
-  \label{fig:ethno-drama-recording}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=2in]{figs/drama-editing-workflow.pdf}
-  \caption{Flowchart of drama editing.}
+  \caption{Operational sequence diagram of radio drama recording, partitioned by role and location.}
   \label{fig:ethno-drama-recording}
 \end{figure}
 
 \paragraph{Recording}
-The whole team is present during recordings and they normally record at least one episode in a day. The scenes are done
-in sequence, with multiple takes recorded for each. When the director is satisfied with the takes, the recording moves
-onto the next scene.
+The recording process involves the entire production team and cast. Between one and two episodes are recorded in a day.
+Prior to recording, the cast will assemble in the ``green room'' with the director and rehearse the play. During the
+rehearsal, the broadcast assistant measures how long the performances take, to ensure they are not too long or too
+short.  The director provides feedback to the cast on their performances before they move to the studio.
 
-During the recording, the panel SM balances the microphone feeds and sound effects, and makes a backup recording onto a
-CD. The grams SM records the desk output directly into a digital audio workstation (DAW) and stores each take as a
-separate clip. The DAW is used to manually label each clip with the episode, scene and take number (e.g. e2s3t1). The
-grams SM also selects and plays environmental recordings and sound effects, which are recorded onto a separate track in
-the DAW. The spot SM positions the microphones for the actors and creates live spot effects in the studio. The director
-listens carefully to the takes and makes their own notes.  Between takes, they discuss the performance with the team
-and give feedback to the actors.
+The drama is recorded as a series of ``takes''. Each take is a short segment of a scene in an episode, often only
+20--30 seconds long.  Multiple takes of the same material are recorded so that the director can give feedback to the
+cast on how they would like it to be performed.  The director starts the process by announcing the episode, scene and
+take number.  The panel SM starts the backup recording, and the grams SM starts the DAW recording. When everything is
+ready, the panel SM flashes the cue light, which signals the cast to start performing.  During each take, everybody 
+listens to the performance. The panel SM balances the audio levels, the grams SM triggers pre-recorded sound effects,
+and the spot SM performs live spot effects in the studio.
 
-The broadcast assistant takes detailed notes throughout the recording by annotating a paper copy of the script and
-keeping a spreadsheet of the takes and their length. The paper annotations (see Figure~\ref{fig:drama-script}) have a
-well-defined syntax which is explained below. Although this syntax is widely used, it is not formally defined so can
-vary from person-to-person.
-
-A different coloured pen is used for each take. The start and end of each take is marked with a vertical line on the
-side of the page, with the take and backup CD numbers written at the top. If the take is repeated within a recording,
-the line continues back to the top. Repeated words or phrases are marked with square brackets. If multiple brackets
-overlap, their order is labelled with numbers.  Words that are spoken incorrectly are underlined. The best take for
-each scene is marked by using highlighter pen on the vertical line for that take.
+The broadcast assistant make notes on a spreadsheet about the takes and their duration. They also annotate a printed
+script with information about each take.  Figure~\ref{fig:drama-script} shows an example of an annotated drama script.
+The start and end of each take is marked with a vertical line on the side of the page. The take and backup CD numbers
+are written at the top of each line, and the duration of the take is written at the bottom.  If the take starts again
+during a recording, the line continues back to the top.  The best take for each scene is marked by highlighting the
+line for that take.  Words that are spoken incorrectly are underlined, and repeated words or phrases are marked with
+square brackets.  Different coloured pens are used to distinguish the marks for each take.  If multiple brackets
+overlap, their order is labelled with numbers.
 
 \begin{figure}[p]
   \centering
   \includegraphics[width=\columnwidth]{figs/drama-markup-labelled.pdf}
-  \caption{An annotated drama script page. Recordings for each take are marked with different colour lines (1). The best takes are marked with a highlighter pen (2). The backup CD and track number are marked at the top of each line (3) and the length of the take is marked at the bottom (4). Notes are often attached to takes (5). Repeated lines are marked using square brackets in the colour of the take (6). Re-takes are marked differently (7).}
+  \caption{An annotated drama script page. Recordings for each take are marked with different colour lines (1). The
+  best takes are marked with a highlighter pen (2). The backup CD and track number are marked at the top of each line
+  (3) and the length of the take is marked at the bottom (4). Notes are often attached to takes (5). Repeated lines are
+  marked using square brackets in the colour of the take (6).}
   \label{fig:drama-script}
 \end{figure}
 
-After the recording is complete, the audio files are copied onto a portable hard drive. Although hard drives can fail
-and be misplaced, they are still used as the computer network is considered too slow and the hard drive can be taken
-anywhere.
+At the end of a take, the DAW and backup recordings are stopped. The grams SM uses the DAW to label the clip with the
+episode, scene and take number (e.g. e2s3t1). The broadcast assistant marks the printed script and spreadsheet with the
+duration of the take and the backup CD number.  If the director is satisfied that they have recorded what they need,
+then they select the best take and move onto the next scene. The broadcast assistant marks the best take on the script
+and spreadsheet. If the director wants to record another take, they discuss the performance with the production team,
+then provide the cast with feedback, either by walking into the studio, or using the intercom.
 
-\paragraph{Rough edit}
-The rough edit is created with a DAW by one of the studio managers, usually the panel SM. As the files are stored on a
-portable hard drive, this process can be done either in an edit suite or on a laptop at home. The first step is to
-create a sequence of the best takes from the recordings. The annotated script is used to identify these, and they are
-dragged from the DAW's `clip list' onto a timeline. There can be many clips, so sometimes they are searched with text
-to narrow-down the list. Mislabelled clips or misread labels can occasionally cause issues at this stage.
+When the recording is complete, the team either move onto a new episode, or the director sends everybody home.  The
+grams SM copies the audio clips from the DAW onto a portable hard drive.  Portable hard drives are used as they can
+handle large file sizes better than than the local computer network.  The portable hard drive and annotated drama
+script are given to the panel SM.
 
-The script is used to identify and remove errors in the takes, particularly re-takes or repeated words. Sometimes these
-are missed and must be removed later. The sound level is adjusted to be consistent throughout, either by using the
-mouse for in/out fades or by recording automation with a mixing desk slider.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=2in]{figs/drama-editing-workflow.pdf}
+  \caption{Operational sequence diagram of radio drama editing, partitioned by role and location.}
+  \label{fig:ethno-drama-editing}
+\end{figure}
 
-Sound effects that are listed in the script but were not played at the time of recording are added at this stage.
-Roughly 900 hours of pre-recorded sound effects are stored on the local computer and their metadata can be searched
-using text. It takes skill and experience to know which words to use for the search or to know which CDs or collections
-to use for certain effects.
+\paragraph{Editing}
+The recordings of the drama are edited into a final programme by the panel SM and director. The panel SM starts by
+creating a rough edit of the programme by themselves, using the annotated script as a guide.  As the files are stored
+on a portable hard drive, this process can be done either in an edit suite or on a laptop at home. The first step is to
+create a sequence of the best takes from the recordings, as marked in the annotated script, by dragging them onto a
+timeline from the list of labelled clips.  The panel SM uses the script to identify and remove errors in the takes,
+such as re-takes or repeated words.  They adjust the sound level to be consistent throughout, either by using the mouse
+to draw level curves, or by recording automation using a slider on the mixing desk.
 
-The recordings are listened to so that any unmarked errors are identified, such as noise caused by actors handling the
-script during recording. Long sequences are played at double-speed to save time.
+The panel SM adds any sound effects that were not played at the time of recording using a sound effects library on
+their PC, which contains roughly 900 hours of sound effects.  The effects are found either by using text to search the
+metadata of the effects, or by browsing to a specific collections of effects.  Before the director joins them, the
+panel SM listens through the rough edit to listen for any mistakes or errors, such as repeated words or phrases, or
+noise caused by actors handling their paper scripts.  Double-speed playback is used to save time during this process.
 
-\paragraph{Fine edit}\label{sec:drama-fine}
-Once the rough edit is complete, the director joins the SM in an edit suite to cut the programme to the correct length,
-select the best performances, tweak the sound effects and add background music.
+Once the rough edit is complete, the director joins the panel SM in the edit suite. They will listen to the rough edit
+to judge the quality of the performances selected as the best takes.  Often, the director will ask the panel SM to play
+other takes so that they can compare them.  To do this, the SM finds the correct recording in the clip list, drag it
+onto the timeline and find the correct position in the clip.  The director may ask the panel SM to swap a take, or
+combine the start and end of different takes to use the best performances.  The same process happens for the sound
+effects, which may be swapped or mixed together.
 
-The finished programme must have an exact duration to fill its assigned broadcast slot. Almost always, the programme
-will be too long and some lines must be removed. This can only be done by the director as these decisions have a strong
-editorial impact.
+Music is not specified in the script, so the director has the freedom to choose what they want. Popular consumer music
+services are used to find commercial tracks, but often directors will choose `production music', which is designed for
+TV/radio and is easier to license. These can be searched using descriptive keywords using one of a number of online
+music libraries such as Audio Network or Desktop Jukebox.  The director provides the music to the panel SM on a USB
+storage device for them to insert and mix using the DAW.
 
-While listening through the programme, the director may want to compare the chosen take with other takes that were
-recorded. To do this, the SM must find the correct recording using their labels, drag it onto the timeline and find the
-right position in the recording. This process introduces an overhead which can put directors off comparing performances
-too often.
-
-Music is not specified in the script, so the director has the creative freedom to choose what they want. Popular
-consumer music services are used to find commercial tracks, but often directors will choose `production music', which
-is designed for TV/radio and is easier to license. These are found using one of a number of online music libraries
-which, similarly to the sound effects, are searchable using descriptive keywords. The director provides the music to
-the SM on a USB storage device for them to insert and mix.
-
-Once finished, the final edit is mixed down to stereo by playing the programme through a digital loop-back. Although
-this can be done automatically, it forces the director and SM to listen to the programme from beginning to end in one
-go.
+The final programme must have an exact duration to fit its assigned broadcast slot. The programme is edited to be
+slightly too long, so some lines have to be removed to reduce the programme length. Removing lines has a strong
+editorial impact, so the director decides which lines to remove and the panel SM removes them using the DAW.  Once
+finished, the final edit is rendered to an audio file by playing the programme through a digital loop-back. Although
+this can be done faster, this playback forces the director and panel SM to listen to the programme from beginning to
+end in one go. If they are happy with the edit, the director sends the file to their editor for sign-off and broadcast.
 
 \subsubsection{Challenges}
 The clear syntax used to annotate the drama script shows that the production workflow is well-organised and makes good
-use of existing tools. However in the rough edit stage, the SM is performing simple non-creative editing tasks based
-purely on the annotations. If these could be captured in a digital format, the rough edit stage could conceivably be
-fully or partly automated.
+use of existing tools. However to convert those annotations into a rough edit stage, the SM must use a DAW to manually
+arrange and edit the clips, and remove any marked errors. This can be a lengthy and tedious process. If the annotations
+could be captured digitally, the rough edit stage could conceivably be fully or partly automated.
 
 In addition to being script-based, a defining characteristic of drama production is that multiple takes are recorded in
-order to capture the best possible performance. However, there is no simple way to directly compare performances so the
-director relies heavily on the script annotations and written notes. Providing an easy method of comparing different
-takes by ear could potentially lead to selection of better performances.
+order to capture the best possible performance. However, there is no simple way to directly compare performances. For
+this reason, the director does not want to compare too many takes, and therefore relies heavily on the script
+annotations and written notes. Providing a quick and easy method for the director to listen to and compare different
+takes could potentially lead to selection of better performances.
 
-When actors fluff a line, they often say the line again immediately which is usually noted in the script with square
-brackets. However, these can be missed and are not easy to spot in a DAW. Simple audio analysis could be used to detect
-and highlight where this happens.
+When actors make a mistake, they often say the line again immediately. This is usually noticed and marked in the script
+with square brackets. However, these can sometimes be missed and are not easy to spot using the DAW interface. 
+Audio analysis techniques could be used to detect and highlight where this happens.
+
+%It takes skill and experience to find the right sound effects
+%know which words to use for the search or to know which CDs or collections
+%to use for certain effects.
 
 \subsection{Documentary}\label{sec:doc}
 ``The Report'' is a weekly investigative documentary that covers topical news stories. It is produced over a three week
-period by the BBC Current Affairs team and is broadcast at 8pm every Thursday on Radio 4. The team was observed for
-four days at various points during the three weeks.
+period by the Radio Current Affairs department in BBC News and is broadcast at 8pm every Thursday on Radio 4. The
+researcher observed the team for a total of four days -- one day during their research phase, one day during their
+interviewing phase and two days during their editing phase.
 
-\subsubsection{Roles}
-The documentary is created by a core team of three people. The \textit{producer} owns the programme. They decide what
-the story-line will be, who to interview and how it is edited. The \textit{researcher} assists the producer with
-research and investigation, setting up interviews and transcribing recordings.  Both work full-time on the documentary
-throughout the three weeks.  The \textit{presenter} is the narrator for the documentary.  The Report has a regular
+\subsubsection{Roles and responsibilities}
+The documentary is created by a team of three, made up of a \textit{producer}, \textit{presenter} and
+\textit{researcher}.  At certain points during the production, the team is supported by an \textit{editor} and
+a \textit{studio manager}.
+
+The producer leads the team and makes the editorial decisions. They decide what the storyline will be, who to interview
+and how the programme is edited together. They will pre-interview participants to screen them, record interviews with
+them, transcribe recordings and create a rough edit of the programme.
+
+The \textit{presenter} is a journalist who is the narrator for the documentary. They work closely with the producer to
+craft the storyline, write the narrative, conduct interviews and edit the programme. The Report has a regular
 presenter who typically works on two or three documentaries at once.
 
-The team is supported by the \textit{editor} who runs the current affairs team.  They provide feedback on the
-documentary and must give approval for the documentary to be broadcast. On the final day of production, a
-\textit{studio manager} (SM) joins the team to create the final edit.
+The \textit{researcher} assists the producer with research and investigation. They recruit for and set up interviews,
+conduct pre-interviews, make recordings and transcribe them. 
 
-\subsubsection{Environment}
-The team is based in BBC New Broadcasting House in London. Their desks are grouped together in an open-plan office,
-beside four studios. The studios are organised into pairs so that one can be used for recordings and the other as a
-control room. Each studio is acoustically treated and contains a PC, mixing desk, microphones and a telephone.
+The \textit{editor} leads the radio current affairs department. They do not participate directly in the production of
+the documentary, but provide feedback to the team and give approval for the documentary to be broadcast.  Their
+involement is limited to read-throughs and the sign-off.
 
-\subsubsection{Workflow}
-The three weeks it takes to create the programme can be very roughly divided into research, interviews and editing.
-However in reality these activities are dependent on external factors and can overlap significantly.
+The \textit{studio manager} (SM) joins the team on the final day of production to turn the producer's rough edit into
+the finished programme. This process includes removing redundant speech, adjusting the pace of the speech, removing
+unwanted noise and adding music.
 
+\subsubsection{Environment and tools}
+The team is based in BBC New Broadcasting House in London. Most of the work takes place in an open-plan office using
+standard office desks with a PC and telephone. The research for the programme is desk-based and does not require any
+special tools other than a web browser and telephone.  Face-to-face interviews are conducted either on-location, in the
+office building or in a radio studio.  For interviews outside the studio, a portable audio recorder and microphone is
+used to capture the audio.  Remote interviews are conducted by using a digital ``ISDN''\footnote{Integrated Services
+Digital Network} link to a local radio studio, an IP-based link such as Skype, or over the telephone. The telephone is
+always a last resort as it has the poorest sound quality.
+
+The office is located directly beside four radio studios. The studios are organised into pairs so that one can be used
+for recordings, with the other used as a cubicle. Each studio is acoustically treated and contains a PC with a DAW,
+mixing desk, speakers, microphones and a telephone connected to a recorder. The studio is used to record remote and
+face-to-face interviews and record the presenter's narration, listen to the programme and edit it into the final
+version.
+
+\subsubsection{Task analysis}
+Figure~\ref{fig:ethno-docs-workflow} shows the operational sequence diagram of the documentary production.  A
+description of the workflow is presented below.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=4.5in]{figs/docs-workflow.pdf}
-  \caption{Flowchart of documentary production.}
-  \label{fig:ethno-drama-recording}
+  \caption{Operational sequence diagram of radio documentary production, partitioned by role and location.\\
+  {\footnotesize ($^{*}$some interviews are transcribed using a third-party service)}}
+  \label{fig:ethno-docs-workflow}
 \end{figure}
 
-\paragraph{Research}
-The purpose of the research stage is to take the idea behind the programme and form an interesting and relevant
-storyline around it. Often the topic will be in the news that week, so the producer will be looking for an interesting
-angle which can be explored in greater depth.
+Production starts with researching the chosen topic of the documentary.  The purpose of the research stage is to form
+the storyline for the documentary, and to identify people to interview.  Often the topic will be in the news that week
+and the producer will be looking for an interesting angle which can be explored in greater depth.  The producer and
+researcher listen to news reports and documentaries, read newspaper articles and encyclopedias, and talk to contacts
+who know about the subject.  The producer makes rough notes for themselves in Microsoft Word and prepares a draft
+outline of the programme.
 
-The research stage does not require any special tools other than a web browser and a telephone. The team will read
-around the topic so that they are knowledgeable enough to tell the story well and can identify a number of people they
-want to interview. Popular sources of information are previous reports or documentaries, newspaper articles,
-encyclopedias and contacts who already know the subject. The producer will make rough notes for themselves in Microsoft
-Word and prepare a draft outline of the programme.
+Once the team have identified who they might want to interview, they will approach them to see if they are interested.
+If the interviewee has the time available, the producer or researcher will do a `pre-interview' over the phone, which
+simulates a real interview but is not recorded. This is done to see what the person will say and whether it suits the
+storyline of the documentary.  Most interviews are recorded face-to-face, either on-location or in a studio, depending
+on the situation.  During interviews, the presenter asks the questions while the producer records the audio and
+monitors the levels.  For on-location interviews, the presenter holds the microphone and the producer operates the
+portable recorder.
 
-\paragraph{Interviews}
-Once the team have identified who they would like to interview, they will approach them to see if they are interested.
-If the interviewee has the time available, the producer or researcher will do a `pre-interview' over the phone to see
-what the person will say and whether it fits the documentary.
+All of the interview recordings are transcribed. Some are recordings are sent to a third-party transcription service in
+Australia that transcribes the audio overnight.  However, often the programme's budget can only cover transcription of
+three or four interviews. The rest must be transcribed by the producer or researcher. For this, they use Microsoft Word
+to manually type the transcript.  To save time, they will only do a rough transcription by skipping words, leaving only
+enough to get a good idea of what they said.
 
-Most interviews are done face-to-face, either on-location or in a studio, depending on the situation. A portable audio
-recorder and shotgun mic is used for recordings outside of the studio. The presenter holds the microphone and asks the
-questions while the producer controls the recorder and the microphone level. Recordings in the studio are made straight
-into the \textit{dira!} system using Orion.
+The interview transcripts are printed onto paper, which the team use to help them collaborate.  The team go through the
+interview transcripts and mark lines from they want to use with a highlighter pen. Notes and labels are informally
+written on the page.  After the team have marked-up the interview transcripts, the producer uses them as a guide to
+find the audio for the content they highlighted, and piece it together using a DAW into a rough edit. The transcripts
+include timestamps every few minutes, which the producer can use to help them find the correct piece of audio.
 
-If it's not possible to meet face-to-face, interviews can either be done using a local studio and
-ISDN\footnote{Integrated Services Digital Network.  A communication standard that can be used to send low-latency
-  digital audio over telephone networks.} link, over the phone but with a portable recorder at each end\footnote{Known
-  in the business as a `simulrec' or `mic hold'.}, using an IP-based link such as Skype, or just over the phone. The
-phone is always a last resort as the quality is very poor.
-
-\paragraph{Rough edit}
-When a producer is working on their own, they will usually edit the interviews directly using a DAW. However, when a
-team is collaborating with interview material, all of the recordings are first transcribed. Some of this is done using
-a third-party transcription service, but the programme's budget can only cover transcription of three or four
-interviews. The rest must be transcribed by the team themselves using Microsoft Word. Whereas the professional
-transcription service includes every word, the team's own transcriptions will skip out many words, leaving only enough
-to get a good idea of what they said.
-
-The transcriptions are printed out on paper and the team works with these printouts until the last few days of
-production. Lines from the interviews that they want to use in the programme are marked with highlighter pen. Other
-informal notes are made on the paper.
-
-The producer takes the annotated transcriptions and pieces together a rough edit using \textit{dira!} StarTrack. As the
-position of each question in the transcription is marked with a timestamp, the producer can narrow-down the location of
-the highlighted text in the recording, but only to within a few minutes. For each interview, the producer cuts out and
-saves any lines that they have highlighted. These are then sequenced into a rough edit of the programme.
-
-While the producer creates the rough edit, the presenter writes the programme's `links' -- the narrative elements that
+While the producer creates a rough edit, the presenter writes the programme's `links' -- the narrative elements that
 join the interview clips. When the first rough edit is complete, the whole team sits down with the editor for a
-`run-through'. The programme is performed out loud, straight-through from beginning to end, with the presenter reading
-the links and the producer playing the clips. This allows the editor to hear the programme and give feedback early on,
-and for the length of the current edit to be determined. This run-through process typically happens two or three times
-for each programme.
+``run-through''. The programme is performed out loud from beginning to end, with the presenter reading the links and
+the producer playing the clips from the DAW. This allows the editor to hear the programme and give early feedback. It
+also allows the producer to determine the current length of the programme.  This run-through process typically happens
+two or three times for each programme.
 
-\paragraph{Fine edit}
-The fine edit happens on the day that the programme is to be broadcast. A studio manager (SM) joins the team to create
-the final mix. The fine editing requires that the rough edit is transferred into a DAW that has more features than
-\textit{dira!} StarTrack.
+Once the editor is happy with the rough edit, a studio manager (SM) is brought it to help turn it into the final
+programme.  This often happens on the day of the broadcast.  The SM records the presenter's links directly into the
+DAW, while the producer sits in and gives feedback to the presenter.  The programme's theme music is added, along with
+any additional music chosen by the producer. Production music is often used, which is found using an online library
+such as Audio Network.  The SM cleans up the interview clips by removing redundant noises (e.g. ``umm'') and phrases
+(e.g. `you know'). However, some are left in because they are difficult to remove or editorially relevant. Long pauses
+are removed to ensure a good pace, but sometimes left in for effect.  The SM also balances the levels by recording
+automation using a fader or by dragging in/out fades. 
 
-The SM starts by cleaning up the interview clips. This is done by removing redundant noises (e.g. `umm') and phrases
-(e.g. `you know'). Some are left in as they are too difficult to remove or are editorially relevant. Long pauses are
-removed to ensure there is a good pace, but are sometimes left in for effect.  The SM also balances the levels by
-recording automation using a fader or by dragging in/out fades. 
-
-The links are recorded by the presenter who sits in the studio opposite the SM.  This is done straight into the DAW and
-the intro/outro to each clip is played to the presenter. The producer sits in and gives feedback to the presenter over
-an intercom. After the links are recorded, the SM goes back to correctly align the interview and link clips in the
-timeline.
-
-The Report has theme music which is added at this stage, along with any additional music chosen by the producer.
-Similarly to drama (see Section~\ref{sec:drama-fine}), production music is often used and is chosen using an online
-library.
-
-Once all of the elements have come together, the producer and SM must cut the programme down to a specific duration (in
-this case 27:45). This is done by removing sections of speech that can be cut without impacting on the story.  These
-are usually found at the beginning and end of interview clips.
-
-The finished programme is played for the editor who gives their final feedback and approval.  Once signed-off, the
-documentary is mixed down to a stereo .wav file and imported into \textit{dira!}. The producer must then listen to the
-entire programme in \textit{dira!} to ensure the bit-stream that will be broadcast contains no errors.
+Once all of the elements have come together, the producer and SM work together to cut the programme down to a specific
+duration (in this case 27 minutes and 45 seconds). This is done by removing sections of speech, usually from the
+beginning and end of interview clips.  The finished programme is played for the editor who gives their final feedback.
+Once any changes are made and the programme is signed-off, the documentary is rendered to an audio file and imported
+into the \textit{dira!} radio production system. The producer must then listen to the entire programme in
+\textit{dira!} to ensure the bit-stream that will be broadcast contains no errors.
 
 \subsubsection{Challenges and opportunities}
-The documentary production relies heavily on paper-based transcripts. This allows the team to easily collaborate and to
-make notes, but means that there is a disconnect between the words and audio content. This results in wasted time when
-the producer has to go back and cut out the selected parts of the interviews. There is also no easy way to listen back
-to a line in the transcript. Creating a link between the transcripts and the audio recordings would allow the producers
-to work with transcripts as normal, but to simultaneously navigate and edit the audio content.
+The documentary production relies heavily on printed transcripts, which allow the team to collaborate and make notes.
+However, transcription is expensive if done using a third-party, and time-consuming if done by the team.  Transcripts
+can give an idea of what was said, but it is difficult to navigate the audio to listen to a particular line.  After the
+transcripts are annotated, the producer has to go back and manually edit the selected parts of the interviews, which is
+a slow and tedious process.  Creating a link between the printed transcripts and the audio recordings would allow the
+producers to work with transcripts as normal, but to simultaneously navigate and edit the audio content.
 
-The fine edit revealed opportunities for assisting the studio manager with the clean-up process. If an acoustic model
-of redundant noises and phrases was developed, these could either be highlighted, cut for easy removal or removed
-automatically.
+The editing process revealed opportunities for assisting the studio manager with cleaning-up the speech. Finding and
+removing redundant noises such as ``umm''s is slow and difficult. If an acoustic model of redundant noises and phrases
+could be developed, these could either be highlighted for easier identification, or removed automatically.
 
 \section{Discussion}\label{sec:ethno-discussion}
 Generally speaking, the study identified a number of opportunities to improve the handling, generation and presentation
 of metadata, as discussed below.
-
-%TODO Estimating time slot - could be assisted
-
-% Searching through audio:
-%Application of segmentation or
-%speech-to-text technology could help by indicating where people are speaking, displaying keywords that are mentioned,
-%or allowing the recording to be searched by text.
-
-% Auto-filling labels:
-%When it comes to inserting clips into the script, in and out words are manually entered so that the clip can be
-%recognised, but there is not enough time to transcribe the whole clip.
-%Speech-to-text technology would be able to
-%automate this and full transcription could further help the journalists to recall the clip and write the script around
-%it.
-
 
 \subsection{Text-based working}
 The study found that the production teams relied strongly on scripts and transcripts of the audio content. The rough
