@@ -1,14 +1,30 @@
 % !TeX root = main.tex
 \chapter{Background}\label{chp:background}
 
-Audio is an electronic representation of sound which stores pressure waves as an electrical signal.
-Sound is by its very nature time-variant, which makes it both fascinating and challenging.
-This temporal property makes it impossible to `freeze' sound, or to experience it in an instant. Listening is a
-time-consuming activity, because sound must be consumed over time.
+This thesis focusses on the production of ``radio'', which we define as the broadcasting of sound programmes to the
+public.  Radio can also be defined as the transmission of sound using radio waves, and a device used to transmit or
+receive radio signals.  However, our work is concerned with the production of content, rather than the method of
+delivery.
 
-%There have been many attempts to create tools that
-%compress the time needed to listen, which are detailed in Section~\ref{sec:background-auditory}.
-%These tools still require the user to invest time in the task.
+Radio broadcasting is a mass medium.  A quarterly survey of over 24,000 adults in the UK \citep{RAJAR2017a} found that
+90\% listen to the radio each week for an average of 21 hours. The results also showed that BBC Radio has the largest
+share of radio listening in UK, with 64\% listening each week for an average of 16 hours.
+
+Although most radio listening is done live, the advent of the Internet has enabled listeners to download pre-produced
+audio content, known as ``podcasts''. A detailed survey of 2229 UK adults on the consumption of audio content
+\citep{RAJAR2017} found that each week, 10\% listened to podcasts. 
+
+% Focus on pre-produced radio
+Most radio is produced live, where a number of audio sources are mixed together and broadcast to the listeners.
+Although a lot of planning and preparation goes into a live transmission, the actual audio production happens in
+real-time, so there is no opportunity to improve the efficiency of the audio production. However, many radio programmes
+are pre-produced, where the sound is recorded before transmission.  In these cases, audio editing is used to manipulate
+the recordings to remove unwanted parts of the recording, select particularly good parts, or mix the recording with
+other recordings. This process creates overheads for the producers, who must use a set of tools to create their
+programme. This audio editing process creates opportunities to make the audio production process more efficient. For
+this reason, we chose to focus our research on pre-produced programmes and the audio editing stage of radio production.
+
+\section{Fundamentals}
 
 % Sound is linear - has a beginning and an end, constrained by the arrow of time
 % Cannot be searched or skimmed
@@ -16,34 +32,50 @@ time-consuming activity, because sound must be consumed over time.
 % We never stop listening
 % Huge range of frequencies and pressure levels
 
-This also poses a challenge when designed interfaces for interacting with audio content. Dealing with large amounts of
-audio in a reasonable time requires the use of tools that can shorten the time needed to complete tasks such as
-navigation.
+%Audio is an electronic representation of sound which stores pressure waves as an electrical signal.
 
-Research on navigation of recorded speech for navigating meetings \citep{Bouamrane2007}: speaker segmentation, speech
-skimming, automated speech recognition, word spotting, topic segmentation, spoken language summarisation.
+% Characteristics of sound
+One of the distinuishing characters of radio is that it is based exclusively on sound.
+Sound is defined as vibrations that travel through a medium, typically air, which humans perceive through their ears.
+As it is based on vibration, sound cannot exist in a moment -- it can only take place over a period of time.
+Sound is linear, as it is based on a sequence of motion.
+It is experienced at a consistent rate, which cannot naturally be increased or desreased.
 
-In this chapter, we consider the various approaches that have been used to help users navigate audio content.
-A number of approaches have been excluded as they specifically target music content (e.g. chromagrams and music
-transcripts).
+% challenges of sound
+This time-based nature of sound gives it a fascinating character.
+However, the time-based nature of sound comes with a variety of challenges.
+Sound cannot be experienced instantanously, as it is the change in air pressure which produces sound.
+As such, it takes time to consume sound.
+For consuming long sound recordings, this property means that listening requires an investment of time.
+In radio production, much of the time required to produce a programme must be committed to listening to the sound that has been recorded.
+%The purpose of listening to the sound includes a variety of reasons, including reminding themselves of what
+%was said, working out whether the sound quality is acceptable, deciding which bits of the recording to use, and many
+%more.
 
-In section \ref{sec:visualization} we introduce the foundations of audio visualisation and discuss the two most common
-visualisation techniques. In section \ref{sec:semantic}, we show how these visualisations can be improved by combining
-them with semantic audio analysis techniques. Finally in section \ref{sec:auditory}, we look at non-visual interfaces
-to audio, including auditory and haptic techniques.
+To overcome the challenges that come with the temporal nature of sound, there are a number of technological solutions
+that can be applied. At the very simplest level, sound can be navigated using rewind and fast-forward, to allow
+listeners to re-listen or skip ahead to a sound recording. The playback rate of sound recordings can also be increased,
+but there are limitations to this, which we discuss in Section X. However, in order to navigate sound with purpose, it
+is preferable to be able to understand what is contained within the sound, and to be able to comprehend this
+information efficiently. There have been two main approaches to achieving this -- audio visualization and semantic
+audio analysis.
 
-\section{Radio production}\label{sec:background-radio}
+Audio visualization attempts to take advantage of the properties of the human visual system by mapping sound to images.
+This is done to allow listeners to see the sound in a way they can understand and make use of. This approach takes
+advantage of the spatial layout that is possible with images, and the natural searching and skimming capabilities of
+the human visual system.
 
-The process and tools for radio production are well-understood and books have been written about it
-\citep{McLeish2015,Hausman2012}.
+Semantic audio analysis refers to a collection of techniques for analysing sound signals to extract human-readable
+information from them. This can be used to map sound to high-level information, such as the name of the person
+speaking, or the text of what they are saying. These techniques can vary from low-level features such as the most
+dominant frequency, to high-level features such as the text of the words that are being spoken. These techniques can
+also be combined with visualization methods to display the results.
 
-Not many studies on radio production, except for \citet{Barbour2004} and masters thesis about internship
-\citet{Sampaio2016}.
+As part of this work, we want
+to understand how these techniques can best be applied to the production of radio, and make the process more efficient
+by reducing the time that is needed to produce the programme. 
 
-\section{Audio visualization}\label{sec:background-visualization}
-
-\citet{Arons1997} found that most humans cannot comprehend speech which it is played faster than twice real-time. This
-means that there is a limit on the improvement that can be gained with using continuous audio playback.
+\subsection{Audio visualization}
 
 Vision is very different medium that varies not only over time, but over space. When you remove the element of time,
 you are left with an image that can be experienced instantanously, searched and skimmed.  Human vision can be used to
@@ -90,25 +122,15 @@ studied over many years by psychologists, who have discovered perceptual mapping
 
 The ``bouba/kiki effect'' is a demonstration of cross-model mapping between vision and audition, originally discovered
 in an experiment run by psychologist \citet{Koehler1929}. In the experiment, participants are shown two abstract shapes
-and are asked to assign the name `bouba' to one of them, and `kiki' to the other\footnote{K\"ohler used the words
+and are asked to assign the name `bouba' to one of them, and `kiki' to the other \footnote{K\"ohler used the words
   `baluma' and `takete' in the original experiment, but the result was the same.}. To try out the experiment for
 yourself, without reading ahead look at the shapes in Figure~\ref{fig:boubakiki} and see which shape you think best
 fits the name `bouba' and which best fits `kiki'.
 
 \begin{figure}[ht]
 \centering
-\begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=0.7\linewidth]{figs/kiki.png}
-  %\caption{Kiki}
-  \label{fig:kiki}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=0.7\linewidth]{figs/bouba.png}
-  %\caption{Bouba}
-  \label{fig:bouba}
-\end{subfigure}
+  \includegraphics[width=\linewidth]{figs/bouba-kiki.pdf}
   \caption{Demonstration of the ``bouba/kiki effect'' \citep{Ramachandran2001}}
   \label{fig:boubakiki}
 \end{figure}
@@ -250,8 +272,6 @@ Many professional engineers and producers have worked with waveforms for most of
 skills to be able to read waveforms.  However, without frequency content, there is a limit to the amount of information
 waveforms can convey.
 
-\subsubsection{User studies}
-
 We searched for studies that considered the performance of waveforms as an interface to audio content. Although X and Y
 included waveforms in their studies, the waveforms themselves were not assessed. No studies could be found that
 consider the performance of the waveform itself.
@@ -310,8 +330,6 @@ Spectrograms provide an information-rich and scalable alternative to waveforms, 
 audio editing software. Despite this, waveforms remain a more popular way of interacting with audio. It is unclear as
 to why this is.
 
-\subsubsection{User studies}
-
 \citet{Goudeseune2012} used spectrograms as a basis to develop an interface for finding acoustic events.  They filtered
 the spectrogram using image processing techniques to create a salience map (see Figure~\ref{fig:timeliner}). This
 attempts to dim the background noise to make acoustic events clearer to the user.  Through the use of custom browsing
@@ -326,7 +344,83 @@ speech recordings.
   \label{fig:timeliner}
 \end{figure}
 
-\section{Alternative audio visualisation}\label{sec:background-alternative}
+\subsection{Semantic audio analysis}
+
+% What is semantic audio?
+describe sound in human-readable terms
+decomposing acoustic signals into semantic entities
+can be applied to semantic user interfaces
+extracting and describing the perceptual attributes of sound
+
+classification
+
+
+\subsubsection{Principles}
+% map sound to feature space, map to representation
+
+% feature extraction:
+% - Fourier
+% - MFCCs
+
+
+
+% modeling techniques:
+% - machine learning
+% - clustering
+% - markov models
+% - GMMS
+
+\subsubsection{Applications}
+% speech/music discrimination
+% speech
+% - speech onset detection
+% - speaker diarization
+% - speaker identification
+% - automatic speech recognition
+%   - topic identification
+%   - topic segmentation
+% music
+% - beat tracking
+% - chord estimation
+% - key detection
+
+
+
+\section{Radio production}
+
+% Definition
+The process and tools for radio production are well-understood and books have been written about it
+\citep{McLeish2015,Hausman2012}.
+
+Not many studies on radio production, except for \citet{Dunaway2000}, \citet{Barbour2004} and masters thesis about
+internship \citet{Sampaio2016}.
+
+Study on TV sport \citep{Perry2009} and \citep{Engstroem2010}
+
+
+Editing is the process of selecting, re-arranging, correcting and assembling audio content into a finished state.
+
+\subsection{BBC Radio}
+
+9 national stations with 34m listeners, 40 local stations with 8m listeners, one global station in 29 languages with
+269m listeners
+
+\subsection{Challenges}
+
+\subsection{Current tools}
+
+\subsubsection{Digital audio workstations}
+
+\subsection{Research}
+
+
+\section{Related work}
+
+Research on navigation of recorded speech for navigating meetings \citep{Bouamrane2007}: speaker segmentation, speech
+skimming, automated speech recognition, word spotting, topic segmentation, spoken language summarisation.
+
+
+\subsection{Low-level visualization}
 
 One of the issues we identified with the above audio visualisations is that the user must interpret the data. Although
 in many cases this can be learned, it requires cognitive load to process the images into the desired information. It
@@ -450,17 +544,19 @@ visualization reveals the change in time of the dawn and evening choruses throug
   \label{fig:towsey}
 \end{figure}
 
-\subsection{Segmentation}
+\subsection{High-level visualization}
+
+\subsubsection{Segmentation}
 
 Speech/music discrimination \citep{Wieser2014}
 
-\subsection{Summarization}
+\subsubsection{Summarization}
 
 Extracting keyphrases \citep{Inkpen2004}
 TreeMaps \citep{Abdulhamid2013a}
 World service archive \citep{Raimond2014}
 
-\subsection{Transcripts}\label{sec:background-transcripts}
+\subsubsection{Transcripts}\label{sec:background-transcripts}
 
 %For example, it can be used to distinguish between music and speech \citep{Wieser2014}, show where different people
 %are speaking \citep{AngueraMiro2012}, and who those people are \citep{Doddington1985}. These technologies have
@@ -628,12 +724,18 @@ Speech to text correcion
 %repetition \citep{Rubin2013}.
 
 
-\section{Auditory and haptic interfaces}\label{sec:background-auditory}
+\subsection{Audio user interfaces}
 
+\subsubsection{Speech skimming}
 SpeechSkimmer \citep{Arons1997}
 
+\citet{Arons1997} found that most humans cannot comprehend speech which it is played faster than twice real-time. This
+means that there is a limit on the improvement that can be gained with using continuous audio playback.
+
+\subsubsection{Dichromatic listening}
 Dichromatic listening \citep{Ranjan2006}
 
+\subsubsection{Haptic interfaces}
 Haptics
 \citep{Metatla2016}
 
@@ -818,3 +920,27 @@ Haptics
 %would make it very difficult to map to a visualization. The objective of the
 %deep learning process is to minimise a cost function rather than to maximise
 %the link to human perception.
+
+\section{Research scope and methodology}
+
+In previous sections, we outlined
+An initial investigation of prevailing techniques revealed
+Therefore, in order to achieve the full potential of 
+we argue for advancements in 
+and consider these advancements vital in applications like 
+An underlying hypothesis for this work is that
+This may be achieved by
+
+A characteristic problem within the scope of this work is related to 
+Since data collection in the studio is a difficult task in itself, we focus on
+We argue that
+We aim to show that
+
+The author is an employee of the  Research and Development department at the BBC. This position allows him access to
+producers working in BBC Radio, both physically and politically. This is unusual in academic research, where often
+there is difficultly in gaining access to industry professionals and in running academic studies outline of a
+laboratory. In this research, we wanted to take advantage of this position by using, where possible, the professional
+resources available to the author that other researchers would not be able to access. This would allow the best
+contribution to the field given the circumstances of the author's position. The direction of research during this work
+was often guided by this decision.
+
