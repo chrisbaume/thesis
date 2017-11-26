@@ -1,14 +1,23 @@
 % !TeX root = main.tex
 \chapter{Background}\label{chp:background}
 
+% SCOPE
+% - only consider audio-only content, no pictures with radio
+% - do not include tools for automatically editing (computer based decisions)
+% - interested in reviewing technology that aids navigation and editing of audio
+
+%Stolen: In this chapter, we can find a review of a variety of systems and technologies that are related to the
+%approach we have chosen for our search interface. It is organized in sections according to different research fields
+%that play an important role on our proposed system.
+
 This thesis focusses on the production of ``radio'', which we define as the broadcasting of sound programmes to the
 public.  Radio can also be defined as the transmission of sound using radio waves, and a device used to transmit or
 receive radio signals.  However, our work is concerned with the production of content, rather than the method of
 delivery.
 
 Radio broadcasting is a mass medium.  A quarterly survey of over 24,000 adults in the UK \citep{RAJAR2017a} found that
-90\% listen to the radio each week for an average of 21 hours. The results also showed that BBC Radio has the largest
-share of radio listening in UK, with 64\% listening each week for an average of 16 hours.
+90\% of the UK adult population listen to the radio each week for an average of 21 hours. The results also showed that
+BBC Radio has the largest share of radio listening in UK, with 64\% listening each week for an average of 16 hours.
 
 Although most radio listening is done live, the advent of the Internet has enabled listeners to download pre-produced
 audio content, known as ``podcasts''. A detailed survey of 2229 UK adults on the consumption of audio content
@@ -34,6 +43,7 @@ this reason, we chose to focus our research on pre-produced programmes and the a
 
 %Audio is an electronic representation of sound which stores pressure waves as an electrical signal.
 
+\subsection{Sound}
 % Characteristics of sound
 One of the distinuishing characters of radio is that it is based exclusively on sound.
 Sound is defined as vibrations that travel through a medium, typically air, which humans perceive through their ears.
@@ -59,6 +69,11 @@ but there are limitations to this, which we discuss in Section X. However, in or
 is preferable to be able to understand what is contained within the sound, and to be able to comprehend this
 information efficiently. There have been two main approaches to achieving this -- audio visualization and semantic
 audio analysis.
+
+%From Dhanesha2010:
+%It is a common practice for us to skim textual content on a web page. While skimming, we usually skip words or phrases
+%that are not of interest to us and we slow down our speed when the content seems to be of relevance to us. But when we
+%listen to audio content, which is not persistent and is sequential, such skimming is not possible.
 
 Audio visualization attempts to take advantage of the properties of the human visual system by mapping sound to images.
 This is done to allow listeners to see the sound in a way they can understand and make use of. This approach takes
@@ -127,10 +142,11 @@ and are asked to assign the name `bouba' to one of them, and `kiki' to the other
 yourself, without reading ahead look at the shapes in Figure~\ref{fig:boubakiki} and see which shape you think best
 fits the name `bouba' and which best fits `kiki'.
 
+
 \begin{figure}[ht]
 \centering
   \centering
-  \includegraphics[width=\linewidth]{figs/bouba-kiki.pdf}
+  \includegraphics[width=0.8\linewidth]{figs/bouba-kiki.pdf}
   \caption{Demonstration of the ``bouba/kiki effect'' \citep{Ramachandran2001}}
   \label{fig:boubakiki}
 \end{figure}
@@ -139,7 +155,7 @@ K\"{o}hler found that the vast majority of participants chose to name the sharp,
 rounded shape `bouba'. \citet{Ramachandran2001} found that that this effect holds for 95--98\% of the population. This
 is an example of just one audio-visual mapping that is common amongst the population.
 
-%\citep{Hubbard1996}
+\citep{Hubbard1996} did some work to determine which sounds related to which visual properties
 
 %These audio-visual associations are not just higher-level constructs that our
 %concious brain creates, they affect the brain at the very lowest level even
@@ -186,7 +202,12 @@ and to what degree (on a scale of 0--100).  The experiment confirmed previous re
 size/loudness and pitch/elevation, and weaker links between colour/pitch, granularity/dissonance, and colour
 complexity/dissonance.
 
-Additional work from \citet{Marks2003}.
+Additional work from \citet{Marks2003} suggests that cross-modal interaction is a result of late-stage cognitive
+processes.
+
+Artwork that used synaesthesic style mapping for music to colour \citep{Armitage2012}
+
+Relationship between pitch and colour \citep{Datteri2004}
 
 %Vision and audition are physiologically separate, but idential in many respects
 %\citep{Tsiros2013}.
@@ -233,12 +254,6 @@ profile of the audio amplitude.
 ``Graphically displaying an audio recording as a waveform would generally be inappropriate because, for most users, the
 audio signal spectrum offers no information about content'' \citep{Bouamrane2007}.
 
-\citet{Loviscach2011}
-proposed an elegant solution to this problem using a technique he calls the `quintessence waveform'. This approach
-used extreme pitch shifting to preserve the character of the waveform at different scales (see Figure~\ref{fig:quint}).
-Although this approach works well for regular monoaural sounds such as sine waves, it cannot be used for the complex
-polyphonic audio used in most real-life applications.
-
 \begin{figure}[p]
   \centering
   \begin{subfigure}{.5\textwidth}
@@ -253,16 +268,9 @@ polyphonic audio used in most real-life applications.
     \caption{When zoomed-out, the frequency information is lost and only the amplitude profile is visible}
     \label{fig:waveform-zoomout}
   \end{subfigure}
-\caption{The effect of scaling on waveform frequency information} \label{fig:waveforms} \end{figure}
-\begin{figure}[p]
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/quint.png}
-  \caption{Above: Normal waveform, below: quintessence waveform, source: \citep{Loviscach2011}}
-  \label{fig:quint}
+  \caption{The effect of scaling on waveform frequency information}
+  \label{fig:waveforms}
 \end{figure}
-
-\citet{Gohlke2010} proposed a number of ideas for how to improve waveform displays.
-%TODO Expand
 
 This amplitude profile can be used to infer some information about the audio content. For example, speech content has
 frequent short periods of silence between words, whereas music has few periods of silence. However, in order to be able
@@ -311,6 +319,8 @@ inconsistency between spectrogram, which can make it difficult for users to move
 Understanding spectrograms requires users to have basic knowledge about how audio is composed of multiple frequencies.
 They would also benefit from understanding how frequencies interact, such as harmonics.
 
+Can be used to edit frequencies like photoshop \cite{Boogaart2006}
+
 %Pros
 %X info rich
 %X robust to scaling
@@ -330,21 +340,9 @@ Spectrograms provide an information-rich and scalable alternative to waveforms, 
 audio editing software. Despite this, waveforms remain a more popular way of interacting with audio. It is unclear as
 to why this is.
 
-\citet{Goudeseune2012} used spectrograms as a basis to develop an interface for finding acoustic events.  They filtered
-the spectrogram using image processing techniques to create a salience map (see Figure~\ref{fig:timeliner}). This
-attempts to dim the background noise to make acoustic events clearer to the user.  Through the use of custom browsing
-software called Timeliner, the system was tested by recording how quickly users could find sound effects hidden in long
-speech recordings.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/spectrogram-salience.png}
-  \caption{Top: A normal spectrogram; Bottom: A salience-maximised spectrogram with target events marked using black
-    underlines}
-  \label{fig:timeliner}
-\end{figure}
-
-\subsection{Semantic audio analysis}
+\subsection{Semantic audio}
+Semantic audio is the extraction of perceptual attributes from an audio signal, which is used to describe sound in
+human-readable terms.
 
 % What is semantic audio?
 describe sound in human-readable terms
@@ -354,23 +352,61 @@ extracting and describing the perceptual attributes of sound
 
 classification
 
+Review of audio information retrieval \citep{Foote1999}, including automatic speech recognition, word spotting, speaker
+and music identification, and audio similarity
 
-\subsubsection{Principles}
-% map sound to feature space, map to representation
+% classification/tagging
+This paper divides audio streams into five classes: silence, noise, pure speech, speech over background sound and
+music. Four new features are proposed, including silence ratio, pitch frequency standard deviation, harmonicity ratio
+and smooth pitch ratio. \citep{Liang2005}
+Survey \citep{Duan2014}
+
+% speech-music discrimination
+Comparison of features \citep{Carey1999}
+For Swedish Radio \citep{Ericsson2009}
+Music detection in TV broadcasts \citep{Seyerlehner2007}
+
+% speech-to-text
+General books \citep{Junqua1995,Lee1999a}
+Speaker diarization review \citep{AngueraMiro2012}
+Speech to text on TV (MGB) \citep{Bell2015}
+Speech alignment \citep{Bohac2013}
+HMM intro \citep{Rabiner1989}
+
+% speaker diarization
+\citep{Tranter2006}
+
+% speaker recognition
+Overview \citep{Doddington1985}
+Book \citep{Lee1999a}
+
+music segmention for intelligent audio editing \citep{Fazekas2007}
+
+Deep belief networks for feature learning \citep{Hamel2010}
+Deep neural networks for learning musical features \citep{Sigtia2014}
+
+
+Academic research into audio analysis and audio interfaces tends to concentrate on fully automated systems
+\citep{AngueraMiro2012}, navigation of large audio collections \citep{FontCorbera2010} or navigation interfaces based
+on skimming \citep{Arons1997} and scrolling \citep{Lee2007}. Although there are examples of audio visualization from
+the world of academia, it is much more popular in the context of art \citep{Armitage2012}, with excellent examples such
+as Quayola's Form--Sound--Abstraction\footnote{\url{http://www.quayola.com/work/form-sound-abstraction/}} work.
+
+This section looks at three areas of literature from which the project will draw upon -- extraction of meaningful audio
+properties, mapping these to a visual representation, and the perceptual links between audition and vision.
+
+% parse audio into semantically meaningful features
+% map or group these features into semantically meaningful categories
 
 % feature extraction:
 % - Fourier
 % - MFCCs
-
-
-
 % modeling techniques:
 % - machine learning
 % - clustering
 % - markov models
 % - GMMS
 
-\subsubsection{Applications}
 % speech/music discrimination
 % speech
 % - speech onset detection
@@ -384,6 +420,139 @@ classification
 % - chord estimation
 % - key detection
 
+This section looks at audio features that could be used as part of an audio visualization system. Firstly, two use
+cases that were previously identified as being a common component of radio production are explored, before considering
+methods of generating features for any use case.
+
+Speech/music discrimination (SMD) is the process of segmenting audio content into parts labelled by the categories
+speech and music. In general, SMD classifiers use a collection of different features. This section lists the ones that
+are used frequently or have recently been found to perform well.
+
+\paragraph{RMS energy}
+The root mean squared energy can be used also exclusively as an effective SMD classifier, as demonstrated in
+\citep{Ericsson2009} and \citep{Panagiotakis2005}.  Commonly used statistics of RMS include low energy ratio
+\citep{Liang2005,Ericsson2009,Saunders1996,Scheirer1997} and variance \citep{Ericsson2009} (including normalised
+variance \citep{Panagiotakis2005} and delta variance \citep{Carey1999}).
+
+Low energy ratio (also known as `silent interval frequency' and `energy contour dip') is a measure of the number of RMS
+energy frames that fall below a threshold. It exploits the fact that speech has freqent silent gaps between words,
+wheras music does not. The threshold can be set as a fixed value \citep{Liang2005}, a function of a moving average
+\citep{Ericsson2009} or moving peak value \citep{Saunders1996}.
+
+Kacprzak and Zi\'{o}\l{}ko recently proposed a modified version of low energy ratio called `minimum energy density'
+\citep{Kacprzak2013}. It is calculated by normalizing over a $\sim$15 second window and finding the minimum of the
+normalization function over a $\sim$1--3 second window. It has similar performance to low energy ratio with a moving
+average threshold, but has fewer parameters to set.
+
+\paragraph{Zero-crossing rate} is the rate at which a signal crosses the time axis, which is an easy-to-calculate
+measure for the spectral energy distribution. Early work in SMD \citep{Saunders1996} identified that ``speech signals
+produce a marked rise in the ZCR during periods of fricativity occuring at the beginning and end of words'', wheras
+music does not. This causes a bimodality which skews the ZCR distribition, which can be measured using the third
+standardized moment (skewness). The variance of ZCR has also been found to perform well for SMD \citep{Scheirer1997}.
+
+ZCR also played a significant role in two steps of a five-step classifer \citep{Panagiotakis2005}. During silent
+intervals the number of zero crossings is null, so this was used to detect gaps between speech. The authors also noted
+that ``RMS and ZCR are somewhat correlated for speech signals, while essentially independent for music'', and so the
+product of RMS and ZCR was used for the second classifier.
+
+A review \citep{Carey1999} of features for SMD found ZCR to perform least well, but did not consider the skewness,
+variance, or probability of null zero-crossings.
+
+\paragraph{MFCC}
+Mel-frequency cepstral coefficients have long been the workhorse of audio analysis, and they have been successfully
+used in SMD applications \citep{Carey1999,Liang2005,Pikrakis2008,Pikrakis2006a,Sell2014,Wieser2014}.  Notably, their
+use has only been successful when used in combination with strong machine learning systems, indicating that the
+relationship of MFCCs to SMD labels is complex and non-linear. This would make it difficult to map to a visual
+representation.
+
+\paragraph{Chroma}
+Use of chroma features work on the principle that the spectra of music is aligned to the chromatic scale. Pikrakis et.
+al.  \citep{Pikrakis2006,Pikrakis2008} have successfully used `chromatic entropy' for SMD applications. It takes
+sub-bands from a mel-scaled spectrum, aligned to the chromatic scale, and calculates the entropy of the normalised
+spectral energy.
+
+More recently, Sell \citep{Sell2014} has proposed two new chroma features, which try to account for the fact that the
+chromagram varies greatly between different pieces of music. Music tends to form strong, separated peaks on the
+chromagram wheras speech has smoother mounds of energy. The new features attempt to measure the peakiness of the
+chromagram. `Chromatic diff' subtracts a shifted chroma vector from the original chroma vector and sums the energy.
+`Chroma high freq' performs an FFT on the chromagram and sums the high frequency energy.
+
+\paragraph{Continuous frequency activation}
+Most of the above SMD features work well for segmenting speech-only/music-only content. However, many fall down at
+detecting background music in speech.  Seyerlehner developed the continuous frequency activation (CFA) feature
+\citep{Seyerlehner2007}, which works on the basis that music content has stable harmonics, seen as horizontal lines on
+a spectrogram.
+
+A moving average is subtracted from the FFT before it is binarized using a low threshold value. For each bin, the
+proportion of active frames in an analysis window is counted. The result is analysed with a peak picking algorithm and
+the sum of the five largest peaks are used as the CFA. The result is a single numeric value which quantifies the
+presence of steady frequency components.
+
+In the original CFA paper, the feature was used to find music in television content, but recently it has also been
+successfully applied to segmentaton of radio recordings \citep{Wieser2014}.
+
+Speaker diarization is the process of segmenting a speech recording by where different people are talking. Review
+papers from 2006 \citep{Tranter2006} and 2012 \citep{AngueraMiro2012} show that the vast majority of systems are based
+on clustering of MFCC or PLP features, which are low-dimensional representations of speech. Rather than developing new
+features, the research is primarily focussed on improvement of the clustering algorithms and pre-processing stages such
+as Wiener filtering, speech activity detection and beamforming.
+
+MFCC and PLP features are extremely effective when used in machine-based classification systems, but from a human
+perception angle, the features do not correlate well to what is heard.  Other features developed for automatic speech
+recognition may also be useful in a speaker diarization system. For example, spectral entropy \citep{Misra2004} is a
+measure of the peakiness of the spectrum and is an effective feature in distinguishing between voiced and unvoiced
+speech.
+
+Friendland et. al. \citep{Friedland2009} proposed enhancing the standard MFCC features with a set of long-term features
+representing prosody (the rhythm and intonation of speech). 52 candidate features were ranked using feature selection,
+which showed that ``the median and mean fundamental frequency are the best features, following by high formants (F4,
+F5)''. Inclusion of the top ten prosodic features improved the speaker diarization system by 24\%.
+
+Traditionally, audio features were developed by hand for specific tasks. This was usually done by attempting to write
+an algorithm that calculated the properties of the sound that humans used to distinuish the categories in question.
+More recently, fuelled by an ever-increasing availability of computing power, research has had a much greater focus on
+automating this process.
+
+\paragraph{Feature selection/extraction}
+Feature selection and extraction are methods of reducing the dimensionality of a feature vector, either by choosing a
+combination of vector components that best describe the content (selection), or by translating the feature vector to a
+smaller vector while retaining as much information as possible (extraction).
+
+This process can be unsupervised where only the feature data is known (such as with principal component analysis), or
+supervised where the feature data has corresponding labels (such as with linear discriminant analysis).
+
+Canonical correaltion analysis (CCA) has been used to reduce the dimensions of features for speaker diarization
+\citep{Chaudhuri2009} and phonetic labelling \citep{Arora2014}, amongst other things. It is able to efficiently map
+features to a subspace and can be used with the kernel trick (known as KCCA) to support non-linear mappings. In the
+case of speaker clustering, ``CCA-based algorithms consistently provide better performance than standard PCA-based
+clustering methods'' \citep{Chaudhuri2009}.
+
+\paragraph{Feature learning}
+The above methods of reducing dimensionality are based on a relatively short information-rich feature vector that it
+suitable for the target application.  More recent research on feature development is focussed on automated learning of
+features using large labelled datasets.
+
+Deep learning is an increasingly popular method of learning features based on neural networks with large numbers (tens
+or hundreds) of hidden units. This line of research has been enabled by the increasing availability of large amount of
+processing power. When done properly, deep learning can produce the state-of-the-art in audio features, outperforming
+even the best hand-crafted features \citep{Hamel2010,Sigtia2014}.
+
+Such an approach requires a high-quality and very large labelled dataset, on which the success of the process depends.
+The nature of neural networks means that it is very difficult to interpret what the resulting features represent which
+isn't an issue when used as the input to a machine learning system, but would make it very difficult to map to a
+visualization. The objective of the deep learning process is to minimise a cost function rather than to maximise the
+link to human perception.
+
+
+
+
+For example, it can be
+used to distinguish between music and speech \citep{Wieser2014}, show where
+different people are speaking \citep{AngueraMiro2012}, and who those people are
+\citep{Doddington1985}. These technologies have successfully been combined to
+create an enhanced interface to large speech archives as part of the BBC World
+Service Radio Archive
+prototype\footnote{\url{http://worldservice.prototyping.bbc.co.uk/}}.
 
 
 \section{Radio production}
@@ -392,13 +561,15 @@ classification
 The process and tools for radio production are well-understood and books have been written about it
 \citep{McLeish2015,Hausman2012}.
 
-Not many studies on radio production, except for \citet{Dunaway2000}, \citet{Barbour2004} and masters thesis about
-internship \citet{Sampaio2016}.
 
 Study on TV sport \citep{Perry2009} and \citep{Engstroem2010}
 
 
 Editing is the process of selecting, re-arranging, correcting and assembling audio content into a finished state.
+
+Digital technology has transformed broadcasting \citep{Pizzi1989,Peus2011}
+Digital technology has also changed music recording by allowing people to record at home, and impacted the music
+business \citep{Pras2013}
 
 \subsection{BBC Radio}
 
@@ -407,17 +578,33 @@ Editing is the process of selecting, re-arranging, correcting and assembling aud
 
 \subsection{Challenges}
 
+Audio production in office environments \citep{Brixen2003}
+
 \subsection{Current tools}
 
 \subsubsection{Digital audio workstations}
 
-\subsection{Research}
+Introduction of DAWs \citep{Ingebretsen1982}
 
+% surveys
+Most popular DAW survey \citep{AskAudio2015}
+Top DAW survey \citep{ProducerSpot2015}
+
+\subsection{Related work}
+
+\citep{Barbour2004}
+\citep{Dunaway2000}
+\citep{Sampaio2016}
 
 \section{Related work}
 
+
+Review on video interaction tools \citep{Schoeffmann2015}
+
 Research on navigation of recorded speech for navigating meetings \citep{Bouamrane2007}: speaker segmentation, speech
 skimming, automated speech recognition, word spotting, topic segmentation, spoken language summarisation.
+
+\citet{Loviscach2011a} includes low-level features (Comparisonics) and high-level features (keywords from ASR)
 
 
 \subsection{Low-level visualization}
@@ -439,13 +626,43 @@ application, is important in the sucess of semantic audio visualisation.
 
 Below we consider semantic audio visualisation techniques that have attempted to aid navigation of audio content.
 
-%\subsection{Segmentation}
-%Music structure
-%Speaker diarization
+Auto-scale waveform to see more detail \citep{Goudeseune2012}
 
-%\subsection{Transcription}
-%Music transcription
-%Speech to text
+% quintessence waveform
+\citet{Loviscach2011}
+proposed an elegant solution to this problem using a technique he calls the `quintessence waveform'. This approach
+used extreme pitch shifting to preserve the character of the waveform at different scales (see Figure~\ref{fig:quint}).
+Although this approach works well for regular monoaural sounds such as sine waves, it cannot be used for the complex
+polyphonic audio used in most real-life applications.
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=0.95\linewidth]{figs/quint.png}
+  \caption{Above: Normal waveform, below: quintessence waveform, source: \citep{Loviscach2011}}
+  \label{fig:quint}
+\end{figure}
+
+% improved waveform displays (high-level?)
+\citet{Gohlke2010} proposed a number of ideas for how to improve waveform displays.
+%TODO Expand
+
+% spectrogram
+
+\citet{Goudeseune2012} created \textit{Timeliner}, which used spectrograms as a basis to develop an interface for
+finding acoustic events.  They filtered the spectrogram using image processing techniques to create a salience map (see
+Figure~\ref{fig:timeliner}). This attempts to dim the background noise to make acoustic events clearer to the user.
+Through the use of custom browsing software called Timeliner, the system was tested by recording how quickly users
+could find sound effects hidden in long speech recordings.
+A user study of Timeliner for audio event detection \citep{Hasegawa-Johnson2011}
+Also \citep{Lin2012,Lin2013}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.95\linewidth]{figs/spectrogram-salience.png}
+  \caption{Top: A normal spectrogram; Bottom: A salience-maximised spectrogram with target events marked using black
+    underlines}
+  \label{fig:timeliner}
+\end{figure}
 
 \subsection{Colour}\label{sec:background-colour} A simple technique that can be used to visualise data is mapping
 numeric values to colour.  Previous work in the use of colour for audio visualization can be categorised into two main
@@ -491,6 +708,8 @@ timbrally distinct sounds and, with training, can be used to identify certain so
 been marketed and licensed as `Comparisonics' and has been integrated into commercial audio editing and DJ
 software.
 
+Comparisonics was used by \citet{Loviscach2011a} as part of his nimble video editor.
+
 \begin{figure}[p]
 \centering
 \begin{subfigure}{\textwidth}
@@ -516,20 +735,6 @@ indicating the location of music within speech content, and highlighting low-ban
 The authors proposed that the system could be also be applied to other applications such as segmentation of radio
 programmes for re-editing into podcasts.
 
-%Similar work was conducted at the BBC in 2013 by trainee Andrew Bonney who,
-%under the supervision of the author, looked into whether colour could represent
-%the sound of different people's voices. The result used median-filtered MFCCs
-%and gaussian mixture models, mapped to RGB colour space.
-%Figure~\ref{fig:bonney} shows an example of a recording with three speakers
-%(red/orange, blue and light/dark green).
-
-%\begin{figure}[ht]
-  %\centering
-  %\includegraphics[width=0.95\linewidth]{figs/bonney.png}
-  %\caption{Speaker diarizartion through colour based on filtered MFCCs}
-  %\label{fig:bonney}
-%\end{figure}
-
 False colour has also been used for navigating and summarizing extremely long recordings. \citet{Towsey2014} mapped
 three spectral features to RGB colour for visualizing almost a year of environmental recording.
 Figure~\ref{fig:towsey} shows the recordings from March until October, with each line representing one day.  The
@@ -544,30 +749,23 @@ visualization reveals the change in time of the dawn and evening choruses throug
   \label{fig:towsey}
 \end{figure}
 
+% Could use image synthesis \citep{Levkowitz1991}
+
 \subsection{High-level visualization}
+
+Variety of techniques presented in ``Visualisation of time-oriented data'' \citep{Aigner2011}
+
+% interfaces that combine high-level visualizations
+\citet{Pavel2014} is a video player that includes segmentation, summarization, text-based editing.
+World service archive \citep{Raimond2014} used speaker diarization, identification, topic extraction
 
 \subsubsection{Segmentation}
 
+Taxonomy \cite{Avdelidis2007}
 Speech/music discrimination \citep{Wieser2014}
-
-\subsubsection{Summarization}
-
-Extracting keyphrases \citep{Inkpen2004}
-TreeMaps \citep{Abdulhamid2013a}
-World service archive \citep{Raimond2014}
+TreeMaps \citep{Abdulhamid2013,Abdulhamid2013a}
 
 \subsubsection{Transcripts}\label{sec:background-transcripts}
-
-%For example, it can be used to distinguish between music and speech \citep{Wieser2014}, show where different people
-%are speaking \citep{AngueraMiro2012}, and who those people are \citep{Doddington1985}. These technologies have
-%successfully been combined to
-%create an enhanced interface to large speech archives as part of the BBC World
-%Service Radio Archive prototype\footnote{\url{http://worldservice.prototyping.bbc.co.uk/}}.
-
-%Other methods of improving speech navigation have been explored, including time
-%compression \citep{Arons1997} to increase playback speed, and using dichotic
-%presentation \citep{Ranjan2006} to play different parts of the speech into each
-%ear.
 
 Semantic speech editing techniques have been used to enhance a number of interfaces in a variety of applications by
 using either manual or automatic transcription.
@@ -618,14 +816,14 @@ done by selecting a part of the transcript and dragging it into a window to crea
 and re-ordered, and the edited version can be played and shared with others. No user studies of this system could be
 found.
 
-\citet{Rubin2013} presented a novel interface for creating `audio stories' that combine speech and music. The interface
-uses an editable transcript with two columns, one for each of a pair of speakers.  It allowed the user to cut, copy,
-paste and delete the audio using the text. It also highlighted repeated words, similar sentences, `umm's, breaths and
-pauses in the transcript. The transcripts were generated using a crowd-sourcing service with speech alignment software
-that also detected breaths.  The system from Rubin et al. included additional functionality for finding and adding
-music tracks, and for varying the length of music using automatic looping. The system was evaluated through a short
-informal study of four participants where the editing capabilities received positive feedback. No follow-up studies
-have been reported since.
+\citet{Rubin2013,Rubin2015} presented a novel interface for creating `audio stories' that combine speech and music. The
+interface uses an editable transcript with two columns, one for each of a pair of speakers.  It allowed the user to
+cut, copy, paste and delete the audio using the text. It also highlighted repeated words, similar sentences, `umm's,
+breaths and pauses in the transcript. The transcripts were generated using a crowd-sourcing service with speech
+alignment software that also detected breaths.  The system from Rubin et al. included additional functionality for
+finding and adding music tracks, and for varying the length of music using automatic looping. The system was evaluated
+through a short informal study of four participants where the editing capabilities received positive feedback. No
+follow-up studies have been reported since.
 
 \citet{Sivaraman2016} created a semantic editing system for asynchronous voice-based discussions, where users could
 quickly edit their speech recording before sending it to the recipient.  Their system used near-live automatic
@@ -657,271 +855,96 @@ to complete an audio production task 25\% faster using the Voice Script system. 
 workflows that involve pre-written scripts, there is potential to improve the audio editing by using an integrated
 writing and editing system.
 
-%\subsection{Time compression}
-%A number of studies \citep{Whittaker2002,Vemuri2004,Ranjan2006} have also
-%combined transcript displays with time-compression to speed up playback of audio. They found that having a transcript
-%improves comprehension and allows
-%faster playback.
+NewsTime \citep{Horner1993}, early system for navigating audio news stories, searching by keyword etc.
 
-%Dichotic presentation, in which different parts of a recording are played into
-%each ear, was also tested \citep{Ranjan2006}.
-
-%\begin{figure} \centering \includegraphics[width=\columnwidth]{figures/whittaker2004.png}
-  %\caption{Semantic speech editor \citep{Whittaker2004}}
-  %\label{fig:semanticeditor} \end{figure}
-
-%, which has been shown to improve the speech and accuracy of audio search \citep{Ranjan2006,Whittaker2000} and
-%comprehension \citep{Vemuri2004}. Word-level timing information, also allow users to edit speech using a text-based
-%interface \citep{Whittaker2002,Burke2006,Rubin2013}.
-%Even with imperfect transcriptions, editing using this technique is faster and as accurate as acoustic editing
-%\citep{Whittaker2004}.
-
-%Later systems have improved these interfaces with editing \citep{Burke2006}, confidence shading \citep{Burke2006} and
-%highlighting breaths, pauses and
-%repetition \citep{Rubin2013}.
+ScriptSync \citep{Avid2011}
 
 LIDS transcript editor \citep{Apperley2002}
+TRAED \citep{Masoodian2006}
 
 Editor for existing script \citep{Shin2016}
 
 Applied to coding of video interviews \cite{Chandrasegaran2017}
+
+TypeTalker - editing spoken comments \citep{Arawjo2017}
+
+VisScribe - interactive transcript interface and speaker activity for coding design sessions \cite{Chandrasegaran2017}
+
+Text segmentation \citep{Choi2000}
+
+QuickCut: Transcript-based matching of story events \citep{Truong2016}
 
 Speech to text correcion 
 \citep{Burke2006}
 \citep{Liang2014}
 \citep{Suhm2001}
 \citep{Wald2007}
+Smartphone interface for quick correction \citep{Liang2014}
 
-%For example, it can be
-%used to distinguish between music and speech \citep{Wieser2014}, show where
-%different people are speaking \citep{AngueraMiro2012}, and who those people are
-%\citep{Doddington1985}. These technologies have successfully been combined to
-%create an enhanced interface to large speech archives as part of the BBC World
-%Service Radio Archive
-%prototype\footnote{\url{http://worldservice.prototyping.bbc.co.uk/}}.
+\subsubsection{Summarization}
 
-%Other methods of improving speech navigation have been explored, including time
-%compression \citep{Arons1997} to increase playback speed, and using dichotic
-%presentation \citep{Ranjan2006} to play different parts of the speech into each
-%ear.
+Extracting keyphrases \citep{Inkpen2004}
+TreeMaps \citep{Abdulhamid2013,Abdulhamid2013a}
+World service archive \citep{Raimond2014}
+Confidence score based on video and audio, for identifying parts that can be skipped \citep{Foote1998}
+Evaluation of SpeechBot for radio archives \citep{Kim2003}
+Text summarization review paper \citep{Lloret2012}
+Keyword extraction \citep{Matsuo2004}
 
-%\begin{figure}
-%\centering
-  %\includegraphics[width=\columnwidth]{figures/whittaker2004.png}
-  %\caption{Semantic speech editor \citep{Whittaker2004}}
-  %\label{fig:semanticeditor}
-%\end{figure}
-
-%, which has been shown to improve the speech and
-%accuracy of audio search \citep{Ranjan2006,Whittaker2000} and comprehension
-%\citep{Vemuri2004}. Word-level timing information, also allow users to edit
-%speech using a text-based interface \citep{Whittaker2002,Burke2006,Rubin2013}.
-%Even with imperfect transcriptions, editing using this technique is faster and
-%as accurate as acoustic editing \citep{Whittaker2004}.
-
-%Later systems have improved these interfaces with editing \citep{Burke2006},
-%confidence shading \citep{Burke2006} and highlighting breaths, pauses and
-%repetition \citep{Rubin2013}.
-
+Keywords used by \citet{Loviscach2011a} as part of his nimble video editor
 
 \subsection{Audio user interfaces}
 
+Audio mixing designs \citep{Dewey2016,Dewey2016a}
+
+\subsubsection{Faster playback}
+
+Maintain pitch while increasing speed, can comprehend x5 speed \citep{Imai2001}
+
 \subsubsection{Speech skimming}
+
+Also known as time compression
+
 SpeechSkimmer \citep{Arons1997}
 
 \citet{Arons1997} found that most humans cannot comprehend speech which it is played faster than twice real-time. This
 means that there is a limit on the improvement that can be gained with using continuous audio playback.
 
-\subsubsection{Dichromatic listening}
-Dichromatic listening \citep{Ranjan2006}
+A number of studies \citep{Whittaker2002,Vemuri2004,Ranjan2006} have also
+combined transcript displays with time-compression to speed up playback of audio. They found that having a transcript
+improves comprehension and allows
+faster playback.
+
+50x video playback with audio skimming on BBC rushes \citep{Christel2008}
+
+Skimming and markers \citep{Dhanesha2010}
+
+
+\subsubsection{Dichotic presentation}
+AudioStreamer \citep{Schmandt1995}
+Dichotic presentation, in which different parts of a recording are played into
+each ear, was also tested \citep{Ranjan2006}.
+
+\subsubsection{Scrolling interfaces}
+Elastic Audio Slider \citep{Hurst2004}
+Position-based audio slider \citep{Hurst2006}
+MobileZoomSlider, ScrollWheel \citep{Huerst2008}
+Hardware scrolling interfaces \citep{Lee2007}
+DiMa\ss \citep{Lee2006}
 
 \subsubsection{Haptic interfaces}
 Haptics
 \citep{Metatla2016}
 
-%======================================================================================================================
+\subsubsection{Spatial navigation of audio}
+\citep{Kobayashi1997}
 
-%Academic research into audio analysis and audio interfaces tends to concentrate
-%on fully automated systems \citep{AngueraMiro2012}, navigation of large audio
-%collections \citep{FontCorbera2010} or navigation interfaces based on skimming
-%\citep{Arons1997} and scrolling \citep{Lee2007}. Although there are examples of
-%audio visualization from the world of academia, it is much more popular in the
-%context of art \citep{Armitage2012}, with excellent examples such as Quayola's
-%Form--Sound--Abstraction\footnote{\url{http://www.quayola.com/work/form-sound-abstraction/}}
-%work.
-
-%This section looks at three areas of literature from which the project will
-%draw upon -- extraction of meaningful audio properties, mapping these to a
-%visual representation, and the perceptual links between audition and vision.
-
-%\section{Feature extraction}\label{sec:litreviewfeats}
-%This section looks at audio features that could be used as part of an audio
-%visualization system. Firstly, two use cases that were previously identified as
-%being a common component of radio production are explored, before considering
-%methods of generating features for any use case.
-
-%\subsection{Speech/music discrimination}
-%Speech/music discrimination (SMD) is the process of segmenting audio content
-%into parts labelled by the categories speech and music. In general, SMD
-%classifiers use a collection of different features. This section lists the ones
-%that are used frequently or have recently been found to perform well.
-
-%\paragraph{RMS energy}
-%The root mean squared energy can be used also exclusively as an effective SMD
-%classifier, as demonstrated in \citep{Ericsson2009} and \citep{Panagiotakis2005}.
-%Commonly used statistics of RMS include low energy ratio
-%\citep{Liang2005,Ericsson2009,Saunders1996,Scheirer1997} and variance
-%\citep{Ericsson2009} (including normalised variance \citep{Panagiotakis2005} and
-%delta variance \citep{Carey1999}).
-
-%Low energy ratio (also known as `silent interval frequency' and `energy contour
-%dip') is a measure of the number of RMS energy frames that fall below a
-%threshold. It exploits the fact that speech has freqent silent gaps between
-%words, wheras music does not. The threshold can be set as a fixed value
-%\citep{Liang2005}, a function of a moving average \citep{Ericsson2009} or moving
-%peak value \citep{Saunders1996}.
-
-%Kacprzak and Zi\'{o}\l{}ko recently proposed a modified version of low energy
-%ratio called `minimum energy density' \citep{Kacprzak2013}. It is calculated by
-%normalizing over a $\sim$15 second window and finding the minimum of the
-%normalization function over a $\sim$1--3 second window. It has similar
-%performance to low energy ratio with a moving average threshold, but has fewer
-%parameters to set.
-
-%\paragraph{Zero-crossing rate} is the rate at which a signal crosses the time
-%axis, which is an easy-to-calculate measure for the spectral energy
-%distribution. Early work in SMD \citep{Saunders1996} identified that ``speech
-%signals produce a marked rise in the ZCR during periods of fricativity occuring
-%at the beginning and end of words'', wheras music does not. This causes a
-%bimodality which skews the ZCR distribition, which can be measured using the
-%third standardized moment (skewness). The variance of ZCR has also been found
-%to perform well for SMD \citep{Scheirer1997}.
-
-%ZCR also played a significant role in two steps of a five-step classifer
-%\citep{Panagiotakis2005}. During silent intervals the number of zero crossings
-%is null, so this was used to detect gaps between speech. The authors also noted
-%that ``RMS and ZCR are somewhat correlated for speech signals, while
-%essentially independent for music'', and so the product of RMS and ZCR was used
-%for the second classifier.
-
-%A review \citep{Carey1999} of features for SMD found ZCR to perform least well,
-%but did not consider the skewness, variance, or probability of null
-%zero-crossings.
-
-%\paragraph{MFCC}
-%Mel-frequency cepstral coefficients have long been the workhorse of audio
-%analysis, and they have been successfully used in SMD applications
-%\citep{Carey1999,Liang2005,Pikrakis2008,Pikrakis2006a,Sell2014,Wieser2014}.
-%Notably, their use has only been successful when used in combination with
-%strong machine learning systems, indicating that the relationship of MFCCs to
-%SMD labels is complex and non-linear. This would make it difficult to map to a
-%visual representation.
-
-%\paragraph{Chroma}
-%Use of chroma features work on the principle that the spectra of music is
-%aligned to the chromatic scale. Pikrakis et. al.
-%\citep{Pikrakis2006,Pikrakis2008} have successfully used `chromatic entropy' for
-%SMD applications. It takes sub-bands from a mel-scaled spectrum, aligned to the
-%chromatic scale, and calculates the entropy of the normalised spectral energy.
-
-%More recently, Sell \citep{Sell2014} has proposed two new chroma features, which
-%try to account for the fact that the chromagram varies greatly between
-%different pieces of music. Music tends to form strong, separated peaks on the
-%chromagram wheras speech has smoother mounds of energy. The new features
-%attempt to measure the peakiness of the chromagram. `Chromatic diff' subtracts
-%a shifted chroma vector from the original chroma vector and sums the energy. 
-%`Chroma high freq' performs an FFT on the chromagram and sums the high
-%frequency energy.
-
-%\paragraph{Continuous frequency activation}
-%Most of the above SMD features work well for segmenting speech-only/music-only
-%content. However, many fall down at detecting background music in speech.
-%Seyerlehner developed the continuous frequency activation (CFA) feature
-%\citep{Seyerlehner2007}, which works on the basis that music content has stable
-%harmonics, seen as horizontal lines on a spectrogram.
-
-%A moving average is subtracted from the FFT before it is binarized using a low
-%threshold value. For each bin, the proportion of active frames in an analysis
-%window is counted. The result is analysed with a peak picking algorithm and the
-%sum of the five largest peaks are used as the CFA. The result is a single
-%numeric value which quantifies the presence of steady frequency components.
-
-%In the original CFA paper, the feature was used to find music in television
-%content, but recently it has also been successfully applied to segmentaton of
-%radio recordings \citep{Wieser2014}.
-
-%\subsection{Speaker diarization}
-%Speaker diarization is the process of segmenting a speech recording by where
-%different people are talking. Review papers from 2006 \citep{Tranter2006} and
-%2012 \citep{AngueraMiro2012} show that the vast majority of systems are based on
-%clustering of MFCC or PLP features, which are low-dimensional representations
-%of speech. Rather than developing new features, the research is primarily
-%focussed on improvement of the clustering algorithms and pre-processing stages
-%such as Wiener filtering, speech activity detection and beamforming.
-
-%MFCC and PLP features are extremely effective when used in machine-based
-%classification systems, but from a human perception angle, the features do not
-%correlate well to what is heard.  Other features developed for automatic speech
-%recognition may also be useful in a speaker diarization system. For example,
-%spectral entropy \citep{Misra2004} is a measure of the peakiness of the spectrum
-%and is an effective feature in distinguishing between voiced and unvoiced
-%speech.
-
-%Friendland et. al. \citep{Friedland2009} proposed enhancing the standard MFCC
-%features with a set of long-term features representing prosody (the rhythm and
-%intonation of speech). 52 candidate features were ranked using feature
-%selection, which showed that ``the median and mean fundamental frequency are
-%the best features, following by high formants (F4, F5)''. Inclusion of the
-%top ten prosodic features improved the speaker diarization system by 24\%.
-
-%\subsection{Feature generation}\label{sec:litreviewgeneration}
-%Traditionally, audio features were developed by hand for specific tasks. This
-%was usually done by attempting to write an algorithm that calculated the
-%properties of the sound that humans used to distinuish the categories in
-%question. More recently, fuelled by an ever-increasing availability of
-%computing power, research has had a much greater focus on automating
-%this process.
-
-%\paragraph{Feature selection/extraction}
-%Feature selection and extraction are methods of reducing the dimensionality of
-%a feature vector, either by choosing a combination of vector components that
-%best describe the content (selection), or by translating the feature vector to
-%a smaller vector while retaining as much information as possible (extraction).
-
-%This process can be unsupervised where only the feature data is known (such as
-%with principal component analysis), or supervised where the feature data has
-%corresponding labels (such as with linear discriminant analysis).
-
-%Canonical correaltion analysis (CCA) has been used to reduce the dimensions of
-%features for speaker diarization \citep{Chaudhuri2009} and phonetic labelling
-%\citep{Arora2014}, amongst other things. It is able to efficiently map features
-%to a subspace and can be used with the kernel trick (known as KCCA) to support
-%non-linear mappings. In the case of speaker clustering, ``CCA-based algorithms
-%consistently provide better performance than standard PCA-based clustering
-%methods'' \citep{Chaudhuri2009}.
-
-%\paragraph{Feature learning}
-%The above methods of reducing dimensionality are based on a relatively short
-%information-rich feature vector that it suitable for the target application.
-%More recent research on feature development is focussed on automated learning
-%of features using large labelled datasets.
-
-%Deep learning is an increasingly popular method of learning features based on
-%neural networks with large numbers (tens or hundreds) of hidden units. This
-%line of research has been enabled by the increasing availability of large
-%amount of processing power. When done properly, deep learning can produce the
-%state-of-the-art in audio features, outperforming even the best hand-crafted
-%features \citep{Hamel2010,Sigtia2014}.
-
-%Such an approach requires a high-quality and very large labelled dataset, on
-%which the success of the process depends. The nature of neural networks means
-%that it is very difficult to interpret what the resulting features represent
-%which isn't an issue when used as the input to a machine learning system, but
-%would make it very difficult to map to a visualization. The objective of the
-%deep learning process is to minimise a cost function rather than to maximise
-%the link to human perception.
+\subsubsection{Mix audio and text}
+Quixotic: Audio recorder with word processing interaction \citep{Milota2015}
 
 \section{Research scope and methodology}
+
+Process for designing and evaluating interfaces for audio industry \citep{Dewey2014}
 
 In previous sections, we outlined
 An initial investigation of prevailing techniques revealed
