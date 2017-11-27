@@ -4,6 +4,8 @@
 % SCOPE
 % - only consider audio-only content, no pictures with radio
 % - do not include tools for automatically editing (computer based decisions)
+% - not including live production, which is already efficient
+% - focus on speech, not music
 % - interested in reviewing technology that aids navigation and editing of audio
 
 %Stolen: In this chapter, we can find a review of a variety of systems and technologies that are related to the
@@ -201,6 +203,9 @@ granularity). Participants were played an audio clip and shown an image and were
 and to what degree (on a scale of 0--100).  The experiment confirmed previous results which found strong links between
 size/loudness and pitch/elevation, and weaker links between colour/pitch, granularity/dissonance, and colour
 complexity/dissonance.
+%Tsiros confirms the results revealed by previous studies [7], [15], [19] which found strong relationships between the
+%audio-visual feature associations of size – loudness, pitch – vertical position, and weaker relationships between
+%color – pitch, texture granularity – sound dissonance and color complexity- sound dissonance
 
 Additional work from \citet{Marks2003} suggests that cross-modal interaction is a result of late-stage cognitive
 processes.
@@ -208,6 +213,8 @@ processes.
 Artwork that used synaesthesic style mapping for music to colour \citep{Armitage2012}
 
 Relationship between pitch and colour \citep{Datteri2004}
+
+Cross-modality can even be measured in the visual cortex using a PET scanner \citep{Zangenehpour2010}
 
 %Vision and audition are physiologically separate, but idential in many respects
 %\citep{Tsiros2013}.
@@ -604,8 +611,14 @@ Review on video interaction tools \citep{Schoeffmann2015}
 Research on navigation of recorded speech for navigating meetings \citep{Bouamrane2007}: speaker segmentation, speech
 skimming, automated speech recognition, word spotting, topic segmentation, spoken language summarisation.
 
+Review on smart meeting systems \citep{Yu2010}
+
 \citet{Loviscach2011a} includes low-level features (Comparisonics) and high-level features (keywords from ASR)
 
+\citet{Tucker2005} provides an overview of multimodal meeting data browsers.
+
+
+Audio mixing designs based on data visualization first principles \citep{Dewey2016,Dewey2016a}
 
 \subsection{Low-level visualization}
 
@@ -845,6 +858,10 @@ considered easy to use and efficient for removing `umm's and long pauses.
 However many participants reported that the transcripts were not accurate enough to use without having to listen to
 the audio.
 
+RichReview tested on edX \citep{Yoon2015}
+applied to the classroom \citep{Yoon2015a}
+RichReview++ for instuctor feedback and peer discussion \citep{Yoon2016}
+
 The systems so far have only considered handling speech that has already been recorded. Often, speech is recorded from
 a pre-written script or from notes. \citet{Shin2016} created a system called Voice Script that supports an
 integrated workflow for writing scripts, and recording/editing audio. An informal study with four amateur participants
@@ -874,12 +891,18 @@ Text segmentation \citep{Choi2000}
 
 QuickCut: Transcript-based matching of story events \citep{Truong2016}
 
+Personal device for recording and navigating notes using keywords \citep{Tucker2003}
+
+Strategic fixation - visually scanning the text to focus on regions of interest \citep{Whittaker2007}
+Attriubutes that guide visual attention \citep{Wolfe2004}
+
 Speech to text correcion 
 \citep{Burke2006}
 \citep{Liang2014}
 \citep{Suhm2001}
 \citep{Wald2007}
 Smartphone interface for quick correction \citep{Liang2014}
+Correcting speech-to-text in real-time for captioning \citep{Wald2007}
 
 \subsubsection{Summarization}
 
@@ -895,35 +918,123 @@ Keywords used by \citet{Loviscach2011a} as part of his nimble video editor
 
 \subsection{Audio user interfaces}
 
-Audio mixing designs \citep{Dewey2016,Dewey2016a}
+The systems we have considered so far primarily used rich visualizations to display complex representations of
+transcripts, speakers, structure and summarizations. Visual presentation of audio content makes it easier for users to
+search and skim the information, but it is difficult, if not impossible, for humans to fully comprehend sound using
+visual means. Listening is the natural way for humans to consume audio content, but the time required to listen can
+make it inefficient.
 
-\subsubsection{Faster playback}
+Previous work has demonstrated how audio processing and user interface design can be used to increase the speed and
+precision with which users can listen to and interact with audio. These techniques include processing the audio to
+improve the comprehension of speech at higher playback rates, re-designing audio scrolling interfaces for better
+control of playback, exploiting the ``cocktail party effect'' by playing multiple audio streams simultaneously to
+search for specific moments in recordings, and using audio spatialization to allow for spatial navigation of audio. We
+discuss each of these techniques below.
 
-Maintain pitch while increasing speed, can comprehend x5 speed \citep{Imai2001}
+\subsubsection{Time compression}
 
-\subsubsection{Speech skimming}
+% problem description
+Listening to long audio recordings of speech can be time-consuming. A simple way to reduce the listening time is to
+increase the rate of playback.  However, this increase in speed causes an upward shift in the pitch of the sound, which
+degrades the speech and makes voices sound like cartoon characters.  The increased speed with which the content is
+presented also makes it difficult for listeners to process the information fast enough.
 
-Also known as time compression
+These limitations negatively affect the intelligibility and comprehension of the speech.  In this context,
+\textit{intelligibility} refers to the ability to identify words, and can be measured by the accuracy with which a
+specific word is recalled. \textit{Comprehension} refers to the ability to understand the content of the material,
+measured by the number of correctly answered questions about the subject matter.
 
-SpeechSkimmer \citep{Arons1997}
+%By carefully selecting which words to listen to, speech
+%can remain intelligible at up to 10-times normal speed \citep[p.~7]{Arons1997}.
+%TODO better citation needed
 
-\citet{Arons1997} found that most humans cannot comprehend speech which it is played faster than twice real-time. This
-means that there is a limit on the improvement that can be gained with using continuous audio playback.
+% difference between time compression and speech skimming
+There are several approaches for reducing the time required to listen to a recording while being able to extract
+critical information, which can be divided into two categories.  \textit{Speed-up} techniques aim to increase the speed
+of playback without affecting the pitch of the speech, and \textit{excision} techniques aim to remove parts of the
+speech in a way that minimises the reduction in comprehension.
 
+% speed-up vs excision
+\citet{Tucker2006} introduced a measure of comprehension efficiency and tested
+They found that listeners can get the gist of what is being said at 2.5x speed
+Users preferred excision techniques to speedup, and that they outperformed an uncompressed baseline.
+Excision better than speedup for short 2-min excerpts, no difference for long 30-min excerpts.
+
+%time compression and speech skimming.
+%\textit{Time compression} refers to a set of sampling techniques that are used to reduce the length of the audio by
+%skipping or over-lapping audio frames.  \textit{Speech skimming} exploits the natural boundaries and acoustic
+%properties of speech to structure the audio content based on salience. This can be determined based on the location and
+%frequency of natural pauses, the emphasis of the voice (usually determined by pitch), speaker diarization and the
+%content of the speech.
+
+% time compression (sampling techniques)
+% - shortening/removing pauses
+% - isochronous sampling (regularly skipping frames)
+% - SOLA (overlapping frames)
+% - dichotic sampling
+% - backward sampling
+%
+% skimming (structuring the audio by segmenting based on saliency, then skipping)
+%   - pauses
+%   - pitch-based emphasis
+%   - content-based
+%   - speaker diarization
+
+% excision techniques
+% isochronous sampling, shortening/removing pauses
+The simplest excision technique is to remove frames of audio at regular intervals, known as ``isochronous sampling''.
+However, this approach does not discriminate between valuable and redundant information. It also fails to take into
+account speech boundaries, so may cut the audio mid-way through a word. Shortening or removing pauses between words is
+a simple and effective approach that reduces the length of the audio whilst retaining all of the information and
+respecting speech boundaries. However, once all of the pauses have been removed, other techniques must be used to
+further compress the speech.
+
+% emphasis detection
+Early work by \citet{Heiman1986} showed that double-speed playback removes virtually all redundant information, so when
+playing back at higher speeds, information is lost. To avoid losing important information, some excision algorithms
+attempt to segment the recording according to the relevance of the content. The audio is then compressed by only
+playing only the beginning of each segment.
+
+Previous systems have estimated the importance of speech based on pause length, pitch, speaker turns and content.  Long
+pauses in speech often signal a new sentence, thought or topic, which can be an indication of importance. The pitch of
+the voice tends to increase in range when introducing a new topic, which can be used as a measure of emphasis.  Speaker
+diarization techniques \citep{AngueraMiro2012} can be used to detect changes in speaker, which is a cue for changes in
+topic. Finally, \citet{Hori2003} used automatic speech recognition to transcript the content of speech, and used
+summarization techniques to determine the most salient parts of the speech.
+
+\textit{SpeechSkimmer} by \citep{Arons1997} combined three of these techniques by switching between them for different
+rates of playback. He used pause shortening and removal for modest speed increases, followed by pause-based
+segmentation for faster playback. For the fastest playback rate, he used segmentaton with a pitch-based emphasis
+detection algorithm. He evaluated the system through a qualitative study of 12 participants that compared pitch-based
+emphasis segmentation to isochronous sampling. The participants reported that pitch-based emphasis was effective at
+extracting interesting points, and performed better than excision using isochronous sampling.
+
+% overlapping and simultaneous playback
+The length of the audio can be further compressed by overlapping audio frames, or playing them simultaneously.
+
+AudioStreamer \citep{Schmandt1995}
+Dichotic presentation, in which different parts of a recording are played into
+each ear, was also tested \citep{Ranjan2006}.
+
+
+% combination with transcript
 A number of studies \citep{Whittaker2002,Vemuri2004,Ranjan2006} have also
 combined transcript displays with time-compression to speed up playback of audio. They found that having a transcript
 improves comprehension and allows
 faster playback.
 
-50x video playback with audio skimming on BBC rushes \citep{Christel2008}
+%50x video playback with audio skimming on BBC rushes \citep{Christel2008}
 
-Skimming and markers \citep{Dhanesha2010}
+%Skimming and markers \citep{Dhanesha2010} for use on normal telephone
+
+%\citet{Imai2001} proposed a speed-up algorithm for Japanese speech, with a view to using it for video editing. They
+%tested the comprehensibility of their algorithm on 6 participants which indicated that speech can be comprehensible at
+%up to x5 speed. They implemented their algorithm in a non-linear video editing system, but did not attempt to evaluate
+%it.
 
 
-\subsubsection{Dichotic presentation}
-AudioStreamer \citep{Schmandt1995}
-Dichotic presentation, in which different parts of a recording are played into
-each ear, was also tested \citep{Ranjan2006}.
+\citet{Vemuri2004} found that time compression and erroneous transcripts work better together that either on their own
+
 
 \subsubsection{Scrolling interfaces}
 Elastic Audio Slider \citep{Hurst2004}
@@ -932,17 +1043,24 @@ MobileZoomSlider, ScrollWheel \citep{Huerst2008}
 Hardware scrolling interfaces \citep{Lee2007}
 DiMa\ss \citep{Lee2006}
 
-\subsubsection{Haptic interfaces}
-Haptics
-\citep{Metatla2016}
-
 \subsubsection{Spatial navigation of audio}
 \citep{Kobayashi1997}
 
-\subsubsection{Mix audio and text}
-Quixotic: Audio recorder with word processing interaction \citep{Milota2015}
+%\subsubsection{Haptic interfaces}
+%Haptics
+%\citep{Metatla2016}
+
+%\subsubsection{Mix audio and text}
+%Quixotic: Audio recorder with word processing interaction \citep{Milota2015}
 
 \section{Research scope and methodology}
+
+% - better understanding of the current tools and their performance
+% - better understanding of the radio production process and which techniques could be used to improve it
+% - apply one or more of these techniques and test its effect in radio production to see:
+%   - whether it works
+%   - what the challenges are
+%   - identify missing elements for future research
 
 Process for designing and evaluating interfaces for audio industry \citep{Dewey2014}
 
