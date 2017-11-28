@@ -780,6 +780,9 @@ TreeMaps \citep{Abdulhamid2013,Abdulhamid2013a}
 
 \subsubsection{Transcripts}\label{sec:background-transcripts}
 
+\citet{Ranjan2006} studied the performance of 13 participants in an audio search task with varying levels of
+transcript quality. The results showed that the mean search time descreased as the transcript quality increased.
+
 Semantic speech editing techniques have been used to enhance a number of interfaces in a variety of applications by
 using either manual or automatic transcription.
 %Automatic speech recognition technology makes it possible to extract partially accurate transcripts of speech
@@ -918,18 +921,18 @@ Keywords used by \citet{Loviscach2011a} as part of his nimble video editor
 
 \subsection{Audio user interfaces}
 
-The systems we have considered so far primarily used rich visualizations to display complex representations of
+The previous work we have considered so far have used rich visualizations to display complex representations of
 transcripts, speakers, structure and summarizations. Visual presentation of audio content makes it easier for users to
 search and skim the information, but it is difficult, if not impossible, for humans to fully comprehend sound using
 visual means. Listening is the natural way for humans to consume audio content, but the time required to listen can
-make it inefficient.
+make it a lengthy and inefficient process.
 
-Previous work has demonstrated how audio processing and user interface design can be used to increase the speed and
-precision with which users can listen to and interact with audio. These techniques include processing the audio to
-improve the comprehension of speech at higher playback rates, re-designing audio scrolling interfaces for better
-control of playback, exploiting the ``cocktail party effect'' by playing multiple audio streams simultaneously to
-search for specific moments in recordings, and using audio spatialization to allow for spatial navigation of audio. We
-discuss each of these techniques below.
+Audio processing and user interface design can be used to increase the speed and precision with which users can listen
+to and interact with audio. Previous research has demonstrated this using a variety of techniques, including processing
+the audio to improve the comprehension of speech at higher playback rates, re-designing audio scrolling interfaces for
+better control of playback, exploiting the ``cocktail party effect'' by playing multiple audio streams simultaneously
+to search for specific moments in recordings, and using audio spatialization to allow for spatial navigation of audio.
+We discuss each of these techniques below.
 
 \subsubsection{Time compression}
 
@@ -950,13 +953,13 @@ measured by the number of correctly answered questions about the subject matter.
 
 % difference between time compression and speech skimming
 There are several approaches for reducing the time required to listen to a recording while being able to extract
-critical information, which can be divided into two categories.  \textit{Speed-up} techniques aim to increase the speed
+critical information, which can be divided into two categories. \textit{Speed-up} techniques aim to increase the speed
 of playback without affecting the pitch of the speech, and \textit{excision} techniques aim to remove parts of the
 speech in a way that minimises the reduction in comprehension.
 
 % speed-up vs excision
 \citet{Tucker2006} performed a user study that compared two different excision techniques and a speed-up technique,
-using both 5-min and 30-min audio recordings.  Participants ranked a set of utterances to match what they heard,
+using both 5-min and 30-min audio recordings.  Participants ranked a list of utterances to match what they heard,
 which was compared to a reference response to produce a score for comprehension. This score was normalised by the
 listening time to measure ``comprehension efficiency''.  The results showed that for short recordings, excision
 outperformed speed-up, but that they performed similarly for long recordings. However, participants reported that they
@@ -992,38 +995,70 @@ respecting speech boundaries. However, once all of the pauses have been removed,
 further compress the speech.
 
 % emphasis detection
-Early work by \citet{Heiman1986} showed that double-speed playback removes virtually all redundant information, so when
-playing back at higher speeds, information is lost. To avoid losing important information, some excision algorithms
-attempt to segment the recording according to the relevance of the content. The audio is then compressed by only
-playing only the beginning of each segment.
+%Early work by \citet{Heiman1986} showed that double-speed playback removes virtually all redundant information, so when
+%playing back at higher speeds, information is lost. To avoid losing important information, some excision algorithms
+%attempt to segment the recording according to the relevance of the content. The audio is then compressed by only
+%playing only the beginning of each segment.
 
-Previous systems have estimated the importance of speech based on pause length, pitch, speaker turns and content.  Long
-pauses in speech often signal a new sentence, thought or topic, which can be an indication of importance. The pitch of
-the voice tends to increase in range when introducing a new topic, which can be used as a measure of emphasis.  Speaker
-diarization techniques \citep{AngueraMiro2012} can be used to detect changes in speaker, which is a cue for changes in
-topic. Finally, \citet{Hori2003} used automatic speech recognition to transcript the content of speech, and used
-summarization techniques to determine the most salient parts of the speech.
+Many exicision algorithms operate by segmenting the audio at points of increased saliency, then playing only the
+beginning of each segment before moving onto the next. The saliency can be determined by measuring pause length, pitch,
+speaker turns and the content.  Long pauses in speech often signal a new sentence, thought or topic, which can be an
+indication of importance. The pitch of the voice tends to increase in range when introducing a new topic, which can be
+used as a measure of emphasis.  Speaker diarization techniques \citep{AngueraMiro2012} can be used to detect changes in
+speaker, which can be a cue for changes in topic. Transcripts of the speech have also been used with summarization
+techniques to determine the most salient parts of the speech, using both automatically-generated transcrips
+\citep{Hori2003} or manually-written perfect transcripts \citep{Tucker2006}.
 
-\textit{SpeechSkimmer} by \citep{Arons1997} combined three of these techniques by switching between them for different
-rates of playback. He used pause shortening and removal for modest speed increases, followed by pause-based
-segmentation for faster playback. For the fastest playback rate, he used segmentaton with a pitch-based emphasis
-detection algorithm. He evaluated the system through a qualitative study of 12 participants that compared pitch-based
-emphasis segmentation to isochronous sampling. The participants reported that pitch-based emphasis was effective at
-extracting interesting points, and performed better than excision using isochronous sampling.
+\textit{SpeechSkimmer} by \citet{Arons1997} combined three excision techniques into a single time compression interface
+by switching between them for different rates of playback. He used pause shortening and removal for modest speed
+increases, followed by pause-based segmentation for faster playback. For the fastest playback rate, he used segmentaton
+resulting from a pitch-based emphasis detection algorithm. He evaluated the system through a qualitative study of 12
+participants which compared two systems that used different algorithms for the fastest playback rate -- one using
+pitch-based emphasis segmentation and the other using isochronous sampling. The participants reported that pitch-based
+emphasis was effective at extracting interesting points, and performed better than excision using isochronous sampling.
 
-% overlapping and simultaneous playback
-The length of the audio can be further compressed by overlapping audio frames, or playing them simultaneously.
+There are limits to how far time compression can be used to increase playback speed.  For example, speed-up techniques
+are only intelligible up to a maxiumum of around 2x to 2.6x real-time
+\citep{Vemuri2004,Tucker2006,Ranjan2006,Arons1997}.  However, transcripts can be used in combination with time
+compression to increased this maximum rate.  \citet{Vemuri2004} conducted a user study of 34 participants and measured
+their comprehension of short audio clips at different rates of playback using speed-up. The mean self-reported maximum
+playback rate was 2.6x real-time for listening only. The addition of an automatically-generated transcript increased
+this to 2.8x, and a perfect transcript increased this further to 3.0x.  Several systems have successfully combined
+transcripts and time-compressed playback \citep{Whittaker2002}.
+%TODO More system examples
 
-AudioStreamer \citep{Schmandt1995}
-Dichotic presentation, in which different parts of a recording are played into
-each ear, was also tested \citep{Ranjan2006}.
+% PROS
+% - listening to audio, which is more natural and rich than text
+% - can halve the time needed to listen, up to a third the time with perfect transcript
 
+% CONS
+% - increases cognitive load, more tiring for listeners
+% - excision is preferred, okay for aiding memory but probably not suitable for first-time listening
+%   - might miss something out
+%   - harder to judge suitability of audio (e.g. prosody affected by pause shortening/removed
+%   - algorithms filtering content could inadvertenty affect creativity/balance
 
-% combination with transcript
-A number of studies \citep{Whittaker2002,Vemuri2004,Ranjan2006} have also
-combined transcript displays with time-compression to speed up playback of audio. They found that having a transcript
-improves comprehension and allows
-faster playback.
+\subsubsection{Simultaneous playback}
+
+The \textit{cocktail party effect} is ``the ability to focus one's listening attention on a single talker among a
+cacophony of conversations and background noise'' \citep{Arons1992}.  This effect can be exploited to help listeners
+find a particular piece of audio in a recording by playing different parts of that recording simultaneously. To help
+listeners separate the sounds, previous work has experimented with using headphones to play different sounds in each
+ear, or using binaural audio to spatially separate the sounds. 
+
+\textit{AudioStreamer} from \citet{Schmandt1995} used binaural spatialization techniques to play three simulataneous
+audio streams of broadcast news around a listener's head. The system tracked the movement of the listener's head to
+boost the level of the stream they were facing as they turned.  In addition, they used pause-based segmentation and
+speaker diarization to alert the listener to new stories using a short bleep sound. No user studies of AudioStreamer
+were conducted.
+
+\citet{Ranjan2006} attempted to reduce the time needed to search an audio recording by using \textit{dichotic
+presentation}, where different sounds are played into each ear.  In their system, the left ear played from the
+beginning of the recording while the right ear played from the half-way point. Through a user study of 13 participants,
+they tested the effectiveness of this approach for a search task. The results showed that dichotic presentation reduces
+the overall search time, particularly when the answer is in the second half of the recording. However, the time
+reduction was only around 20\%.  Dichotic presentation can be combined with time compression, but this creates high
+cognitive load and 8 of the 13 participants reported it to be ``very demanding''.
 
 %50x video playback with audio skimming on BBC rushes \citep{Christel2008}
 
@@ -1033,10 +1068,6 @@ faster playback.
 %tested the comprehensibility of their algorithm on 6 participants which indicated that speech can be comprehensible at
 %up to x5 speed. They implemented their algorithm in a non-linear video editing system, but did not attempt to evaluate
 %it.
-
-
-\citet{Vemuri2004} found that time compression and erroneous transcripts work better together that either on their own
-
 
 \subsubsection{Scrolling interfaces}
 Elastic Audio Slider \citep{Hurst2004}
