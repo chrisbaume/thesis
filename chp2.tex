@@ -620,7 +620,7 @@ Review on smart meeting systems \citep{Yu2010}
 
 Audio mixing designs based on data visualization first principles \citep{Dewey2016,Dewey2016a}
 
-\subsection{Low-level visualization}
+\subsection{Visualization}
 
 One of the issues we identified with the above audio visualisations is that the user must interpret the data. Although
 in many cases this can be learned, it requires cognitive load to process the images into the desired information. It
@@ -764,7 +764,7 @@ visualization reveals the change in time of the dawn and evening choruses throug
 
 % Could use image synthesis \citep{Levkowitz1991}
 
-\subsection{High-level visualization}
+\subsubsection{High-level visualization}
 
 Variety of techniques presented in ``Visualisation of time-oriented data'' \citep{Aigner2011}
 
@@ -778,68 +778,96 @@ Taxonomy \cite{Avdelidis2007}
 Speech/music discrimination \citep{Wieser2014}
 TreeMaps \citep{Abdulhamid2013,Abdulhamid2013a}
 
-\subsubsection{Transcripts}\label{sec:background-transcripts}
+% text
+Text segmentation \citep{Choi2000}
 
-\citet{Ranjan2006} studied the performance of 13 participants in an audio search task with varying levels of
-transcript quality. The results showed that the mean search time descreased as the transcript quality increased.
+\subsection{Text}\label{sec:background-transcripts}
 
-Semantic speech editing techniques have been used to enhance a number of interfaces in a variety of applications by
-using either manual or automatic transcription.
+% transcripts can increase the navigation speed
+
+
+% two types: manually written (perfect, but expensive and slow) or automatic (erroneous, but fast and cheap)
+% comparison?
+Automatic speech recognition \citep{Junqua1995}, known as ``ASR'', can be used to convert speech to text.  ASR is
+quicker and cheaper than manual transcription.  ASR also produces accurate timestamps for each word, which can be used
+to precisely navigate and edit the audio, but word-level timestamps can also be added to manually-written transcripts
+using speech alignment \citep{Griggs2007,Bohac2013}.  ASR transcripts don't include letter capitalization or
+punctuation, but this can be estimated and added using post-processing.
+
+Despite advances in the field \citep{Lee1999a}, ASR produces erroneous transcripts.  \citet{Bell2015} conducted an
+evaluation of ASR systems on television programmes of various genres. Each system was judged by the proportion of
+incorrect words, known as the ``word error rate'' (WER). The mean WER of the best performing system for all genres was
+24\%.  However, there is a wide variation in the error rate across different genres. For example, the WER of the best
+performing system for the news programme was 10\%, and for the drama programme it was 41\%.  Erroneous transcripts
+reduce listener comprehension \citep{Stark2000,Vemuri2004} and increase the time it takes to search audio content
+\citep{Ranjan2006} and correct errors \citep{Burke2006}.  However, despite these errors, ASR transcripts provide a
+highly effective tool for browsing audio content as users can visually scan the text to focus on regions of interest,
+known as ``strategic fixation'' \citep{Whittaker2007}.
+
+%\citet{Vemuri2004} conducted a user study of 34 participants and measured their comprehension of short audio clips when
+%presented with both perfect and auto-generated transcripts.  The results show that subject comprehension of audio
+%presented with a perfect transcript (C1) was found to be better than an automatically-generated transcript.
+%completely wrong transcripts aren't worse than no transcript
+
+%\citet{Ranjan2006} studied the performance of 13 participants in an audio search task with varying levels of
+%transcript quality. The results showed that the mean search time descreased as the transcript quality increased.
+
+%\citet{Burke2006} found that higher quality transcripts required users to listen less to complete a correction task.
+
 %Automatic speech recognition technology makes it possible to extract partially accurate transcripts of speech
 %recordings.  A number of researchers have experimented with using these transcripts to enhance interfaces for
 %interacting with audio content.
 %\subsection{Navigation}
-SCAN \citep{Whittaker1999} is an interface designed to support retrieval from speech archives. It used automatically
-generated transcripts to allow users to search for keywords, and to visually search the recording by reading the
-transcript. This system was developed into SCANMail \citep{Whittaker2002}, an interface designed for interacting with
-voicemail. It added a number of features including paragraph segmentation and the ability to skip to a point in the
-transcript by clicking on a word. \citet{Whittaker2002} evaluated SCANMail using eight expert users and found that the transcript display
-enabled users to visually scan the content of recordings to quickly extract information and judge which parts were
-relevant, without having to play the audio.  The interface was later enhanced with error correction functionality and
-confidence shading, which greys-out words that may be incorrect \citep{Burke2006}.
 
-Avid released a feature for their Media Composer video editing software in 2007 called `ScriptSync' \citep{Avid2011}.
-This feature aligns a user-supplied transcript to a video recording using a patented method \citep{Griggs2007}. The
-feature places a marker in the video for each line of the transcript, allowing users to jump to a particular line, or
-see which line in the transcript corresponds to the current point in the video.  We did not find any reported user
-studies of ScriptSync.
+% navigation with transcripts
 
-Transcripts can also be used as a mechanism for editing media content.  \mbox{SILVER} \citep{Casares2002, Long2003} is
-a video editor that included various `smart editing' features including an editable transcript window. It used
-speech-to-text to align the words from subtitles to video. The video could then be edited by selecting and deleting
-text in the transcript. Gaps, errors and edits were displayed in the transcript using special characters and the user
-could correct missing or wrong words. All of the video editor's features were evaluated together in an informal study
-with seven students. The report of the study did not provide any results on the transcript-based editing feature.
+\subsubsection{Transcript navigation}
+Transcripts have previously been used by several systems as an interface for improving the navigation of speech-based
+content such as news reports and voicemail messages. 
+One of the first such systems was \textit{NewsTime} from \citet{Horner1993}, which used transcripts to aid the
+navigation of audio news stories.  For television news, closed captioning was aligned the audio to provide an accurate
+transcript with word timings.  NewsTime included several additional features including searching by keyword, segmenting
+the transcript by story and speaker, jumping to the next or previous speaker/story, and categorizing stories into one
+of seven common topics. There were no reported user studies of NewsTime.
 
-When editing a video interview, you want to avoid making a cut when the person speaking is in shot, because it causes
-the image to suddenly jump.  \citet{Berthouzoz2012} used image processing algorithms to create a video editor that can
-help the user hide these edit points. The editor has an editable transcript window that displays suitable edit points
-and allows the user to edit the video by selecting and deleting text. The transcripts were generated using a paid-for
-crowd-sourcing service with speech alignment software. The system also allowed users to easily remove `umm's or
-repeated words. No user study was conducted in the reported study, however positive feedback was received from nine
-professionals who were given a demonstration.
+\textit{SCAN} \citep{Whittaker1999} was an interface designed to support retrieval from speech archives. It used ASR transcripts
+to allow users to search for keywords and visually search the recording by reading the transcript.  In a user study of
+12 participants, the transcript was found to support navigation by reducing the listening time needed to complete
+information retrival tasks. Participants rated the transcript as easier and more useful with the transcript than
+without.  SCAN was further developed into \textit{SCANMail} \citep{Whittaker2002}, an interface designed for interacting with
+voicemail.  It added a number of features including paragraph segmentation and the ability to seek to a point in the
+audio recording by clicking on a word in the transcript. The results of a user study of eight expert users showed that
+the transcript display enabled users to visually scan the content of recordings to quickly extract information and
+judge which parts were relevant, without having to play the audio.
+%SCANMail did not include editing capabilities
 
-\citet{Whittaker2004} created an interface for editing voicemail messages using automatically-generated transcripts.
-Users could cut-and-paste parts that they wanted and delete other parts.  The system was evaluated in a formal study of
-16 voicemail users, which found that semantic editing was faster and as accurate as editing with a waveform-based
-interface. Crucially, this was true even though the transcripts had an average word error rate of 28\%. This shows that
-semantic editing is beneficial even when using imperfect transcripts.
+\subsubsection{Semantic speech editing}
+In addition to supporting the navigation of speech recordings, transcripts have also been used as a method of editing
+speech content. The first of these was the `Large Interactive Display System Wave Speech Editor', or
+\textit{LIDSWSEdit}, from \citet{Apperley2002}, which used ASR transcripts to allow users to navigate and edit lecture
+recordings.  Any edits made to the transcript were correspondingly applied to the underlying audio recording, known as
+``semantic speech editing''. Users could re-arrange sentences and words by selecting the text, then using a
+drag-and-drop action.  Alternatively, speech could be removed by selecting text then clicking a button to either delete
+the selected text, or everything except the selected text.  LIDSWSEdit was further developed into the
+`TRanscription-based Audio EDitor', or \textit{TRAED} \citep{Masoodian2006}.  TRAED used the same editing actions as
+LIDSWSEdit, but rather than displaying the text and audio waveform separately, it displayed the waveform in-line with
+the text. Individual words were indicated by drawing boxes around the waveform and word. The boundary between each word
+pair could be adjusted by dragging the boundary edge.  We could not find any user studies of LIDSWSEdit or TRAED.
 
-Hyperaudio Pad is an open-source audio and video editor, first proposed by \citet{Boas2011}, and now available online
-as a free service \citep{Hyperaudio2016}. This is a web-based interface that allows users to navigate and edit online
-media using transcripts. The transcripts are generated from subtitles by using speech alignment software. Editing is
-done by selecting a part of the transcript and dragging it into a window to create a `clip'.  Other clips can be added
-and re-ordered, and the edited version can be played and shared with others. No user studies of this system could be
-found.
+\citet{Whittaker2004} created an interface for editing voicemail messages using ASR transcripts.  Users could
+cut-and-paste parts that they wanted and delete other parts.  The system was evaluated in a formal study of 16
+voicemail users, which found that semantic editing was faster and as accurate as editing with a waveform-based
+interface. Crucially, this was true even though the transcripts had an average word error rate of 28\%. This
+demonstrates that semantic editing is beneficial even when using erroneous transcripts.
 
-\citet{Rubin2013,Rubin2015} presented a novel interface for creating `audio stories' that combine speech and music. The
-interface uses an editable transcript with two columns, one for each of a pair of speakers.  It allowed the user to
-cut, copy, paste and delete the audio using the text. It also highlighted repeated words, similar sentences, `umm's,
-breaths and pauses in the transcript. The transcripts were generated using a crowd-sourcing service with speech
-alignment software that also detected breaths.  The system from Rubin et al. included additional functionality for
-finding and adding music tracks, and for varying the length of music using automatic looping. The system was evaluated
-through a short informal study of four participants where the editing capabilities received positive feedback. No
-follow-up studies have been reported since.
+\citet{Rubin2013,Rubin2015} presented a novel interface for creating ``audio stories'' that, similarly to radio
+programmes, combine speech and music.  The interface used an editable transcript with two columns, one for each of a
+pair of speakers.  It allowed the user to cut, copy, paste and delete the audio using the text. It also highlighted
+repeated words, similar sentences, ``umm''s, breaths and pauses in the transcript. The transcripts were generated using
+a crowd-sourcing service with speech alignment software that also detected breaths.  The system also included
+additional functionality for finding and adding music tracks, and for varying the length of music using automatic
+looping. The system was evaluated through a short informal study of four participants where the editing capabilities
+received positive feedback. No follow-up studies have been reported since.
 
 \citet{Sivaraman2016} created a semantic editing system for asynchronous voice-based discussions, where users could
 quickly edit their speech recording before sending it to the recipient.  Their system used near-live automatic
@@ -852,60 +880,138 @@ transcript weren't a heavy distraction. A quantiative study of 28 students and t
 including editing functionality resulted in the students reporting lower levels of mental task load, effort and
 temporal demand.
 
-\citet{Yoon2014} created a collaborative tablet-based document annotation system called RichReview, which offered users
-three modalities in which to annotate documents - freeform inking, voice recording and deictic gestures. The voice
-recordings were displayed using a waveform, overlaid with an automatically generated transcript of the speech.
-Users could trim or tidy the voice recordings by drawing a line through words or pauses to remove them.
-The system was evaluated using a qualitative study of 12 students which found that the editing features were
-considered easy to use and efficient for removing `umm's and long pauses.
-However many participants reported that the transcripts were not accurate enough to use without having to listen to
-the audio.
+\citet{Yoon2014} created a collaborative tablet-based document annotation system called \textit{RichReview}, which
+offered users three modalities in which to annotate documents - freeform inking, voice recording and deictic gestures
+(i.e. pointing to areas of interest). The voice recordings were displayed using a waveform, overlaid with an ASR
+transcript of the speech.  Users could trim or tidy the voice recordings by drawing a line through words or pauses to
+remove them.  The system was evaluated using a qualitative study of 12 students which found that the editing features
+were considered easy to use and efficient for removing ``umm''s and long pauses.  However many participants reported
+that the transcripts were not accurate enough to use without having to listen to the audio.
+%RichReview was later deployed as a web applet on the online education platform edX \citep{Yoon2015a}.
+\citet{Yoon2016} describes two deployment studies that used a similar system called RichReview\textsuperscript{++}, but
+this did not include any semantic editing functionality.
 
-RichReview tested on edX \citep{Yoon2015}
-applied to the classroom \citep{Yoon2015a}
-RichReview++ for instuctor feedback and peer discussion \citep{Yoon2016}
+\subsubsection{Video editing}
+Semantic speech editing has also been used to support video editing.  \textit{SILVER} \citep{Casares2002, Long2003} was
+a video editor that aligned words from closed captions to the video.  Gaps, errors and edits were displayed in the
+transcript using special characters.  The video could be edited by deleting text in the transcript.  SILVER was
+evaluated in an informal study with seven students, but the study did not report any results about the transcript-based
+editing feature.
 
-The systems so far have only considered handling speech that has already been recorded. Often, speech is recorded from
-a pre-written script or from notes. \citet{Shin2016} created a system called Voice Script that supports an
-integrated workflow for writing scripts, and recording/editing audio. An informal study with four amateur participants
-found that it could support various workflows including multiple iterations. It included a `master script' layout
-which was used to bring together different recordings,  and that was found to work well.  A second study of four
-amateur participants directly compared the system to that of \citet{Rubin2013}, which found that participants were able
-to complete an audio production task 25\% faster using the Voice Script system.  This study demonstrates that for
-workflows that involve pre-written scripts, there is potential to improve the audio editing by using an integrated
-writing and editing system.
+Hyperaudio Pad is an open-source audio and video editor, first proposed by \citet{Boas2011}, and now available online
+as a free service \citep{Hyperaudio2016}. This is a web-based interface that allows users to navigate and edit online
+media using transcripts. The transcripts are generated from subtitles by using speech alignment software. Editing is
+done by selecting a part of the transcript and dragging it into a window to create a `clip'.  Other clips can be added
+and re-ordered, and the edited version can be played and shared with others. No user studies of this system could be
+found.
 
-NewsTime \citep{Horner1993}, early system for navigating audio news stories, searching by keyword etc.
+% video editing using perfect transcripts
+When editing a video interview, you want to avoid making a cut when the person speaking is in shot, because it causes
+the image to suddenly jump.  \citet{Berthouzoz2012} used image processing algorithms to create a video editor that can
+help the user hide these edit points. The editor had an editable transcript window that displayed suitable edit points
+and allowed the user to edit the video by selecting and deleting text. The transcripts were generated manually using an
+online crowd-sourcing service, and word timings were added using speech alignment software. The system also allowed
+users to easily remove `umm's or repeated words as they were explictly marked in the manual transcript. No user study
+was conducted in the reported study, however positive feedback was received from nine professionals who were given a
+demonstration.
 
-ScriptSync \citep{Avid2011}
+\subsubsection{Pre-written scripts}
+The systems so far have only considered transcripts that have been generated from the speech itself. However, sometimes
+speech is recorded based on a pre-written script, or from notes.  Avid released a feature for their Media Composer
+video editing software in 2007 called \textit{ScriptSync} \citep{Avid2011}.  This feature aligns a user-supplied
+transcript to a video recording by placing a marker in the video for each line of the transcript \citep{Griggs2007},
+allowing users to jump to a particular line, or see which line in the transcript corresponds to the current point in
+the video.  A second version of ScriptSync was launched in February 2017 \citep{Avid2017} which added script correction
+and collaborative note-taking.
+%We did not find any reported user studies of ScriptSync.
 
-LIDS transcript editor \citep{Apperley2002}
-TRAED \citep{Masoodian2006}
+\citet{Shin2016} created a system called \textit{Voice Script} that supports an integrated workflow for writing
+scripts, and recording/editing audio. An informal study with four amateur participants found that it could support
+various workflows including multiple iterations. It included a `master script' layout which was used to bring together
+different recordings,  and that was found to work well.  A second study of four amateur participants directly compared
+the system to that of \citet{Rubin2013}, which found that participants were able to complete an audio production task
+25\% faster using the Voice Script system.  This study demonstrates that for workflows that involve pre-written
+scripts, there is potential to improve the audio editing by using an integrated writing and editing system.
 
-Editor for existing script \citep{Shin2016}
+\textit{QuickCut} from \citet{Truong2016} was an interface designed to help producers edit a narrated video from a
+pre-written script, voiceover audio and raw video footage.  Producers could label their video footage using their
+voice, which was manually transcribed using a crowd-sourced online service. Speech alignment was used to align the
+script to the voiceover audio.  Selecting text in the script also selected the corresponding segment in the voiceover
+audio, and displayed video clips that were labelled with similar words. After selecting an appropriate clip, it could
+be added to the timeline using drag-and-drop to associate it with a position in the script.  The completed timeline
+could then be exported as and ``edit decision list'' (EDL) for use in professional video editing software.  QuickCut
+was evaluated by the researchers themselves and one professional filmmaker, who were able to use the system to produce
+videos in a fraction of the time normally needed.  Voice-based logging makes sense for logging video footage as it is
+easy to watch and talk at the same time. However, for speech content it would be difficult to talk and listen
+simultaneously.  The ability to export edits to professional software allows for a smooth continuation of the
+production workflow.
 
-Applied to coding of video interviews \cite{Chandrasegaran2017}
+%ellipses were used to indicate pauses.
+%three constraints - alignment, alternative, ordered
 
-TypeTalker - editing spoken comments \citep{Arawjo2017}
+% CORRECTION
 
-VisScribe - interactive transcript interface and speaker activity for coding design sessions \cite{Chandrasegaran2017}
+\subsubsection{Transcript correction}
+SILVER \citep{Casares2002, Long2003} 
 
-Text segmentation \citep{Choi2000}
+\citep{Masoodian2006} included correction by selecting a word and typing a replacement. New spaces created a new word,
+dividing the time in half.
 
-QuickCut: Transcript-based matching of story events \citep{Truong2016}
+\citet{Burke2006} added correction functionality to the SCANMail interface by allowing users to either select a
+replacement word from a drop-down menu, or select multiple words and type over them. A user study of 16 participants
+correcting voicemail messages showed that the menu interface required much less listening than typing.
 
-Personal device for recording and navigating notes using keywords \citep{Tucker2003}
+\citet{Liang2014} showed that once an incorrect word is identified, in 30\% of cases the correct word can
+automatically be inferred using $n$-grams and acoustic features.
 
-Strategic fixation - visually scanning the text to focus on regions of interest \citep{Whittaker2007}
-Attriubutes that guide visual attention \citep{Wolfe2004}
+Normally, correction is a post-production process that can take up valuable time, although as \citet{Wald2007} shows,
+real-time correction of speech is feasible.
 
-Speech to text correcion 
-\citep{Burke2006}
-\citep{Liang2014}
 \citep{Suhm2001}
-\citep{Wald2007}
-Smartphone interface for quick correction \citep{Liang2014}
-Correcting speech-to-text in real-time for captioning \citep{Wald2007}
+
+%TypeTalker - editing spoken comments \citep{Arawjo2017}
+\textit{TypeTalker} from \citet{Arawjo2017} was an interface for editing synthesized speech comments using ASR
+transcripts. The speech was synthesized from recordings of the user's comments, which was done to reduce their
+self-consciousness. As well as being able to remove unwanted speech, the use of speech synthesis meant that new speech
+could be inserted and words could be changed.
+
+%Colour, size and orientation guide visual attention for visual search \citep{Wolfe2004}
+
+% confidence shading
+\subsubsection{Confidence shading}
+In addition to producing a transcript, many automatic speech recognition systems return a confidence score for each
+transcibed word, indicating how sure the system is that the word is correct. ``Confidence shading'' is a technique for
+displaying this score by colouring words with a low confidence score in a lighter shade.
+Confidence shading has been used in an attempt to make mistakes easier to locate, and transcripts easier to read.
+%It is hypothesised that confidence shading makes it easier to identify incorrect words for the purposes of correction,
+%and increases the comprehension of the text because the lighter shade makes mistakes less apparent.
+Confidence scores may themselves be incorrect by indicating false positives (when a correct word is marked as
+incorrect), or false negatives (when an incorrect word is missed). The balance between the two is controlled using the
+threshold value between 0 and 1. As \citet{Feng2004} demonstrates, a higher value reduces false positives and increases
+false negatives, while a lower value increases false positives and reduces false negatives.
+
+\citet{Suhm2001} conducted a user study of 15 participants who corrected an ASR transcript with and without confidence
+shading (in this case, highlighting). The results showed that correction with confidence shading took slightly longer
+than without, although this was not statistically significant.  Conversely, \citet{Burke2006} reported that users find
+confidence shading helpful. 16 participants performed a transcript correction task with confidence shading and overall
+they agreed that shading was helpful for identifying mistakes.  One notable difference between these studies is that
+\citet{Suhm2001} optimised their confidence threshold to minimise the overall accuracy of the confidence shading, whilst
+\citet{Burke2006} increased the threshold to treat false negatives more seriously.
+
+\citet{Vemuri2004} studied whether confidence shading improved comprehension of the transcript. They conducted a user
+study of 34 participants and measured the comprehension of short audio clips when using ASR
+transcripts with and without confidence shading. Although the results indicated better comprehension with confidence
+shading, there was no statistically significant difference.
+
+
+%TODO other applications
+%Coding of video interviews \cite{Chandrasegaran2017}
+
+%VisScribe - interactive transcript interface and speaker activity for coding design sessions \cite{Chandrasegaran2017}
+
+%Personal device for recording and navigating notes using keywords \citep{Tucker2003}
+
+
 
 \subsubsection{Summarization}
 
@@ -1006,8 +1112,8 @@ speaker turns and the content.  Long pauses in speech often signal a new sentenc
 indication of importance. The pitch of the voice tends to increase in range when introducing a new topic, which can be
 used as a measure of emphasis.  Speaker diarization techniques \citep{AngueraMiro2012} can be used to detect changes in
 speaker, which can be a cue for changes in topic. Transcripts of the speech have also been used with summarization
-techniques to determine the most salient parts of the speech, using both automatically-generated transcrips
-\citep{Hori2003} or manually-written perfect transcripts \citep{Tucker2006}.
+techniques to determine the most salient parts of the speech, using both ASR transcrips
+\citep{Hori2003} or manually-written transcripts \citep{Tucker2006}.
 
 \textit{SpeechSkimmer} by \citet{Arons1997} combined three excision techniques into a single time compression interface
 by switching between them for different rates of playback. He used pause shortening and removal for modest speed
@@ -1022,8 +1128,8 @@ are only intelligible up to a maxiumum of around 2x to 2.6x real-time
 \citep{Vemuri2004,Tucker2006,Ranjan2006,Arons1997}.  However, transcripts can be used in combination with time
 compression to increased this maximum rate.  \citet{Vemuri2004} conducted a user study of 34 participants and measured
 their comprehension of short audio clips at different rates of playback using speed-up. The mean self-reported maximum
-playback rate was 2.6x real-time for listening only. The addition of an automatically-generated transcript increased
-this to 2.8x, and a perfect transcript increased this further to 3.0x.  Several systems have successfully combined
+playback rate was 2.6x real-time for listening only. The addition of an ASR transcript increased
+this to 2.8x, and an accurate transcript increased this further to 3.0x.  Several systems have successfully combined
 transcripts and time-compressed playback \citep{Whittaker2002}.
 %TODO More system examples
 
