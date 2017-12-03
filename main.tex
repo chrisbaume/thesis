@@ -1,4 +1,5 @@
 \documentclass[11pt,a4paper]{report}
+\usepackage{lmodern}
 %\usepackage{fullpage}
 \usepackage{graphics}
 \usepackage{setspace}
@@ -60,6 +61,9 @@
 \fancyhead[RE]{\textlcsc{\chaptername~\thechapter}}
 \fancyfoot{}
 
+% use romain page numbers at start
+\pagenumbering{roman}
+
 \bibliography{refs}
 
 \begin{document}
@@ -84,6 +88,15 @@
 
 \include{abstract}
 
+\chapter*{Statement of originality}
+This thesis and the work to which it refers are the results of my own efforts. Any ideas, data, images or text
+resulting from the work of others (whether published or unpublished) are fully identified as such within the work and
+attributed to their originator in the text, bibliography or in footnotes. This thesis has not been submitted in whole
+or in part for any other academic degree or professional qualification.  I agree that the University has the right to
+submit my work to the plagiarism detection service TurnitinUK for originality checks.  Whether or not drafts have been
+so-assessed, the University reserves the right to require an electronic version of the final document (as submitted)
+for assessment as above. 
+
 \include{acknowledgements}
 
 {\singlespacing
@@ -98,6 +111,7 @@
 
 \include{abbreviations}
 
+\pagenumbering{arabic}
 \include{chp1}
 
 \include{chp2}
