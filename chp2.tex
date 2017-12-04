@@ -5,8 +5,9 @@
 % - only consider audio-only content, no pictures with radio
 % - do not include tools for automatically editing (computer based decisions)
 % - not including live production, which is already efficient
-% - focus on speech, not music
+% - speech, not music
 % - interested in reviewing technology that aids navigation and editing of audio
+% - navigating/editing within a single file, rather than navigating a collection of material
 
 %Stolen: In this chapter, we can find a review of a variety of systems and technologies that are related to the
 %approach we have chosen for our search interface. It is organized in sections according to different research fields
@@ -620,108 +621,129 @@ Review on smart meeting systems \citep{Yu2010}
 
 Audio mixing designs based on data visualization first principles \citep{Dewey2016,Dewey2016a}
 
-\subsection{Visualization}
+\subsection{Audio visualization}
+
+
+We saw in Section X that audio visualization is already used in DAWs to help users navigate and edit audio content.
+Audio visualizations can help overcome the contraints of having to consume audio content serially and in real-time.
+
+%Most existing tools treat
+%audio as a collection of digital samples, without much regard for the information contained in the audio.
+However, We also saw that current audio visualizations are limited in what they can display.  For example, waveforms
+only display amplitude information, much of which cannot be seen at typical zoom levels.  To effectively navigate audio
+waveforms, users must learn to interpret the shape of the visualization to infer whether it is what they are looking
+for.
+
+Previous research has proposed a number of enhancements to current audio visualizations that aim to improve their
+performance, such as by mapping semantic audio features to colour. There have also been attempts to use data
+visualization techniques to display the output of semantic audio analysis algorithms.
 
 One of the issues we identified with the above audio visualisations is that the user must interpret the data. Although
 in many cases this can be learned, it requires cognitive load to process the images into the desired information. It
 also means that novice users must be trained or gain sufficient experience to be able to reach satisfactory performance
 levels.
 
-Semantic audio is the extraction of meaning from audio. Example applications of semantic audio are speech-to-text or
-music identification. This technology allows the computer to interpret the audio on the user's behalf in a way that is
-helpful for their situation, however the success of this is dependent on the performance of the audio analysis
-algorithm.
+We have divided this section into three subsections -- waveforms, spectrograms and high-level audio visualization.  The
+first two subsections cover techniques that have either processed waveforms and spectrograms to make it easier for
+users to read them, or enhanced them by mapping audio features their visual properties, such as colour.  High-level
+audio visualization covers techniques that map audio features to a semantic representation, which is then displayed
+using common data visualization techniques \citep{Aigner2011}.
 
-Semantic audio visualisation is a two-stage process where the audio is first analysed to extract the semantic data,
-then the data is visualised. There are thousands of audio extraction and data visualisation techniques that could
-be combined to create various audio visualisations. The interaction of these two parts, and the context of the
-application, is important in the sucess of semantic audio visualisation. 
+%Semantic audio is the extraction of meaning from audio. Example applications of semantic audio are speech-to-text or
+%music identification. This technology allows the computer to interpret the audio on the user's behalf in a way that is
+%helpful for their situation, however the success of this is dependent on the performance of the audio analysis
+%algorithm.
 
-Below we consider semantic audio visualisation techniques that have attempted to aid navigation of audio content.
+%Semantic audio visualisation is a two-stage process where the audio is first analysed to extract the semantic data,
+%then the data is visualised. There are thousands of audio extraction and data visualisation techniques that could
+%be combined to create various audio visualisations. The interaction of these two parts, and the context of the
+%application, is important in the sucess of semantic audio visualisation. 
 
-Auto-scale waveform to see more detail \citep{Goudeseune2012}
+\subsubsection{Waveforms}
 
-% quintessence waveform
-\citet{Loviscach2011}
-proposed an elegant solution to this problem using a technique he calls the `quintessence waveform'. This approach
-used extreme pitch shifting to preserve the character of the waveform at different scales (see Figure~\ref{fig:quint}).
-Although this approach works well for regular monoaural sounds such as sine waves, it cannot be used for the complex
-polyphonic audio used in most real-life applications.
+The audio waveform is commonly used by most DAWs and other audio software as a visualization of an audio signal.  As
+such, users are very familiar with navigating audio content using waveforms, and many have learned how to read the
+shapes of the waveform to read useful information about the audio. Enhancing waveform, by either processing it or
+adding additional information to it, could allow users to navigate and edit audio content more efficiently whilst
+retaining this familiarity and using the skills they have developed.  We identified two main approaches that have been
+used to enhance waveforms -- scaling and colour.
 
-\begin{figure}[p]
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/quint.png}
-  \caption{Above: Normal waveform, below: quintessence waveform, source: \citep{Loviscach2011}}
-  \label{fig:quint}
-\end{figure}
+\paragraph{Scaling}
+The scale at which a waveform is viewed is crucial to its effectiveness. There are two axes with which the scale is
+controlled using horizontal and vertical zoom.  Horizontal zoom adjusts the time period that is viewed, which affects
+the visibility of the frequency information.  Vertical zoom adjusts the amplitude range that is viewed, which affects
+the visibility of the amplitude profile.
 
-% improved waveform displays (high-level?)
-\citet{Gohlke2010} proposed a number of ideas for how to improve waveform displays.
-%TODO Expand
+One very simple technique for improving waveform readability is to automatically scale the vertical zoom to match what
+is visible on the horizontal timeline.  However, if the scale of the waveform constanstly shifts, there is no reference
+level by which to compare the amplitude of the audio.  The solution proposed by \citet[p. 39]{Goudeseune2012} was to
+overlaying a dimmed version of the scaled waveform on top of the normal waveform. This allowed users to simultaneously
+judge the level whilst being able to see the detail of the amplitude profile.
 
-% spectrogram
+Frequency information is useful for understanding the timbre of an audio signal. When viewed at the right scale, this
+is visible in a waveform, but at typical horizontal zoom levels, this information is lost. \citet{Loviscach2011}
+proposed a novel solution to this problem called the ``quintessence waveform''. This approach used extreme pitch
+shifting to preserve the character of the waveform at different scales.  This works well for repeating monoaural sounds
+-- for example, a sine wave would be identifiable as a sine wave at every zoom level.  However, typical real-life
+applications use complex polyphonic audio, which would not benefit from quintessence waveforms as there is no repeating
+signal that could be displayed.
 
-\citet{Goudeseune2012} created \textit{Timeliner}, which used spectrograms as a basis to develop an interface for
-finding acoustic events.  They filtered the spectrogram using image processing techniques to create a salience map (see
-Figure~\ref{fig:timeliner}). This attempts to dim the background noise to make acoustic events clearer to the user.
-Through the use of custom browsing software called Timeliner, the system was tested by recording how quickly users
-could find sound effects hidden in long speech recordings.
-A user study of Timeliner for audio event detection \citep{Hasegawa-Johnson2011}
-Also \citep{Lin2012,Lin2013}
+%\begin{figure}[p]
+  %\centering
+  %\includegraphics[width=0.95\linewidth]{figs/quint.png}
+  %\caption{Above: Normal waveform, below: quintessence waveform, source: \citep{Loviscach2011}}
+  %\label{fig:quint}
+%\end{figure}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/spectrogram-salience.png}
-  \caption{Top: A normal spectrogram; Bottom: A salience-maximised spectrogram with target events marked using black
-    underlines}
-  \label{fig:timeliner}
-\end{figure}
+\citet{Gohlke2010} proposed five novel ideas on how to improve multi-track DAW displays, including techniques for
+saving screen space by overlaying and stacking waveforms. One of these proposals was for a lens-like view, which
+magnified the area of the waveform around the current playhead position. This allowed users to simultaneously view the
+waveform at two different scales -- an overview of the audio waveform and a detailed local view. This concept has the
+potential to display frequency information in regions of interest, and help make more precise audio edits without
+adjusting the overall zoom level.
 
-\subsection{Colour}\label{sec:background-colour} A simple technique that can be used to visualise data is mapping
-numeric values to colour.  Previous work in the use of colour for audio visualization can be categorised into two main
-approaches -- pseudocolour and false colour.
+%waveform tracks can vertically overlap by 25\% without dramatically affecting display quality
+%waveforms are mostly symmetrical, so by discarding one half the overlap can be increased to 50\%
+%stack graph for contribution of each track to perceived loudness
 
-\paragraph{Pseudocolour}\label{sec:background-pseudocolour} Pseudocolour is a method of mapping a scalar value to a
-colour gradient \citep{Moreland2009}.  A tangible example of pseudocolour is thermal imaging cameras, where temperature
-is mapped to a colour gradient.  The gradient can be composed of a two colours (e.g. from blue to red) or many colours
-(e.g. a rainbow).
+\paragraph{Colour}
+The use of colour is a simple and effective way of adding additional information to a waveform.  However, many DAWs use
+waveform colour to distinguish or label audio clips, and most others have monochromatic waveforms.  Previous research
+has experimented with mapping semantic audio features to colour, using either pseudocolour or false colour.
 
-Pseudocolour allows values to be mapped to colours that may be more perceptually relevant (e.g. green/red for
-good/bad).  It also enables the full colour spectrum to be utilised, which can emphasize small variations between
-values.  Non-linear gradients can be used to pick out particularly high or low values, and stepped gradients can be
-used to separate values into categories.  However, as pseudocolour can only represent one dimension, it does not make
-full use of the colour space.
+\textit{Pseudocolour} is a method of mapping a scalar value to a colour gradient \citep{Moreland2009}, an example of
+which is thermal imaging cameras.  Colour gradients are composed of at least two colours (e.g. blue to red) or a
+spectrum of colours (e.g. a rainbow).  Pseudocolour allows values to be mapped to colours that might be perceptually
+relevant (e.g. green/red for good/bad).  It can emphasize small variations between values by using a full spectrum,
+pick out high/low values using non-linear gradients, or categorize values using stepped gradients.  However, as
+pseudocolour can only represent one dimension, it does not make full use of the available colour space.
 
-Spectral waveform colouration has become an increasinly common feature in DJ software. It was first introduced with
-Serato Audio Research's `Scratch LIVE' program.
-% TODO What year?
-This feature allows DJs to use colour to distinguish between different drum noises, such as bass kicks, snares and
-high-hats. Pseudocolour is used to enhanced the waveform, with spectral centroid used as the input audio feature.
+\textit{False colour} is the mapping of multiple values to the dimensions of a colour space. Commonly, three values are
+mapped to red/green/blue (RGB) colour space, although any colour space can be used.  The advantage of this method is
+that it can make full use of the available colours.  On the other hand, it can be challenging to select three values
+and map them to colour in a way that is perceptually relevant and understandable.
 
-The same technique has been applied to other applications, notably on the audio clip sharing website `Freesound' from
-Universitat Pompeu Fabra's Music Technology Group\footnote{\url{http://blog.freesound.org/?p=10}, Bram de Jong, Music
-  Technology Group, Universitat Pompeu Fabra, Barcelona}. In Freesound, coloured waveforms are used to help users
-quickly find and compare sound effect and music clips on the website.
+\citet{Rice2005} presented \textit{Comparisonics}, which uses pseudocolour to map the frequency content of an audio
+signal to a colour spectrum.  Comparisonics was designed for identifying timbrally distinct sounds and they claim that,
+with training, it can be used to identify certain sound effects.  Their technique maps low/mid/high frequencies to
+blue/green/red colours, respectively, using an unpublished algorithm.  Comparisonics has since been integrated into the
+\textit{Scratch LIVE} DJ software from Serato Audio Research, where it was used to distinguish between different drum
+noises, such as bass kicks, snares and high-hats.
 
-\paragraph{False colour}\label{sec:background-falsecolour}
-False colour is where multiple values are mapped to the dimensions of a colour space. Commonly, three values are
-mapped to the RGB (red, green, blue) colour space.  The advantage of this method is that it can make full use of the
-available colours.  However, it can be challenging to select three values and map them to colour in a way that humans
-can easily understand and interpret.
+A very similar system was implemented in the audio clip sharing website \textit{Freesound} \citep{Akkermans2011} to
+help users quickly find and compare sound effects and music clips.  They used pseudocolour to map the ``spectral
+centroid'' of the audio to a colour gradient.  Spectral centroid is the weighted mean of the frequencies of a signal,
+so a low value indicates the presence of mostly low-frequency sound and vice-versa.  \citet{Loviscach2011a} used
+pseudocolour to enhance the navigation of speech. The ``zero-crossing rate'' of the audio was mapped to a
+red/green/blue colour spectrum to help distinguish between different phonemes (e.g. ``oo'' or ``s'').  The
+zero-crossing rate is the frequency with which an audio signal switches between a positive and negative value, which is
+a crude measure of the primary frequency of the audio.
 
-\citet{Tzanetakis2000} created a visualisation technique known as `Timbregrams' that aimed to ``use color perception
+\citet{Tzanetakis2000} created a visualisation technique known as \textit{Timbregrams} that aimed to ``use color perception
 and the pattern recognition capabilities of the human visual system to depict timbral and temporal information''. Their
 implementation mapped the first three principal components of a large feature vector to RGB colour space. The authors
-claim that this approach matches sounds with similar `textures' to similar colours.
-Although the authors didn't combine their algorithm with waveforms, this would be a simple step.
-
-\citet{Rice2005} presented a similar idea to enhance waveforms with colour. The technique is not
-explicitly defined, but it maps low/mid/high frequencies to blue/green/red. It was designed for identifying
-timbrally distinct sounds and, with training, can be used to identify certain sound effects. Their system has since
-been marketed and licensed as `Comparisonics' and has been integrated into commercial audio editing and DJ
-software.
-
-Comparisonics was used by \citet{Loviscach2011a} as part of his nimble video editor.
+claimed that this approach matches sounds with similar ``textures'' to similar colours.  Although the authors didn't
+combine their algorithm with waveforms, this would be a simple step.
 
 \begin{figure}[p]
 \centering
@@ -748,18 +770,39 @@ indicating the location of music within speech content, and highlighting low-ban
 The authors proposed that the system could be also be applied to other applications such as segmentation of radio
 programmes for re-editing into podcasts.
 
-False colour has also been used for navigating and summarizing extremely long recordings. \citet{Towsey2014} mapped
-three spectral features to RGB colour for visualizing almost a year of environmental recording.
-Figure~\ref{fig:towsey} shows the recordings from March until October, with each line representing one day.  The
-visualization reveals the change in time of the dawn and evening choruses throughout the year, amongst other things.
+%False colour has also been used for navigating and summarizing extremely long recordings. \citet{Towsey2014} mapped
+%three spectral features to RGB colour for visualizing almost a year of environmental recording.
+%Figure~\ref{fig:towsey} shows the recordings from March until October, with each line representing one day.  The
+%visualization reveals the change in time of the dawn and evening choruses throughout the year, amongst other things.
 
-\begin{figure}[p]
+%\begin{figure}[p]
+  %\centering
+  %\includegraphics[width=0.95\linewidth]{figs/towsey.png}
+  %\caption{False colour visualization of environmental recordings, with each line representing one day. Missing data is
+    %shown in grey.
+    %\citep{Towsey2014}}
+  %\label{fig:towsey}
+%\end{figure}
+
+\subsubsection{Spectrograms}
+
+\citet{Gohlke2010} proposed a
+thresholded spectrogram overlaid with different colours for each track to minimuse spectrotemporal overlap and masking
+
+\citet{Goudeseune2012} created \textit{Timeliner}, which used spectrograms as a basis to develop an interface for
+finding acoustic events.  They filtered the spectrogram using image processing techniques to create a salience map (see
+Figure~\ref{fig:timeliner}). This attempts to dim the background noise to make acoustic events clearer to the user.
+Through the use of custom browsing software called Timeliner, the system was tested by recording how quickly users
+could find sound effects hidden in long speech recordings.
+A user study of Timeliner for audio event detection \citep{Hasegawa-Johnson2011}
+Also \citep{Lin2012,Lin2013}
+
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=0.95\linewidth]{figs/towsey.png}
-  \caption{False colour visualization of environmental recordings, with each line representing one day. Missing data is
-    shown in grey.
-    \citep{Towsey2014}}
-  \label{fig:towsey}
+  \includegraphics[width=0.95\linewidth]{figs/spectrogram-salience.png}
+  \caption{Top: A normal spectrogram; Bottom: A salience-maximised spectrogram with target events marked using black
+    underlines}
+  \label{fig:timeliner}
 \end{figure}
 
 % Could use image synthesis \citep{Levkowitz1991}
@@ -772,8 +815,7 @@ Variety of techniques presented in ``Visualisation of time-oriented data'' \cite
 \citet{Pavel2014} is a video player that includes segmentation, summarization, text-based editing.
 World service archive \citep{Raimond2014} used speaker diarization, identification, topic extraction
 
-\subsubsection{Segmentation}
-
+Similarity matrix \citep[p. 6]{Cooper2006}
 Taxonomy \cite{Avdelidis2007}
 Speech/music discrimination \citep{Wieser2014}
 TreeMaps \citep{Abdulhamid2013,Abdulhamid2013a}
