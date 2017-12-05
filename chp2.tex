@@ -563,6 +563,7 @@ Service Radio Archive
 prototype\footnote{\url{http://worldservice.prototyping.bbc.co.uk/}}.
 
 
+\clearpage
 \section{Radio production}
 
 % Definition
@@ -604,6 +605,7 @@ Top DAW survey \citep{ProducerSpot2015}
 \citep{Dunaway2000}
 \citep{Sampaio2016}
 
+\clearpage
 \section{Related work}
 
 
@@ -719,9 +721,11 @@ pick out high/low values using non-linear gradients, or categorize values using 
 pseudocolour can only represent one dimension, it does not make full use of the available colour space.
 
 \textit{False colour} is the mapping of multiple values to the dimensions of a colour space. Commonly, three values are
-mapped to red/green/blue (RGB) colour space, although any colour space can be used.  The advantage of this method is
-that it can make full use of the available colours.  On the other hand, it can be challenging to select three values
-and map them to colour in a way that is perceptually relevant and understandable.
+mapped to red/green/blue (RGB) colour space. Other colour spaces can be used, such as hue, saturation, value (HSV),
+which better matches human perception of colour. Hue means colour on a rainbow, saturation means lack of grayness, and
+value means brightness. The advantage of this method is that it can make full use of the available colours.  On the
+other hand, it can be challenging to select three values and map them to colour in a way that is perceptually relevant
+and understandable.
 
 \citet{Rice2005} presented \textit{Comparisonics}, which uses pseudocolour to map the frequency content of an audio
 signal to a colour spectrum.  Comparisonics was designed for identifying timbrally distinct sounds and they claim that,
@@ -739,36 +743,40 @@ red/green/blue colour spectrum to help distinguish between different phonemes (e
 zero-crossing rate is the frequency with which an audio signal switches between a positive and negative value, which is
 a crude measure of the primary frequency of the audio.
 
-\citet{Tzanetakis2000} created a visualisation technique known as \textit{Timbregrams} that aimed to ``use color perception
-and the pattern recognition capabilities of the human visual system to depict timbral and temporal information''. Their
-implementation mapped the first three principal components of a large feature vector to RGB colour space. The authors
-claimed that this approach matches sounds with similar ``textures'' to similar colours.  Although the authors didn't
-combine their algorithm with waveforms, this would be a simple step.
-
-\begin{figure}[p]
-\centering
-\begin{subfigure}{\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figs/freesound2.png}
-  \caption{Freesound (\url{freesound.com})}
-  \label{fig:freesound}
-\end{subfigure}\\%
-\begin{subfigure}{\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figs/rice.png}
-  \caption{Comparisonics \citep{Rice2005}}
-  \label{fig:rice}
-\end{subfigure}
-\caption{Examples of pseudocolour (\ref{fig:freesound}) and false colour
-  (\ref{fig:rice}) applied to colourising an audio waveform}
-\label{fig:colourvis}
-\end{figure}
+\citet{Tzanetakis2000} used false colour to create a visualisation technique known as \textit{Timbregrams}. Their aim
+was to ``use color perception and the pattern recognition capabilities of the human visual system to depict timbral and
+temporal information''.  Their implementation extracted a large vector of common audio features, then used principal
+component analysis to reduce the size of the vector whilst retaining 80\% of the variance in their data.  They mapped
+the first three principal components of the feature to RGB or HSV colour space.  They found that the RGB colour space
+was more uniform and aesthetically pleasing, but that the HSV colour space had better contrast at segmentation
+boundaries. When using RGB, speech, classical music and rock could easily be distinguished as they appeared as light
+green, dark blue and dark green, respectively. Tibregrams were later used to colour a waveform in a basic audio editor
+\citep[p. 253]{Tzanetakis2001}.
 
 \citet{Mason2007} used false colour to assist radio listeners in navigating recently-broadcast material. They mapped
 three empirically-chosen audio features to RGB colour space. The authors reported that the system was successful at
 indicating the location of music within speech content, and highlighting low-bandwidth material such as phone calls.
 The authors proposed that the system could be also be applied to other applications such as segmentation of radio
 programmes for re-editing into podcasts.
+
+%\begin{figure}[p]
+%\centering
+%\begin{subfigure}{\textwidth}
+  %\centering
+  %\includegraphics[width=\linewidth]{figs/freesound2.png}
+  %\caption{Freesound (\url{freesound.com})}
+  %\label{fig:freesound}
+%\end{subfigure}\\%
+%\begin{subfigure}{\textwidth}
+  %\centering
+  %\includegraphics[width=\linewidth]{figs/rice.png}
+  %\caption{Comparisonics \citep{Rice2005}}
+  %\label{fig:rice}
+%\end{subfigure}
+%\caption{Examples of pseudocolour (\ref{fig:freesound}) and false colour
+  %(\ref{fig:rice}) applied to colourising an audio waveform}
+%\label{fig:colourvis}
+%\end{figure}
 
 %False colour has also been used for navigating and summarizing extremely long recordings. \citet{Towsey2014} mapped
 %three spectral features to RGB colour for visualizing almost a year of environmental recording.
@@ -786,42 +794,82 @@ programmes for re-editing into podcasts.
 
 \subsubsection{Spectrograms}
 
-\citet{Gohlke2010} proposed a
-thresholded spectrogram overlaid with different colours for each track to minimuse spectrotemporal overlap and masking
+Spectrograms display the amplitude of audio frequency over time. Unlike waveforms, the frequency information is visible
+at all zoom levels, which makes them much more robust. They display so much information that, with sufficient training,
+it is possible to read speech using a spectrogram \citep{Zue1979,Zue1986}.  However, despite these advantages, audio
+waveforms are much more widely used than spectrograms in audio production.
 
-\citet{Goudeseune2012} created \textit{Timeliner}, which used spectrograms as a basis to develop an interface for
-finding acoustic events.  They filtered the spectrogram using image processing techniques to create a salience map (see
-Figure~\ref{fig:timeliner}). This attempts to dim the background noise to make acoustic events clearer to the user.
-Through the use of custom browsing software called Timeliner, the system was tested by recording how quickly users
-could find sound effects hidden in long speech recordings.
-A user study of Timeliner for audio event detection \citep{Hasegawa-Johnson2011}
-Also \citep{Lin2012,Lin2013}
+%\citet{Gohlke2010} proposed a
+%thresholded spectrogram overlaid with different colours for each track to minimuse spectrotemporal overlap and masking
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.95\linewidth]{figs/spectrogram-salience.png}
-  \caption{Top: A normal spectrogram; Bottom: A salience-maximised spectrogram with target events marked using black
-    underlines}
-  \label{fig:timeliner}
-\end{figure}
+\citet{Lin2012} introduced a method of filtering spectrograms to visually emphasize non-speech events in long audio
+recordings. The filtering was done using an ``image saliency algorithm'' that detected differences in the intensity and
+orientation of the spectrogram image. This \textit{saliency-maximized spectrogram} was integrated into an audio
+navigation interface called \textit{Timeliner} \citep{Goudeseune2012}, which displayed the spectrogram alongside a
+waveform. \citet{Lin2013} describes an evaluation in which 12 novice participants used Timeliner to find sound effects
+hidden in meeting room recordings using both saliency-maximized and normal spectrograms. The results show that
+saliency-maximized spectrograms significantly outperformed normal spectograms.
+Filtering spectrograms shows promise as a way of detecting unusual events, however it is unclear how useful this sort
+of application would be in the context of radio production.
+%A user study of Timeliner for audio event detection \citep{Hasegawa-Johnson2011} Uses false colour to map min, mean
+%and max values to the HSV colour space
+
+%\begin{figure}[ht]
+  %\centering
+  %\includegraphics[width=0.95\linewidth]{figs/spectrogram-salience.png}
+  %\caption{Top: A normal spectrogram; Bottom: A salience-maximised spectrogram with target events marked using black
+    %underlines}
+  %\label{fig:timeliner}
+%\end{figure}
+
 
 % Could use image synthesis \citep{Levkowitz1991}
 
-\subsubsection{High-level visualization}
+\subsection{Segmentation}
 
 Variety of techniques presented in ``Visualisation of time-oriented data'' \citep{Aigner2011}
 
-% interfaces that combine high-level visualizations
-\citet{Pavel2014} is a video player that includes segmentation, summarization, text-based editing.
+\subsubsection{Taxonomy}
+
+Audio taxonomy can be used to segment audio into categories within a taxonomy. This has applications to audio editing
+\cite{Avdelidis2007}
+
+% Speech/music discrimination
+Speech/music discrimination \citep{Wieser2014}
+
+% Speaker diarization
 World service archive \citep{Raimond2014} used speaker diarization, identification, topic extraction
 
-Similarity matrix \citep[p. 6]{Cooper2006}
-Taxonomy \cite{Avdelidis2007}
-Speech/music discrimination \citep{Wieser2014}
-TreeMaps \citep{Abdulhamid2013,Abdulhamid2013a}
+\citet{Foote1998} creater a video browser that used an adjustible slider to set a threshold for the display of speaker
+diarization segments
+
+
+% TOPIC SEGMENTATION
+\subsubsection{Topic segmentation}
+
+% can use text summarization
+Text summarization review paper \citep{Lloret2012}
+
+% video digests
+Video digests divide video recordings into chapters, sections and summaries.
+\citet{Pavel2014} describes an interface for writing and editing video digests
+
+% segmentation with keywords 
+\citet{Abdulhamid2013,Abdulhamid2013a} introduced \textit{SpEx}, which is an interface designed to help students
+navigate lecture recordings.
+
+
+% OTHER
+
+% repeated bits
+Similarity matrix can be used to discover and display repeated regions of audio \citep[p. 6]{Cooper2006}
 
 % text
 Text segmentation \citep{Choi2000}
+
+% (below not relevant)
+%Evaluation of SpeechBot for searching radio archives \citep{Kim2003}
+
 
 \subsection{Text}\label{sec:background-transcripts}
 
@@ -1045,6 +1093,15 @@ study of 34 participants and measured the comprehension of short audio clips whe
 transcripts with and without confidence shading. Although the results indicated better comprehension with confidence
 shading, there was no statistically significant difference.
 
+\subsubsection{Keyword extraction}
+
+Keyword extraction \citep{Matsuo2004}
+
+Keywords used by \citet{Loviscach2011a} as part of his nimble video editor
+
+% keyphrases from speech, using ASR, poor quality
+Extracting keyphrases \citep{Inkpen2004}
+
 
 %TODO other applications
 %Coding of video interviews \cite{Chandrasegaran2017}
@@ -1053,19 +1110,6 @@ shading, there was no statistically significant difference.
 
 %Personal device for recording and navigating notes using keywords \citep{Tucker2003}
 
-
-
-\subsubsection{Summarization}
-
-Extracting keyphrases \citep{Inkpen2004}
-TreeMaps \citep{Abdulhamid2013,Abdulhamid2013a}
-World service archive \citep{Raimond2014}
-Confidence score based on video and audio, for identifying parts that can be skipped \citep{Foote1998}
-Evaluation of SpeechBot for radio archives \citep{Kim2003}
-Text summarization review paper \citep{Lloret2012}
-Keyword extraction \citep{Matsuo2004}
-
-Keywords used by \citet{Loviscach2011a} as part of his nimble video editor
 
 \subsection{Audio user interfaces}
 
@@ -1204,9 +1248,12 @@ were conducted.
 presentation}, where different sounds are played into each ear.  In their system, the left ear played from the
 beginning of the recording while the right ear played from the half-way point. Through a user study of 13 participants,
 they tested the effectiveness of this approach for a search task. The results showed that dichotic presentation reduces
-the overall search time, particularly when the answer is in the second half of the recording. However, the time
+the overall search time, particularly when the answer is in the second half of the recording. However, the overall time
 reduction was only around 20\%.  Dichotic presentation can be combined with time compression, but this creates high
 cognitive load and 8 of the 13 participants reported it to be ``very demanding''.
+
+%TODO Summarize
+\citep{Kobayashi1997}
 
 %50x video playback with audio skimming on BBC rushes \citep{Christel2008}
 
@@ -1217,15 +1264,12 @@ cognitive load and 8 of the 13 participants reported it to be ``very demanding''
 %up to x5 speed. They implemented their algorithm in a non-linear video editing system, but did not attempt to evaluate
 %it.
 
-\subsubsection{Scrolling interfaces}
-Elastic Audio Slider \citep{Hurst2004}
-Position-based audio slider \citep{Hurst2006}
-MobileZoomSlider, ScrollWheel \citep{Huerst2008}
-Hardware scrolling interfaces \citep{Lee2007}
-DiMa\ss \citep{Lee2006}
-
-\subsubsection{Spatial navigation of audio}
-\citep{Kobayashi1997}
+%\subsubsection{Scrolling interfaces}
+%Elastic Audio Slider \citep{Huerst2004}
+%Position-based audio slider \citep{Huerst2006}
+%MobileZoomSlider, ScrollWheel \citep{Huerst2008}
+%Hardware scrolling interfaces \citep{Lee2007}
+%DiMa\ss \citep{Lee2006}
 
 %\subsubsection{Haptic interfaces}
 %Haptics
@@ -1234,6 +1278,7 @@ DiMa\ss \citep{Lee2006}
 %\subsubsection{Mix audio and text}
 %Quixotic: Audio recorder with word processing interaction \citep{Milota2015}
 
+\clearpage
 \section{Research scope and methodology}
 
 % - better understanding of the current tools and their performance
