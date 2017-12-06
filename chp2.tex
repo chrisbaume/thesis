@@ -628,10 +628,9 @@ Audio mixing designs based on data visualization first principles \citep{Dewey20
 
 We saw in Section X that audio visualization is already used in DAWs to help users navigate and edit audio content.
 Audio visualizations can help overcome the contraints of having to consume audio content serially and in real-time.
-
 %Most existing tools treat
 %audio as a collection of digital samples, without much regard for the information contained in the audio.
-However, We also saw that current audio visualizations are limited in what they can display.  For example, waveforms
+However, we also saw that current audio visualizations are limited in what they can display.  For example, waveforms
 only display amplitude information, much of which cannot be seen at typical zoom levels.  To effectively navigate audio
 waveforms, users must learn to interpret the shape of the visualization to infer whether it is what they are looking
 for.
@@ -737,11 +736,12 @@ noises, such as bass kicks, snares and high-hats.
 A very similar system was implemented in the audio clip sharing website \textit{Freesound} \citep{Akkermans2011} to
 help users quickly find and compare sound effects and music clips.  They used pseudocolour to map the ``spectral
 centroid'' of the audio to a colour gradient.  Spectral centroid is the weighted mean of the frequencies of a signal,
-so a low value indicates the presence of mostly low-frequency sound and vice-versa.  \citet{Loviscach2011a} used
-pseudocolour to enhance the navigation of speech. The ``zero-crossing rate'' of the audio was mapped to a
-red/green/blue colour spectrum to help distinguish between different phonemes (e.g. ``oo'' or ``s'').  The
-zero-crossing rate is the frequency with which an audio signal switches between a positive and negative value, which is
-a crude measure of the primary frequency of the audio.
+so a low value indicates the presence of mostly low-frequency sound and vice-versa.
+
+\citet{Loviscach2011a} used pseudocolour to enhance the navigation of speech. The ``zero-crossing rate'' of the audio
+was mapped to a red/green/blue colour spectrum to help distinguish between different phonemes (e.g. ``oo'' or ``s'').
+The zero-crossing rate is the frequency with which an audio signal switches between a positive and negative value,
+which is a crude measure of the primary frequency of the audio.
 
 \citet{Tzanetakis2000} used false colour to create a visualisation technique known as \textit{Timbregrams}. Their aim
 was to ``use color perception and the pattern recognition capabilities of the human visual system to depict timbral and
@@ -827,9 +827,24 @@ of application would be in the context of radio production.
 
 \subsection{Segmentation}
 
-Variety of techniques presented in ``Visualisation of time-oriented data'' \citep{Aigner2011}
+Waveforms and spectrograms provide a direct mapping of sound to vision, which is then be interpreted by the user. The
+benefit of this approach is that it is flexible, as it can be used for a wide variety of content such as
+speech, music or noise. The downside is that the user must learn how to read these visualizations, and view them at an
+appropriate scale.
 
-\subsubsection{Taxonomy}
+With many audio recordings, the content can be divided into logical groupings that could help the user navigate the
+recording. For example, a ``magazine-style'' radio programme is made up of several pieces on different topics. Being
+able to view what those topics were, and where they occured in the programme, would assist listeners in navigating to
+a topic of interest.
+
+Semantic audio analysis techniques have been widely used to classify and segment audio into a range of logical
+categories. These have previously been combined with data visualization techniques \citep{Aigner2011} to create novel
+user interfaces that aid the navigation and editing of audio content.
+
+We have divided these segmentation techniques into two categories: classification, where audio is segmented by the
+nature of the audio, and topic summarization, where the audio is segmented by its contents.
+
+\subsubsection{Classification}
 
 Audio taxonomy can be used to segment audio into categories within a taxonomy. This has applications to audio editing
 \cite{Avdelidis2007}
@@ -845,7 +860,7 @@ diarization segments
 
 
 % TOPIC SEGMENTATION
-\subsubsection{Topic segmentation}
+\subsubsection{Topic summarisation}
 
 % can use text summarization
 Text summarization review paper \citep{Lloret2012}
@@ -1244,6 +1259,16 @@ boost the level of the stream they were facing as they turned.  In addition, the
 speaker diarization to alert the listener to new stories using a short bleep sound. No user studies of AudioStreamer
 were conducted.
 
+\textit{Dynamic Soundscape} from \citet{Kobayashi1997} also used spatialization to help users navigate audio files by
+mapping the sound to fixed positions a virtual soundscape. The system was designed to take advantage of human abilities
+for simultaneous listening and memorising location. Users would start by listening to a virtual ``speaker'' that played
+the audio while slowly orbiting their head in a clockwise direction. Audio could be replayed by pointing their hand 
+at the location where it was originally heard, which would create a second speaker that played from that position.
+Similarly, users could skip ahead by pointing to a position ahead of the original source.  Speakers could be grabbed
+and moved, and an audible ``cursor'' allowed users to hear where they were pointing.  Through informal feedback, users
+suggested that they could use their spatial memory to navigate the audio. Based on their observations, the authors
+suggested that the system could help with transfer to long-term memory.
+
 \citet{Ranjan2006} attempted to reduce the time needed to search an audio recording by using \textit{dichotic
 presentation}, where different sounds are played into each ear.  In their system, the left ear played from the
 beginning of the recording while the right ear played from the half-way point. Through a user study of 13 participants,
@@ -1251,9 +1276,6 @@ they tested the effectiveness of this approach for a search task. The results sh
 the overall search time, particularly when the answer is in the second half of the recording. However, the overall time
 reduction was only around 20\%.  Dichotic presentation can be combined with time compression, but this creates high
 cognitive load and 8 of the 13 participants reported it to be ``very demanding''.
-
-%TODO Summarize
-\citep{Kobayashi1997}
 
 %50x video playback with audio skimming on BBC rushes \citep{Christel2008}
 
