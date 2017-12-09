@@ -1,1380 +1,792 @@
 % !TeX root = main.tex
-\chapter{Measuring audio visualization performance}\label{chp:colourised}
+\chapter{Audio editing workflows in radio production}\label{chp:ethno}
 
-An audio waveform is a plot of the amplitude of an audio signal over time. Waveforms are widely used in audio editing
-interfaces as a visual guide to help users navigate the audio. Radio producers interact with audio through the use of
-digital audio workstations (DAWs), which display multi-track audio using rows of parallel waveforms. Audio waveforms
-are the focal point of these interfaces, and have been since the introduction of DAWs in the early 1980s
-\citep{Ingebretsen1982}.
+%TODO Workplace studies book Luff2000
 
-The amplitude profile of a waveform can be used to identify different tracks and see which parts are loud or quiet. It
-can be used to identify errors such as clipping and unwanted noise. When viewed at the right resolution, waveforms can
-reveal whether the sound is monophonic, polyphonic, tonal or noise-like.  With experience, users can also learn to
-map the shape of the waveform to higher-level properties, such as distinguishing music from speech.
+% link to previous chapter
 
-In practice, audio recordings are often minutes or hours long. To be able to display these on a screen, only a portion
-of the waveform is displayed, which the user controls using pan and zoom commands.  For most practical uses, the
-waveform must be zoomed-out to fit on the screen. This reduces the resolution of the waveform in the time dimension,
-which means that frequency information and fine variations in the amplitude are no longer visible.  Without frequency
-information, users cannot see the pitch, spectrum or timbre of the audio.  This potentially impacts on the ability of
-users to efficiently navigate and edit audio content.  Audio waveforms are widely used in audio production software to
-help users navigate audio content. The performance of the waveform as a navigational aid is therefore 
-important as it affects a large number of users.  However, we were unable to find any studies that have attempted to
-measure the effectiveness of waveforms for navigating or editing audio content.
+We saw in Chapter~\ref{chp:colourised} that we can improve the performance of at least one audio editing task by
+enhancing the audio visualization. We were interested in exploring how we could apply these techniques to radio
+production, to help producers create programmes more efficiently.  To continue this research, we needed to decide which
+production tasks we should target. This required an understanding of the tasks involved in radio production, and of the
+challenges producers face in their roles.
 
-%TODO include this somewhere:
-%Audio is often subject to dynamic range compression, which shapes the amplitude profile into a rectangle and further
-%impacts on the ability of users to read it.
+% radio production is not well documented and hard to access
 
-% waveforms are used in radio production
-%The software radio producers use to navigate and edit audio content visualizes the audio using waveforms.
-%Many radio producers have been interacting with audio content using waveforms for years, in some cases decades, and in
-%that time have learned how the read the waveform to help them with their work.
-%However, in Chapter~\ref{chp:background}, we saw that audio waveforms are limited in terms of the information they can
-%represent \citep{Rice2005,Loviscach2011,Gohlke2010}.  This potentially impacts on the radio producer's ability to
-%navigate and edit their audio content.
+%Radio production is conducted globally on a large scale. The BBC alone has 9 national and 40 local radio stations,
+%%and BBC World Service, which broadcasts in 29 languages. 
+%each of which broadcast 24/7.
 
-%Waveform displays could be enhanced to include additional audio features other than merely the digital signal level.
-%The selection of such features and their visual weighting in the display needs to emphasize those possible points of
-%interest that reflect the user’s mental model of an audio track and the task at hand. This can include clearly showing
-%audio features such as perceptual sample onset, spectrum, timbre, and inaudible issues such as a DC offset.
+There are two classic books that document the radio production process. \citet{McLeish2015}, now in its sixth edition,
+provides a broad overview of the practice of radio production with an emphasis on editorial, organisational and
+business concerns.  \citet{Hausman2012}, currently in its ninth edition, covers the more practical aspects of radio
+production including the use and operation of tools and equipment.  Despite the valuable contribution of these
+publications, they present a high-level overview of production practice that does not fully address the real-life
+challenges and issues that radio producers face in the industry.
 
+It can be difficult for those working outside of the radio industry to learn about the challenges of radio production.
+We could only find one published study that involved radio producers, by \citet{Dunaway2000}, which was based on his
+experience of being a documentary producer. This lack of studies may be a result of the limited number of radio
+producers, and their demanding workload, which can make it challenging to recruit them for research.  For example,
+\citet{Kim2003} worked with National Public Radio (NPR) to develop a system for searching speech archives.  Despite
+working directly with NPR, they were unsuccessful in recruiting radio producers to evaluate their system as there were
+not many producers, and they did not volunteer because they were too busy.
 
-% the performance of waveforms has not been tested
-%Despite their ubiquity, we could not find any studies that have attempted to test how waveforms themselves affect
-%interaction with audio.
+% hard for researchers to develop solutions without understanding challenges and problems
+% lots of technology could help, but how to choose which?
 
-By designing an audio visualization that can present more information or present it in a way that is robust to zooming,
-this may give radio producers a more powerful tool to interact with audio content. We saw in
-Chapter~\ref{chp:background} that there have been several previous attempts to create audio visualizations that can
-display timbre \citep{Tzanetakis2000,Rice2005}, or assist the navigation of radio broadcasts \citep{Mason2007}.  These
-systems worked by extracting semantic audio features and mapping them to a visual representation using pseudocolour or
-false colour. Although these systems demonstrated the potential of using enhanced visualizations for aiding navigation
-of audio, we could not find any user studies that attempted to measure the impact of this approach.
+There are many semantic audio and user interface technologies that have the potential to improve the radio production
+workflow. Speech/music discrimination \citep{Wieser2014}, speaker diarization \citep{AngueraMiro2012}, speaker
+identification \citep{Lee1999a} and automatic speech recognition \citep{Junqua1995} can all be beneficial for use in
+radio systems \citep{Raimond2014,Bell2015}.  However, without a detailed understanding of the production process, it
+can be difficult to know which of these technologies have the most potential, or how they can best be applied to the
+workflow.  Additionally, it can be difficult for researchers outside of the industry to contribute developments that
+might benefit radio producers without them having a good understanding of the reality of radio production, or the
+challenges that producers face.
 
-We were interested in examining how audio visualizations affect audio editing in radio production. In
-Section~\ref{sec:vis-method} we describe the design of our user study in which we measured the performance of users in
-completing an editing task using different audio visualizations. Section~\ref{sec:vis-results} presents the results,
-which show that mapping semantic audio features to colour improved user performance in our task. We discuss what this
-might mean for radio production in Section~\ref{sec:vis-discuss}, further work in Section~\ref{sec:vis-further} and
-present our conclusions in Section~\ref{sec:vis-conclusions}.
+%Previous studies of professional broadcast environments have focused on how producers collaborate during live
+%production \citep{Engstroem2010,Perry2009}, by using video recordings to analyse the interactions between producers.
 
-%These techniques could potentially provide applications to radio production and give
-%producers better tools for interacting with their content.  However, we could not find any studies that have attempted
-%to measure the impact of these visualization techniques on audio production.  As such, we were interested in exploring
-%whether semantic audio visualization techniques had an impact on radio production.  To do this, we conducted a study in
-%which pariticipants used different audio visualizations to perform a common radio production task, and measured their
-%performance.
+% what we did in this chapter
+To help us better understand the radio production process, we conducted three ethnographic case studies of practice in
+BBC Radio.
+Section~\ref{sec:ethno-method} outlines the design of our study.
+Section~\ref{sec:ethno-results} presents the results of each case studies,
+Section~\ref{sec:ethno-discussion} discusses our findings, 
+Section~\ref{sec:ethno-conclusion} presents our conclusions, and
+Section~\ref{sec:ethno-future} suggests future work.
 
-%\section{Background}
+\section{Methodology}\label{sec:ethno-method}
 
-%% WAVEFORM NAVIGATION
-%Lots of studies have considered the performance of waveforms for audio navigation, and there are numerous other
-%visualizations that perform better.
-%However they all use waveforms as the baseline and have not actually measured the performance of the waveform itself.
+% objective of study
 
-%% SPEECH/MUSIC DISCRIMINATION
-%SMD algorithms all follow the same general approach.
-%Raw metric generated, segmented, then clustered.
-%Humans are very good at pattern recognition, so by presenting the raw information they may be able to interpret the
-%data better than the automated segmenting/clustering.
+The objective of our study was to document the radio production workflow, and to identify opportunities for making
+improvements through the application of semantic audio technology.
 
-\section{Methodology}\label{sec:vis-method}
+% focus on audio editing
+Most radio content is broadcast live. In these cases, the content is produced in real-time, so there is no opportunity
+to produce the programme any faster. However, many types of programmes, such as documentaries and drama, are
+pre-produced using audio editing software. Here, the production process is many times longer than the programme, so
+there are opportunities to make the production process more efficient.  For this reason, we chose to focus on studying
+the production of pre-produced radio programmes.
 
-In this study we aimed to evaluate how audio visualizations affect audio editing in radio production.  We designed our
-study to measure user performance of a simple task, as this gave us a specific and repeatable action by which we could
-assess the effect of different audio visualizations.  We wanted the task to be an activity that is common within radio
-production, and to use audio that is representative of that used by radio producers.  However, in order to recruit
-enough participants, we wanted to use a task that did not require radio production experience, so that it could be
-performed by anybody.
+\subsection{Data collection}
+% ethnography, direct observation
+We used ethnographic research methods to study the culture of radio production in BBC Radio. We chose to use direct
+observation to collect our data, where we witnessed production first-hand without taking part.  We did this because
+producers are very busy and direct observation allowed us to unobtrusively collect the data without adding to the
+producer's workload. Additionally we could observe the real-world process, as opposed to a theoretical one, and take
+into account the context of the working environment.
 
-In this section, we describe the task, conditions and audio clips we used for our study. We list the hypotheses we
-tested and the metrics we used to do so. We then describe our recruitment process, the design of our test interface,
-the protocol of our study and our analysis methodology. 
+We recorded the data by writing field notes during observation. We were not able to use video or audio recording as
+much of the observation took place in open-plan offices that deal with sensitive information. In addition to the
+observation, we used time between activities to ask the participants clarifying questions.
 
-% The task
-\subsection{Task}
-For the task, we chose segmentation of music from speech.
-In radio production, music has to be removed 
-when turning an off-air programme recording into a podcast. This is due to music licensing issues, which are different
-for downloadable content than they are for radio broadcasts. The music is removed by editing the audio with a DAW that uses a waveform to
-visualize the audio. Although the waveform can be used to distinguish between music and speech, at typical zoom levels
-it is not always visible. This means that removing the music can be a slow and tedious process.
+% sampling
+Due to the scale and variety of the radio operations at the BBC, it would be impossible to cover all production genres
+and techniques. To limit the scope of our work, we followed a ``maximum variation sampling'' strategy \citep[p.
+172]{Patton1990} to choose a small number of heterogeneous case studies. We aimed to select programmes of different
+genres to cover a variety of cultures and work practices.
 
-% Conditions
-\subsection{Conditions}
-Radio producers edit audio with DAWs that use audio waveforms for navigating the recordings.  Adding colour to
-waveforms would allow us to include additional semantic information about the audio, while being able to retain a
-familiar visualization that users are comfortable with and can already read.  Therefore, rather than aiming to replace
-the waveform at this stage, we were interested in seeing whether mapping a relevant semantic audio feature to the
-colour would impact on the performance of the user's task.
+The time needed to produce programmes can vary significantly, with some being produced over many weeks or months. To
+reduce our observation time, we worked with the producer of each programme to create a schedule of observations that
+sampled every stage of the process. This allowed us to capture the entire workflow without having to be present
+throughout.
 
-We chose to use the following conditions for the audio visualizations. An example of each condition is shown in
-Figure~\ref{fig:conditions}.
-
-\begin{enumerate}[label=C\arabic*.]
-  \item \textbf{None}: No visualization, audio only.
-  \item \textbf{Waveform}: Audio waveform in a single colour.
-  \item \textbf{Enhanced}: Audio waveform with colour mapped to low energy ratio.
-\end{enumerate}
-
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}{.3\textwidth}
-    \centering
-    \includegraphics[width=\columnwidth]{figs/condition1.png}
-    \caption{C1: None}
-  \end{subfigure}
-  \begin{subfigure}{.3\textwidth}
-    \centering
-    \includegraphics[width=\columnwidth]{figs/condition2.png}
-    \caption{C2: Waveform}
-  \end{subfigure}
-  \begin{subfigure}{.3\textwidth}
-    \centering
-    \includegraphics[width=\columnwidth]{figs/condition3.png}
-    \caption{C3: Enhanced}
-  \end{subfigure}
-  \caption{The audio visualization conditions we tested.}
-  \label{fig:conditions}
-\end{figure}
-
-% Listening
-We included a condition in which there was no visualization, as we were interested in using it as a baseline to measure
-the performance of the normal waveform. For this condition, the participant must rely purely on listening to the audio.
-For the other two conditions, they are able to both listen and use the visualization.
-
-% SMD
-For the enhanced visualization, we extracted an audio feature that was relevant to the task and mapped it to the colour
-of the waveform.
-Speech-music discrimination (SMD) is a research topic that aims to automatically segment speech and music.  This
-research often targets recordings of radio broadcasts
-\citep{Goodwin2004,Wieser2014,Saunders1996,Pikrakis2008,Pikrakis2006a}. In general, SMD systems extract several audio
-features, then use clustering techniques to group those features into segments labelled as either speech or music.
-%Clustering is a task in which comes naturally to humans, but machines often struggle with.
-
-% choosing a feature
-We wanted to select a feature that would assist the participant in completing their task, but not so much that they
-would not have to interpret the information to extract the result. To do this, we restricted ourselves to selecting a
-one-dimensional (scalar) feature.
-%\citet{Carey1999} found that, other than cepstral features, amplitude-based features performed best.
-Low energy ratio (LER, also known as `silent interval frequency', `energy contour dip' and `low short-term energy
-ratio') is the frequency in which the energy of a signal falls below a threshold. This is a simple but effective
-feature which exploits the fact that speech has frequent silent gaps between words, whereas music does not.
-\citet{Panagiotakis2005} found that on its own, LER can classify 50\% of music segments.
-
-% calculating the feature
-We calculated the low energy ratio by extracting the RMS energy (20ms frames, no overlap) and counting the proportion
-of frames which fell below a threshold.  The threshold can be set as a fixed value \citep{Liang2005,Panagiotakis2005},
-a function of the moving average \citep{Ericsson2009}, or a function of the moving peak value \citep{Saunders1996}.
-After empirically testing a variety of radio programme recordings, we chose the latter and configured our threshold as
-the third percentile of RMS energy in a one second sliding window.
-
-%\[ RMS = \sqrt{\displaystyle\sum\limits_{i=0}^n x_i^2} \]
-
-%Metric does not return perfect results, so user must interpret them
-
-%music tonality \citep{Sell2014}
-%energy density analysis \citep{Kacprzak2013}
-%??? \citep{Goodwin2004}
-%application to TV \citep{Seyerlehner2007}
-
-% mapping the feature
-We coloured the waveform by mapping the low energy ratio to a linear gradient between two easily distinguished colours.
-We used blue for representing speech, match the waveform colour of the DAW most commonly used in BBC Radio. We used
-its inverse colour, pink, to represent music.
-
-\subsection{Audio clips}
-We used radio programme recordings for the audio clips, by choosing a representative selection of programme formats,
-musical genres and radio stations, shown in Table~\ref{tab:clips}.  We sourced the audio content from `off-air'
-recordings of BBC Radio. We selected ten 5-minute clips that contained only one section of music, with speech before
-and after. We cut the clips so that the music was in a different position in each clip.  We chose to use nine 5-minute
-clips so that the segmentation tasks could be completed in around 15 mins, and one clip for training.
-
-\begin{table}[htbp]
-  \begin{center}
-    {\small
-    \begin{tabular}{l l l l l l}
-      \hline
-      \textbf{Clip} & \textbf{Network} & \textbf{Prog name} & \textbf{Prog format} & \textbf{Music genre} \\ \hline
-      Training & Radio 4 & Desert Island Discs & Interview & Ambient \\
-      1 & 1 Xtra & Sian Anderson & Breakfast & Dance \\
-      2 & 6 Music & Lauren Laverne & Single & Indie \\
-      3 & Radio 2 & Ken Bruce & Phone quiz & Lounge \\
-      4 & Radio 3 & Breakfast show & Single & Classical \\
-      5 & 5 Live & Sports report & Sports & Band \\
-      6 & Radio 1 & Zane Lowe & Interview & Rap \\
-      7 & Radio 2 & Jo Whiley & Review & Pop \\
-      8 & Radio 4 & Afternoon drama & Drama & Classical \\
-      9 & Radio 4 & Front Row & Interview & Alternative \\ \hline
-    \end{tabular}
-  }
-  \end{center}
-  \caption{Descriptions of the radio programmes used for the evaluation}
-  \label{tab:clips}
-\end{table}
-
-\subsection{Hypotheses}
-
-We were interested in testing the effectiveness of audio visualizations for editing audio content. In particular, we
-wanted to examine the following hypotheses:
-
-\newcommand{\subscript}[2]{$#1 _ #2$}
-\begin{enumerate}[label=H\arabic*.]
-  \item \textbf{Effort}: Audio visualization affects the effort required to segment music from speech, in
-    decreasing order of C1, C2 and C3.
-  \item \textbf{Time}: Audio visualization affects the time taken to segment music from speech, in decreasing
-    order of C1, C2 and C3.
-  \item \textbf{Accuracy}: Audio visualization affects the accuracy of segmenting music from speech, in
-    increasing order of C1, C2 and C3.
-    %\item The audio visualization affects the reported task load, in decreasing order of C1, C2 and C3.
-\end{enumerate}
-
-\subsection{Metrics}
-
-We measured user performance using quantitative and qualitative metrics.  This allowed us to check for both actual and
-perceived differences in performance.
-
-\subsubsection{Quantitative metrics}
-Our audio segmentation task involves finding the target audio (in this case, music) and marking the start and end of
-the desired region. The two primary activities involved in this are seeking through the audio (by clicking on the
-visualization), and marking the segment (using the buttons or sliders). To measure effort, we counted the number of
-seek actions (i.e. clicks on the visualization) used to complete the task.
-
-To measure time, we calculated how long it took to complete each task. To avoid including `downtime' at the start and
-end of the task, we calculated the task completion time as the difference between the first user action (e.g.
-play/seek/mark) and the last marking action.
-
-For accuracy, we measured the error of the result. We calculated this by using ground truth data about the precise
-start and end time of the music in the audio, then finding the sum of the absolute error of the selected in-point and
-out-point.
-
-\subsubsection{Qualitative metrics}
-
-To gather perceptual data about the tasks, we included a questionnaire for the participants to complete after using
-each visualization.  For this, we used the NASA Task Load Index, or `NASA-TLX', \citep{Hart1988} questions, listed
-below. Responses are captured using on a scale between -10 and 10 with the following labels at each end.
-
-%\begin{table}[ht]
-  %\begin{center}
-    %{\small
-    %\begin{tabular}{l l l l}
-      %\hline
-      %Mental demand & How mentally demanding was the task? & very low & very high \\
-      %Physical demand & How physically demanding was the task? & very low & very high \\
-      %Temporal demand & How hurried or rushed was the pace of the task? & very low & very high \\
-      %Performance & How successful were you in accomplishing what you were asked to do? & perfect & failure \\
-      %Effort & How hard did you have to work to accomplish your level of performance? & very low & very high \\
-      %Frustration & How insecure, discouraged, irritated, stressed, and annoyed were you? & very low & very high \\
-      %\hline
-    %\end{tabular}
-  %}
-  %\end{center}
-  %\caption{NASA Task Load Index metrics}\
-  %\label{tab:nasatlx}
-%\end{table}
-
-{\singlespacing
-\begin{itemize}
-  \item Mental demand -- How mentally demanding was the task? [very low/very high]
-  \item Physical demand -- How physically demanding was the task? [very low/very high]
-  \item Temporal demand -- How hurried or rushed was the pace of the task?  [very low/very high]
-  \item Performance -- How successful were you in accomplishing what you were asked to do? [perfect/failure]
-  \item Effort -- How hard did you have to work to accomplish your level of performance? [very low/very high]
-  \item Frustration -- How insecure, discouraged, irritated, stressed, and annoyed were you? [very low/very high]
-\end{itemize}
-}
-
-To measure effort, we used the \textit{effort} rating; to measure time, we used the \textit{temporal demand} rating;
-and to measure accuracy, we used the \textit{performance} rating.
-
-We excluding the second part of the NASA-TLX measurement, which converts the sub-scales into a single value by weighting
-them by importance \citep{Hart2006}. As such, we are reporting the `Raw TLX' values.  We did this to reduce the time
-required for data collection, and to be able to analyse each sub-scale individually.
-
-%{\singlespacing
-%\begin{enumerate}
-  %\item Waveforms will allow participants to perform speech/music segmentation
-  %\begin{enumerate}
-    %\item faster
-    %\item with less effort
-  %\end{enumerate}
-  %\item Adding colour to waveforms will allow participants to perform speech/music segmentation
-  %\begin{enumerate}
-    %\item faster
-    %\item with less effort
-  %\end{enumerate}
-  %\item For speech/music segmentation, participants will rate
-  %\begin{enumerate}
-   %\item coloured waveforms as easiest to use and least frustrating
-   %\item no waveform as hardest to use and most frustrating
-  %\end{enumerate}
-%\end{enumerate}
-%}
-
+% recruitment
 \subsection{Recruitment}
-We wanted to recruit approximately 50 participants so that our results would have statistical significance.  The radio
-production community is relatively small, producers are very busy and they are not used to participating in academic
-studies. To get enough respondents, we opted to recruit from a larger pool of technology researchers with experience in
-media technology and production.  Additionally, we designed our study so that it could be completed online in 15 mins
-or less.  We used email distribution lists to advertise our study to everyone working at BBC Research and Development,
-and the Electronics and Computer Science department at Queen Mary University of London.
+We recruited participants using an invitation email sent to BBC R\&D's contact list of studio managers working in BBC
+Radio. Through this process, we recruited three producers who worked on the programmes and in the departments listed
+below:
+\begin{itemize}
+	\item Hourly news bulletin (Radio Summaries, BBC News)
+	\item ``15 Minute Drama'' radio drama (London Radio Drama, BBC Radio)
+	\item ``The Report'' documentary (Radio Current Affairs, BBC News)
+\end{itemize}
 
-\subsection{Test interface}
-To conduct the experiment, we developed a web-based test interface, shown in Figure~\ref{fig:visualization-interface}.
-The interface displayed the overall visualization as well as a zoomed in view above it. The participant could navigate
-the audio by clicking on either view, which would seek to that position in the audio.  Buttons below the visualization
-controlled play/pause, zoom level and setting the in-- and out-points of the selection.  The selection was displayed by
-highlighting the visualization, and on a slider below it. The selection could be adjusted by dragging either end of the
-slider.  Training was provided using a `pop-up tour', which guided the user through the interface's features and
-operation using a series of pop-up text boxes.  The interface also captured the participant's questionnaire responses
-and preferences.  A detailed technical explanation of the interface can be found in
-Section~\ref{sec:browser-audio-interface}.
+These three programmes (news report, drama, documentary) fulfilled our criteria for a heterogeneous sample of
+programmes from different genres.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\columnwidth]{figs/browser-audio-interface.pdf}
-\caption{Screenshot of the test interface with the following features:
-zoomed-in audio visualization (1),
-overview audio visualization (2),
-play/pause control (3),
-zoom in/out control (4),
-mark in/out buttons (5),
-selection slider (6),
-selection highlighting (7),
-and training pop-ups (8).}
-\label{fig:visualization-interface}
-\end{figure}
-
-%We configured the interface to log and timestamp every action the user made, including each seek, play/pause, select
-%and zoom action. We also used these metrics to calculate the task completion time, defined as the time between the
-%first user action and the last select action.
-
-We generated the visualizations of the audio clips using a plugin framework we developed called `Vampeyer', which
-mapped the results of a Vamp audio analysis plugin\footnote{\url{http://www.vamp-plugins.org/}} to a bitmap image. We
-then integrated those images into our test interface using in an interactive web-based audio visualization library we
-developed called `BeatMap'.  Sections \ref{sec:vampeyer} and \ref{sec:beatmap} contain more detail about Vampeyer and
-BeatMap, respectively.
-
+% data collection
 \subsection{Procedure}
-Before the study began, we asked the participant to read an information sheet and agree to a consent form. There were
-four stages to the study:
+We used a single researcher to collect the data for our study through direct observation. The researcher observed the
+production of each programme from the beginning of audio recording/collection, to the point where the audio had been
+finalised. The observation did not focus on a single member of the team, but covered the entire team that
+contributed to the audio production. This allowed us to study the different roles involved  and how they interact.  The
+production teams were observed in their normal place of work. This allowed us to take into account the context of the
+environment in which the teams work, both in terms of the physical location and layout, and of the tools and software
+they use to perform their tasks.
 
-\paragraph{Stage 1: Demographics}
-We asked the participant about their gender, age and the following questions, to gauge their familiarity with DAWs and
-professional experience:
+We worked with the producer of each programme to design a schedule of observation that would cover the entire
+production process. Each programme required a different amount of time. Observing the news bulletin took half-a-day,
+the drama took two days, and the documentary took four days. 
+
+The researcher used a laptop to type field notes throughout the observation. When the team members were
+not busy, the researcher asked clarifying questions to ensure they understood the reasons and motivation behind their
+actions. The notes specifically included the following:
 
 {\singlespacing
 \begin{itemize}
-  \item Do you understand what an audio waveform is? [Yes/No]
-  \item Have you previously used any consumer audio editing software? (e.g.  Audacity, GarageBand) [Yes/No]
-  \item Have you previously used any professional audio editing software? (e.g.  ProTools, Logic, Cubase/Nuendo, SADiE,
-    Startrack) [Yes/No]
-  \item How many years (if any) have you worked with audio in a professional capacity? [\textit{number}]
+	\item \textbf{Roles} -- Who are the teams members? What are their responsibilities? Which other teams are involved?
+	\item \textbf{Environment} -- What is the location? How is the physical space laid out?
+	\item \textbf{Tools} -- Which tools are used? For what purpose? How do the users operate them?
+	\item \textbf{Tasks} -- What tasks are involved? Who does what? What sequence do they take place?
+	\item \textbf{Challenges} -- Were there any problems or frustrations? Which activities were demanding or mundane?
 \end{itemize}
 }
 
-\paragraph{Stage 2: Training}
-We used a `pop-up tour' to overlay a sequence of text boxes on the interface (see
-Figure~\ref{fig:visualization-interface}). These explained the features and operation of the test interface, then
-prompted the user to complete and submit a training task. We measured the error of the training task and did not allow
-the participant to continue until they had completed the task successfully (defined as an error of less than 5 seconds).
-
-\paragraph{Stage 3: Segmentation task}
-The participant used the test interface to mark the position of music in a speech recording, then submit their result.
-We logged and timestamped the participant's actions, including seek, play/pause, zoom and mark.  This exercise was
-repeated three times for each condition, for a total of nine tasks.  We chose to group the presentation of the
-conditions rather than interleave them (e.g. AAABBBCCC instead of ACACBABCB).  We did this so we could capture feedback
-directly after each condition, and to avoid possible confusion due to switching too often.
-
-Each audio clip can only be used once per participant, otherwise they would be able to remember the location of the the
-music. To define a balanced sequence for the audio clips, we used a Williams design Latin square, generated using the
-`crossdes' package\footnote{\url{http://cran.r-project.org/web/packages/crossdes/index.html}} in R.  We used Latin
-squares to block out the effect of the order of presentation, and a Williams design, which is balanced for first-order
-carryover effects.  As the sequence length is an odd number, the Williams design uses two Latin squares to produce an
-$18\times9$ matrix.
-
-To generate the order of visualizations, we needed to produce a balanced $18\times3$ sequence. We did this by taking
-three columns from our $18\times9$ Latin square and mapping the values 1--3, 4--6 and 7--9 to 1, 2 and 3, respectively.
-By calculating the carryover effect of each column of the $18\times9$ matrix, we found that the middle three columns
-had the minimum carryover effect, so we used them for our visualization sequence.
-
-%\begin{table}
-%\centering
-  %{\small
-    %\begin{tabular}{|rrrrrrrrr|}
-      %\hline
-      %1 & 2 & 9 & 3 & 8 & 4 & 7 & 5 & 6 \\ 
-      %3 & 3 & 3 & 2 & 2 & 2 & 1 & 1 & 1 \\ 
-      %\hline
-      %2 & 3 & 1 & 4 & 9 & 5 & 8 & 6 & 7 \\ 
-      %1 & 1 & 1 & 3 & 3 & 3 & 2 & 2 & 2 \\ 
-      %\hline
-      %3 & 4 & 2 & 5 & 1 & 6 & 9 & 7 & 8 \\ 
-      %2 & 2 & 2 & 1 & 1 & 1 & 3 & 3 & 3 \\ 
-      %\hline
-      %4 & 5 & 3 & 6 & 2 & 7 & 1 & 8 & 9 \\ 
-      %3 & 3 & 3 & 2 & 2 & 2 & 1 & 1 & 1 \\ 
-      %\hline
-      %5 & 6 & 4 & 7 & 3 & 8 & 2 & 9 & 1 \\ 
-      %1 & 1 & 1 & 3 & 3 & 3 & 2 & 2 & 2 \\ 
-      %\hline
-      %6 & 7 & 5 & 8 & 4 & 9 & 3 & 1 & 2 \\ 
-      %2 & 2 & 2 & 1 & 1 & 1 & 3 & 3 & 3 \\ 
-      %\hline
-      %7 & 8 & 6 & 9 & 5 & 1 & 4 & 2 & 3 \\ 
-      %3 & 3 & 3 & 2 & 2 & 2 & 1 & 1 & 1 \\ 
-      %\hline
-      %8 & 9 & 7 & 1 & 6 & 2 & 5 & 3 & 4 \\ 
-      %1 & 1 & 1 & 3 & 3 & 3 & 2 & 2 & 2 \\ 
-      %\hline
-      %9 & 1 & 8 & 2 & 7 & 3 & 6 & 4 & 5 \\ 
-      %2 & 2 & 2 & 1 & 1 & 1 & 3 & 3 & 3 \\ 
-      %\hline
-      %6 & 5 & 7 & 4 & 8 & 3 & 9 & 2 & 1 \\ 
-      %1 & 1 & 1 & 2 & 2 & 2 & 3 & 3 & 3 \\ 
-      %\hline
-      %7 & 6 & 8 & 5 & 9 & 4 & 1 & 3 & 2 \\ 
-      %2 & 2 & 2 & 3 & 3 & 3 & 1 & 1 & 1 \\ 
-      %\hline
-      %8 & 7 & 9 & 6 & 1 & 5 & 2 & 4 & 3 \\ 
-      %3 & 3 & 3 & 1 & 1 & 1 & 2 & 2 & 2 \\ 
-      %\hline
-      %9 & 8 & 1 & 7 & 2 & 6 & 3 & 5 & 4 \\ 
-      %1 & 1 & 1 & 2 & 2 & 2 & 3 & 3 & 3 \\ 
-      %\hline
-      %1 & 9 & 2 & 8 & 3 & 7 & 4 & 6 & 5 \\ 
-      %2 & 2 & 2 & 3 & 3 & 3 & 1 & 1 & 1 \\ 
-      %\hline
-      %2 & 1 & 3 & 9 & 4 & 8 & 5 & 7 & 6 \\ 
-      %3 & 3 & 3 & 1 & 1 & 1 & 2 & 2 & 2 \\ 
-      %\hline
-      %3 & 2 & 4 & 1 & 5 & 9 & 6 & 8 & 7 \\ 
-      %1 & 1 & 1 & 2 & 2 & 2 & 3 & 3 & 3 \\ 
-      %\hline
-      %4 & 3 & 5 & 2 & 6 & 1 & 7 & 9 & 8 \\ 
-      %2 & 2 & 2 & 3 & 3 & 3 & 1 & 1 & 1 \\ 
-      %\hline
-      %5 & 4 & 6 & 3 & 7 & 2 & 8 & 1 & 9 \\ 
-      %3 & 3 & 3 & 1 & 1 & 1 & 2 & 2 & 2 \\ 
-      %\hline
-    %\end{tabular}
-    %}
-    %\caption{Sequence of presentation of audio clips (top) and visualizations (bottom).}
-    %\label{tab:clipseq}
-%\end{table}
-
-After completing the three tasks for each condition, the participant rated the workload of those tasks
-using the NASA-TLX metrics. We captured the responses using sliders with the labels for each question on either end.
-
-\paragraph{Stage 4: User preference}
-After all the tasks were completed, we asked the participant to select which condition they thought was the easiest,
-and which was the most frustrating, using the thumbnail images in Figure~\ref{fig:conditions}.
+The researcher also took photographs of any relevant locations, tools or other items, with the permission of the
+participant.
 
 \subsection{Analysis}
-We wanted to ensure that all participants completed their tasks correctly.  To do so, we rejected any participant that
-submitted a segment with an error of more than five seconds. We calculated the error as the sum of the absolute error
-of the in-point and out-point.
 
-%\begin{figure}[ht]
-  %\begin{center}
-    %$ |t_{in}-t_{inREF}| + |t_{out}-t_{outREF}| \leq 5 $\\[1em]
-    %where $t_{in}$ and $t_{out}$ are the in- and out-points of each selection, in seconds,
-    %and $t_{inREF}$ and $t_{outREF}$ are the ground truth in- and out-points of the music.
-  %\end{center}
-  %\caption{Acceptance criteria for the experiment}
-  %\label{eq:accept}
-%\end{figure}
+We populated a list of roles involved in the production and wrote a description of each of their responsibilities. We
+wrote a description of the working environment in which the production took place, including the location, the tools
+that were used, and how they were used. We also drew a map of the physical environment, including the spatial layout of
+the team members.
 
-We tested for statistically significant differences in the task load ratings by using SPSS to conduct a repeated
-measures analysis of variance (rANOVA). We then used Tukey's honest significant difference (HSD) post-hoc test to make
-pairwise comparisons between the visualization for each metric.
+We used hierarchical task analysis \citep{Kirwan1992,Annett2000} to deconstruct the production process into a sequence
+of individual tasks. We assigned each task to the role that was responsible and the location in which it took
+place. We then used a partitioned operational sequence diagram \citep{Kirwan1992} to graph the sequence of tasks from
+top to bottom, arranged into columns to indicate the role and location.
 
-We couldn't re-use audio clips for the tasks, so each participant only experienced a subset of the combinations of
-visualizations and audio clips. This resulted in an incomplete dataset, which prevented us from using from using
-repeated measures ANOVA. Instead, we used a mixed model as it can account for incomplete data and repeated measures
-design.
+Finally, we identified any challenges that were noted by the researcher, and wrote a description of the current
+approach and any suggested improvements that could be made.
 
-We used SPSS to perform a linear mixed effects analysis of the relationship between visualization and the three
-performance metrics (seek actions, task completion time and task error).  We configured the visualizations as a fixed
-effect and the audio clips and participants as random effects.  Visual inspection of residual plots did not reveal any
-obvious deviations from homoscedasticity or normality.  We used Fisher's Least Significant Difference (LSD) post-hoc
-test to make pairwise comparisons between the visualizations for each metric.
+\section{Study results}\label{sec:ethno-results}
 
-%\paragraph{Box plot}
-%A box plot \citep{McGill1978} is a technique used to graph distributions by their quartile values (i.e. 25th, 50th and
-%75th percentiles). An example can be seen in Figure~\ref{fig:seekbox}. The box extends from the first to the third
-%quartile, with the second quartile (median) marked as a line through the box.  Lines are drawn from the box to the
-%minimum and maximum, known as `whiskers', however data determined to be outliers are marked separately as crosses.  The
-%95\% confidence interval of the median is marked as a notch in the box.
+In this section, we present the results of our three ethnographic case studies. For each study, we describe the roles
+and responsibilities of the team members, the environment and tools that were used, the results of the task analysis we
+performed, and list the challenges we identified.
 
-%\paragraph{ANOVA}
-%Analysis of variance is a method of testing whether the mean values of several groups are equal or not. It assumes that
-%the observations are independent, that the data have a normal distribution, and that the variance within the groups are
-%similar. One-way ANOVA tests for a null hypothesis that the means values of the factors are the same.
+%The vast majority of radio production work in the BBC uses a networked audio production system called \textit{dira!}
+%\citep{SCISYS2015}. It is colloquially known as `VCS', after the former name of the company that makes it. All audio
+%content is kept on distributed storage and the system is accessed using various pieces of software: `StarTrack' is a
+%multi-track audio editor, `Orion' is an audio recorder and single-track editor and `Highlander' is used to browse
+%recordings and metadata. 
 
-%\paragraph{Tukey's test}
-%If the null hypothesis is rejected using ANOVA, we know that there is a difference between the factors, but we don't
-%know which ones. Tukey's test is a post-hoc analysis for discovering the difference between individual factors.  It
-%assumes that the observations are independent and that the variance within the groups are similar.
+\subsection{News bulletin}\label{sec:news}
+The Radio Summaries team at BBC News (known as ``summaries'') write the hourly news bulletins for most of the national
+radio networks. The 6pm and 10pm bulletins are handled by different teams, as are the bulletins for Radio 1, 1Xtra,
+Asian Network and Radio 5.  The bulletins written by the team are read live on-air by a newsreader at the start of
+every hour.
 
-%When Tukey's test is graphed, the mean values are represented by a dot with a line either side showing the confidence
-%interval. Confidence intervals which don't overlap can be said to be significantly different.
+The researcher observed the team for five hours during a morning weekday shift, from 7am to midday. The pace of work in
+the team was so fast that there was little time to talk to the participants to ask any questions, so the results are
+mostly based on direct observation.
 
-%\paragraph{Standardisation}
-%Some observations can be biased through participant behaviour. For example, person A navigates audio recordings by
-%quickly clicking along the timeline while person B navigates with only a few considered clicks. To block this factor,
-%the responses of each participant can be standardised so that they have a mean value of 0 and a standard deviation of
-%1. This allows the difference between different participants responses to be measured fairly.
+\subsubsection{Roles and responsibilities}\label{sec:news-roles}
+Summaries is run by an \textit{assistant editor} who leads between two and four \textit{broadcast journalists}. The
+team work 24 hours a day on three eight-hour rolling shifts to report breaking news stories and their developments
+throughout the day.
 
-%Standardisation maps observations to the `\textbf{standard score}'. This is a dimensionless unit which represents the
-%number of standard deviations an observation is above the mean.
+The role of each broadcast journalist is to select and write a series of short text summaries of the day's news stories
+for a given radio network.  They enhance the summaries by finding, editing and inserting audio clips of reports
+or interviews.  Broadcast journalists produce one bulletin per hour, each between two and five minutes long, with between
+four and six stories per bulletin.  The length of the bulletin and number of stories depend on the network and the time
+of day. For example, Radio 4 bulletins are longer than other networks, and midday bulletins are longer than those at
+other times. Even if the stories being covered are the same, the bulletins for each network are written separately so
+that they are targeted to the audience of that network.  This is done by varying the language, tone, amount of detail
+and level of assumed knowledge.
 
-\section{Results}\label{sec:vis-results}
-63 participants completed the study. Of those, 41 (65\%) passed the acceptance criteria. This was lower than expected,
-so we analysed the rejected tasks and participants to look for evidence of any systematic errors that might explain the
-high number of rejections.
+The assistant editor is the team leader, but also performs the same role as the broadcast journalists. They assign the
+responsibility for each radio network to a broadcast journalist. Throughout the day, they keep track of the news
+stories that are developing and decide which of these should be included in the bulletins. Sometimes they will
+commission a reporter to record a news report to include in the bulletins. The assistant editor reads and approves each
+bulletin written by the team to check that they are appropriately worded, have been fact-checked, and comply with the
+BBC's editorial guidelines.  The assistant editor aims to have the bulletins approved about 15 mins before the hour,
+but often new developments mean that bulletins are being edited at the last minute.  Once approved, the finished
+bulletins are read out live by a \textit{newsreader} in a radio studio, who generally has no direct contact with the
+rest of the team.
 
-\begin{figure}[h]
-\centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      height=0.5\textwidth,
-      %width=0.9\textwidth,
-      legend pos=south east,
-      legend cell align=left,
-      xbar stacked,
-      ytick=data,
-      xmin=0,
-      ylabel=Clip,
-      xlabel=Rejected responses,
-      symbolic y coords={9,8,7,6,5,4,3,2,1},
-    ]
-    \addplot[fill=black!15] coordinates
-      {(4,9) (2,8) (1,7) (1,6) (6,5) (3,4) (2,3) (3,2) (3,1)};
-    \addplot[fill=black!40] coordinates
-      {(1,9) (5,8) (0,7) (3,6) (3,5) (3,4) (0,3) (4,2) (1,1)};
-    \addplot[fill=black!65] coordinates
-      {(2,9) (1,8) (0,7) (0,6) (5,5) (8,4) (2,3) (3,2) (0,1)};
-    \legend{C1,C2,C3}
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Rejected clips}
-  \label{fig:rejected-clips}
+The summaries team gather audio content by working with the Intake team and directly with reporters. The
+`\textit{Intake}' team set up and record live incoming audio and video feeds from reporters in the field. They use an
+intercom to notify summaries of the incoming feeds so that they can listen-in to the live feeds and provide instant
+feedback to the reporter.  Summaries also work directly with individual reporters that have been commissioned to record
+clips for the bulletins. These are recorded and edited by the reporters themselves and provided to the team directly.
+
+\subsubsection{Environment and tools}
+The summaries team sit together on a single desk in the BBC newsroom at New Broadcasting House in London.
+Figure~\ref{fig:newsroom} shows the newsroom and Figure~\ref{fig:newsroom-layout} shows the location of the team within
+the space. The BBC newsroom is the largest in the world and is supported by some 3,000 journalists
+\citep[p.~80]{McLeish2015}.  The newsroom houses teams from around the BBC News division and is spatially arranged to
+facilitate the fast flow of communication. The teams for each platform (e.g. TV, radio, online) sit together on desks
+that fan out from a central area. Decisions on which stories to cover are made in this central area, and are
+communicated outwards.
+
+Figure~\ref{fig:news-desktop} shows an example of the desks used by members of the radio summaries team. The desk
+includes an intercom that can be used to communicate with other teams using labelled ``push-to-talk'' buttons. A
+desktop TV monitor is used to keep an eye on the 24-hour BBC News television channel, to track which stories they are
+currently reporting. Most communication is within the team, which is helped by sitting close together on the same desk.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{figs/newsroom.jpg}
+  \caption{The newsroom in BBC New Broadcasting House.}
+  \label{fig:newsroom}
 \end{figure}
 
-Figure~\ref{fig:rejected-clips} shows the number of clips and conditions that were used for the rejected responses.
-Although clips 4 and 5 had a higher number of rejections, the incorrect responses came from all clips and all
-conditions. There was also no combination of clips and conditions that caused an unusually high number of rejections.
-We did not find any notable difference in error between the in-points and out-points.  Figure~\ref{fig:demographics}
-shows the demographics of the participants.  We did not find any correlation between rejected participants and DAW
-experience, professional experience, age or gender.
-
-\begin{figure}[h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      height=0.75\textwidth,
-      width=0.85\textwidth,
-      enlarge y limits=0.25,
-      xbar stacked,
-      ytick=data,
-      yticklabel style={font=\footnotesize,text width=2.2cm,align=right},
-      xlabel=Participants,
-      symbolic y coords={Consumer and professional,Consumer,None},
-      legend style={font=\footnotesize},
-    ]
-    \addplot[fill=black!20] coordinates
-      {(29,Consumer and professional) (6,Consumer) (6,None)};
-    \addplot[fill=white] coordinates
-      {(17,Consumer and professional) (5,Consumer) (0,None)};
-    \legend{Accepted,Rejected}
-    \end{axis}
-  \end{tikzpicture}
-  \caption{DAW experience}
-  \label{fig:daw-experience}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      height=0.75\textwidth,
-      width=0.85\textwidth,
-      legend pos=south east,
-      enlarge y limits=0.15,
-      xbar stacked,
-      ytick=data,
-      yticklabel style={font=\footnotesize},
-      xmin=0,
-      ylabel=Years,
-      xlabel=Participants,
-      symbolic y coords={31--40,21--30,11--20,6--10,1--5,0},
-      legend style={font=\footnotesize},
-    ]
-    \addplot[fill=black!20] coordinates
-      {(0,31--40) (3,21--30) (3,11--20) (6,6--10) (13,1--5) (16,0)};
-    \addplot[fill=white] coordinates
-      {(2,31--40) (2,21--30) (5,11--20) (3,6--10) (5,1--5) (5,0)};
-    \legend{Accepted,Rejected}
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Professional experience}
-  \label{fig:pro-experience}
-\end{subfigure}
-\caption{Participant demographics}
-\label{fig:demographics}
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{figs/news-layout.pdf}
+  \caption{Layout of radio summaries within the BBC newsfloor, showing the assistant editor (1), broadcast journalists
+  (2) and the arrivals board (3).}
+	\label{fig:newsroom-layout}
 \end{figure}
 
-We were unable to find any systematic errors that would explain the rejected responses. However, as the test was online
-and unsupervised, this may have led some participants to perform the task to a lower standard than was required.
-
-Figure~\ref{fig:demographics} shows that the vast majority of participants had previous experience of using both
-consumer and professional audio editing software. 61\% of participants also had professional experience of working with
-audio. All participants reported that they understood what an audio waveform was.
-%The demographic of the participants showed a heavy bias (80\%) of male participants, and a larger proportion in the
-%26-45 age range (see Figure~\ref{fig:age}). This reflects the population to which the experiment was promoted (see
-%Section~\ref{sec:promo}) and is not expected to skew the results.
-
-
-%\begin{figure}[ht]
-  %\centering
-  %\includegraphics[width=0.5\textwidth]{figs/reject-daw.pdf}
-  %\caption{Response of rejected participants when asked whether they had previously used consumer/professional audio
-    %editing software}
-  %\label{fig:rejectdaw}
-%\end{figure}
-
-%\begin{figure}[ht]
-%\centering
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/rejects-vis.pdf}
-  %\caption{By visualization}
-  %\label{fig:rejectvis}
-%\end{subfigure}%
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/rejects-clip.pdf}
-  %\caption{By clip}
-  %\label{fig:rejectclip}
-%\end{subfigure}
-%\caption{Analysis of incorrect responses}
-%\label{fig:rejects}
-%\end{figure}
-
-%\begin{figure}[ht]
-  %\centering
-  %\includegraphics[width=0.5\textwidth]{figs/age.pdf}
-  %\caption{Age and gender of participants. Male/female ratio was 32/8
-    %(80\%/20\%). One participant declined to respond to the question.}
-  %\label{fig:age}
-%\end{figure}
-
-%\begin{figure}[ht]
-%\centering
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/daw.pdf}
-  %\caption{Previous use of audio editing software}
-  %\label{fig:experiencedaw}
-%\end{subfigure}%
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/experience.pdf}
-  %\caption{Years of professional audio experience}
-  %\label{fig:experienceyears}
-%\end{subfigure}
-%\caption{Response of participants to questions about experience}
-%\label{fig:experience}
-%\end{figure}
-
-\subsection{Quantitative metrics}
-
-We analysed the quantitative performance metrics using a linear mixed model.
-%Our model found statistically significant differences
-%between the three conditions for seek actions, task time, and task error.
-Figure~\ref{fig:visualization-metrics} shows
-the mean values and confidence intervals of the performance metrics and Table~\ref{tab:pairwise-performance} lists the
-statistical significance of the pairwise comparisons between the conditions.
-
-\begin{figure}[ht]
+\begin{figure}
   \centering
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=count,
-      xtick={1,2,3},
-      xticklabels={C1,C2,C3}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, 29.5) +- (3.7,3.7)
-          (2, 24.3) +- (3.6,3.6)
-          (3, 16.8) +- (3.1,3.1)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Seek actions}
-  \end{subfigure}%
-  ~
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=seconds,
-      xtick={1,2,3},
-      xticklabels={C1,C2,C3}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, 0.645) +- (0.121,0.121)
-          (2, 0.610) +- (0.121,0.121)
-          (3, 0.523) +- (0.109,0.109)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Task error}
-  \end{subfigure}
-
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=seconds,
-      xtick={1,2,3},
-      xticklabels={C1,C2,C3}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, 70.6) +- (16.76,16.76)
-          (2, 68.7) +- (16.49,16.49)
-          (3, 59.7) +- (16.47,16.47)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Task completion time}
-  \end{subfigure}
-  \caption{Mean performance metric values with 95\% confidence intervals. Lower values are better.}
-  \label{fig:visualization-metrics}
+  \includegraphics[width=\columnwidth]{figs/news-desk-labelled.pdf}
+  \caption{Desk of the radio summaries assistant editor, showing ENPS (1), a switching interface (2) for controlling
+  the output of a desktop TV monitor (3) and headphones, and an intercom (4) for communicating with other teams.}
+  \label{fig:news-desktop}
 \end{figure}
 
-\definecolor{lightred}{RGB}{255,204,204}
-\definecolor{lightamber}{RGB}{255,204,153}
-\definecolor{lightgreen}{RGB}{204,255,204}
-\newcommand{\highsig}{\cellcolor{black!20}}
-\newcommand{\medsig}{\cellcolor{black!10}}
-\newcommand{\nosig}{\cellcolor{white}}
-\begin{table}[ht]
-    \begin{tabular}{L{.35\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.23\textwidth-2\tabcolsep}}
-\hline
-& \textbf{C1 vs C2} & \textbf{C2 vs C3} & \textbf{C1 vs C3} \\ \hline
-	Seek actions        & \highsig$<0.01$ & \highsig$<0.01$ & \highsig$<0.01$ \\
-	Task completion time& \nosig$>0.05$   & \highsig$<0.01$ & \highsig$<0.01$ \\
-	Task error          & \nosig$>0.05$   & \medsig$<0.05$  & \highsig$<0.01$  \\
-\end{tabular}
-\caption{$p$-values of pairwise comparisons for the performance metrics. Statistically significant differences are shaded.}
-\label{tab:pairwise-performance}
-\end{table}
-
-
-\subsubsection{Seek actions}
-The audio visualization had a significant effect on the number of seek actions used to complete the task
-[$F(3,366)=93.871, p<.00001$]. Based on the mean averages, the enhanced waveform (C3) required 7.5 (30\%) fewer seek
-actions than the normal waveform (C2), and 12.7 (43\%) fewer than having no visualization (C1). Additionally, the
-normal waveform (C2) required 5.2 (17\%) fewer seek actions than having no visualization (C1).  The differences in seek
-actions between all three conditions were statistically significant ($p<.01$). These results confirm hypothesis H1
-(effort).
-
-\subsubsection{Task completion time}
-The audio visualization had a significant effect on the time required to complete the task [$F(3,366)=25.261,
-p<.00001$].  Based on the mean averages, the task was completed 9 seconds (13\%) faster using the enhanced waveform
-(C3) compared to the normal waveform (C2), and 10.9 seconds (15\%) faster compared to having no
-visualization (C1), both with $p<.01$.  There was no statistically significant difference in task completion time between the
-normal waveform (C2) and no visualization (C1).  The mean time of the normal waveform was only 1.9 seconds (3\%) faster
-than no visualization.  These results suggest that hypothesis H2 (time) is confirmed for C2$>$C3, but not for C1$>$C2.
-
-\subsubsection{Task error}
-The audio visualization had a significant effect on the accuracy of the task result [$F(3,366)=42.462, p<.00001$].
-Based on the mean averages, the error when using the enhanced waveform (C3) was 87ms (14\%) lower than when using the
-normal waveform (C2) with $p<.05$, and 122ms (19\%) lower than when there was no visualization (C1) with $p<.01$. There
-was no statistically significant difference in task error between the normal waveform (C2) and no visualization (C1).
-The error using the normal waveform was only 35ms (5\%) less than with no visualization.  These results suggest that
-hypothesis H3 (accuracy) is confirmed for C2$<$C3, but not for C1$<$C2.
-
-%\begin{figure}[ht] \centering \begin{subfigure}{.5\textwidth} \centering
-%\includegraphics[width=\textwidth]{figs/seek-std.pdf} \caption{Box plot} \label{fig:seekbox} \end{subfigure}%
-%\begin{subfigure}{.5\textwidth} \centering \includegraphics[width=\linewidth]{figs/seek-std-tukey99.pdf}
-%\caption{Tukey's test (99\% confidence interval)} \label{fig:seektukey} \end{subfigure} \caption{Number of seek
-%actions, standardised per participant} \label{fig:seek} \end{figure}
-
-%\begin{figure}[ht] \centering \begin{subfigure}{.5\textwidth} \centering
-%\includegraphics[width=\textwidth]{figs/playstart-to-selectend-std.pdf} \caption{Box plot} \label{fig:selecttimebox}
-%\end{subfigure}% \begin{subfigure}{.5\textwidth} \centering
-%\includegraphics[width=\linewidth]{figs/playstart-to-selectend-std-tukey95.pdf} \caption{Tukey's test (95\% confidence
-%interval)} \label{fig:selecttimetukey} \end{subfigure} \caption{Selection time (time between start of playback and
-%final selection), standardised per participant} \label{fig:selecttime} \end{figure}
-
-%\begin{figure}[ht]
-%\centering
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/outpoint-abserr.pdf}
-  %\caption{Box plot}
-  %\label{fig:outpointerrbox}
-%\end{subfigure}%
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/outpoint-abserr-tukey95.pdf}
-  %\caption{Tukey's test (95\% confidence interval)}
-  %\label{fig:outpointerrtukey}
-%\end{subfigure}
-%\caption{Absolute error for the outpoint of selections}
-%\label{fig:outpointerr}
-%\end{figure}
-
-%\paragraph{Zoom}
-%The experimental interface included two displays -- one overview display covering the length of the recording, and a
-%zoomed display which showed a magnified part of that. The number of times the zoom in and zoom out buttons were pressed
-%was logged. The sum of these values for each visualization is shown in Figure~\ref{fig:zoomtotal}. By subtracting zoom
-%out from zoom in, we can infer what the final zoom level was when the response was submitted. The final zoom levels for
-%each visualization are shown in Figure~\ref{fig:zoomfinal}.
-
-%\begin{figure}[h!]
-%\centering
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/zoomtotal.pdf}
-  %\caption{Total zoom actions}
-  %\label{fig:zoomtotal}
-%\end{subfigure}%
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/zoomfinal.pdf}
-  %\caption{Final zoom level}
-  %\label{fig:zoomfinal}
-%\end{subfigure}
-%\caption{Analysis of zoom usage}
-%\label{fig:zoom}
-%\end{figure}
-
-%Most of the time, participants didn't touch the zoom controls and opted to leave it on the default x5 zoom level, which
-%displays roughly one minute of audio across 1045 pixels ($\sim$50ms per pixel). Other than the x5 level, x15 was more
-%popular than x10 for all visualizations and x20 was barely used at all.
-
-\subsection{Qualitative metrics}
-
-We analysed the task load ratings using repeated measures multivariate ANOVA, which found that the audio visualization
-had a significant effect on the task load ratings from participants [$F(12,152)=3.552, p<0.001$].
-Figure~\ref{fig:tlx-results} shows the mean values and confidence intervals of the task load metrics and
-Table~\ref{tab:pairwise-perceptual} lists the statistical significance of the pairwise comparisons between the conditions.
-
-\begin{table}[ht]
-  \begin{threeparttable}
-    \begin{tabular}{L{.35\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.23\textwidth-2\tabcolsep}}
-\hline
-& \textbf{C1 vs C2} & \textbf{C2 vs C3} & \textbf{C1 vs C3} \\ \hline
-  Effort\tnote{1} & \medsig$<0.05$  & \highsig$<0.01$ & \highsig$<0.01$ \\
-	Frustration     & \medsig$<0.05$  & \medsig$<0.05$  & \highsig$<0.01$  \\
-	Mental demand   & \nosig$>0.05$   & \highsig$<0.01$ & \highsig$<0.01$ \\
-	Performance     & \nosig$>0.05$   & \medsig$<0.05$  & \highsig$<0.01$  \\
-	Physical demand & \nosig$>0.05$   & \highsig$<0.01$ & \highsig$<0.01$ \\
-  Temporal demand\tnote{1} & \nosig$>0.05$ & \medsig$<0.05$ & \nosig$>0.05$ \\ \hline
-\end{tabular}
-\caption{$p$-values of pairwise comparisons for the perceptual metrics. Statistically significant differences are shaded.}
-\label{tab:pairwise-perceptual}
-\begin{tablenotes}
-    \item[1] Mauchly's Test of Sphericity indicated that the assumption of sphericity had been violated for the effort
-      metric [$\chi^2(2) = 9.657, p=.008$] and temporal demand metric [$\chi^2(2) = 17.918, p<.001$]. Therefore, we
-      have adjusted the degrees of freedom for the univariate tests using the conservative Greenhouse-Geisser
-      Correction.
-  \end{tablenotes}
-  \end{threeparttable}
-\end{table}
-
-The task load ratings from participants show that compared to both the normal waveform (C2) and no visualization (C1),
-the enhanced waveform (C3) was less mentally and physically demanding, had better performance, was less frustrating and
-required less effort (all $p<0.05$).  They also rated the enhanced waveform as less temporally demanding than the normal
-waveform ($p<0.05$).  Compared to having no visualization (C1), participants rated the normal waveform (C2) as being
-less frustrating and requiring less effort (both $p<0.05$). 
-
-The effort ratings confirm hypothesis H1 (effort); the temporal demand ratings confirm hypothesis H2 (time) for
-C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C3.
-
-\begin{figure}[p]
+\begin{figure}
   \centering
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Effort,
-      xtick={1,2,3},
-      xticklabels={C1,C2,C3}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -0.122) +- (1.49,1.49)
-          (2, -2.244) +- (1.51,1.51)
-          (3, -4.220) +- (1.28,1.28)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Effort}
-  \end{subfigure}%
-  ~
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Frustration,
-      xtick={1,2,3},
-      xticklabels={C1,C2,C3}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -0.829) +- (2.03,2.03)
-          (2, -2.976) +- (1.67,1.67)
-          (3, -5.268) +- (1.24,1.24)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Frustration}
-  \end{subfigure}%
-
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Mental demand,
-      xtick={1,2,3},
-      xticklabels={C1,C2,C3}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -1.390) +- (1.68,1.68)
-          (2, -2.585) +- (1.45,1.45)
-          (3, -4.585) +- (1.23,1.23)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Mental demand}
-  \end{subfigure}%
-  ~
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Performance,
-      xtick={1,2,3},
-      xticklabels={C1,C2,C3}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -5.415) +- (1.10,1.10)
-          (2, -6.317) +- (1.11,1.11)
-          (3, -7.341) +- (0.88,0.88)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Performance}
-  \end{subfigure}%
-
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Physical demand,
-      xtick={1,2,3},
-      xticklabels={C1,C2,C3}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -3.122) +- (1.81,1.81)
-          (2, -4.098) +- (1.45,1.45)
-          (3, -6.171) +- (1.08,1.08)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Physical demand}
-  \end{subfigure}%
-  ~
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-    \begin{tikzpicture} 
-    \begin{axis}[
-      width=\textwidth,
-      ylabel=Temporal demand,
-      xtick={1,2,3},
-      xticklabels={C1,C2,C3}]
-      \addplot[black,mark=*]
-        plot[error bars/.cd, y dir=both, y explicit]
-        coordinates {
-          (1, -3.171) +- (1.75,1.75)
-          (2, -3.268) +- (1.51,1.51)
-          (3, -4.878) +- (1.39,1.39)
-        };
-    \end{axis} 
-    \end{tikzpicture}
-    \caption{Temporal demand}
-  \end{subfigure}%
-  \caption{Mean NASA-TLX values with 95\% confidence intervals. Lower values are better.}
-  \label{fig:tlx-results}
+  \includegraphics[width=\columnwidth]{figs/news-enps-labelled.pdf}
+  \caption{User interface for ENPS, showing a list of draft summaries (1), the running order of the currently open news
+  report (2), the text of the summary currently being edited (3), audio clips inserted into the summary (4), and the
+  ``MOS'' plugin (5) for finding and editing audio clips in the \textit{dira!} radio production system}
+  \label{fig:news-enps-edit}
 \end{figure}
 
-%\begin{figure}[p]
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/tlx-std.pdf}
-  %\caption{Standard score of NASA Task Load Index responses for each visualization, standardised per participant.}
-  %\label{fig:tlx}
-%\end{figure}
+The broadcast journalists and assistant editor write the summaries on a desktop PC using a software package called
+``Electronic News Production System'' (\textit{ENPS}). Figure~\ref{fig:news-enps-edit} shows the ENPS interface. ENPS
+is used for writing scripts, compiling and approving news bulletins, and monitoring newswire services\footnote{Newswire
+services are global news agencies that provide news reports to subscribing news organisations, such as Reuters and
+Associated Press (AP).}. The system is networked so that any changes made in ENPS are instantaneously updated for
+everybody. Audio clips are browsed, imported and edited using a plugin called Media Object Server (\textit{MOS}), which
+integrates with the \textit{dira!} radio production system.
 
-%\begin{figure}[p]
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/tlx-std-tukey95.pdf}
-  %\caption{Standard score of NASA Task Load Index responses for each visualization, standardised per participant.}
-  %\label{fig:tlxtukey}
-%\end{figure}
-
-The participants rated the enhanced waveform (C3) as significantly less physically demanding than the normal waveform
-(C2).  This was surprising, as all of the tasks were conducted using a screen and mouse, so did not require much
-physical exertion.  We do not know how participants interpreted this metric, but it's possible that some may have
-classified the movement of the mouse or number of mouse clicks as physical activity.
-
-Participants were asked to select which audio visualization was the easiest to use, and which was the most frustrating.
-The results are shown in Figure~\ref{fig:visualization-comparison}.  The enhanced waveform (C3) was rated as the
-easiest to use by 76\% of the participants.  Having no visualization (C1) was rated as the most frustrating condition
-by two-thirds of the participants. The normal waveform (C2) was not considered by many to be the easiest, nor the most
-frustrating.
-
-\begin{figure}[ht]
-\centering
-\begin{subfigure}{.5\textwidth}
+\begin{figure}
   \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      height=0.6\textwidth,
-      width=0.9\textwidth,
-      %xmin=0,
-      %xmax=38,
-      enlarge y limits=0.25,
-      xbar,
-      ytick=data,
-      xlabel=Participants,
-      symbolic y coords={C3,C2,C1},
-      %nodes near coords, nodes near coords align={horizontal},
-    ]
-    \addplot[fill=black!20] coordinates
-      {(31,C3) (7,C2) (3,C1)};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Easiest}
-  \label{fig:easiest}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      height=0.6\textwidth,
-      width=0.9\textwidth,
-      %xmin=0,
-      %xmax=32,
-      enlarge y limits=0.25,
-      xbar,
-      ytick=data,
-      xlabel=Participants,
-      symbolic y coords={C3,C2,C1},
-      %nodes near coords, nodes near coords align={horizontal},
-    ]
-    \addplot[fill=black!20] coordinates
-      {(6,C3) (8,C2) (27,C1)};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Most frustrating}
-  \label{fig:frustrating}
-\end{subfigure}
-\caption{Preferences of participants}
-\label{fig:visualization-comparison}
+  \includegraphics[width=\columnwidth]{figs/arrivals-board-labelled.pdf}
+  \caption{Arrivals board in BBC newsroom, showing the ID number (1), name (2) and arrival time (3) of each audio clip.
+  The screen also includes a clock (4). ``VCS'' is the colloquial name for the \textit{dira!} radio production system,
+  as it is made by a company that used to be called VCS.}
+  \label{fig:news-arrivals}
 \end{figure}
 
+When Intake upload a clip to \textit{dira!}, it appears on a large screen in the news floor called the ``arrivals
+board'' (see Figure~\ref{fig:news-arrivals}). The display includes a reference number which can be used to find the
+clip, as well as the upload time and a description. The description often contains the subject, reporter's name and
+their location, but the descriptions are written quickly and their is no formal syntax.
 
-%\begin{figure}[ht]
-%\centering
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/easiest.pdf}
-  %\caption{Easiest to use}
-  %\label{fig:easiest}
-%\end{subfigure}%
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/frustrating.pdf}
-  %\caption{Most frustrating}
-  %\label{fig:frustrating}
-%\end{subfigure}
-%\caption{Response of participants when asked to compare the visualizations
-  %using different criteria}
-%\label{fig:compare}
-%\end{figure}
+\subsubsection{Task analysis}
+Figure~\ref{fig:news-flowchart} shows the operational sequence diagram of the radio summaries production process. A
+description of the workflow is written below.
 
-%\subsection{Interaction behaviour}
-%This section looks at how participants used the features available in the online audio interface, full described in
-%Section~\ref{sec:iface}.
-%Informal observation of some participants as they completed the experiment
-%revealed that some people used the interface in different ways. For example,
-%when one participant had completed their selection, they scanned through the
-%remaining unselected content to check that there were no other pieces of music.
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{figs/news-workflow.pdf}
+  \caption{Operational sequence diagram of news summaries production, partitioned by role and location.}
+	\label{fig:news-flowchart}
+\end{figure}
 
-%\begin{figure}[ht]
-%\centering
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/top-v-bot-pref.pdf}
-  %\caption{Display}
-  %\label{fig:displaypref}
-%\end{subfigure}%
-%\begin{subfigure}{.5\textwidth}
-  %\centering
-  %\includegraphics[width=\linewidth]{figs/mark-v-slide-pref.pdf}
-  %\caption{Selection method}
-  %\label{fig:selectpref}
-%\end{subfigure}
-%\caption{Preference of participants}
-%\label{fig:pref}
-%\end{figure}
+% read newswires
+% monitor TV news
+% select stories
+% commission reporter
+% write summary
+The assistant editor selects which news stories should be included in the bulletins. The stories come from multiple
+sources, including newswire services and the BBC television news channel.
+Newswire
+reports are accessed through ENPS, and users are notified of any reports flagged as important.  As they work, the
+assistant editor and broadcast journalists use their desktop monitor to keep an eye on the BBC News TV channel to spot
+any breaking news stories, or material which they could use in their bulletins, such as interviews.  The assistant
+editor will sometimes commission a reporter to record a news report for a particular story to ensure that they have
+good audio content to include in the summary. The broadcast journalists and assistant editor both write the
+summaries for a specific bulletin using ENPS. Previously-written summaries are often re-used, but are updated to
+reflect the latest information.
 
-%\paragraph{Top/bottom display}
-%There are two displays that make up the interface -- a zoomed display at the top and an overview display on the bottom.
-%Either of the displays can be used to navigate the recording and make selections.
+% receive audio from reporter
+% receive audio from intake
+% monitor TV news
+% clip audio
+% insert audio
+Audio clips are added to each summary to include quotes from interviews and items from reporters. The audio is sourced
+from the Intake team, directly from reporters and from the BBC News TV channel. Audio from Intake and reporters is
+imported using the \textit{MOS} plugin. The plugin allows users to find audio in the \textit{dira!} radio production system
+and edit clips by cutting the audio, and controlling sound levels/fading. Finished clips are inserted directly into the
+text of the written summary using a drag-and-drop gesture. At this point, the broadcast journalist gives the clip a
+name and can optionally include the ``in/out words'' that are spoken at the start and end of the clip.  The name,
+in/out words and duration of the clip appear in the script.  Audio from the BBC News TV channel must be found and
+clipped by the broadcast journalist themselves. The sound from the television channel is automatically recorded into
+\textit{dira!} in 40-minute segments. The broadcast journalist uses the \textit{MOS} plugin to browse to the desired
+segment, find the location of the audio they want, and create a clip of the audio.
 
-%For each participant, the number of tasks where they used the zoom display more than the overview (and vice-versa) were
-%counted. Figure~\ref{fig:displaypref} shows number of participants who, on average, used the zoomed or overview display
-%more.
+% edit to time
+% submit for approval
+% provide feedback
+% make corrections
+% read bulletin on-air
+The finished bulletin must fit an exact time slot (e.g. 120 seconds), so the broadcast journalist must estimate how
+long it takes to read their bulletin, including the audio clips, and edit the text to the correct length.  When a
+journalist has finished writing their bulletin, it is placed into the `running order' and named according to the
+network and time (e.g. `R4 Thu 10:00').  The assistant editor then reviews the bulletin and listens to the clips. This
+is to ensure the bulletin is of the right length, is factually accurate, uses the correct language, and complies with
+BBC editorial policy. Any required changes are made either by giving feedback to the journalist, or by the assistant
+editor making the changes themselves.  When the item is approved in ENPS, it is labelled with a green flag, which
+indicates that it has been signed-off.
 
-%The results show a clear preference for using the overview display more than the zoom display. Coupled with the results
-%of zoom usage in Section~\ref{sec:studymetrics}, we can see that for this task most people opted just to work in the
-%overview display, despite only having a resolution of roughly 300ms per pixel.
+The newsreader sits in a radio studio and normally has no direct contact with the summaries team.  At the time of the
+news bulletin, the newsreader reads the script directly from ENPS while on-air. The audio clips in the script are
+automatically loaded into the play-out system, and the newsreader uses a button to trigger them at the right time.  The
+duration and in/out words of the audio clip are displayed in the script, which helps the newsreader to predict when the
+clip ends.
 
-%An analysis of the overview and zoom display's usage between different visualization methods did not find any notable
-%difference.
+\subsubsection{Challenges}
 
-%\paragraph{Selection method}
-%The design of the interface gave participants two methods of making a selection -- buttons to mark in and out points
-%using the cursor, and a slider where the in and out points could be dragged around. The cursor can be moved around in
-%both the overview and zoomed displays, whereas the slider is only available at the x1 zoom level. This makes the
-%buttons more useful for fine edits, where high precision is needed. When using the slider, the selection display
-%updates as you move it making it easier for people to see where their selection is.
+The summaries team work under high-pressure circumstances. They have less than an hour to put together several minutes
+of content that will be read to millions of listeners. News can break at any moment, so sometimes bulletins need to be
+changed or re-written minutes before they are broadcast. In addition to these pressures, it is very important that the
+news reports are factually accurate and balanced.  Due to these circumstances, the participants had very little time to
+talk to the researcher. During observation, all of the communication between team members was directly related to the
+task at hand, and there was no chatting or socialising.
 
-%For each response, the method with the most actions was found and these preferences were summed for each participant to
-%calculate their overall preference. The results are shown in Figure~\ref{fig:selectpref}.
+When creating clips from television broadcasts, the journalists must source the clips from 40-minute-long segments.  To
+find the audio, they used seek to navigate the recording and listened for a particular voice or mention of the topic of
+interest.  The \textit{MOS} plugin interface they used displayed a waveform, but this did not seem to help them find
+the audio.  Finding and cutting clips in this way is a time-consuming and difficult task, particularly when performed
+under pressure.  Application of segmentation or speech-to-text technology could help by indicating where people are
+speaking, displaying keywords that are mentioned, or allowing the recording to be searched by text.
 
-%The buttons were the most popular method of making a selection, with only 17\% of people using the slider more.
-%Informal feedback found that some people has a strong preference for using the slider but were frustrated that there
-%wasn't a second slider available on the zoomed display.
+The bulletins written by the broadcast journalists must target a specific duration for when they are read.  They have
+no indication of how long it takes to read a piece of text. They must therefore estimate this based on experience, or
+reading it in their head.  By developing a system that estimates the duration of spoken text, broadcast journalists may
+be able to target a specific duration more efficiently. 
 
-%\section{Results}
-%63 responses were received in the three weeks the experiment ran. 35\% of participants were rejected, which was higher
-%than expected. An analysis of the rejected participants found that none had experience of using professional audio
-%editing software, which suggests that the errors could be due to lack of experience with audio interfaces.
+When it comes to inserting clips into the script, in and out words must be manually entered so that the clip can be
+recognised in the text. Ideally this text would include a full transcription, but there is not enough time to
+transcribe the whole clip.  Speech-to-text technology could be used to help automate this and full transcription could
+further help the journalists to recall the clip and write the script around it.
 
-%The demographic of accepted participants reflected the population which was recruited: 80\% male with a larger
-%proportion in the 26-45 age range. This imbalance is not expected to affect the result. Two-thirds of accepted
-%participants had experience of using professional audio editing software, with the remaining participants having
-%consumer-level experience or less. 39\% reported having no professional experience with audio.
+\subsection{Drama}\label{sec:drama}
+Radio 4's ``15 Minute Drama'' is a series of original drama and book dramatisations, broadcast twice-daily. Drama
+production is very different from most other genres in radio, as it is based on a pre-written script of a radio play.
+Each episode takes around two days to produce, but production of the series spans several weeks.  The researcher
+observed the production over two full days -- one for the recording of the drama and the other for the editing process.
+The observation did not include the writing of the script.
 
-%Figure~\ref{fig:seekpdf} shows the distribution of the number of seek actions for each visualization. On average, the
-%number of seek actions required to select the music is lowest for the enhanced waveform and highest for no waveform.
-%However, individual participants had different styles of interaction; for example, some people had a tendency to seek
-%around a lot whereas others didn't. In order to account for this, the performance and TLX metrics were standardised for
-%each participant.
+\subsubsection{Roles and responsibilities}
+The production team is led by a \textit{director} who works with a \textit{broadcast assistant} and three studio
+managers (SMs) -- a \textit{panel SM}, \textit{grams SM} and \textit{spot SM}. The team record a \textit{cast} of
+actors who perform the drama.
 
-%\begin{figure}[!h]
-%\centering
-%\includegraphics[width=0.6\columnwidth]{figs/seek-pdf.pdf}
-%\caption{Probability density function of number of seek actions for each
-%visualization}
-%\label{fig:seekpdf}
-%\end{figure}
+The director is responsible for leading the team and making editorial and creative decisions. Before the recording,
+they will have commissioned a writer to create the script, and worked with them to refine it. During the recording,
+they announce the start and end of takes, give feedback to the cast about their performances, and work with
+the SMs to ensure the drama has the right sound.
 
-%For each metric, the standardisation function (see Equation~\ref{eq:standard}) subtracts the mean of the participant's
-%scores and divides by the standard deviation. This maps observations to the `standard score', which is a dimensionless
-%unit that represents the number of standard deviations an observation is above the mean.
+The director is supported by a broadcast assistant who handles much of the administrative work before and after the
+recording, such as making copies of the script, booking the cast, producers and rooms, and processing payments.
+During the recording, they annotate the script with detailed notes about the position and length of each take, and mark
+any mistakes or re-takes.
 
-%\begin{equation}
-%std(x) = \frac{x - \mu_{part}}{\highsigma_{part}}
-%\label{eq:standard}
-%\end{equation}
+The panel SM is responsible for the sound of the drama. They lead the other two SMs during the recording process,
+operate the mixing desk in the cubicle and make backup recordings of the performances onto CDs.  They also work with
+the spot SM to position the actors and microphones to achieve they sound they want.  After the recording, they work
+with the director to edit the drama into the final version.
 
-%The performance and TLX metrics of the 41 accepted participants were analysed using ANOVA.  Significant results were
-%found for the number of seek actions ($F_{2,40}=30, p<0.001$) and the selection time ($F_{2,40}=3.2,p\medsig$<0.05$$).  Tukey's
-%test shows that the enhanced waveform required fewer seek actions than the normal waveform, and the normal waveform
-%required fewer than no waveform (see Figure~\ref{fig:tukeyseekselect}). The selection time was shorter for the enhanced
-%waveform compared to no waveform, but the normal waveform was not significantly different.
+The grams SM prepares and plays pre-recorded sound effects during the recording, and is also responsible for recording
+the performances using a DAW.  ``Grams'' refers to gramophones, which were historically used to play pre-recorded sound
+effects.  After each take, the grams SM labels the recording with the episode, scene and take numbers, which are later
+used to assemble the final programme.  When the director wants to listen back to a performance, the grams SM uses the
+DAW to find and replay the desired take.
 
-%\begin{figure}[!h]
-%\centering
-%\includegraphics[width=\columnwidth]{figs/seek-select.pdf}
-%\caption{Tukey's test for mean number of seek actions and mean selection time}
-%\label{fig:tukeyseekselect}
-%\end{figure}
+The spot SM works in the studio, where they set up and position microphones and create spot
+effects, also known as ``foley'' in the film industry. The effects are produced using a large variety of props that
+are kept in the studio to emulate common sounds such as doors, windows, locks, telephones and footsteps to name a few.
 
-%Significant results were found for each of the NASA-TLX metrics ($F_{2,40}>4.8,p\highsig$<0.01$$). The normal waveform performed
-%better than no waveform for mental demand, performance, effort and frustration (see Figure~\ref{fig:tlx}). The enhanced
-%waveform performed better than the normal waveform for mental, physical and temporal demand, performance and effort.
+The cast are hired by the director specifically for the drama being recorded. Often the cast are sourced from the BBC
+Radio Drama Company (RDC), which is a rotating group of actors that are employed by the BBC. The cast perform the
+radio play in the studio, working under instruction from the director.
 
-%\begin{figure}[!h]
-%\centering
-%\includegraphics[width=\columnwidth]{figs/tlx-std-tukey95.pdf}
-%\caption{Tukey's test for mean of NASA-TLX metrics (95\% CI). Lower is
-  %better.}
-%\label{fig:tlx}
-%\end{figure}
+\subsubsection{Environment and tools}
+The drama we observed was recorded in Studio 60A, which is a purpose-built flexible performance space at BBC New
+Broadcasting House in London. The studio contains various spaces with different acoustic properties, including a
+staircase with wood, concrete and carpet steps, an upstairs bedroom, a fully working kitchen and a foam-lined spiral
+corridor, used to simulate distance.  There are many fixtures and a range of props for re-creating spot effects of
+common environmental sounds such as freestanding doors/windows with a variety of knockers and letter boxes. The studio
+is a large space, so there are four CCTV cameras which are used to help the producers in the cubicle to see parts of
+the studio that are out of view. 
 
-%76\% of participants thought that the enhanced waveform was the easiest to use with the normal waveform scoring 17\%.
-%Two-thirds thought that having no waveform was the most frustrating condition with 20\% choosing the normal waveform.
+The studio is connected by a large acoustically-isolated window to the control room, known as the ``cubicle'', where
+the production team sit.  Figure~\ref{fig:drama-studio} shows the view of the studio from the cubicle, and
+Figure~\ref{fig:drama-layout} shows the layout of the two spaces. The mixing desk is operated by the panel SM and is
+positioned directly in front of the window.  The broadcast assistant sits to the right of the panel SM and the director
+sits directly behind them. The grams SM sits at the back of the room, while the spot SM spends most of their time in
+the studio.  The director, broadcast assistant and panel SM each have an intercom, which they can use to communicate
+with people in the studio with a ``push-to-talk'' button.
 
-\section{Discussion}\label{sec:vis-discuss}
+The panel SM sets the sound levels and balances the audio using the mixing desk, and makes a backup recording of the
+performances using a CD recorder located in a rack to the left of the mixing desk.  Under the mixing desk, there is a
+foot pedal which controls a light in the studio to silently indicate the start of a performance, known as a ``cue
+light''. The panel SM also controls warning lights displayed above the door to the studio to stop people from walking
+in during recording.  The grams SM uses software called ``SpotOn'' \citep{Cridford2005} to select and play pre-recorded
+sound effects. They use the ProTools DAW to record audio clips of each performance, and label them with the episode,
+scene and take numbers.
 
-Our study found that using an enhanced waveform visualization, participants could segment music from speech faster,
-more accurately and with less effort than using a normal waveform.  When using the normal waveform, participants could
-segment music from speech with less effort than having no visualization, but we did not find any significant
-differences in the time it took, nor the accuracy of the result.  Table~\ref{tab:hypotheses} summarises the findings
-for the hypotheses we tested.
+Figure~\ref{fig:drama-edit} shows the editing suite where the panel SM and director perform the post-production work.
+The editing suite is a compact acoustically-treated room which houses a PC running ProTools, stereo speakers, a small
+mixing desk and level meters.  The left monitor is used to find pre-recorded sound effects and the right monitor is
+used to arrange and edit the audio clips. The panel SM uses an annotated copy of the script to guide this process.
 
-\begin{table}[h]
+\begin{figure}
   \centering
-  \begin{tabular}{l | c c | c c}
-    \hline
-    & \multicolumn{2}{c|}{Quantitative metrics} & \multicolumn{2}{c}{Qualitative metrics} \\
-    \hline
-    H1 (effort)   & C1$>$C2 & C2$>$C3 & C1$>$C2 & C2$>$C3 \\
-    H2 (time)     & --      & C2$>$C3 & --      & C2$>$C3 \\
-    H3 (accuracy) & --      & C2$<$C3 & --      & C2$<$C3 \\
-    \hline
-  \end{tabular}
-  \caption{Summary of confirmed findings for each hypothesis}
-  \label{tab:hypotheses}
-\end{table}
+  \includegraphics[width=3.5in]{figs/drama-layout.pdf}
+  \caption{Physical layout of the drama studio and cubicle, showing the director (1), broadcast assistant (2), cast
+  (3), panel SM (4), grams SM (5) and spot SM (6).}
+  \label{fig:drama-layout}
+\end{figure}
 
-% enhanced waveforms are better than normal, so what?
-% - 30% fewer seek actions
-%   - is a lot
-%   - don't need to listen as much
-%   - better sense of structure
-The mean average number of seek actions for the enhanced waveform was 30\% less than for the normal waveform, and the
-mean task completion time was 13\% faster. This shows that the participants did not have to navigate the audio as often
-to complete the task. This is likely to be because the colour enhancement allowed participants to narrow their search
-region, so they did not have to perform as much listening as they otherwise would. The enhanced waveform was also 14\%
-more accurate than the normal waveform, potentially because the narrower search region made it easier to find the
-precise start and end time of the music.
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{figs/60a.jpg}
+  \caption{Cubicle of studio 60A.}
+  \label{fig:drama-studio}
+\end{figure}
 
-The increased performance of the enhanced waveform demonstrates that there is potential in the colour mapping
-techniques explored by \citet{Tzanetakis2000}, \citet{Rice2005} and \citet{Mason2007}. We did not attempt to select the
-best possible semantic audio feature, nor the optimum colour mapping technique, so it is likely that optimising these
-would provide much better performance than the visualization we tested.
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{figs/drama-edit-labelled.pdf}
+  \caption{Radio drama edit suite, showing the sound effects library interface (1), the annotated script being edited
+  (2), a mixing desk (3), the ProTools DAW with a list of recorded and labelled audio clips (4) and the edit time-line
+  (5), and level meters (6).}
+  \label{fig:drama-edit}
+\end{figure}
 
-% - impact on radio production
-%   - participants were not professionals, but vast majority had experience of using pro editing software
-%   - less experience/training required to get up to performance
-%   - would free up more time for creative tasks
-Radio programmes must be produced in a limited time period, which means that radio producers often work to tight
-deadlines. A reduction in the time and effort needed to perform simple editing tasks could give radio producers greater
-freedom to focus on more creative and productive activities. In turn, this could potentially lead to improvements in the
-editorial quality of programmes.
+\subsubsection{Task analysis}
+Figures~\ref{fig:ethno-drama-recording} and \ref{fig:ethno-drama-editing} show the operational sequence diagrams of the
+radio drama recording and editing processes, respectively. Descriptions of each workflow are presented individually
+below.
 
-% normal are not much better than nothing, so what?
-% - waveforms are widely used
-%   - impacts on many people
-%   - questions over whether waveforms should be default vis
-%   - opportunity to make big difference
-Although normal waveforms allowed participants to complete our music segmentation task with less effort than no
-visualization, there was no significant difference in the task completion time, nor the accuracy of the result.  In a
-study made up of 41 participants, we would have expected to find a significant difference compared to the baseline.
-This poor performance raises questions over how helpful waveforms are as a navigational aid.
+\begin{figure}
+  \centering
+  \includegraphics[width=5in]{figs/drama-recording-workflow.pdf}
+  \caption{Operational sequence diagram of radio drama recording, partitioned by role and location.}
+  \label{fig:ethno-drama-recording}
+\end{figure}
 
-The consequence of poor performance of waveforms is particularly high because waveforms are the default visualization
-for most digital audio workstations. With our enhanced waveform, we have seen that it is possible to provide greater
-efficiency for navigating and editing audio for at least one task.  Improving the performance of the default
-visualizations in DAWs could make a marked difference to a large number of people, as audio editing software is
-used around the world by various professionals, many of whom spend much of their working life interacting with audio
-using these visualizations.
+\paragraph{Recording}
+The recording process involves the entire production team and cast. Between one and two episodes are recorded in a day.
+Prior to recording, the cast will assemble in the ``green room'' with the director and rehearse the play. During the
+rehearsal, the broadcast assistant measures how long the performances take, to ensure they are not too long or too
+short.  The director provides feedback to the cast on their performances before they move to the studio.
 
-% - choice of feature
-%   - we didn't choose the best
-%   - other features may perform better
-%   - using multiple features is likely to improve performance further
-We selected low energy ratio as a semantic audio feature for discriminating between music and speech.  Low energy ratio
-is based on detecting changes in the amplitude profile.  Although these changes can clearly be seen using an audio
-waveform, they are only visible when the waveform is sufficiently zoomed-in.  It is therefore important to not only
-include the right information, but to present it in a way that humans can read.
+The drama is recorded as a series of ``takes''. Each take is a short segment of a scene, often only
+20--30 seconds long.  Multiple takes of the same material are recorded so that the director can give feedback to the
+cast between takes.  The director starts the recording process by announcing the episode, scene and take number.  The
+panel SM starts the backup recording, and the grams SM starts the DAW recording. When everything is ready, the panel SM
+flashes the cue light, which silently signals the cast to start performing.  During each take, everybody listens to the
+performance. The panel SM balances the audio levels, the grams SM triggers pre-recorded sound effects, and the spot SM
+performs live spot effects in the studio.
 
-We restricted our selection of the semantic audio feature to a one-dimensional value, and used pseudocolour to map the
-value to the waveform.  Low energy ratio is just one of many features we could have used for this task.  There are
-other features that are more effective and could further improve user performance. Multiple features could
-also be combined by using weighting, by using logic to switch between them or by mapping them using false colour.
+The broadcast assistant annotates a printed script with information about each take.  Figure~\ref{fig:drama-script}
+shows an example of an annotated drama script.  The start and end of each take is marked with a vertical line on the
+side of the page. The take and backup CD numbers are written at the top of each line, and the duration of the take is
+written at the bottom.  If the take starts again during a recording, the line continues back to the top.  The best take
+for each scene is marked by highlighting the line for that take.  Words that are spoken incorrectly are underlined, and
+repeated words or phrases are marked with square brackets.  Different coloured pens are used to distinguish the marks
+for each take.  
 
-% applications beyond speech/music discrimination
-The ability to visually identify the location of music has applications beyond removal of unwanted music.
-\citet{Mason2007} mapped three semantic audio features using false colour to display the structure of radio programmes
-to help consumers navigate audio recordings.  Many daytime radio programmes alternate between speech and music, so
-being able to see where the music is played would provide a visual structure of the programme. This could help
-producers and the audience navigate to the next piece of speech or music, and get a sense of the programme format and
-length.
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{figs/drama-markup-labelled.pdf}
+  \caption{An annotated drama script page. Recordings for each take are marked with different colour lines (1). The
+    best takes are marked with a highlighter pen (2). The backup CD/track and take numbers are marked at the top of
+    each line (3) and the length of the take in seconds is marked at the bottom (4). Freehand notes are often attached
+    to takes (5). Repeated lines are marked using square brackets in the colour of the take (6).}
+  \label{fig:drama-script}
+\end{figure}
 
-\section{Further work}\label{sec:vis-further}
+At the end of a take, the DAW and backup recordings are stopped. The grams SM uses the DAW to label the clip with the
+episode, scene and take number (e.g. ``e2s3t1''). The broadcast assistant marks the printed script and spreadsheet with
+the duration of the take and the backup CD number.  If the director wants to record another take, they discuss the
+performance with the production team, then provide the cast with feedback, either by walking into the studio, or using
+the intercom.  If the director is satisfied that they have recorded what they need, then they select the best take and
+move onto the next scene. The broadcast assistant marks the best take on the script and spreadsheet, which calculates
+the current overall duration of the recording.
 
-% only applicable to one use case
-In this study, we only considered a single audio editing task, and based our enhanced visualization on an audio feature
-specific to that task. Based on these results, we can't infer anything about the performance of these audio
-visualizations beyond speech/music discrimination.  Our enhanced waveform improved the performance of participants in
-completing the task, but it is unlikely that it would improve the performance of other editing tasks.
-%This means that a custom semantic audio feature and mapping would have to be generated for each different task.
-The direction of future research into audio visualization could either aim to be more specific, where individual
-visualizations are created to target particular applications, or aim to be more general, where a single visualization
-attempts to handle multiple applications.
+At the end of the episode, the team either move on to the next episode, or the director sends everybody home.  The
+grams SM copies the audio clips from the DAW onto a portable hard drive.  Portable hard drives are used as they can
+handle large file sizes better than than the local computer network.  The hard drive and annotated drama
+script are given to the panel SM to use for editing.
 
-It would likely be easier to create effective specific visualizations as they
-only need to include information relevant to the application, but this would make it difficult to cater for every
-possible use case. Users would also have to switch between multiple specific visualizations depending on the task they
-are performing, and learn how to read each of them. General visualizations would have to contain information relevant
-to all applications. It would be difficult to select the most relevant information and map it in a way that humans can
-easily interpret. However, they could be used for any purpose without users having to switch between or learn to read
-multiple visualizations.
+\begin{figure}
+  \centering
+  \includegraphics[width=2in]{figs/drama-editing-workflow.pdf}
+  \caption{Operational sequence diagram of radio drama editing, partitioned by role and location.}
+  \label{fig:ethno-drama-editing}
+\end{figure}
 
-\section{Conclusion}\label{sec:vis-conclusions}
+\paragraph{Editing}
+The recordings for the drama are edited into a final programme by the panel SM and director. The panel SM starts by
+creating a rough edit of the programme by themself, using the annotated script as a guide.  As the files are stored
+on a portable hard drive, this process can be done either in an edit suite or on a laptop at home. The first step is to
+create a sequence of the best takes from the recordings, as marked in the annotated script, by dragging them onto a
+time-line from the list of labelled clips.  The panel SM uses the script to identify and remove errors in the takes,
+such as re-takes or repeated words.  They adjust the sound level to be consistent throughout by using the mouse
+to draw level curves, or by recording automation using a fader on the mixing desk.
 
-We conducted a within-subjects user study in which 41 participants segmented music from speech using three conditions
--- a normal audio waveform, a waveform enhanced by mapping semantic information to colour, and without using any
-visualization.  Based on both quantitative and qualitative metrics, we found that using the enhanced waveform,
-participants completed the task faster, more accurately and with less effort than the normal waveform. Using the normal
-waveform required less effort than no visualization, but was not significantly faster, nor more accurate.
+The panel SM adds any additional sound effects using an effects library on their PC, which contains roughly 900 hours
+of sound effects.  The effects are found either by using text to search their metadata, or by browsing to specific
+collections of effects.  Before the director joins them, the panel SM listens through the rough edit to identify any
+mistakes or errors, such as repeated words and phrases, or noise caused by actors handling their paper scripts.
+Double-speed playback is used to save time during this process.
 
-Our results show that mapping semantic audio features to a visual representation can improve user performance.  Given
-the large-scale use of waveforms in audio production, making improvements to the audio visualization could make a
-meaningful impact on a large community.  For this study, we selected a rudimentary audio feature and visual mapping.
-There are opportunities to develop more efficient audio visualizations by combining multiple features and using more
-advanced visualization techniques, targeting either specific applications or general use.
+Once the rough edit is complete, the director joins the panel SM in the edit suite. They listen to the rough edit
+to judge the quality of the performances they previously selected as the best takes.  Often, the director will ask the
+panel SM to play other takes so that they can compare them.  To do this, the SM finds the correct recording in the clip
+list, drags it onto the time-line and finds the correct position in the clip.  The director may ask the panel SM to swap
+a take, or combine the start and end of different takes to use the best performances.  The same process happens for the
+sound effects, which may be swapped or mixed together.
 
-%This experiment used a browser-based audio interface to conduct a within-subjects online study of how users performed
-%in finding and selecting music with different audio waveforms. Three conditions were tested -- no waveform, a normal
-%waveform and a waveform that was colourised using a simple speech/music discriminator.
+Music is not specified in the script, so the director has the freedom to choose what they want. Popular consumer music
+services such as iTunes are used to find commercial tracks, but often directors will choose ``production music'', which
+is designed for TV/radio and is easier to license. These can be searched using descriptive keywords on one of a
+number of online music libraries such as Audio Network or Desktop Jukebox.  The director provides the music to the
+panel SM on a USB storage device for them to add using the DAW.
 
-%Compared to no waveform, the normal waveform required fewer seek actions and was rated better in terms of mental
-%demand, performance, effort and frustration. Finding and selecting music with the colourised version took less time
-%than with no waveform. Compared to the normal waveform, it required fewer seek actions and was rated better in terms of
-%mental, physical and temporal demand, performance and effort.
+The final programme must have an exact duration to fit its assigned broadcast slot. The programme is often edited to be
+slightly too long, so some lines can be removed to reduce the programme length. Removing lines has a strong
+editorial impact, so the director decides which lines to remove and the panel SM edits them out using the DAW.  Once
+finished, the final edit is rendered to an audio file by playing the programme in real-time through a digital
+loop-back. Although this can be done faster, this playback forces the director and panel SM to listen to the programme
+from beginning to end in one go. If they are happy with the edit, the director sends the file to their editor for
+sign-off and broadcast.
 
-%\subsection{Further work}
-%The results indicate that the waveform can be significantly improved, even with a simple enhancement. The next stages
-%of this research will focus on development of audio analysis and visualization algorithms/tools that address the needs
-%of people working in radio production. This will be followed by an analysis of the real-world benefit of using these
-%new tools.
+\subsubsection{Challenges}
+The clear syntax used to annotate the drama script shows that the production workflow is well-organised and makes good
+use of existing tools. However to convert those annotations into a rough edit, the SM must use a DAW to manually
+arrange and edit the clips, and remove any marked errors. This can be a lengthy and tedious process. If the annotations
+could be captured digitally, the rough edit stage could conceivably be fully or partly automated.
+
+In addition to being script-based, a defining characteristic of drama production is that multiple takes are recorded in
+order to capture the best possible performance. However, there is no simple way to directly compare performances. For
+this reason, the director does not want to compare too many takes, and therefore relies heavily on the script
+annotations and written notes. Providing a quick and easy method for the director to listen to and compare different
+takes could potentially lead to selection of better performances.
+
+When actors make a mistake, they often say the line again immediately. This is usually marked in the script with square
+brackets. However, these can sometimes be missed and are not easy to spot using the DAW interface.  Audio analysis
+techniques could be used to detect and highlight where this happens.
+
+%It takes skill and experience to find the right sound effects
+%know which words to use for the search or to know which CDs or collections
+%to use for certain effects.
+
+\subsection{Documentary}\label{sec:doc}
+``The Report'' is a weekly investigative documentary that covers topical news stories. It is produced over a three week
+period by the Radio Current Affairs department in BBC News and is broadcast at 8pm every Thursday on Radio 4. The
+researcher observed the team for a total of four days -- one day during their research phase, one day during their
+interviewing phase and two days during their editing phase.
+
+\subsubsection{Roles and responsibilities}
+The documentary is created by a team of three, made up of a \textit{producer}, \textit{presenter} and
+\textit{researcher}.  At certain points during the production, the team is supported by an \textit{editor} and
+a \textit{studio manager}.
+
+The producer leads the team and makes the editorial decisions. They decide what the story-line will be, who to interview
+and how the programme is edited together. They pre-interview participants to screen them, record interviews with
+them, transcribe those recordings and create a rough edit of the programme.
+
+The \textit{presenter} is a journalist who is the narrator of the documentary. They work closely with the producer to
+craft the story-line, write the narrative ``links'', conduct interviews and provide feedback to the producer about the
+edit. The Report has a regular presenter who typically works on two or three documentaries at once.
+
+The \textit{researcher} assists the producer with research and investigation. They recruit for and set up interviews,
+conduct pre-interviews, and transcribe audio. 
+
+The \textit{editor} leads the Radio Current Affairs department. They do not participate directly in the production of
+the documentary, but provide feedback to the team and give approval for the documentary to be broadcast.
+
+A \textit{studio manager} (SM) joins the team on the final day of production to turn the producer's rough edit into
+the finished programme. This process includes recording the presenter, removing redundant speech, adjusting the pace of
+the speech, removing unwanted noise and adding music.
+
+\subsubsection{Environment and tools}
+The team is based in BBC New Broadcasting House in London. Most of the work takes place in an open-plan office using
+standard office desks with just a PC and telephone. The research for the programme is desk-based and does not require
+any special tools other than a web browser and phone.
+
+Face-to-face interviews are conducted either on-location, in the office building or in a radio studio.  For interviews
+outside the studio, a portable audio recorder and microphone are used to capture the audio.  Remote interviews are
+conducted by using a digital ``ISDN''\footnote{Integrated Services Digital Network} link to a local radio studio, an
+IP-based call such as Skype, or over the telephone. The telephone is used as a last resort as it has the poorest sound
+quality.
+
+The office is located directly beside four radio studios. The studios are organised into pairs so that one can be used
+for recordings, with the other used as a cubicle. Each studio is acoustically treated and contains a PC with a DAW,
+a mixing desk, speakers, microphones and a telephone connected to a recorder. The studio is used to record remote and
+face-to-face interviews, record the presenter's narration, listen to the programme and edit it into the final
+version.
+
+\subsubsection{Task analysis}
+Figure~\ref{fig:ethno-docs-workflow} shows the operational sequence diagram of the documentary production.  A
+description of the workflow is presented below.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4.5in]{figs/docs-workflow.pdf}
+  \caption{Operational sequence diagram of radio documentary production, partitioned by role and location.\\
+  {\footnotesize ($^{*}$some interviews are transcribed using a third-party service)}}
+  \label{fig:ethno-docs-workflow}
+\end{figure}
+
+Production starts with researching the chosen topic of the documentary.  The purpose of the research stage is to form
+the story-line for the documentary, and to identify people to interview.  Often the topic will be in the news that week
+and the producer will be looking for an interesting angle which can be explored in greater depth.  The producer and
+researcher listen to news reports and documentaries, read newspaper articles and encyclopedias, and talk to contacts
+who know about the subject.  The producer makes rough notes for themselves in Microsoft Word and prepares a draft
+outline of the programme.
+
+Once the team have identified who they might want to interview, the producer or researcher will approach them to see if
+they are interested.  If the interviewee has the time available, the producer or researcher will do a `pre-interview'
+over the phone, which simulates a real interview but is not recorded. This is done to see what the person will say and
+whether it suits the story-line of the documentary.  Most interviews are recorded face-to-face, either on-location or in
+a studio, depending on the situation.  During interviews, the presenter asks the questions while the producer records
+the audio and monitors the levels.  For on-location interviews, the presenter holds the microphone and the producer
+operates the portable recorder.
+
+All of the interview recordings are transcribed. Some recordings are sent to a third-party transcription service in
+Australia that transcribes the audio overnight.  However, often the programme's budget can only cover transcription of
+less than half of the interviews. The rest must be transcribed by the producer or researcher. For this, they use
+Microsoft Word to manually type the words.  To save time, they will only do a rough transcription by skipping most
+words, leaving only enough to get a good idea of what was said.  With both the third-party and manual transcriptions,
+timestamps are written every few minutes to help the reader identify the location of the audio.
+
+The interview transcripts are printed onto paper, which the team use to help them collaborate face-to-face.  The team
+go through the interview transcripts and mark lines that they want to use with a highlighter pen. Notes and labels are
+informally written on the page.  After the team have marked-up the interview transcripts, the producer uses them as a
+guide to find the audio of the content they highlighted, and piece it together into a rough edit using a DAW. The
+timestamps written in the transcript are used to help them navigate the audio.
+
+While the producer creates a rough edit, the presenter writes the programme's ``links'' -- the narrative elements that
+sit between the interview clips. When the first rough edit is complete, the whole team sits down with the editor for a
+``run-through''. The programme is performed out loud from beginning to end, with the presenter reading the links and
+the producer playing the clips from the DAW. This allows the editor to hear the programme and give early feedback. It
+also allows the producer to determine the current length of the programme.  This run-through process typically happens
+two or three times for each programme.
+
+Once the editor is happy with the rough edit, a studio manager (SM) is brought it to help turn it into the final
+programme.  This often happens on the day of the broadcast.  The SM records the presenter's links directly into the
+DAW, while the producer gives feedback to the presenter.  The programme's theme music is added, along with any
+additional music chosen by the producer, which is often production music sourced from an online library.  The SM cleans
+up the interview clips by removing redundant noises (e.g. ``umm'') and phrases (e.g. ``you know''), and ensures a good
+pace by removing long pauses. However, some redundant noises or pauses are left in because they are difficult to remove
+or editorially relevant.  The SM also balances the sound levels by recording automation using a fader on the mixing
+desk or by dragging in/out fades. 
+
+Once all of the elements have come together, the producer and SM work together to cut the programme down to a specific
+duration (in this case 27 minutes and 45 seconds). This is done by removing sections of speech, usually from the
+beginning and end of interview clips.  The finished programme is played to the editor who gives their final feedback.
+Once any changes are made and the programme is signed-off, the documentary is rendered to an audio file and imported
+into the \textit{dira!} radio production system. The producer must then listen to the entire programme in
+\textit{dira!} to ensure the audio that will be broadcast contains no errors.
+
+\subsubsection{Challenges and opportunities}
+The documentary production relies heavily on printed transcripts, which allow the team to collaborate and make notes.
+However, transcription is expensive if done using a third-party, and time-consuming if done by the team.  Transcripts
+can give an idea of what was said, but it is difficult to navigate the audio to listen to how it was said.  After the
+transcripts are annotated, the producer has to go back and manually edit the selected parts of the interviews, which is
+a slow and tedious process.  Creating a link between the printed transcripts and the audio recordings would allow the
+producers to work with transcripts as normal, but to simultaneously navigate and edit the audio content.
+
+The studio manager used a DAW to manually remove redundant noises such as ``umm''s.  Finding and removing these noises
+is slow and difficult. If an acoustic model of redundant noises and phrases could be developed, these could either be
+highlighted for easier identification, or removed automatically.
+
+\section{Discussion}\label{sec:ethno-discussion}
+Our study investigated audio editing workflows in radio production using three ethnographic case studies. We identified
+three themes from the results of the study with regard to textual representation, the use of paper and disconnection
+from the audio. We discuss each of these themes below.
+
+\subsection{Textual representation}
+We observed that in all three case studies, the producers interacted with audio using a textual representation. A
+script was used to refer to and mark-up the audio recorded in the drama. The documentary producers transcribed all of
+their interview recordings, and used the transcripts for most of the production. The news bulletin producers also used
+text to label and insert ``out-words'' of the audio clips in their scripts.
+
+Sound is a medium that must be experienced over a period of time, so listening to large quantities of audio can be
+slow. Representing audio using text allows users to quickly glance through and search audio content without having to
+invest time in listening. Text can be used to display word-for-word what was said, but it cannot display how it was
+said. The nuances the spoken word can contain deeper meaning, which may not be visible in a written
+transcript. Despite this, the documentary producers we observed chose to work with text rather than directly with the
+audio, which demonstrated that they found value in using a textual representation.
+
+Generating transcripts of speech can be an expensive process. We saw that the documentary producers could only afford
+to transcribe less than half of their interviews, so had to transcribe the rest themselves, which took a long time and
+produced poor quality results.  Automatic speech recognition \citep{Lee1999a} could make this process faster
+and more affordable. However, automatically-generated transcriptions contain errors that may affect the usability of
+such transcripts in a radio production environment.
+
+\subsection{Use of paper}
+We saw that in both the drama and documentary productions, the teams used printed scripts or transcripts as part of
+their workflow. The two reasons we could identify for using paper rather than a screen interface were to make
+handwritten annotations, and to facilitate face-to-face collaboration.  The drama production team used scripts to help
+them coordinate what they were recording, and to make annotations that were later used as a guide to edit the
+programme. The documentary producers printed the transcripts of their recordings to help them collaborate face-to-face
+in deciding which parts to use, then marking their selections using a highlighter pen.
+
+Paper is a flexible medium, which can be handed around, pointed at and annotated freely, amongst other things.
+However, with both the documentary and drama, the annotations made on the page were used as instructions on how to edit
+the audio, which had to be done manually using a DAW. This is a tedious and slow process. If these annotations could be
+captured in a structured digital format, they could then be automatically translated into audio edit commands. This may
+save producers time and effort without deviating much from their existing workflow.
+
+\subsection{Disconnection from audio}
+In all of the case studies we observed, there was a disconnection between the medium the producers use to represent the
+content and the audio. In the documentary production, the audio was represented using printed transcripts. Timestamps
+were written in the transcript every few minutes to help producers locate the original audio, but some searching was
+required to find and listen to the desired words.  In the drama production, scripts were used to refer to the audio
+content. Each take was labelled with its episode, scene and take number. However, comparing multiple takes was a
+process of manually importing and aligning the desired clips.  News bulletins are written as text, but designed to be
+spoken aloud. Estimating the time it takes to speak the words required the journalist to either read the words in their
+head, or estimate the time based on experience.
+
+This disconnection from the audio means that often producers are making decisions based on an abstract representation of
+the sound, such as text. The producers we observed used timestamps and labels to link to the audio, but
+these links had a low precision and only reduced the area in which the producer had to search to listen to the audio.
+Creating a more direct link from the text to the audio would allow producers to listen to the audio with greater
+precision and efficiency. For example, if each word was labelled with a precise timestamp, an audio playback device
+could instantly seek to that exact moment in the recording. More direct access to audio content
+could allow producers to make better decisions on what content to include in their programme.
+
+\section{Conclusion}\label{sec:ethno-conclusion}
+We investigated audio editing workflows in radio production by conducting three ethnographic case studies in BBC
+Radio. The case studies covered production of a news bulletin, a drama and a documentary.  Through direct observation,
+we documented the roles, responsibilities, environment, tools and challenges of each production, and used task analysis
+to deconstruct and graph the tasks of each programme's workflow.
+
+We saw that radio producers often work with textual representations of audio, rather than with the audio recordings
+directly, to help them search and navigate content more efficiently.  The drama and documentary producers used paper
+scripts to make freehand annotations and facilitate face-to-face collaboration. We also observed that there was a
+disconnection between these abstract representations that were used and the audio content itself, which could lead to
+decisions being made without listening to the audio.  We identified opportunities to assist the challenges of radio
+production using automated speech recognition, digitisation of paper annotations and creating more direct links to
+audio content.
+
+\section{Future work}\label{sec:ethno-future}
+During our study, we identified further opportunities for improving the radio production workflow through the
+application of de-umming, speaker diarization and comparison of similar content. We explain each of these below.
+
+In our observation of documentary editing process, we saw that a large proportion of the studio manager's time was
+spent on cleaning-up interview material, known as ``de-umming''. Much of this was to remove redundant noises such as
+``umm''s and ``err''s, or redundant phrases such as ``you know''. These could be identified using a system designed or
+trained to identify these noises.  Depending on the producer's confidence in the system, they could either remove
+the noises themselves, or let the system remove them automatically.
+
+All of productions we observed may benefit from being able to see where different people are speaking in a recording,
+known as ``speaker diarization''. In drama, it could help producers identify different lines in the script, in
+documentaries it could highlight the position of the questions in interview recordings, and in news it could help
+producers navigate long off-air recordings. There is an existing body of work on speaker diarization
+\citep{AngueraMiro2012} that has been used to help users navigate radio archives \citep{Raimond2014}, but could also be
+used in the production process.
+
+Drama production involves recording multiple takes of the same content. This technique allows producers to get the most
+from the actors, but means that it can be difficult to select which performances to use.  Comparing takes during
+post-production is a manual and inefficient process.  Providing an easy way to directly compare performances could
+allow the director to make a better informed decision on which takes to use. Automatically aligning the takes on
+different tracks in the DAW would be an easy way to make such comparisons.
