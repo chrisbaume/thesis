@@ -12,6 +12,20 @@ Humans and machines working to their strengths
 Inspired by \citet{Loviscach2013}
 
 \section{Background and motivation}\label{sec:intro-motivation}
+
+This thesis focusses on the production of ``radio'', which we define as the broadcasting of sound programmes to the
+public.  Radio can also be defined as the transmission of sound using radio waves, and a device used to transmit or
+receive radio signals.  However, our work is concerned with the production of content, rather than the method of
+delivery.
+
+Radio broadcasting is a mass medium.  A quarterly survey of over 24,000 adults in the UK \citep{RAJAR2017a} found that
+90\% of the UK adult population listen to the radio each week for an average of 21 hours. The results also showed that
+BBC Radio has the largest share of radio listening in UK, with 64\% listening each week for an average of 16 hours.
+
+Although most radio listening is done live, the advent of the Internet has enabled listeners to download pre-produced
+audio content, known as ``podcasts''. A detailed survey of 2229 UK adults on the consumption of audio content
+\citep{RAJAR2017} found that each week, 10\% listened to podcasts. 
+
 Ever since the first digital audio workstations were introduced in the early
 1990s, the audio waveform has been the primary method of navigating audio
 content. The waveform works well for finding amplitude-related events such as
@@ -23,14 +37,6 @@ alternative to the waveform is the spectrogram, which displays detailed
 information about the frequency content. However, these can be very difficult
 to interpret and require training and practice to be of use.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.6\textwidth]{figs/soundcloud.png}
-  \caption{An example of a waveform visualization on the online music sharing
-    service Soundcloud}
-  \label{fig:soundcloud}
-\end{figure}
-
 \section{Research questions and scope}\label{sec:intro-questions}
 This projects aims to develop better visualization for helping radio producers
 navigate audio content by initially targeting a number of common tasks. Audio
@@ -38,6 +44,31 @@ features will be identified or developed which are able to capture the
 information required for the task. Methods of mapping these features to an
 image will be created so that the information is presented in a perceptible way
 which requires little or no training. 
+
+\section{Scope}
+
+% SCOPE
+% - only consider audio-only content, no pictures with radio
+% - do not include tools for automatically editing (computer based decisions)
+% - not including live production, which is already efficient
+% - speech, not music
+% - interested in reviewing technology that aids navigation and editing of audio
+% - navigating/editing within a single file, rather than navigating a collection of material
+
+%Stolen: In this chapter, we can find a review of a variety of systems and technologies that are related to the
+%approach we have chosen for our search interface. It is organized in sections according to different research fields
+%that play an important role on our proposed system.
+
+% Focus on pre-produced radio
+Most radio is produced live, where a number of audio sources are mixed together and broadcast to the listeners.
+Although a lot of planning and preparation goes into a live transmission, the actual audio production happens in
+real-time, so there is no opportunity to improve the efficiency of the audio production. However, many radio programmes
+are pre-produced, where the sound is recorded before transmission.  In these cases, audio editing is used to manipulate
+the recordings to remove unwanted parts of the recording, select particularly good parts, or mix the recording with
+other recordings. This process creates overheads for the producers, who must use a set of tools to create their
+programme. This audio editing process creates opportunities to make the audio production process more efficient. For
+this reason, we chose to focus our research on pre-produced programmes and the audio editing stage of radio production.
+
 
 \section{Thesis structure}\label{sec:intro/structure}
 

@@ -1,41 +1,6 @@
 % !TeX root = main.tex
 \chapter{Background}\label{chp:background}
 
-% SCOPE
-% - only consider audio-only content, no pictures with radio
-% - do not include tools for automatically editing (computer based decisions)
-% - not including live production, which is already efficient
-% - speech, not music
-% - interested in reviewing technology that aids navigation and editing of audio
-% - navigating/editing within a single file, rather than navigating a collection of material
-
-%Stolen: In this chapter, we can find a review of a variety of systems and technologies that are related to the
-%approach we have chosen for our search interface. It is organized in sections according to different research fields
-%that play an important role on our proposed system.
-
-This thesis focusses on the production of ``radio'', which we define as the broadcasting of sound programmes to the
-public.  Radio can also be defined as the transmission of sound using radio waves, and a device used to transmit or
-receive radio signals.  However, our work is concerned with the production of content, rather than the method of
-delivery.
-
-Radio broadcasting is a mass medium.  A quarterly survey of over 24,000 adults in the UK \citep{RAJAR2017a} found that
-90\% of the UK adult population listen to the radio each week for an average of 21 hours. The results also showed that
-BBC Radio has the largest share of radio listening in UK, with 64\% listening each week for an average of 16 hours.
-
-Although most radio listening is done live, the advent of the Internet has enabled listeners to download pre-produced
-audio content, known as ``podcasts''. A detailed survey of 2229 UK adults on the consumption of audio content
-\citep{RAJAR2017} found that each week, 10\% listened to podcasts. 
-
-% Focus on pre-produced radio
-Most radio is produced live, where a number of audio sources are mixed together and broadcast to the listeners.
-Although a lot of planning and preparation goes into a live transmission, the actual audio production happens in
-real-time, so there is no opportunity to improve the efficiency of the audio production. However, many radio programmes
-are pre-produced, where the sound is recorded before transmission.  In these cases, audio editing is used to manipulate
-the recordings to remove unwanted parts of the recording, select particularly good parts, or mix the recording with
-other recordings. This process creates overheads for the producers, who must use a set of tools to create their
-programme. This audio editing process creates opportunities to make the audio production process more efficient. For
-this reason, we chose to focus our research on pre-produced programmes and the audio editing stage of radio production.
-
 \section{Fundamentals}
 
 % Sound is linear - has a beginning and an end, constrained by the arrow of time
@@ -566,38 +531,108 @@ prototype\footnote{\url{http://worldservice.prototyping.bbc.co.uk/}}.
 \clearpage
 \section{Radio production}
 
-% Definition
-The process and tools for radio production are well-understood and books have been written about it
-\citep{McLeish2015,Hausman2012}.
+%Radio production is ``using sound elements to create an effect or deliver a message'' \citep[p. 12]{Hausman2012}.
+%A radio producer is ``anyone who manipulates sound to create an effect or deliver a message'' \citep[p. 19]{Hausman2012}
+%Production is ``a method of combining various sources of sound into a product that accomplishes something specific'' \citep[p.~20]{Hausman2012}
 
+% WHAT IS RADIO PRODUCTION?
+On a technical level, radio production is the combination of various sources of sound into a product. Thinking more
+widely, radio production is the manipulation of sound to create an effect or deliver a message
+\citep[p.~12,~20]{Hausman2012}.  Most radio is broadcast live, where the audience is listening to the radio as it is
+created. However, many programmes are fully or partly recorded in advance, which are the focus of this thesis.
 
-Study on TV sport \citep{Perry2009} and \citep{Engstroem2010}
+Recorded sound in advance of broadcast brings with it a number of benefits \citep[p. 133]{Hausman2012}.  Programmes can
+be much more complex, as many sound elements can be used than would be possible in a live scenario. This paves the way
+for different types of programmes, such as drama and documentaries.  The producer is able to record re-takes of the
+same material until they are satisfied. This allows the producer greater freedom to experiment, and to fix any mistakes
+that occured, which can lead to better quality content.  Pre-recording has a number of practical benefits too. The time
+of production is not constrained by the broadcast schedule, so recording can take place whenever is convenient. Content
+for multiple programmes can also be recorded in one session, rather than having to come back each time.
 
+% WHAT IS EDITING?
+Pre-recorded content is produced by editing.
 
 Editing is the process of selecting, re-arranging, correcting and assembling audio content into a finished state.
+
+Editing is ``the process of re-arranging, correcting and assembling the product into a finished whole''
+\citep[p. 112]{Hausman2012}
+
+``The most common reason for cutting a sound file and sticking it back together is to eliminate an unwanted portion of
+the sound file''
+\citep[p. 116]{Hausman2012}
+
+Editing is ``part craft but also somewhat like an art form''
+\citep[p. 116]{Hausman2012}
+
+% WHY EDIT?
+
+According to \citet[p.~44]{McLeish2015} and \citet[p.~116]{Hausman2012}, the primary reasons for editing are to:
+\begin{enumerate}
+  \item re-arrange recorded material into a more logical sequence
+  \item remove uninteresting, unwanted, repetitive or technically unacceptable sound
+  \item reduce the running time
+\end{enumerate}
+
+\citet[p.~44]{McLeish2015} also suggests that editing can used as a creative effect to ``produce juxtapositions of
+speech, music, sound and silence''.
+
+Audio production in office environments \citep{Brixen2003}
+
+\subsection{Digital audio workstations}
+
+% HOW EDIT? (DAW)
+
+A DAW is ``software that provides recording and mixing capabilties''
+\citep[p. 72]{Hausman2012}
+
+``Today, we cut, paste and copy sound files much the same way we use a word processor to manipulate words, sentences
+and paragraphs of an essay.'' \citep[p. 113]{Hausman2012}
+
+%Require audio interface to listen
+
+% Advantages of DAW:
+% - automatic functions (e.g. crossfades that make edits undetectable)
+% - non-destructive
+% - no loss in sound quality
+% - 100\% accuracy
+% - fine control over timing
+% - doesn't require use of a studio
+% - programme can be produced by one person
+
+% ADVANTAGES OF DIGITAL EDITING
 
 Digital technology has transformed broadcasting \citep{Pizzi1989,Peus2011}
 Digital technology has also changed music recording by allowing people to record at home, and impacted the music
 business \citep{Pras2013}
 
-\subsection{BBC Radio}
+Production on a DAW is ``not only very efficient, but can also create a high level of personal job satisfaction''
+\citep[p.~44]{McLeish2015}
 
-9 national stations with 34m listeners, 40 local stations with 8m listeners, one global station in 29 languages with
-269m listeners
+``In computer-assisted editing, the information is stored digitally and manipulated through visual representation on a
+computer screen''
+\citep[p. 201]{Hausman2012}
 
-\subsection{Challenges}
+``while it is tempting to edit visually using the waveform on the screen, it is essential to listen carefully to the
+sounds, distinguishing between the end of the sentence breath and the mid-sentence breath''
+\citep[p. 45]{McLeish2015}
 
-Audio production in office environments \citep{Brixen2003}
+% destructive vs non-destructive
+Destructive editing occurs when a change is made that alters the structure of the sound file.
+Non-destructive editing occurs when the original audio components are retained and can be re-used to make a change to
+the edit.
 
-\subsection{Current tools}
-
-\subsubsection{Digital audio workstations}
 
 Introduction of DAWs \citep{Ingebretsen1982}
 
 % surveys
 Most popular DAW survey \citep{AskAudio2015}
 Top DAW survey \citep{ProducerSpot2015}
+
+\subsection{BBC Radio}
+
+9 national stations with 34m listeners, 40 local stations with 8m listeners, one global station in 29 languages with
+269m listeners
+
 
 \subsection{Related work}
 
@@ -608,6 +643,7 @@ Top DAW survey \citep{ProducerSpot2015}
 \clearpage
 \section{Related work}
 
+Study on TV sport \citep{Perry2009} and \citep{Engstroem2010}
 
 Review on video interaction tools \citep{Schoeffmann2015}
 
@@ -735,13 +771,13 @@ noises, such as bass kicks, snares and high-hats.
 
 A very similar system was implemented in the audio clip sharing website \textit{Freesound} \citep{Akkermans2011} to
 help users quickly find and compare sound effects and music clips.  They used pseudocolour to map the ``spectral
-centroid'' of the audio to a colour gradient.  Spectral centroid is the weighted mean of the frequencies of a signal,
-so a low value indicates the presence of mostly low-frequency sound and vice-versa.
+centroid'' of the audio to a colour gradient.  Spectral centroid is the weighted mean of the frequencies of a signal
+\citep[p. 10]{Smaragdis2009}, so a low value indicates the presence of mostly low-frequency sound and vice-versa.
 
 \citet{Loviscach2011a} used pseudocolour to enhance the navigation of speech. The ``zero-crossing rate'' of the audio
 was mapped to a red/green/blue colour spectrum to help distinguish between different phonemes (e.g. ``oo'' or ``s'').
-The zero-crossing rate is the frequency with which an audio signal switches between a positive and negative value,
-which is a crude measure of the primary frequency of the audio.
+The zero-crossing rate is the frequency with which an audio signal switches between a positive and negative value
+\citep[p. 37]{Zhang2010}, which is a crude measure of the primary frequency of the audio.
 
 \citet{Tzanetakis2000} used false colour to create a visualisation technique known as \textit{Timbregrams}. Their aim
 was to ``use color perception and the pattern recognition capabilities of the human visual system to depict timbral and
@@ -827,10 +863,9 @@ of application would be in the context of radio production.
 
 \subsection{Segmentation}
 
-Waveforms and spectrograms provide a direct mapping of sound to vision, which is then be interpreted by the user. The
-benefit of this approach is that it is flexible, as it can be used for a wide variety of content such as
-speech, music or noise. The downside is that the user must learn how to read these visualizations, and view them at an
-appropriate scale.
+Waveforms and spectrograms provide a direct mapping of sound to vision, which is then interpreted by the user. The
+benefit of this approach is that it can be used for a wide variety of tasks with any type of content.  The downside is
+that the user must learn how to read these visualizations, and view them at an appropriate scale.
 
 With many audio recordings, the content can be divided into logical groupings that could help the user navigate the
 recording. For example, a ``magazine-style'' radio programme is made up of several pieces on different topics. Being
@@ -838,29 +873,72 @@ able to view what those topics were, and where they occured in the programme, wo
 a topic of interest.
 
 Semantic audio analysis techniques have been widely used to classify and segment audio into a range of logical
-categories. These have previously been combined with data visualization techniques \citep{Aigner2011} to create novel
-user interfaces that aid the navigation and editing of audio content.
+categories. These are often combined with data visualization techniques \citep{Aigner2011} to create novel user
+interfaces that aid the navigation and editing of audio content.
 
-We have divided these segmentation techniques into two categories: classification, where audio is segmented by the
-nature of the audio, and topic summarization, where the audio is segmented by its contents.
+We have divided these segmentation techniques into two broad categories: classification, where audio is segmented by
+the character of the audio (speech, music etc.), and topic summarization, where the audio is segmented by its content.
 
 \subsubsection{Classification}
 
-Audio taxonomy can be used to segment audio into categories within a taxonomy. This has applications to audio editing
-\cite{Avdelidis2007}
+Audio can be divided into human-readable segments using semantic audio analysis techniques.  Semantic audio analysis
+typically operates in two main steps: dividing an audio file into sematically meaningful segments, then grouping these
+segments into semantically meaningful categories \citep{Lu2009,Zhang2010}. These categories can be chosen to match the
+application being targeted. For example, a radio broadcast might be divided into speech, music, speech mixed with music
+and applause.
 
-% Speech/music discrimination
-Speech/music discrimination \citep{Wieser2014}
+This semantic audio segmentation has applications to audio editing \cite{Avdelidis2007}.
 
-% Speaker diarization
-World service archive \citep{Raimond2014} used speaker diarization, identification, topic extraction
+\paragraph{Speech/music discrimination}
+Speech-music discrimination (SMD) is the task of segmenting an audio recording and labelling those segments as either
+speech or music.
+Previous research into automated SMD has often targeted recordings of radio broadcasts
+\citep{Goodwin2004,Wieser2014,Saunders1996,Pikrakis2008,Pikrakis2006a}.
+%Clustering is a task in which comes naturally to humans, but machines often struggle with.
 
-\citet{Foote1998} creater a video browser that used an adjustible slider to set a threshold for the display of speaker
-diarization segments
+
+
+
+\paragraph{Speaker diarization and identification}
+\textit{Speaker diarization} is the task of segmenting a speech recording according to speaker identity, which is used
+to answer the question ``who spoke when?'' \citep{AngueraMiro2012}. Segments are given a unique label for each speaker,
+but the identity of the speakers is unknown.  \textit{Speaker identification} is the task of identifying the person who
+is speaking based on the sound of their voice.
+
+\citet{Raimond2014} introduced the \textit{BBC World Service Archive prototype}, which was an interface that used
+automatic keyword tagging and crowd-sourcing to support the search and discovery of a large radio archive.
+The interface used speaker diarization and speaker identification to help users navigate within individual radio
+programmes. Figure~\ref{fig:bg-world-service-archive} shows an example of a radio programme that has been segmented
+into five named speakers.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figs/world-service-archive.jpg}
+  \caption{Speaker diarization and identification interface in the BBC World Service Archive prototype, from
+  \citet{Raimond2014}}
+  \label{fig:bg-world-service-archive}
+\end{figure}
+
+%Speaker identification with crowd-sourcing achieved 85\% precision and a 43\% recall
+
+which used speaker diarization and
+identification to facilitate navigation of radio programmes. The prototype relied on crowd-sourcing to add the speaker
+names, which then populated a central database of speaker identities.
+
+Segmentation algorithms often use a threshold value to configure their sensitivity. In the case of speaker diarization,
+a low threshold would increase the recall and reduce the precision. For example, more speaker turns would be detected,
+but some may be incorrect.  This threshold is often set to minimise a cost function, which balances the precision and
+recall.  \citet{Foote1998} describes a video browser prototype that allowed the user to control this threshold value,
+using a slider in the user interface. Their prototype identified speaker turns, but did not attempt to match the
+identities of the speakers.
+
 
 
 % TOPIC SEGMENTATION
-\subsubsection{Topic summarisation}
+\subsubsection{Topic summarization}
+
+Topic summarization has previously been used to assist the discovery and search of media archives \citep{Raimond2014,
+Kim2003}. However, the same techniques can also be applied to aiding the navigation of audio files using segmentation.
 
 % can use text summarization
 Text summarization review paper \citep{Lloret2012}
@@ -872,6 +950,8 @@ Video digests divide video recordings into chapters, sections and summaries.
 % segmentation with keywords 
 \citet{Abdulhamid2013,Abdulhamid2013a} introduced \textit{SpEx}, which is an interface designed to help students
 navigate lecture recordings.
+
+World service archive \citep{Raimond2014} topic extraction
 
 
 % OTHER
@@ -901,13 +981,12 @@ punctuation, but this can be estimated and added using post-processing.
 
 Despite advances in the field \citep{Lee1999a}, ASR produces erroneous transcripts.  \citet{Bell2015} conducted an
 evaluation of ASR systems on television programmes of various genres. Each system was judged by the proportion of
-incorrect words, known as the ``word error rate'' (WER). The mean WER of the best performing system for all genres was
-24\%.  However, there is a wide variation in the error rate across different genres. For example, the WER of the best
-performing system for the news programme was 10\%, and for the drama programme it was 41\%.  Erroneous transcripts
-reduce listener comprehension \citep{Stark2000,Vemuri2004} and increase the time it takes to search audio content
-\citep{Ranjan2006} and correct errors \citep{Burke2006}.  However, despite these errors, ASR transcripts provide a
-highly effective tool for browsing audio content as users can visually scan the text to focus on regions of interest,
-known as ``strategic fixation'' \citep{Whittaker2007}.
+incorrect words, known as the ``word error rate'' (WER).  The mean average WER of the systems tested was 23.7\%,
+however the variance across the programmes was high, with the WER varying from 10-–41\% across the 16 programmes.
+Erroneous transcripts reduce listener comprehension \citep{Stark2000,Vemuri2004} and increase the time it takes to
+search audio content \citep{Ranjan2006} and correct errors \citep{Burke2006}.  However, despite these errors, ASR
+transcripts provide a highly effective tool for browsing audio content as users can visually scan the text to focus on
+regions of interest, known as ``strategic fixation'' \citep{Whittaker2007}.
 
 %\citet{Vemuri2004} conducted a user study of 34 participants and measured their comprehension of short audio clips when
 %presented with both perfect and auto-generated transcripts.  The results show that subject comprehension of audio
@@ -1325,6 +1404,7 @@ Since data collection in the studio is a difficult task in itself, we focus on
 We argue that
 We aim to show that
 
+% make the most of access to producers
 The author is an employee of the  Research and Development department at the BBC. This position allows him access to
 producers working in BBC Radio, both physically and politically. This is unusual in academic research, where often
 there is difficultly in gaining access to industry professionals and in running academic studies outline of a
