@@ -1,51 +1,30 @@
 % !TeX root = main.tex
 \chapter{Introduction}\label{chp:intro}
 
-Want to improve interface for professionally working with audio content
+Radio broadcasting...
 
-Semantic audio analysis can extract useful information, but how can this best be used?
+%The British Broadcasting Company, as it was known then, started broadcasting its first daily radio service in 1922.
+90\% of the UK adult population listen to the radio each week for an average of 21 hours \citep{RAJAR2017a}. The
+British Broadcasting Corporation (BBC) has the largest share of radio listening in UK. Each week, 64\% of the
+population listen for an average of 16 hours to its 9 national and 40 local radio stations \citep{RAJAR2017a}.
+Additionally, the BBC World Service broadcasts radio services in 29 languages to over 269M listeners per week worldwide
+\citep{BBC2017}.
+%There are 50 national radio stations in the UK \citep[p. 127]{Ofcom2017}
 
-Tasks are creative, so can't easily be automated
+The format of radio programmes can be broadly categorised into music and speech.  In the UK, most radio listeners to
+choose music programmes, but 38\% choose to listen to speech-based radio \citep[p.  97]{Ofcom2017}.
 
-Humans and machines working to their strengths
+Podcasting is another form of audio listening, where pre-produced content is downloaded using the Internet.
+Approximately 10\% of the UK adult population listen to podcasts \citep{RAJAR2017}. The BBC is the most popular
+source of podcasts in the UK \citep[p. 107]{Ofcom2017}, with most podcasts .
 
-Inspired by \citet{Loviscach2013}
+%Community radio:
+%Each community radio station relies on 72 volunteers on average.
+%Staffing accounts for over half of all costs in community radio. \citep[p. 116]{Ofcom2017}
 
-\section{Background and motivation}\label{sec:intro-motivation}
+\section{Motivation}\label{sec:intro-motivation}
 
-This thesis focusses on the production of ``radio'', which we define as the broadcasting of sound programmes to the
-public.  Radio can also be defined as the transmission of sound using radio waves, and a device used to transmit or
-receive radio signals.  However, our work is concerned with the production of content, rather than the method of
-delivery.
-
-Radio broadcasting is a mass medium.  A quarterly survey of over 24,000 adults in the UK \citep{RAJAR2017a} found that
-90\% of the UK adult population listen to the radio each week for an average of 21 hours. The results also showed that
-BBC Radio has the largest share of radio listening in UK, with 64\% listening each week for an average of 16 hours.
-
-Although most radio listening is done live, the advent of the Internet has enabled listeners to download pre-produced
-audio content, known as ``podcasts''. A detailed survey of 2229 UK adults on the consumption of audio content
-\citep{RAJAR2017} found that each week, 10\% listened to podcasts. 
-
-Ever since the first digital audio workstations were introduced in the early
-1990s, the audio waveform has been the primary method of navigating audio
-content. The waveform works well for finding amplitude-related events such as
-silences and peaks, but is very poor at conveying much more about the sound of
-the content. Additionally, the waveform doesn't scale well as demonstrated by
-the `Soundcloud sausage' (see Figure~\ref{fig:soundcloud}), where even at
-reasonable zoom levels, no useful information is presented.  A popular
-alternative to the waveform is the spectrogram, which displays detailed
-information about the frequency content. However, these can be very difficult
-to interpret and require training and practice to be of use.
-
-\section{Research questions and scope}\label{sec:intro-questions}
-This projects aims to develop better visualization for helping radio producers
-navigate audio content by initially targeting a number of common tasks. Audio
-features will be identified or developed which are able to capture the
-information required for the task. Methods of mapping these features to an
-image will be created so that the information is presented in a perceptible way
-which requires little or no training. 
-
-\subsection{Sound}
+%\subsection{Sound}
 % Sound is linear - has a beginning and an end, constrained by the arrow of time
 % Cannot be searched or skimmed
 % Sound is one-dimensional
@@ -55,75 +34,174 @@ which requires little or no training.
 %Audio is an electronic representation of sound which stores pressure waves as an electrical signal.
 
 % Characteristics of sound
-One of the distinuishing characters of radio is that it is based exclusively on sound.
-Sound is defined as vibrations that travel through a medium, typically air, which humans perceive through their ears.
-As it is based on vibration, sound cannot exist in a moment -- it can only take place over a period of time.
-Sound is linear, as it is based on a sequence of motion.
-It is experienced at a consistent rate, which cannot naturally be increased or desreased.
+One of the distinguishing characteristics of radio is that it is based exclusively on sound.  Although listeners have
+no visual reference, sound stimulates the imagination and creates pictures in the mind's eye.  Radio is not limited
+by the size of the screen in the way that television is. Sound design and music can be used to create scenes for
+virtually any scenario, which may otherwise be impossible or too expensive to put on screen. As the old adage goes
+``the pictures are so much better on the radio''.
 
-% challenges of sound
-This time-based nature of sound gives it a fascinating character.
-However, the time-based nature of sound comes with a variety of challenges.
-Sound cannot be experienced instantanously, as it is the change in air pressure which produces sound.
-As such, it takes time to consume sound.
-For consuming long sound recordings, this property means that listening requires an investment of time.
-In radio production, much of the time required to produce a programme must be committed to listening to the sound that has been recorded.
-%The purpose of listening to the sound includes a variety of reasons, including reminding themselves of what
-%was said, working out whether the sound quality is acceptable, deciding which bits of the recording to use, and many
-%more.
+Humans use sound to communicate through language and music, which can richly convey complex ideas and elicite powerful
+emotion. Despite this, sound is simply the result of vibration in a medium such as air.  This requires movement, which
+means that sound can only exist over a period of time. The temporal nature of sound gives it unique properties that
+make it both an interesting and challenging medium to work with.
 
-To overcome the challenges that come with the temporal nature of sound, there are a number of technological solutions
-that can be applied. At the very simplest level, sound can be navigated using rewind and fast-forward, to allow
-listeners to re-listen or skip ahead to a sound recording. The playback rate of sound recordings can also be increased,
-but there are limitations to this, which we discuss in Section X. However, in order to navigate sound with purpose, it
-is preferable to be able to understand what is contained within the sound, and to be able to comprehend this
-information efficiently. There have been two main approaches to achieving this -- audio visualization and semantic
-audio analysis.
+Unlike pictures, which can be viewed and searched at a glance, sound recordings must be perceived through listening.
+The time needed to naturally listen to a sound recording is the same as the length of the recording. This means that
+reviewing long recordings can take a large amount of time. Sound is also a linear medium that must be played in
+sequence, which can make it challenging to navigate sound recordings non-linearly. 
+%For example, playing sounds in reverse often makes them incomprehensible.
 
 %From Dhanesha2010:
 %It is a common practice for us to skim textual content on a web page. While skimming, we usually skip words or phrases
 %that are not of interest to us and we slow down our speed when the content seems to be of relevance to us. But when we
 %listen to audio content, which is not persistent and is sequential, such skimming is not possible.
 
-Audio visualization attempts to take advantage of the properties of the human visual system by mapping sound to images.
-This is done to allow listeners to see the sound in a way they can understand and make use of. This approach takes
-advantage of the spatial layout that is possible with images, and the natural searching and skimming capabilities of
-the human visual system.
+Radio production is a process of recording, selecting and re-arranging audio content. The ability to efficiently
+navigate the audio is crucial to the success of this process.  Modern radio production is performed using software
+known as a ``digital audio workstation'', or DAW.
 
-Semantic audio analysis refers to a collection of techniques for analysing sound signals to extract human-readable
-information from them. This can be used to map sound to high-level information, such as the name of the person
-speaking, or the text of what they are saying. These techniques can vary from low-level features such as the most
-dominant frequency, to high-level features such as the text of the words that are being spoken. These techniques can
-also be combined with visualization methods to display the results.
+%- Modern digital audio workstations are general purpose and not well-suited to most radio production tasks (pic of
+%cluttered DAW interface)
+
+DAWs visualize audio by plotting the amplitude of the audio signal over time, known as an \textit{audio waveform}.
+Waveforms allow users to interact with the audio spatially rather than temporally, which is thought to be a faster and
+easier way to navigate audio recordings.  Waveforms display some useful information, but are limited in the information
+they can convey.  For example, when viewing a waveform at the right scale, it is possible for an experienced user to
+distinguish between speech and music, but it is not usually possible to determine the style of the music, or what is
+being said.
+
+%Audio visualization attempts to take advantage of the properties of the human visual system by mapping sound to images.
+%This is done to allow listeners to see the sound in a way they can understand and make use of. This approach takes
+%advantage of the spatial layout that is possible with images, and the natural searching and skimming capabilities of
+%the human visual system.
+
+%- Producers spend much of their time on menial tasks, which is wasteful because the time they spend on this is time
+%they can't spend on making the programme better.
+
+%To overcome the challenges that come with the temporal nature of sound, there are a number of technological solutions
+%that can be applied. At the very simplest level, sound can be navigated using rewind and fast-forward, to allow
+%listeners to re-listen or skip ahead to a sound recording. The playback rate of sound recordings can also be increased,
+%but there are limitations to this, which we discuss in Section X. However, in order to navigate sound with purpose, it
+%is preferable to be able to understand what is contained within the sound, and to be able to comprehend this
+%information efficiently. There have been two main approaches to achieving this -- audio visualization and semantic
+%audio analysis.
+
+Semantic audio analysis is the task of deriving meaning from audio. This is achieved by extracting low-level audio
+features, such as energy or frequency, and mapping them to a human-readable representation, such as categories or
+words. Applying semantic audio analysis techniques to radio production tasks may allow us to produce richer user
+interfaces that assist the production process.
+
+%Semantic audio analysis refers to a collection of techniques for analysing sound signals to extract human-readable
+%information from them. This can be used to map sound to high-level information, such as the name of the person
+%speaking, or the text of what they are saying. These techniques can vary from low-level features such as the most
+%dominant frequency, to high-level features such as the text of the words that are being spoken. These techniques can
+%also be combined with visualization methods to display the results.
+
+%Semantic audio analysis can extract useful information, but how can this best be used?
+
+This research was partly inspired by a conference presentation from \citet{Loviscach2013}, who demonstrated several
+prototypes that used semantic audio analysis to assist the editing of recorded speech. These included visualization of
+vowels using colour, detecting and highlighting ``umm''s, and identifying repetition. These prototypes were developed
+as new features for navigating and editing lecture recordings using custom video editing software
+\citep{Loviscach2011}.
+
+Developing richer methods of interacting with audio content may allow radio producers to read more about the content of
+the audio may make it easier and faster for them to produce their radio programme.
+We were interested to discover whether this approach could be used to improve the radio
+production process, and which techniques worked better than others.
 
 As part of this work, we want
 to understand how these techniques can best be applied to the production of radio, and make the process more efficient
 by reducing the time that is needed to produce the programme. 
 
-\section{Scope}
+%Sound naturally occurs at a consistent rate, so everybody experiences sound over the same length of time.
+%This makes it a great medium for shared
+%experiences, the kind of which can be witnessed at music festivals. However,
 
-% SCOPE
-% - only consider audio-only content, no pictures with radio
+%Working with sound alone makes radio production a much simpler affair than with other media. For example, an interview
+%can be recorded using a portable sound recorder by an individual without much training. This simplicity makes radio
+%production accessible to amateurs, and the introduction of podcasting has also made it easier for amateurs to
+%distribute their own content.
+
+%- transitory nature of radio means it can only be heard at the time of broadcast, no second chances
+%Historically, the temporal nature of sound and radio mean that listeners could only hear a programme at the time it was
+%broadcast, and once it was heard it was gone. Nowadays, the Internet has facilitated the introduction of on-demand
+%listening and podcasting that have changed the wa
+
+%Sound is defined as vibrations that travel through a medium, typically air, which humans perceive through their ears.
+%As it is based on vibration, sound cannot exist in a moment -- it can only take place over a period of time.
+%Sound is linear, as it is based on a sequence of motion.
+%It is experienced at a consistent rate, which cannot naturally be increased or desreased.
+
+% challenges of sound
+%This time-based nature of sound gives it a fascinating character.
+%However, the time-based nature of sound comes with a variety of challenges.
+%Sound cannot be experienced instantanously, as it is the change in air pressure which produces sound.
+%As such, it takes time to consume sound.
+%For consuming long sound recordings, this property means that listening requires an investment of time.
+%In radio production, much of the time required to produce a programme must be committed to listening to the sound that has been recorded.
+%The purpose of listening to the sound includes a variety of reasons, including reminding themselves of what
+%was said, working out whether the sound quality is acceptable, deciding which bits of the recording to use, and many
+%more.
+
+%- Although radio production has turned digital, it has not undergone a technological revolution and the workflow
+%remains almost exactly the same
+
+%- Digital communication has allows producers greater flexibility and quality in getting content, but the editing
+%process is still analogous to cutting and pasting tape
+
+
+% BBC situation
+The research presented in this thesis was conducted during, and as part of, the author's employment at BBC Research and
+Development.  BBC R\&D exists to promote technological innovation that supports the BBC's mission to enrich people's
+lives with programmes and services that inform, educate and entertain \citep[art. 15]{BBCCharter2016}.  This is
+achieved through the research and development of broadcast technology, including for the production and distribution of
+audio content.
+
+Part of the motivation behind this research is to make radio production a more efficient process, without affecting the
+output. This would free up resources that could either be spent on producing higher quality content, or used to making
+financial savings. The BBC spent \textsterling471M on radio production in 2016/17 \citep[p. 111]{Ofcom2017}, so even
+minor improvements could make large savings.  We would also like to make radio production a more enjoyable and creative
+experience, where producers spend less time on boring, menial tasks and more time on activities that contribute to the
+quality of the programme output.
+
+The author's position within the BBC gives us privileged access to production staff and working environments that would
+otherwise be inaccessible to researchers. We see this as a rare opportunity to conduct research that directly involves
+professional radio producers.
+
+% live vs pre-produced
+Most radio is broadcast live, where the sound is mixed and produced as the audience listeners to it.  Although there
+are hours of planning and preparation that go into a live radio broadcast, the actual audio production happens in
+real-time, so there is no opportunity to make the audio production more efficient.  However, many radio programmes are
+pre-produced, where the sound is recorded before transmission.  In these cases, more audio is recorded than is
+required, and audio editing is used to reduce the length, remove unwanted sounds and re-arrange the material into the
+final programme. This process creates overheads for the producers.
+
+\section{Aim and scope}
+
+The aim of this work is to develop and evaluate methods for radio production that improve the production process, such
+as by increasing the efficiency, reducing the effort required or opening up new creative possibilities.
+
 % - do not include tools for automatically editing (computer based decisions)
-% - not including live production, which is already efficient
+%Radio production is a creative endeavour and 
+The intention behind this research is to facilitate creative expression, rather than replace it through automation.
+The aim is to find ways for machines and humans to work to each of their strengths, where simple and menial tasks are
+automated, but there is always a ``human in the loop'' that decides on the final output.  Our hope is that in addition
+to making production activities more efficient, this may unlock opportunities for greater creative expression.
+
+% make use of BBC producers
+We are targeting this work specifically as radio production, and as such, the methods we develop should be evaluated on
+radio producers. We intend to make the most of the access to professional radio producers that is available to us by
+involving them in the development and evalutation where possible.
+
 % - speech, not music
-% - interested in reviewing technology that aids navigation and editing of audio
-% - navigating/editing within a single file, rather than navigating a collection of material
+Music-based radio programmes are more popular, but we will focus our work on speech radio as most original radio
+content is speech-based.
 
-%Stolen: In this chapter, we can find a review of a variety of systems and technologies that are related to the
-%approach we have chosen for our search interface. It is organized in sections according to different research fields
-%that play an important role on our proposed system.
-
-% Focus on pre-produced radio
-Most radio is produced live, where a number of audio sources are mixed together and broadcast to the listeners.
-Although a lot of planning and preparation goes into a live transmission, the actual audio production happens in
-real-time, so there is no opportunity to improve the efficiency of the audio production. However, many radio programmes
-are pre-produced, where the sound is recorded before transmission.  In these cases, audio editing is used to manipulate
-the recordings to remove unwanted parts of the recording, select particularly good parts, or mix the recording with
-other recordings. This process creates overheads for the producers, who must use a set of tools to create their
-programme. This audio editing process creates opportunities to make the audio production process more efficient. For
-this reason, we chose to focus our research on pre-produced programmes and the audio editing stage of radio production.
-
+% - not including live production, which is already efficient
+This editing process creates overheads for the producers, so there are opportunities to make this audio production
+process more efficient.  For this reason, we chose to focus our research on radio programmes that are fully or partly
+produced in advance of broadcast, and in particular on the audio editing stage of radio production.
 
 \section{Thesis structure}\label{sec:intro/structure}
 
@@ -148,10 +226,11 @@ editing interface compares to the screen-based approach and normal paper.
 
 The principal contributions of this thesis are:
 \begin{itemize}
-  \item Chapter~\ref{chp:colourised}: 
   \item Chapter~\ref{chp:ethno}: 
+  \item Chapter~\ref{chp:colourised}: 
   \item Chapter~\ref{chp:screen}: 
-  \item Chapter~\ref{chp:paper}: a novel system for editing speech-based audio using digital pens on printed transcripts
+  \item Chapter~\ref{chp:paper}:
+    A novel approach to editing speech recording by using a digital pen on a printed transcript.
 \end{itemize}
 
 \section{Associated publications}\label{sec:intro-publications}
