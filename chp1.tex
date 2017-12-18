@@ -205,13 +205,23 @@ produced in advance of broadcast, and in particular on the audio editing stage o
 
 \section{Thesis structure}\label{sec:intro/structure}
 
-\paragraph{Chapter \ref{chp:background}} reviews existing work and literature from three areas that will feed into the
-project -- feature extraction, visualization and cross-modal links.
+\paragraph{Chapter \ref{chp:background}} introduces the previous research which we will build our work upon. We start
+by giving a general overview of radio production and semantic audio to provide context to our research. We then survey
+related techniques and previous systems that have attempted to assist the navigation and editing of audio. These are
+categorized into audio visualization, textual representation and audio playback interfaces. We conclude by reflecting
+on this existing work to consider a strategy for achieving our research aim.
 
-\paragraph{Chapter \ref{chp:ethno}} describes an ethnographic study that provides a comprehensive overview of the radio
-production process at the BBC, which will help put this research into context.
+\paragraph{Chapter \ref{chp:ethno}} investigates audio editing workflows in radio production at the BBC.  This study
+aims to better understand the roles, environment, tools, tasks and challenges involved in real-life radio production,
+to help inform the direction of our research.  We achieve this by conducting three ethnographic case studies
+of news, drama and documentary production.  The results of this study highlight three opportunities for further
+research, which we explore individually in the following chapters.
 
-\paragraph{Chapter \ref{chp:colourised}} presents a quantitative study that looked at how the waveform performs in a
+\paragraph{Chapter \ref{chp:colourised}} investigates the effect that audio visualization has on radio production. We
+conducted an online task-based quantitative study in which participants segmented music from speech under three
+conditions.
+
+presents a quantitative study that looked at how the waveform performs in a
 common production tasks, and whether it can be improved.
 
 \paragraph{Chapter \ref{chp:screen}} uses a qualitative study to investigate how a screen-based semantic audio editing
@@ -230,7 +240,7 @@ The principal contributions of this thesis are:
   \item Chapter~\ref{chp:colourised}: 
   \item Chapter~\ref{chp:screen}: 
   \item Chapter~\ref{chp:paper}:
-    A novel approach to editing speech recording by using a digital pen on a printed transcript.
+    A novel approach to editing speech recordings by using a digital pen and a printed transcript.
 \end{itemize}
 
 \section{Associated publications}\label{sec:intro-publications}
@@ -248,8 +258,10 @@ Portions of the work detailed in this thesis have been presented in the followin
 As part of this research, we have developed and released the following systems as open-source software:
 
 \begin{itemize}
-  \item \textbf{Dialogger}: A semantic speech editing system (see Appendix~\ref{sec:dialogger})
-  \item \textbf{Vampeyer}: An audio visualization plugin framework (see Appendix~\ref{sec:vampeyer})
-  \item \textbf{BeatMap}: An audio visualization UI element for web browsers (see Appendix~\ref{sec:beatmap})
+  \item \textbf{Dialogger}: A semantic speech editing interface (see Appendix~\ref{sec:dialogger})
+  \item \textbf{Vampeyer}: A plugin framework for generating audio visualizations from the output of Vamp plugins
+    (see Appendix~\ref{sec:vampeyer})
+  \item \textbf{BeatMap}: A Javascript user interface element for navigating audio using audio visualizations
+    (see Appendix~\ref{sec:beatmap})
 \end{itemize}
 
