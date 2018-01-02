@@ -1,7 +1,7 @@
-\documentclass[11pt,a4paper]{report}
+\documentclass[11pt,a4paper,twoside,openany]{book}
+\usepackage[bindingoffset=0in,left=1.5in,right=1.5in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-%\usepackage{fullpage}
 \usepackage{graphics}
 \usepackage{setspace}
 \usepackage{caption}
@@ -11,6 +11,7 @@
 \usepackage{lscape}
 \usepackage{appendix}
 \usepackage{fancyhdr}
+\usepackage{emptypage}
 \usepackage{multirow}
 \usepackage[utf8]{inputenc}
 \usepackage[nottoc,notlof,notlot,numbib]{tocbibind}
@@ -55,19 +56,19 @@
 % set up page header/footer
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\headsep}{25pt}
 \newcommand\textlcsc[1]{\textsc{\MakeLowercase{#1}}}
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[LO]{\textlcsc{\leftmark}}
 \fancyhead[RE]{\textlcsc{\chaptername~\thechapter}}
 \fancyfoot{}
 
-% use romain page numbers at start
-\pagenumbering{roman}
 
 \bibliography{refs}
 
 \begin{document}
+
+\pagestyle{plain}
+\frontmatter
 
 \begin{titlepage}
   \vspace*{\fill}
@@ -87,6 +88,7 @@
   \vspace*{\fill}
 \end{titlepage}
 
+\cleardoublepage
 \include{abstract}
 
 \chapter*{Statement of originality}
@@ -100,9 +102,9 @@ for assessment as above.
 
 \include{acknowledgements}
 
-{\singlespacing
+%{\singlespacing
 \tableofcontents
-}
+%}
 
 \include{ethics}
 
@@ -112,23 +114,33 @@ for assessment as above.
 
 \include{abbreviations}
 
-\pagenumbering{arabic}
+\pagestyle{fancy}
+\mainmatter
+
+\cleardoublepage
 \include{chp1}
 
+\cleardoublepage
 \include{chp2}
 
+\cleardoublepage
 \include{chp3}
 
+\cleardoublepage
 \include{chp4}
 
+\cleardoublepage
 \include{chp5}
 
+\cleardoublepage
 \include{chp6}
 
+\cleardoublepage
 \include{chp7}
 
 \begin{appendices}
   \renewcommand\chaptername{Appendix}
+  \cleardoublepage
   \include{appendix1}
   %\include{remit}
   %\include{startrack}
@@ -139,6 +151,7 @@ for assessment as above.
   %\include{opportunities}
 \end{appendices}
 
+\cleardoublepage
 \printbibliography
 
 \end{document}
