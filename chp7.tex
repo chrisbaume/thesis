@@ -1,6 +1,132 @@
 % !TeX root = main.tex
-\chapter{Conclusions and further work}\label{chp:conclusions}
+\chapter{Conclusions}\label{chp:conclusions}
 
-\section{Summary of contributions}
 
-\section{Further work}
+Chapter~\ref{chp:ethno}: A set of theoretical models of audio editing workflows in professional radio production, which
+contribute to the academic understanding of radio production.
+
+Chapter~\ref{chp:colourised}: A demonstration of the feasibility of semantic audio visualization, and insights into the
+effectiveness of audio waveforms, for segmenting music from speech.
+
+Chapter~\ref{chp:screen}: The application of semantic speech editing to professional radio production, with
+demonstration of its feasibility and insights into its limitations. 
+
+Chapter~\ref{chp:paper}: A novel approach to editing speech recordings through the combination of semantic speech
+editing and a digital pen interface. Insights into the relative benefits of paper and screen interfaces for semantic
+speech editing.
+
+
+In fulfilment of our aim to
+the central part of this thesis has been the development of
+To support these techniques we have investigated the choice of
+and how to evaluate such systems as BLAH interfaces for 
+
+To conclude this thesis, we first summarise the contributions made; then we reflect upon the approaches in comparison
+with one another.
+
+Finally, we consider some potential avenues for future work, including specific consequences of our studies as well as
+a broader consideration of semantic audio tools for radio production
+
+
+
+
+
+Other outputs include: contributions towards the academic understanding of radio production workflows
+and open-source implementations of
+
+
+
+% AIM
+The aim of this work was to ``develop and evaluate methods for radio production that improve the production process''.
+
+
+
+
+
+\section{Future work}
+
+Further work that could follow on from the research of this thesis includes:
+
+\paragraph{Collaborative semantic speech interaction:}
+% use operational transformation to allow simultaneous access and editing
+% NPR presedential debate fact-checking \citep{Fisher2016}
+Many radio production tasks are performed by individuals, but as we discovered in Chapter 3, radio production involves
+a team of people. The ability to work  together efficiently is therefore benefitial to the success of the work. Current
+radio production tools are designed for individual users, however the production team may benefit from access to
+collaborative tools.  Operational transformation has allowed the development of collaborative document editing, such as
+the popular Google Docs. \citet{Fisher2016} describes how radio producers at NPR used Google Docs to collaboratively
+fact-check the US Presidential Election debates as they were happening, which demonstrates how collaborative tools can
+facilitate new forms of reporting.  Creating a collaborative semantic speech editor may give similar advantages for
+working with audio in a team environment. Including annotation and labelling features may also allow the team to work
+together to select which content to include in the programme.
+
+
+\paragraph{Umm and breath removal:}
+In our observation of documentary editing process in Chapter~\ref{chp:ethno}, we saw that a large proportion of the
+studio manager's time was spent on cleaning-up interview material, known as ``de-umming''. Much of this was to remove
+redundant noises such as ``umm''s and ``err''s, or redundant phrases such as ``you know''. These could be identified
+using a system designed or trained to identify these noises.  Depending on the producer's confidence in the system,
+they could either remove the noises themselves, or let the system remove them automatically.
+% ASR trained on umms/breaths
+% take into account intonation
+% Loviscach demonstrated potential solution using MFCCs and template matching \citet{Loviscach2013}
+
+\paragraph{Informed automatic speech recognition:}
+% use prior information to produce better transcripts
+
+\paragraph{Enhanced digital pen semantic speech editor:}
+The evaluation of the digital pen interface we developed revealed that there were features missing that would be benefitial to radio producers. Many of these were due to the technical limitations of our implementation, which could be overcome with new or different technology.
+
+One major difference between the screen and digital pen interfaces was that the screen included integrated listening, where the user could navigate the audio using the text. Our implementation was based on drawing within rectangular active areas, and drawing outside of these created errors. Creating a more flexible system that better interprets the user's intentions may reduce the liklihood of these errors. 
+% re-ordering and labelling
+% integrated playback using wireless link
+% correction
+% better intepretation
+
+\paragraph{Penless paper semantic speech editor:}
+% use scanner or camera, mask out printed area
+% digital ink with electronic paper
+
+\paragraph{Advanced audio visualization:}
+
+The direction of future research into audio visualization could either aim to be more specific, where individual
+visualizations are created to target particular applications, or aim to be more general, where a single visualization
+attempts to handle multiple applications.
+It would likely be easier to create effective specific visualizations as they
+only need to include information relevant to the application, but this would make it difficult to cater for every
+possible use case. Users would also have to switch between multiple specific visualizations depending on the task they
+are performing, and learn how to read each of them. General visualizations would have to contain information relevant
+to all applications. It would be difficult to select the most relevant information and map it in a way that humans can
+easily interpret. However, they could be used for any purpose without users having to switch between or learn to read
+multiple visualizations.
+
+%\paragraph{Cost/benefit of transcripts:}
+%We found that semantic editing was faster for long recordings, but it would be
+%interesting to investigate how long a recording needs to be before the benefits of semantic editing outweigh the
+%costs.  Additionally, it is unclear how much of the speed benefit comes from automatically generating the transcript,
+%and how much comes from the editing interface.
+
+%\paragraph{Non-speech sounds}
+%Tagging music and environmental sounds
+
+\paragraph{Application to television}
+
+
+
+
+% SPEAKER DIARIZATION 
+%All of productions we observed may benefit from being able to see where different people are speaking in a recording,
+%known as ``speaker diarization''. In drama, it could help producers identify different lines in the script, in
+%documentaries it could highlight the position of the questions in interview recordings, and in news it could help
+%producers navigate long off-air recordings. There is an existing body of work on speaker diarization
+%\citep{AngueraMiro2012} that has been used to help users navigate radio archives \citep{Raimond2014}, but could also be
+%used in the production process.
+
+% PRE-RECORDED CONTENT
+%Drama production involves recording multiple takes of the same content. This technique allows producers to get the most
+%from the actors, but means that it can be difficult to select which performances to use.  Comparing takes during
+%post-production is a manual and inefficient process.  Providing an easy way to directly compare performances could
+%allow the director to make a better informed decision on which takes to use. Automatically aligning the takes on
+%different tracks in the DAW would be an easy way to make such comparisons.
+
+
