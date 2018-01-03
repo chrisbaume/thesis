@@ -8,6 +8,15 @@ contribute to the academic understanding of radio production.
 Chapter~\ref{chp:colourised}: A demonstration of the feasibility of semantic audio visualization, and insights into the
 effectiveness of audio waveforms, for segmenting music from speech.
 
+It would likely be easier to create effective specific visualizations as they
+only need to include information relevant to the application, but this would make it difficult to cater for every
+possible use case. Users would also have to switch between multiple specific visualizations depending on the task they
+are performing, and learn how to read each of them. General visualizations would have to contain information relevant
+to all applications. It would be difficult to select the most relevant information and map it in a way that humans can
+easily interpret. However, they could be used for any purpose without users having to switch between or learn to read
+multiple visualizations.
+
+
 Chapter~\ref{chp:screen}: The application of semantic speech editing to professional radio production, with
 demonstration of its feasibility and insights into its limitations. 
 
@@ -24,7 +33,7 @@ and how to evaluate such systems as BLAH interfaces for
 To conclude this thesis, we first summarise the contributions made; then we reflect upon the approaches in comparison
 with one another.
 
-Finally, we consider some potential avenues for future work, including specific consequences of our studies as well as
+Finally, we consider some potential avenues for further work, including specific consequences of our studies as well as
 a broader consideration of semantic audio tools for radio production
 
 
@@ -43,62 +52,96 @@ The aim of this work was to ``develop and evaluate methods for radio production 
 
 
 
-\section{Future work}
+\section{Further work}
 
 Further work that could follow on from the research of this thesis includes:
 
 \paragraph{Collaborative semantic speech interaction:}
 % use operational transformation to allow simultaneous access and editing
 % NPR presedential debate fact-checking \citep{Fisher2016}
-Many radio production tasks are performed by individuals, but as we discovered in Chapter 3, radio production involves
-a team of people. The ability to work  together efficiently is therefore benefitial to the success of the work. Current
-radio production tools are designed for individual users, however the production team may benefit from access to
-collaborative tools.  Operational transformation has allowed the development of collaborative document editing, such as
-the popular Google Docs. \citet{Fisher2016} describes how radio producers at NPR used Google Docs to collaboratively
-fact-check the US Presidential Election debates as they were happening, which demonstrates how collaborative tools can
-facilitate new forms of reporting.  Creating a collaborative semantic speech editor may give similar advantages for
-working with audio in a team environment. Including annotation and labelling features may also allow the team to work
-together to select which content to include in the programme.
 
+The semantic speech editing systems we developed during this thesis were designed to be operated by individuals.
+However, as shown in Chapter~\ref{chp:ethno}, radio production involves teams of people.  Collaborative tools may help
+these teams work together more efficiently.  Operational transformation techniques \citep{Sun2004} have enabled the
+development of collaborative document editing tools, such as the popular Google Docs, which can facilitate concurrent
+team-based working.  For example, \citet{Fisher2016} describes how NPR used Google Docs to enable over a dozen
+producers to collaboratively fact-check the US Presidential Election debates live, using real-time ASR transcripts. By
+linking the text to audio, a similar approach could be used for collaborative semantic editing of speech. Teams could
+also use annotation to make suggestions for edits that are then accepted or rejected by the programme producer.
 
-\paragraph{Umm and breath removal:}
-In our observation of documentary editing process in Chapter~\ref{chp:ethno}, we saw that a large proportion of the
-studio manager's time was spent on cleaning-up interview material, known as ``de-umming''. Much of this was to remove
-redundant noises such as ``umm''s and ``err''s, or redundant phrases such as ``you know''. These could be identified
-using a system designed or trained to identify these noises.  Depending on the producer's confidence in the system,
-they could either remove the noises themselves, or let the system remove them automatically.
-% ASR trained on umms/breaths
+\paragraph{Assisted/automatic de-umming:}
 % take into account intonation
-% Loviscach demonstrated potential solution using MFCCs and template matching \citet{Loviscach2013}
+
+In Section~\ref{sec:doc}, we saw that a large proportion of a studio manager's time was spent on cleaning-up interview
+material by removing unwanted vocal noises, known as ``de-umming''. Examples of unwanted noises include ``umm''s and
+``err''s, long or loud breaths, and redundant phrases such as ``you know''.  These can be difficult to identify, as
+their presence is not clearly visible using current tools, and they can be difficult to remove as they often overlap
+and blend with the speech. \citet{Loviscach2013} demonstrated a prototype ``umm detector'' that extracted MFCC
+\citep{Imai1983} features from the audio and used template matching to visually highlight potential ``umm''s. We could
+not find any other work that attempted to detect or remove unwanted speech noises.  One solution could be to train an
+ASR system to ``transcribe'' unwanted sounds. These ``words'' could then be highlighted, or removed in the same way
+that transcripts can be semantically edited.  However, this assumes that these noises have clearly defined boundaries,
+which they often do not.  In our experience, de-umming involves a level of editorial and creative judgement, so a
+interface that supports a human-in-the-loop system may be necessary.
 
 \paragraph{Informed automatic speech recognition:}
 % use prior information to produce better transcripts
 
-\paragraph{Enhanced digital pen semantic speech editor:}
-The evaluation of the digital pen interface we developed revealed that there were features missing that would be benefitial to radio producers. Many of these were due to the technical limitations of our implementation, which could be overcome with new or different technology.
+In this thesis, we found that the transcripts produced by current ASR systems were sufficiently accurate to perform
+semantic speech editing in professional radio production. However, as discussed in
+Section~\ref{sec:transcript-generation}, ASR quality affects comprehension, search, and the need for correction, so it
+is desirable to improve the transcript accuracy. Prior to transcription, much is already known about the content of the
+speech, and by providing this information to the ASR system, it could be used to improve the quality of the transcript.
+For example, the topic of conversation could be used to weight the likelihood of words related to that topic appearing.
+Many ASR system have a speaker diarization pre-processing stage, and the number, gender and identity of speakers could
+also be used to inform this process.
 
-One major difference between the screen and digital pen interfaces was that the screen included integrated listening, where the user could navigate the audio using the text. Our implementation was based on drawing within rectangular active areas, and drawing outside of these created errors. Creating a more flexible system that better interprets the user's intentions may reduce the liklihood of these errors. 
+\paragraph{Improved digital pen system:}
 % re-ordering and labelling
 % integrated playback using wireless link
 % correction
 % better intepretation
 
-\paragraph{Penless paper semantic speech editor:}
+The design of our digital pen semantic editor in Chapter~\ref{chp:paper} was influenced by the technical limitations of
+the technology that we used to implement it.  This prevented us from including certain features and was inflexible in
+interpreting the pen gestures.  These issues could be solved by using a different system for implementation.  The
+digital pen we used connected to the computer using a USB dock, which prevented us from integrating control over the
+playback of the audio. A digital pen with a wireless link could allow a user to play, pause and navigate the audio
+using the paper transcript.  The design of our paper layout used strict boundaries to interpret edit commands, which
+created a potential source of errors. By using a smarter, more flexible approach, the system may be able to better
+understand the user's intentions and avoid inadvertent mistakes. Additionally, the ability to distinguish between
+edit commands and handwriting could allow the user to both edit and correct the transcript on paper.
+
+\paragraph{Penless paper editor:}
 % use scanner or camera, mask out printed area
 % digital ink with electronic paper
 
-\paragraph{Advanced audio visualization:}
+In Chapter~\ref{chp:paper}, we based the design of our system on a digital pen as it combined the readability of real
+paper with the digital capture of freehand annotations. However, when we evaluated the system, some producers were
+concerned about losing the pen, having to share it and its cost. There are also patents that cover digital pens
+\citep{Fahraeus2003}, which can make development more difficult.  Scanners and cameras could be used as alternative
+methods of digitally capturing freehand annotations from paper. A barcode or QR code could be used to label each page
+with a unique identity that links to a stored image of the printed page. The stored image could be used to mask the
+picture/scan of the paper, leaving only the user's annotations. Image analysis could then be used to interpret the
+user's annotations and translate them into edits, corrections and labels.
 
-The direction of future research into audio visualization could either aim to be more specific, where individual
-visualizations are created to target particular applications, or aim to be more general, where a single visualization
-attempts to handle multiple applications.
-It would likely be easier to create effective specific visualizations as they
-only need to include information relevant to the application, but this would make it difficult to cater for every
-possible use case. Users would also have to switch between multiple specific visualizations depending on the task they
-are performing, and learn how to read each of them. General visualizations would have to contain information relevant
-to all applications. It would be difficult to select the most relevant information and map it in a way that humans can
-easily interpret. However, they could be used for any purpose without users having to switch between or learn to read
-multiple visualizations.
+\paragraph{Rich audio visualization:}
+% multiple features
+% different colour spaces
+% texture
+
+In Chapter~\ref{chp:colourised}, we showed that speech/music segmentation can be performed faster, more easily and more
+accurately by using pseudocolour to map a semantic audio scalar feature to a colour gradient. Previous systems from
+\citet{Tzanetakis2000} and \citet{Mason2007} have also showed how false colour can be used to map multiple features to
+colour space.  The author believes that there is significant untapped potential to design a rich audio visualization
+that ``looks like it sounds''. Such a visualization could provide an efficient and accessible way of navigating all
+types of audio content.  Crossmodal correspondences could be exploited when designing the mapping between semantic
+audio features and visual properties.  Many of the links listed in Section~\ref{sec:crossmodality} have yet to be
+tested for visually navigating audio content, and previous work on audio visualization has mostly focussed on colour.
+Other visual properties such as shape and texture could be used to increase the richness of the information presented
+in the image.  For example, textures can be generated using procedural techniques \citep{Ebert1994}, which allows them
+to be synthesized from semantic audio features.  However, selecting the best combination of semantic audio features and
+visual mappings is a huge challenge, and is likely to be different for each task and signal.
 
 %\paragraph{Cost/benefit of transcripts:}
 %We found that semantic editing was faster for long recordings, but it would be
@@ -111,8 +154,21 @@ multiple visualizations.
 
 \paragraph{Application to television}
 
+The focus of research in this thesis has been solely on semantic audio tools for the production of radio. However,
+there may be opportunities to transfer some of the tools and findings from this work to the production of television.
+The weekly reach and consumption hours for television (91\%, 25 hours) is similar to that of radio (90\%, 21 hours)
+\citep[p.  82, 119]{Ofcom2017}.  However, based on the author's experience in working with BBC producers on both sides
+of the fence, there are big differences between production in television and radio in terms of team size, budget and
+culture. These differences may impact on the relevance of the work.
 
-
+Radio is often produced by small teams of between two and five. Television production involves dozens or sometimes
+hundreds of people, as demonstrated by the list of credits at the end of each programme.  In 2016/17, the BBC spent
+\textsterling2.48B on television production -- over five times the amount that was spent on radio production \citep[pp.
+39, 111]{Ofcom2017}. There are also important cultural differences between television and radio production. For
+example, in the BBC radio producers are employed directly by the public service arm of the BBC as full-time staff. In
+television, most producers are freelancers working on short-term contracts, either for an independent company or a
+commercial arm of the BBC. It is unknown how these differences may affect the way in which semantic audio production
+tools may be used, so this may be an interesting direction of research.
 
 % SPEAKER DIARIZATION 
 %All of productions we observed may benefit from being able to see where different people are speaking in a recording,
