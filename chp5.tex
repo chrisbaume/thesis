@@ -38,7 +38,7 @@ production, how it is used, and whether current systems fulfills the users' requ
 Automatic transcriptions were used by \citet{Whittaker2004}, \citet{Sivaraman2016}, \citet{Shin2016} and
 \citet{Yoon2014}, but \citet{Berthouzoz2012} and \citet{Rubin2013} chose to use perfect transcripts from a
 crowd-sourcing service.  \citet{Hyperaudio2016} used aligned subtitles and \citet{Casares2002} used a combination of
-subtitles and speech-to-text.
+subtitles and ASR.
 
 In summary, \citet{Whittaker2004} found that semantic editing of speech in voicemail is faster and as accurate as using
 waveforms.  \citet{Sivaraman2016} found that for editing discussions, semantic editing is a more accessible alternative
@@ -143,7 +143,7 @@ process.
 Specialist sound engineers (known as `studio managers') are sometimes brought
 in on the last day of production to ensure that the sound is well balanced, and
 to do any advanced editing that is required. This includes removal of
-unwanted `umm's or breaths in a process called `de-umming'. Being able to
+unwanted ``umm''s or breaths in a process called `de-umming'. Being able to
 de-umm speech in a way that is inaudible to the listener is considered to be a skilled task that
 requires precision, judgement and experience.
 
@@ -245,7 +245,7 @@ audio recordings. To achieve this, we used the same drag-and-drop interface as
 clips. It also allows clips from different recordings to be added and
 re-arranged. \citet{Casares2002}, \citet{Sivaraman2016} and
 \citet{Berthouzoz2012} used a select/delete interface, where parts of an
-individual transcript can be chosen or removed, and \cite{Whittaker2004} and
+individual transcript can be chosen or removed, and \citet{Whittaker2004} and
 \citet{Rubin2013} used a cut/paste/delete interface.
 
 We designed our interface to be browser-based, as the BBC corporate policy
@@ -320,7 +320,7 @@ is also available\footnote{\url{https://speecheditor.virt.ch.bbc.co.uk/demo}
 \end{figure*}
 
 \subsubsection{Transcript}\label{sec:transcript}
-The speech-to-text system we chose was evaluated using a large multi-genre television dataset \citep{Bell2015}.  It had
+The ASR system we chose was evaluated using a large multi-genre television dataset \citep{Bell2015}.  It had
 an overall word error rate of 47\%, however for news content, which is clearly spoken by a native speaker, this dropped
 to 16\%. As the speech on radio programmes is similar in nature to speech on television news, we found the error rate
 to be comparable. However recordings with non-native speakers or significant background noise had a higher error rate.
@@ -761,7 +761,7 @@ Once the interview, links and music are ready, the producer will assemble these 
 script, using the DAW. This edit will be about twice as long as the final programme, sometimes significantly longer
 (e.g. P5 reported that they once created 22-hour-long rough edit for a 37-min programme). The producer then continues
 to edit the audio, primarily to `get it down to time', but also to give it a final polish by cleaning up the audio.
-Cleaning involves finely adjusting sound levels to be consistent, removing `umm's and breaths, and adding non-speech
+Cleaning involves finely adjusting sound levels to be consistent, removing ``umm''s and breaths, and adding non-speech
 sounds to create a rich auditory scene.  Producers who are skilled at using a DAW will usually clean up the audio
 themselves, but others will bring in a sound engineer (known in the BBC as a `studio manager'), to help with this (10).
 
@@ -1028,7 +1028,7 @@ bits they were looking for.
   `that sentence there', `that word there' ''} (P4)
 
 Participants reported that editing with a transcript was primarily useful when working at the sentence level. When the
-granularity of editing involves removing individual words, `umm's or breaths, they said that the DAW software is much
+granularity of editing involves removing individual words, ``umm''s or breaths, they said that the DAW software is much
 better suited to these tasks. This supports our design decision to integrate with DAWs.
 
 \textit{``the real editing work actually happens after this has passed its main
@@ -1062,7 +1062,7 @@ better suited to these tasks. This supports our design decision to integrate wit
 When using the semantic editing interface, editing decisions are based on an
 automated transcript which is only partially accurate. Previous research has shown that for editing
 voicemail recordings \citep{Whittaker2004}, discussions \citep{Sivaraman2016} and spoken comments \citep{Yoon2014},
-automated transcripts were considered sufficiently accurate. However, the speech-to-text accuracy required for
+automated transcripts were considered sufficiently accurate. However, the ASR transcript accuracy required for
 navigation and editing in radio production is currently unknown.
 
 The participants in our study suggested that the transcripts were, generally speaking, sufficiently accurate for their
@@ -1454,7 +1454,7 @@ uploads would allow them to leave it running overnight.
 
 The time taken to complete the observed tasks was recorded (see Figure~\ref{fig:time}). As various recordings of
 different lengths were used for the existing and new workflows, the times are reported relative to the length of the
-original unedited audio. In all cases, the producers were able to run the speech-to-text processing as a background
+original unedited audio. In all cases, the producers were able to run the ASR processing as a background
 task so this was not included in the calculation. P1, P2 and P3 used the semantic editor after their existing process,
 while P4 and P5 did the opposite. However as different recordings were editing on each system, the presentation order
 is not expected to affect the results.
@@ -1600,14 +1600,14 @@ All of the participants used a word processor to create a programme script in wh
 content of their story. They used annotations to highlight or rate the transcripts, and wrote notes to help them with
 selecting and assembling the final content.
 
-We introduced a semantic editing system into professional radio production, which the study participants were able
-to successfully use as part of their workflow. On average, the semantic editing workflow was much faster than the
-existing workflow, in line with previous findings from \citet{Whittaker2004}, but this requires further investigation.
-We compared the semantic editing workflow, which included a transcript, to the existing workflow, which did not. Future
-research could consider how much benefit is derived from the transcript itself, compared to the semantic editing
-interface.  All participants continued to use the system after the trial, which is encouraging. However, we
-identified a number of important features that were missing or could be used to improve future semantic speech editing
-systems.
+We introduced a semantic editing system into professional radio production, which the study participants were able to
+successfully use as part of their workflow. On average, the semantic editing workflow was much faster than the existing
+workflow, in line with previous findings from \citet{Whittaker2004}, but this result was not statistically significant,
+so requires further investigation.  We compared the semantic editing workflow, which included a transcript, to the
+existing workflow, which did not. Further research could consider how much benefit is derived from the transcript
+itself, compared to the semantic editing interface.  All participants voluntarily continued to use the system after the
+trial, which indicates that they found value in using it. However, we identified a number of important features that
+were missing or could be used to improve future semantic speech editing systems.
 
 Logging is an important process that primarily involves labelling and organising content, however it is time consuming.
 Natural language processing could also be used to assist this process. For example, a text segmentation algorithm
@@ -1618,19 +1618,19 @@ of content. This cross-referencing could also be assisted by providing links bet
 recordings. For example, selecting a word could display and replay other mentions of that word in other recordings.
 
 Another important reason for listening is to ensure a high `sound quality'. Participants wanted to avoid low quality
-audio such as `umm's, mumbling, coughing and excessive background noise, but they also wanted to ensure they didn't
+audio such as ``umm''s, mumbling, coughing and excessive background noise, but they also wanted to ensure they didn't
 miss any high quality audio moments that might not have been identified using the transcript.  Faster playback is
 already used in radio production to reduce the time spent listening to material, however more sophisticated time
 compression algorithms such as those described by \citet{Arons1997} could be used. Time compression has not been
 included in previous semantic editing systems, but should be considered in the future, especially as \citet{Vemuri2004}
 found that the maximum time compression factor is significantly higher when an automated transcript is present.
 
-Removal of `umm's and breaths, known in radio production as `de-umming', is either done by the producer themselves or
+Removal of ``umm''s and breaths, known in radio production as `de-umming', is either done by the producer themselves or
 with the help of a sound engineer, depending on the producer's experience and time pressure. To maintain sound quality,
 the removal of umms/breaths must be audibly transparent and participants reported that this can difficult to achieve.
 Previous semantic editing systems have included functionality to remove umms \citep{Berthouzoz2012} and breaths
 \citep{Rubin2013}, however these were made possible because the manually generated transcripts 
-explicitly transcribed those items. Speech-to-text systems are normally trained to ignore umms/breaths rather than
+explicitly transcribed those items. ASR systems are normally trained to ignore umms/breaths rather than
 transcribe them, which prevented us from including this functionality. A transcription system that includes these would
 allow us to add this functionality, however further research is needed into the extent to which de-umming can be
 automated in this way.
@@ -1671,20 +1671,20 @@ editing system would allow producers the flexibility to work where they wanted.
 
 Digital pen interfaces such as the Anoto system could be used to create a paper-based semantic editor that can be used
 anywhere and does not involve screens. Additionally, it naturally supports freehand annotation and may be a better
-medium for face-to-face collaboration.  \cite{Klemmer2003} has previously explored how speech can be navigated using
-paper transcripts and \cite{Weibel2008} describes how an Anoto system can be used to edit digital documents, however
+medium for face-to-face collaboration.  \citet{Klemmer2003} has previously explored how speech can be navigated using
+paper transcripts and \citet{Weibel2008} describes how an Anoto system can be used to edit digital documents, however
 these approaches have yet to be combined.
 
 Participants reported that the automatically-generated transcripts were sufficiently accurate for editing, supporting
 similar previous findings from \citet{Whittaker2004} and \citet{Sivaraman2016}. This is helped by the fact that radio
 producers record the audio themselves, and can use their memory to cope with inaccuracies. Most participants were only
 interested in correcting errors that were distractingly wrong, which were often names or locations related to the
-story. However, as these are known ahead of time, they could be provided to the speech-to-text system as a way to tweak
+story. However, as these are known ahead of time, they could be provided to the ASR system as a way to tweak
 or expand the language model.
 
 Currently transcripts of each programme are not published due to the high cost and
 overhead, however several participants were interested in fully correcting their transcripts so they could do this.
-The availability of speech-to-text could have the potential to extend the scope of radio production to include
+The availability of ASR transcription could have the potential to extend the scope of radio production to include
 publication of transcripts. This could help to improve discoverability of programme content, especially if word timings
 were included.
 
@@ -1880,12 +1880,12 @@ Based on the results of this work, we developed the prototype further to take in
 producers in our study.  We handed the prototype over to a development team at the BBC who have now turned it into an
 officially supported production tool.  This has allowed producers from around the BBC to use the tool as part of their
 normal workflow.
-As of October 2016, the system has 45 active users and has processed 265 audio recordings. We will
-continue to collect usage and interaction metrics for later analysis.
+As of October 2016, the system had 45 active users and has processed 265 audio recordings.
+%We will continue to collect usage and interaction metrics for later analysis.
 
-In further research work we have added the ability to print augmented paper transcripts, whose annotations result in
-automatic edits to the source audio. This was done in a collaboration between the BBC and Anoto, and is currently being
-evaluated against screen-based editing in a further study.
+%In further research work we have added the ability to print augmented paper transcripts, whose annotations result in
+%automatic edits to the source audio. This was done in a collaboration between the BBC and Anoto, and is currently being
+%evaluated against screen-based editing in a further study.
 
 %\subsection{Summary of main findings}\label{sec:findings}
 %used a pilot study to identify an opportunity to use automatic transcripts of
@@ -1960,7 +1960,7 @@ operational transformation would allow concurrent editing and integration betwee
 Some participants struggled with office and screen-based working so portable interfaces, such as those offered by
 digital pen technology, would give producers the flexibility to work where they are most productive. 
 Unwanted noises such as `umms' and breaths must be removed transparently, which is done by the producer or sound
-engineer. By training speech-to-text systems to transcribe these noises, this could be done in the semantic editor.
+engineer. By training ASR systems to transcribe these noises, this could be done in the semantic editor.
 However, further research is required into the sound quality achieved by this approach.
 Finally, ``radio is made with your ears'' so there are limits to how much editing can be done using a text-based
 interface. Editing tools should provide easy access to playback and use time compression features, which allow users to
