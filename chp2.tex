@@ -364,35 +364,6 @@ meaningful categories. For example,
 % map or group these features into semantically meaningful categories
 
 
-%This section looks at audio features that could be used as part of an audio visualization system. Firstly, two use
-%cases that were previously identified as being a common component of radio production are explored, before considering
-%methods of generating features for any use case.
-
-% Not including music features:
-
-%\paragraph{Rhythm}
-% Onset rate
-% Rhythm strength
-% Mean correlation peak
-% Peak/valley correlation ratio
-% Beat counts
-% Tempo
-
-%\paragraph{Harmony}
-% Chromagram
-% Key
-% Tonal content space
-% Tonal change detection function
-% Consonance
-% Harmonic change
-% Smooth power slope
-% Odd/even ratio
-% Tristimulus
-% Inharmonicity
-% Smoothness
-
-
-
 % Extraction
 \subsubsection{Feature extraction}
 
@@ -404,8 +375,6 @@ an impression of how semantic audio works.
 Semantic audio features can be broadly categorized into energy, temporal and spectral features. For musical features,
 we could extend this list to include rhythmic and harmonic features, but we have chosen to exclude music-only features
 from this section.
-
-\paragraph{Pre-processing}
 
 When an audio file is processed with a feature extraction algorithm, the audio is first cut into lots of overlapping
 clips, called ``frames''.  The vectors returned for each frame are then averaged, commonly by producing mean and
@@ -438,13 +407,6 @@ Kacprzak and Zi\'{o}\l{}ko recently proposed a modified version of low energy ra
 normalization function over a $\sim$1--3 second window. It has similar performance to low energy ratio with a moving
 average threshold, but has fewer parameters to set.
 
-%% Intensity
-%Intensity, or intensity ratio, is the sum of a signal’s FFT bins.
-
-%% Loudness
-%Loudness is calculated by dividing the signal into Bark bands, finding the ``specific loudness'' for each, and summing
-%them together. 
-
 \paragraph{Temporal features}
 
 % Zero-crossing rate
@@ -465,90 +427,12 @@ product of RMS and ZCR was used for the second classifier.
 A review \citep{Carey1999} of features for SMD found ZCR to perform least well, but did not consider the skewness,
 variance, or probability of null zero-crossings.
 
-%% Temporal centroid
-%The algorithm to calculate the temporal centroid uses the ‘signal envelope’, which is composed of the mean squared
-%value of each frame.
-
-%% Log attack time
-%This feature also uses the signal envelope defined in Equation 19. The log attack time is the log of the time between
-%the beginning of the signal (T0), and the maximum signal value (T1). The beginning is defined as the time at which the
-%signal first exceeds 2\% of maximum value.
-
-%% Kurtosis
-%Kurtosis is a measure of the shape of the signal’s probability distribution. It if often described as a measure of the
-%‘peakedness’ of the distribution.
-
-%% Variance
-%The variance of a frame is the second central moment of the samples, and is calculated as follows:
-
-%% Skewness
-%Skewness is a measure of asymmetry in the distribution of the samples in a frame. It is calculated using the variance.
-
-%% Average deviation
-%This feature measures the average deviation from the mean value of the frame.
-
-%% Non-zero count
-%This feature is simply a count of the number of samples in a frame that are not zero-valued.
-
-%% Highest-lowest value
-%These algorithms simply find the highest and lowest valued samples in the input frame.
-
 
 \paragraph{Spectral features}
 
 % Spectral centroid
 Spectral centroid is often used to measure the ‘brightness’ of an audio signal. This is done by treating the spectrum
 as a distribution of frequencies, with the probability of each frequency being based on its normalised amplitude.
-
-
-% continuous frequency activation
-%Most of the above SMD features work well for segmenting speech-only/music-only content. However, many fall down at
-%detecting background music in speech.  Seyerlehner developed the continuous frequency activation (CFA) feature
-%\citep{Seyerlehner2007}, which works on the basis that music content has stable harmonics, seen as horizontal lines on
-%a spectrogram.
-
-%A moving average is subtracted from the FFT before it is binarized using a low threshold value. For each bin, the
-%proportion of active frames in an analysis window is counted. The result is analysed with a peak picking algorithm and
-%the sum of the five largest peaks are used as the CFA. The result is a single numeric value which quantifies the
-%presence of steady frequency components.
-
-%In the original CFA paper, the feature was used to find music in television content, but recently it has also been
-%successfully applied to segmentaton of radio recordings \citep{Wieser2014}.
-
-
-%% Spectral spread
-%The spectral spread is the variance of the distribution used to calculate the spectral centroid.
-
-%% Spectral skewness
-%The skewness of the spectrum is a measure of the asymmetry of the distribution used to calculate the spectral
-%centroid. A distribution with perfect symmetry has a skewness of 0. Skewness to the right results in a value less than
-%0, and for the left, greater than 0.
-
-%% Spectral kurtosis
-%Kurtosis is the measure of the flatness of a distribution.
-
-%% Spectral slope
-%The spectral slope represents the angle at which the spectral amplitude decreases
-
-%% Spectral rolloff
-%The spectral rolloff is the frequency below which lies 95\% of the signal energy.
-
-%% Spectral flatness
-%Spectral flatness is a measure of noisiness. A high value indicates a noisy signal. It is calculated as the ratio of
-%the geometric mean to the arithmetic mean of the energy spectrum.
-
-%spectral entropy \citep{Misra2004} is a
-%measure of the peakiness of the spectrum and is an effective feature in distinguishing between voiced and unvoiced
-%speech.
-
-%% Spectral crest
-%Spectral crest is the ratio between the maximum value and the arithmetic mean.
-
-%% Intensity ratio
-%The intensity ratio describes the relative intensity at various frequencies. As was done for the rhythm features, the
-%FFT bins of the audio signal are divided into K sub-bands, defined by the frequencies in Equation 8, and summed to
-%produce K signals (Ak). They are each then compared to the overall intensity, as defined in Equation 5, to produce an
-%intensity ratio vector of length K.
 
 % MFCC
 Mel-frequency Cepstral Coefficients are a compact representation of the spectral envelope. They were developed [38]
@@ -575,30 +459,6 @@ Friendland et. al. \citep{Friedland2009} proposed enhancing the standard MFCC fe
 representing prosody (the rhythm and intonation of speech). 52 candidate features were ranked using feature selection,
 which showed that ``the median and mean fundamental frequency are the best features, following by high formants (F4,
 F5)''. Inclusion of the top ten prosodic features improved the speaker diarization system by 24\%.
-
-
-%% Bark bands
-%Bark coefficients are calculated simply by summing the value of the FFT bins which lie in each Bark band.
-
-%% Spectral flux
-%Spectral flux is the sum of the change in magnitude of each frequency bin, restricted to the positive changes.
-
-%% Spectral sharpness
-%Spectral sharpness is perceptually equivalent to the spectral centroid, but is computed using the specific loudness of
-%the Bark bands [37].
-
-%% Standard deviation
-%The spectral standard deviation is the square root of the spectral spread (aka. spectral variance).
-
-%% Irregularity
-%Spectral irregularity is a method of measuring noisiness. There are two varieties from Krimphoff [39] and Jensen [40].
-
-%% Average deviation
-%Average deviation is the mean deviation (aka. absolute deviation) from the spectral centroid.
-
-
-
-
 
 \paragraph{Feature selection/extraction}
 Feature selection and extraction are methods of reducing the dimensionality of a feature vector, either by choosing a
@@ -639,7 +499,6 @@ link to human perception.
 
 Deep belief networks for feature learning \citep{Hamel2010}
 Deep neural networks for learning musical features \citep{Sigtia2014}
-
 
 % CLASSIFICATION
 \subsubsection{Feature classification}
