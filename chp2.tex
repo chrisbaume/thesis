@@ -311,7 +311,7 @@ as many parameters, so are much more consistent.
 
 %Spectrograms are available in most audio editing software, but rarely used by default.
 
-Can be used to edit frequencies like photoshop \cite{Boogaart2006}
+%TODO Can be used to edit frequencies like photoshop \cite{Boogaart2006}
 
 
 
@@ -319,148 +319,189 @@ Can be used to edit frequencies like photoshop \cite{Boogaart2006}
 %====================================================================================================================
 \clearpage
 \section{Semantic audio analysis}
+
 Semantic audio is the extraction of perceptual attributes from an audio signal, which is used to describe sound in
 human-readable terms.
 
-% What is semantic audio?
-describe sound in human-readable terms
-decomposing acoustic signals into semantic entities
-can be applied to semantic user interfaces
+The ambition of semantic audio is to make sound less ``opaque'' by being able to understand what is contained within.
+
+Semantic audio brings together a wide variety of disciplines, including speech recognition, information retrieval,
+audio analysis, signal processing, psychoacoustics, and machine learning \citep{Foote1999}. As such, we will only aim
+to provide a brief overview of the methods and applications that may be relevant to radio production.
+
 extracting and describing the perceptual attributes of sound
 
-For example, it can be
-used to distinguish between music and speech \citep{Wieser2014}, show where
-different people are speaking \citep{AngueraMiro2012}, and who those people are
-\citep{Doddington1985}.
-
-classification
 
 Review of audio information retrieval \citep{Foote1999}, including automatic speech recognition, word spotting, speaker
 and music identification, and audio similarity
 
-% classification/tagging
-This paper divides audio streams into five classes: silence, noise, pure speech, speech over background sound and
-music. Four new features are proposed, including silence ratio, pitch frequency standard deviation, harmonicity ratio
-and smooth pitch ratio. \citep{Liang2005}
-Survey \citep{Duan2014}
+works by decomposing acoustic signals into semantic entities
 
-% speech-music discrimination
-Comparison of features \citep{Carey1999}
-For Swedish Radio \citep{Ericsson2009}
-Music detection in TV broadcasts \citep{Seyerlehner2007}
+has applications in improving the usability of audio user interfaces
 
-% speech-to-text
-General books \citep{Junqua1995,Lee1999a}
-Speaker diarization review \citep{AngueraMiro2012}
-Speech to text on TV (MGB) \citep{Bell2015}
-Speech alignment \citep{Bohac2013}
-HMM intro \citep{Rabiner1989}
+music segmention by chorus and verses for intelligent audio editing \citep{Fazekas2007}
 
-% speaker diarization
-\citep{Tranter2006}
+Has applications to speech content too
+For example, it can be used to distinguish between music and speech \citep{Wieser2014}, show where different people are
+speaking \citep{AngueraMiro2012}, and who those people are \citep{Doddington1985}.
 
-% speaker recognition
-Overview \citep{Doddington1985}
-Book \citep{Lee1999a}
-
-music segmention for intelligent audio editing \citep{Fazekas2007}
-
-Deep belief networks for feature learning \citep{Hamel2010}
-Deep neural networks for learning musical features \citep{Sigtia2014}
+Semantic audio analysis has wide applications to music and an active research community, as is evident by the annual
+community-driven evaluation of music information retrieval algorithms \citep{Downie2008}
 
 
-%Academic research into audio analysis and audio interfaces tends to concentrate on fully automated systems
-%\citep{AngueraMiro2012}, navigation of large audio collections \citep{FontCorbera2010} or navigation interfaces based
-%on skimming \citep{Arons1997} and scrolling \citep{Lee2007}. Although there are examples of audio visualization from
-%the world of academia, it is much more popular in the context of art \citep{Armitage2012}, with excellent examples such
-%as Quayola's Form--Sound--Abstraction\footnote{\url{http://www.quayola.com/work/form-sound-abstraction/}} work.
+% METHODS 
+\subsection{Methods}
 
-%This section looks at three areas of literature from which the project will draw upon -- extraction of meaningful audio
-%properties, mapping these to a visual representation, and the perceptual links between audition and vision.
+Semantic audio analysis begins with using an algorithm to process the raw audio data into semantically meaningful
+``features'' or ``descriptors'', known as \textit{feature extraction}. Audio features are a numerical representation of
+a certain property of the audio. For example, these might include how loud the sound is, or its estimated pitch.
 
-% parse audio into semantically meaningful features
+Many semantic audio algorithms include a second stage, where the audio features are classified into semantically
+meaningful categories. For example, 
+
+%then classification/mapping/grouping/clustering
+% low-level (frequencies) to high-level (words)
 % map or group these features into semantically meaningful categories
 
-% feature extraction:
-% - Fourier
-% - MFCCs
-% modeling techniques:
-% - machine learning
-% - clustering
-% - markov models
-% - GMMS
-
-% speech/music discrimination
-% speech
-% - speech onset detection
-% - speaker diarization
-% - speaker identification
-% - automatic speech recognition
-%   - topic identification
-%   - topic segmentation
-% music
-% - beat tracking
-% - chord estimation
-% - key detection
 
 %This section looks at audio features that could be used as part of an audio visualization system. Firstly, two use
 %cases that were previously identified as being a common component of radio production are explored, before considering
 %methods of generating features for any use case.
 
-%Speech/music discrimination (SMD) is the process of segmenting audio content into parts labelled by the categories
-%speech and music. In general, SMD classifiers use a collection of different features. This section lists the ones that
-%are used frequently or have recently been found to perform well.
+% Not including music features:
 
-%\paragraph{RMS energy}
-%The root mean squared energy can be used also exclusively as an effective SMD classifier, as demonstrated in
-%\citep{Ericsson2009} and \citep{Panagiotakis2005}.  Commonly used statistics of RMS include low energy ratio
-%\citep{Liang2005,Ericsson2009,Saunders1996,Scheirer1997} and variance \citep{Ericsson2009} (including normalised
-%variance \citep{Panagiotakis2005} and delta variance \citep{Carey1999}).
+%\paragraph{Rhythm}
+% Onset rate
+% Rhythm strength
+% Mean correlation peak
+% Peak/valley correlation ratio
+% Beat counts
+% Tempo
 
-%Low energy ratio (also known as `silent interval frequency' and `energy contour dip') is a measure of the number of RMS
-%energy frames that fall below a threshold. It exploits the fact that speech has freqent silent gaps between words,
-%wheras music does not. The threshold can be set as a fixed value \citep{Liang2005}, a function of a moving average
-%\citep{Ericsson2009} or moving peak value \citep{Saunders1996}.
+%\paragraph{Harmony}
+% Chromagram
+% Key
+% Tonal content space
+% Tonal change detection function
+% Consonance
+% Harmonic change
+% Smooth power slope
+% Odd/even ratio
+% Tristimulus
+% Inharmonicity
+% Smoothness
 
-%Kacprzak and Zi\'{o}\l{}ko recently proposed a modified version of low energy ratio called `minimum energy density'
-%\citep{Kacprzak2013}. It is calculated by normalizing over a $\sim$15 second window and finding the minimum of the
-%normalization function over a $\sim$1--3 second window. It has similar performance to low energy ratio with a moving
-%average threshold, but has fewer parameters to set.
 
-%\paragraph{Zero-crossing rate} is the rate at which a signal crosses the time axis, which is an easy-to-calculate
-%measure for the spectral energy distribution. Early work in SMD \citep{Saunders1996} identified that ``speech signals
-%produce a marked rise in the ZCR during periods of fricativity occuring at the beginning and end of words'', wheras
-%music does not. This causes a bimodality which skews the ZCR distribition, which can be measured using the third
-%standardized moment (skewness). The variance of ZCR has also been found to perform well for SMD \citep{Scheirer1997}.
 
-%ZCR also played a significant role in two steps of a five-step classifer \citep{Panagiotakis2005}. During silent
-%intervals the number of zero crossings is null, so this was used to detect gaps between speech. The authors also noted
-%that ``RMS and ZCR are somewhat correlated for speech signals, while essentially independent for music'', and so the
-%product of RMS and ZCR was used for the second classifier.
+% Extraction
+\subsubsection{Feature extraction}
 
-%A review \citep{Carey1999} of features for SMD found ZCR to perform least well, but did not consider the skewness,
-%variance, or probability of null zero-crossings.
+There are a huge number of semantic audio features that can be extracted from an audio signal.  In this section, we
+will describe a selection of features that have applications to radio production, and are mentioned later in this
+thesis. These only represent a small selection of the available features, but we have included them to give the reader
+an impression of how semantic audio works.
 
-%\paragraph{MFCC}
-%Mel-frequency cepstral coefficients have long been the workhorse of audio analysis, and they have been successfully
-%used in SMD applications \citep{Carey1999,Liang2005,Pikrakis2008,Pikrakis2006a,Sell2014,Wieser2014}.  Notably, their
-%use has only been successful when used in combination with strong machine learning systems, indicating that the
-%relationship of MFCCs to SMD labels is complex and non-linear. This would make it difficult to map to a visual
-%representation.
+Semantic audio features can be broadly categorized into energy, temporal and spectral features. For musical features,
+we could extend this list to include rhythmic and harmonic features, but we have chosen to exclude music-only features
+from this section.
 
-%\paragraph{Chroma}
-%Use of chroma features work on the principle that the spectra of music is aligned to the chromatic scale. Pikrakis et.
-%al.  \citep{Pikrakis2006,Pikrakis2008} have successfully used `chromatic entropy' for SMD applications. It takes
-%sub-bands from a mel-scaled spectrum, aligned to the chromatic scale, and calculates the entropy of the normalised
-%spectral energy.
+\paragraph{Pre-processing}
 
-%More recently, Sell \citep{Sell2014} has proposed two new chroma features, which try to account for the fact that the
-%chromagram varies greatly between different pieces of music. Music tends to form strong, separated peaks on the
-%chromagram wheras speech has smoother mounds of energy. The new features attempt to measure the peakiness of the
-%chromagram. `Chromatic diff' subtracts a shifted chroma vector from the original chroma vector and sums the energy.
-%`Chroma high freq' performs an FFT on the chromagram and sums the high frequency energy.
+When an audio file is processed with a feature extraction algorithm, the audio is first cut into lots of overlapping
+clips, called ``frames''.  The vectors returned for each frame are then averaged, commonly by producing mean and
+standard deviation measurements.
 
-%\paragraph{Continuous frequency activation}
+\paragraph{Energy features}
+
+Energy features are very quick to calculate, which makes them attractive. The energy of the signal, and how it changes
+over time, can go some way to helping us understand or classify the audio.
+
+% RMS Energy
+Root mean square (RMS) energy is the square root of the mean of the square of the audio signal. RMS is commonly used in
+scientific work as a measurement of a signal’s power.
+
+The root mean squared energy can be used also exclusively as an effective SMD classifier, as demonstrated in
+\citep{Ericsson2009} and \citep{Panagiotakis2005}.  Commonly used statistics of RMS include low energy ratio
+\citep{Liang2005,Ericsson2009,Saunders1996,Scheirer1997} and variance \citep{Ericsson2009} (including normalised
+variance \citep{Panagiotakis2005} and delta variance \citep{Carey1999}).
+
+% Low energy ratio
+Low energy ratio is the proportion of frames whose RMS amplitude is lower than a fixed threshold.
+
+Low energy ratio (also known as `silent interval frequency' and `energy contour dip') is a measure of the number of RMS
+energy frames that fall below a threshold. It exploits the fact that speech has freqent silent gaps between words,
+wheras music does not. The threshold can be set as a fixed value \citep{Liang2005}, a function of a moving average
+\citep{Ericsson2009} or moving peak value \citep{Saunders1996}.
+
+Kacprzak and Zi\'{o}\l{}ko recently proposed a modified version of low energy ratio called `minimum energy density'
+\citep{Kacprzak2013}. It is calculated by normalizing over a $\sim$15 second window and finding the minimum of the
+normalization function over a $\sim$1--3 second window. It has similar performance to low energy ratio with a moving
+average threshold, but has fewer parameters to set.
+
+%% Intensity
+%Intensity, or intensity ratio, is the sum of a signal’s FFT bins.
+
+%% Loudness
+%Loudness is calculated by dividing the signal into Bark bands, finding the ``specific loudness'' for each, and summing
+%them together. 
+
+\paragraph{Temporal features}
+
+% Zero-crossing rate
+This is the number of times the audio signal crosses the time axis per second. It is a crude measure of pitch, but is a
+very quick and easy feature to calculate.
+
+\paragraph{Zero-crossing rate} is the rate at which a signal crosses the time axis, which is an easy-to-calculate
+measure for the spectral energy distribution. Early work in SMD \citep{Saunders1996} identified that ``speech signals
+produce a marked rise in the ZCR during periods of fricativity occuring at the beginning and end of words'', wheras
+music does not. This causes a bimodality which skews the ZCR distribition, which can be measured using the third
+standardized moment (skewness). The variance of ZCR has also been found to perform well for SMD \citep{Scheirer1997}.
+
+ZCR also played a significant role in two steps of a five-step classifer \citep{Panagiotakis2005}. During silent
+intervals the number of zero crossings is null, so this was used to detect gaps between speech. The authors also noted
+that ``RMS and ZCR are somewhat correlated for speech signals, while essentially independent for music'', and so the
+product of RMS and ZCR was used for the second classifier.
+
+A review \citep{Carey1999} of features for SMD found ZCR to perform least well, but did not consider the skewness,
+variance, or probability of null zero-crossings.
+
+%% Temporal centroid
+%The algorithm to calculate the temporal centroid uses the ‘signal envelope’, which is composed of the mean squared
+%value of each frame.
+
+%% Log attack time
+%This feature also uses the signal envelope defined in Equation 19. The log attack time is the log of the time between
+%the beginning of the signal (T0), and the maximum signal value (T1). The beginning is defined as the time at which the
+%signal first exceeds 2\% of maximum value.
+
+%% Kurtosis
+%Kurtosis is a measure of the shape of the signal’s probability distribution. It if often described as a measure of the
+%‘peakedness’ of the distribution.
+
+%% Variance
+%The variance of a frame is the second central moment of the samples, and is calculated as follows:
+
+%% Skewness
+%Skewness is a measure of asymmetry in the distribution of the samples in a frame. It is calculated using the variance.
+
+%% Average deviation
+%This feature measures the average deviation from the mean value of the frame.
+
+%% Non-zero count
+%This feature is simply a count of the number of samples in a frame that are not zero-valued.
+
+%% Highest-lowest value
+%These algorithms simply find the highest and lowest valued samples in the input frame.
+
+
+\paragraph{Spectral features}
+
+% Spectral centroid
+Spectral centroid is often used to measure the ‘brightness’ of an audio signal. This is done by treating the spectrum
+as a distribution of frequencies, with the probability of each frequency being based on its normalised amplitude.
+
+
+% continuous frequency activation
 %Most of the above SMD features work well for segmenting speech-only/music-only content. However, many fall down at
 %detecting background music in speech.  Seyerlehner developed the continuous frequency activation (CFA) feature
 %\citep{Seyerlehner2007}, which works on the basis that music content has stable harmonics, seen as horizontal lines on
@@ -474,58 +515,193 @@ Deep neural networks for learning musical features \citep{Sigtia2014}
 %In the original CFA paper, the feature was used to find music in television content, but recently it has also been
 %successfully applied to segmentaton of radio recordings \citep{Wieser2014}.
 
-%Speaker diarization is the process of segmenting a speech recording by where different people are talking. Review
-%papers from 2006 \citep{Tranter2006} and 2012 \citep{AngueraMiro2012} show that the vast majority of systems are based
-%on clustering of MFCC or PLP features, which are low-dimensional representations of speech. Rather than developing new
-%features, the research is primarily focussed on improvement of the clustering algorithms and pre-processing stages such
-%as Wiener filtering, speech activity detection and beamforming.
 
-%MFCC and PLP features are extremely effective when used in machine-based classification systems, but from a human
-%perception angle, the features do not correlate well to what is heard.  Other features developed for automatic speech
-%recognition may also be useful in a speaker diarization system. For example, spectral entropy \citep{Misra2004} is a
+%% Spectral spread
+%The spectral spread is the variance of the distribution used to calculate the spectral centroid.
+
+%% Spectral skewness
+%The skewness of the spectrum is a measure of the asymmetry of the distribution used to calculate the spectral
+%centroid. A distribution with perfect symmetry has a skewness of 0. Skewness to the right results in a value less than
+%0, and for the left, greater than 0.
+
+%% Spectral kurtosis
+%Kurtosis is the measure of the flatness of a distribution.
+
+%% Spectral slope
+%The spectral slope represents the angle at which the spectral amplitude decreases
+
+%% Spectral rolloff
+%The spectral rolloff is the frequency below which lies 95\% of the signal energy.
+
+%% Spectral flatness
+%Spectral flatness is a measure of noisiness. A high value indicates a noisy signal. It is calculated as the ratio of
+%the geometric mean to the arithmetic mean of the energy spectrum.
+
+%spectral entropy \citep{Misra2004} is a
 %measure of the peakiness of the spectrum and is an effective feature in distinguishing between voiced and unvoiced
 %speech.
 
-%Friendland et. al. \citep{Friedland2009} proposed enhancing the standard MFCC features with a set of long-term features
-%representing prosody (the rhythm and intonation of speech). 52 candidate features were ranked using feature selection,
-%which showed that ``the median and mean fundamental frequency are the best features, following by high formants (F4,
-%F5)''. Inclusion of the top ten prosodic features improved the speaker diarization system by 24\%.
+%% Spectral crest
+%Spectral crest is the ratio between the maximum value and the arithmetic mean.
 
-%Traditionally, audio features were developed by hand for specific tasks. This was usually done by attempting to write
-%an algorithm that calculated the properties of the sound that humans used to distinuish the categories in question.
-%More recently, fuelled by an ever-increasing availability of computing power, research has had a much greater focus on
-%automating this process.
+%% Intensity ratio
+%The intensity ratio describes the relative intensity at various frequencies. As was done for the rhythm features, the
+%FFT bins of the audio signal are divided into K sub-bands, defined by the frequencies in Equation 8, and summed to
+%produce K signals (Ak). They are each then compared to the overall intensity, as defined in Equation 5, to produce an
+%intensity ratio vector of length K.
 
-%\paragraph{Feature selection/extraction}
-%Feature selection and extraction are methods of reducing the dimensionality of a feature vector, either by choosing a
-%combination of vector components that best describe the content (selection), or by translating the feature vector to a
-%smaller vector while retaining as much information as possible (extraction).
+% MFCC
+Mel-frequency Cepstral Coefficients are a compact representation of the spectral envelope. They were developed [38]
+for, and are commonly used as a speech analysis tool, but also have applications in music analysis. The coefficients
+are calculated using a cepstrum (non-linear spectrum of a spectrum) of the audio signal, but with the frequency bands
+spaced using the mel scale, which gives a better approximation to the human hearing system.
 
-%This process can be unsupervised where only the feature data is known (such as with principal component analysis), or
-%supervised where the feature data has corresponding labels (such as with linear discriminant analysis).
+The audio signal is first filtered into K separate signals using a triangular filter bank. Each output signal is a sum
+of the FFT bins, with each bin weighted by the ‘amplitude’ of its centre frequency in the filter bank (see Figure
+12). Every filter bank implementation is slightly different, but most have linear spacing up to approx. 1kHz, with log
+spacing following that. The QMUL implementation uses the following formula to calculate the boundary frequencies for
+NLIN + NLOG filters.
 
-%Canonical correaltion analysis (CCA) has been used to reduce the dimensions of features for speaker diarization
-%\citep{Chaudhuri2009} and phonetic labelling \citep{Arora2014}, amongst other things. It is able to efficiently map
-%features to a subspace and can be used with the kernel trick (known as KCCA) to support non-linear mappings. In the
-%case of speaker clustering, ``CCA-based algorithms consistently provide better performance than standard PCA-based
-%clustering methods'' \citep{Chaudhuri2009}.
+The MFCCs are calculated using a weighted sum of the log-energy of the K signals, using the
+formula below.
 
-%\paragraph{Feature learning}
-%The above methods of reducing dimensionality are based on a relatively short information-rich feature vector that it
-%suitable for the target application.  More recent research on feature development is focussed on automated learning of
-%features using large labelled datasets.
+Mel-frequency cepstral coefficients have long been the workhorse of audio analysis, and they have been successfully
+used in SMD applications \citep{Carey1999,Liang2005,Pikrakis2008,Pikrakis2006a,Sell2014,Wieser2014}.  Notably, their
+use has only been successful when used in combination with strong machine learning systems, indicating that the
+relationship of MFCCs to SMD labels is complex and non-linear. This would make it difficult to map to a visual
+representation.
 
-%Deep learning is an increasingly popular method of learning features based on neural networks with large numbers (tens
-%or hundreds) of hidden units. This line of research has been enabled by the increasing availability of large amount of
-%processing power. When done properly, deep learning can produce the state-of-the-art in audio features, outperforming
-%even the best hand-crafted features \citep{Hamel2010,Sigtia2014}.
+Friendland et. al. \citep{Friedland2009} proposed enhancing the standard MFCC features with a set of long-term features
+representing prosody (the rhythm and intonation of speech). 52 candidate features were ranked using feature selection,
+which showed that ``the median and mean fundamental frequency are the best features, following by high formants (F4,
+F5)''. Inclusion of the top ten prosodic features improved the speaker diarization system by 24\%.
 
-%Such an approach requires a high-quality and very large labelled dataset, on which the success of the process depends.
-%The nature of neural networks means that it is very difficult to interpret what the resulting features represent which
-%isn't an issue when used as the input to a machine learning system, but would make it very difficult to map to a
-%visualization. The objective of the deep learning process is to minimise a cost function rather than to maximise the
-%link to human perception.
 
+%% Bark bands
+%Bark coefficients are calculated simply by summing the value of the FFT bins which lie in each Bark band.
+
+%% Spectral flux
+%Spectral flux is the sum of the change in magnitude of each frequency bin, restricted to the positive changes.
+
+%% Spectral sharpness
+%Spectral sharpness is perceptually equivalent to the spectral centroid, but is computed using the specific loudness of
+%the Bark bands [37].
+
+%% Standard deviation
+%The spectral standard deviation is the square root of the spectral spread (aka. spectral variance).
+
+%% Irregularity
+%Spectral irregularity is a method of measuring noisiness. There are two varieties from Krimphoff [39] and Jensen [40].
+
+%% Average deviation
+%Average deviation is the mean deviation (aka. absolute deviation) from the spectral centroid.
+
+
+
+
+
+\paragraph{Feature selection/extraction}
+Feature selection and extraction are methods of reducing the dimensionality of a feature vector, either by choosing a
+combination of vector components that best describe the content (selection), or by translating the feature vector to a
+smaller vector while retaining as much information as possible (extraction).
+
+This process can be unsupervised where only the feature data is known (such as with principal component analysis), or
+supervised where the feature data has corresponding labels (such as with linear discriminant analysis).
+
+Canonical correaltion analysis (CCA) has been used to reduce the dimensions of features for speaker diarization
+\citep{Chaudhuri2009} and phonetic labelling \citep{Arora2014}, amongst other things. It is able to efficiently map
+features to a subspace and can be used with the kernel trick (known as KCCA) to support non-linear mappings. In the
+case of speaker clustering, ``CCA-based algorithms consistently provide better performance than standard PCA-based
+clustering methods'' \citep{Chaudhuri2009}.
+
+
+\paragraph{Feature learning}
+
+Traditionally, audio features were developed by hand for specific tasks. This was usually done by attempting to write
+an algorithm that calculated the properties of the sound that humans used to distinuish the categories in question.
+More recently, fuelled by an ever-increasing availability of computing power, research has had a much greater focus on
+automating this process.
+
+The above methods of reducing dimensionality are based on a relatively short information-rich feature vector that it
+suitable for the target application.  More recent research on feature development is focussed on automated learning of
+features using large labelled datasets.
+
+Deep learning is an increasingly popular method of learning features based on neural networks with large numbers (tens
+or hundreds) of hidden units. This line of research has been enabled by the increasing availability of large amount of
+processing power. When done properly, deep learning can produce the state-of-the-art in audio features, outperforming
+even the best hand-crafted features \citep{Hamel2010,Sigtia2014}.
+
+Such an approach requires a high-quality and very large labelled dataset, on which the success of the process depends.
+The nature of neural networks means that it is very difficult to interpret what the resulting features represent which
+isn't an issue when used as the input to a machine learning system, but would make it very difficult to map to a
+visualization. The objective of the deep learning process is to minimise a cost function rather than to maximise the
+link to human perception.
+
+Deep belief networks for feature learning \citep{Hamel2010}
+Deep neural networks for learning musical features \citep{Sigtia2014}
+
+
+% CLASSIFICATION
+\subsubsection{Feature classification}
+
+% Mapping/grouping/clustering/modelling
+% - machine learning
+% - clustering
+% - markov models
+% - GMMS
+
+\subsection{Applications}
+
+In this section we will look at some of the applications of semantic audio analysis that are relevant to radio
+production.  As most original radio productions are speech-based, and because speech production is the focus of our
+work, we will not cover applications to music-only content.
+
+\paragraph{Audio classification}
+\citet{Liang2005} divides audio streams into five classes: silence, noise, pure speech, speech over background sound
+and music. Four new features are proposed, including silence ratio, pitch frequency standard deviation, harmonicity
+ratio and smooth pitch ratio.
+
+Survey \citep{Duan2014}
+
+\paragraph{Speech/music discrimination}
+
+Speech/music discrimination (SMD) is the process of segmenting audio content into parts labelled by the categories
+speech and music. In general, SMD classifiers use a collection of different features. This section lists the ones that
+are used frequently or have recently been found to perform well.
+
+Comparison of features \citep{Carey1999}
+For Swedish Radio \citep{Ericsson2009}
+Music detection in TV broadcasts \citep{Seyerlehner2007}
+
+\paragraph{Speaker diarization}
+
+Speaker diarization is the process of segmenting a speech recording by where different people are talking. Review
+papers from 2006 \citep{Tranter2006} and 2012 \citep{AngueraMiro2012} show that the vast majority of systems are based
+on clustering of MFCC or PLP features, which are low-dimensional representations of speech. Rather than developing new
+features, the research is primarily focussed on improvement of the clustering algorithms and pre-processing stages such
+as Wiener filtering, speech activity detection and beamforming.
+
+\paragraph{Speaker identificaton}
+
+Overview \citep{Doddington1985}
+Book \citep{Lee1999a}
+
+\paragraph{Automatic speech recognition}
+
+General books \citep{Junqua1995,Lee1999a}
+Speaker diarization review \citep{AngueraMiro2012}
+Speech to text on TV (MGB) \citep{Bell2015}
+Speech alignment \citep{Bohac2013}
+HMM intro \citep{Rabiner1989}
+
+% can also be used with post-processing to conduct topic identification and segmentation
+
+
+
+
+
+%=====================================================================================================================
+% VISUALISATION
 \clearpage
 \section{Audio visualization}
 Audio visualization is the task of mapping an audio signal to an image. The human visual system is capable of viewing
@@ -549,6 +725,7 @@ performance, such as by mapping semantic audio features to colour.  In this sect
 relationship between sound and vision, and considering the perceptual mappings between the two that already exist. We
 then review techniques that have been previously used to process or enhance waveforms and spectrograms to make it
 easier for users to navigate and edit audio recordings.
+%TODO Mention Sonic Visualizer from \citet{Cannam2010}
 
 %Semantic audio is the extraction of meaning from audio. Example applications of semantic audio are speech-to-text or
 %music identification. This technology allows the computer to interpret the audio on the user's behalf in a way that is
@@ -564,7 +741,12 @@ easier for users to navigate and edit audio recordings.
 
 %In modern society, screens for displaying visual content are widely available.
 
-%Sonic Visualiser from \citet{Cannam2010} can be used to generate these visualisations.
+
+%Academic research into audio analysis and audio interfaces tends to concentrate on fully automated systems
+%\citep{AngueraMiro2012}, navigation of large audio collections \citep{FontCorbera2010} or navigation interfaces based
+%on skimming \citep{Arons1997} and scrolling \citep{Lee2007}. Although there are examples of audio visualization from
+%the world of academia, it is much more popular in the context of art \citep{Armitage2012}, with excellent examples such
+%as Quayola's Form--Sound--Abstraction\footnote{\url{http://www.quayola.com/work/form-sound-abstraction/}} work.
 
 
 %In a world of `big data', data visualization is becoming an increasing popular subject. Visualization techniques have
