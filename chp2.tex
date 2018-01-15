@@ -581,7 +581,7 @@ however the variance across the programmes was high, with the WER varying from 1
 %=====================================================================================================================
 % VISUALISATION
 \clearpage
-\section{Audio visualization}
+\section{Audio visualization}\label{sec:background-visualization}
 Audio visualization is the task of mapping an audio signal to an image. The human visual system is capable of viewing
 an entire image at once, and is adept at searching and skimming images. On the other hand, sound must be
 consumed serially and over a period of time. Mapping sound to vision allows temporal information to be displayed
@@ -603,7 +603,10 @@ performance, such as by mapping semantic audio features to colour.  In this sect
 relationship between sound and vision, and considering the perceptual mappings between the two that already exist. We
 then review techniques that have been previously used to process or enhance waveforms and spectrograms to make it
 easier for users to navigate and edit audio recordings.
+
 %TODO Mention Sonic Visualizer from \citet{Cannam2010}
+
+%TODO Colour, size and orientation guide visual attention for visual search \citep{Wolfe2004}
 
 %Semantic audio is the extraction of meaning from audio. Example applications of semantic audio are speech-to-text or
 %music identification. This technology allows the computer to interpret the audio on the user's behalf in a way that is
@@ -1194,30 +1197,57 @@ production workflow.
 % CORRECTION
 
 \subsection{Transcript correction}
-SILVER \citep{Casares2002, Long2003} 
 
-\citep{Masoodian2006} included correction by selecting a word and typing a replacement. New spaces created a new word,
-dividing the time in half.
+\citet{Whittaker2004} found that users of their semantic speech editing system ``wanted to be able to correct errors
+they found in the transcript''. ASR errors reduce listener comprehension \citep{Stark2000,Vemuri2004} and increase the
+time it takes to search audio content \citep{Ranjan2006} and correct errors \citep{Burke2006}.
 
-\citet{Burke2006} added correction functionality to the SCANMail interface by allowing users to either select a
-replacement word from a drop-down menu, or select multiple words and type over them. A user study of 16 participants
-correcting voicemail messages showed that the menu interface required much less listening than typing.
+%\citet{Whittaker1999,Whittaker2004,Apperley2002,Yoon2014,Boas2011} were based on ASR transcript, but did not include
+%correction.
+%\citet{Rubin2013} and \citet{Berthouzoz2012} used verbatim transcripts, which did not need correction.
 
-\citet{Liang2014} showed that once an incorrect word is identified, in 30\% of cases the correct word can
-automatically be inferred using $n$-grams and acoustic features.
+Four of the ASR transcript interfaces mentioned above included correction functionality, with each using a different
+method to edit the text.  SILVER \citep{Casares2002} required the user to both type the replacement word and select the
+start and end time of the word in the video timeline.  TRAED \citep{Masoodian2006} allowed users to correct a word by
+selecting it and typing the replacement. Typing a space created a new word by dividing the time of the original word in
+half.  \citet{Sivaraman2016} initially planned to have two editing modes -- one for audio editing and the other for
+text editing.  However, in pilot testing they found that having two modes confused users, so they developed a pop-up
+box that indicated to the user when they are editing the text, rather than the audio.  SCANMail did not initially
+include transcript correction, but this was later added and evaluated by \citet{Burke2006}.  These changes allowed
+users to either replace an individual word by selecting a replacement from a drop-down menu, or replace multiple words
+by selecting them and typing the replacement.  A user study of 16 participants correcting voicemail messages found that
+compared to typing, selecting the replacement word required the user to listen to less of the audio.
 
-Normally, correction is a post-production process that can take up valuable time, although as \citet{Wald2007} shows,
-real-time correction of speech is feasible.
+% contextual information
+The correction process can be made more efficient by correlating the user's input with contextual information
+\citep{Suhm2001}.  In particular, the words immediately before and after the incorrect word can be used to reduce the
+number of candidate words, or even estimate the replacement.  \citet{Liang2014} showed that once an incorrect word is
+identified, in 30\% of cases the correct word can automatically be inferred using $n$-grams and acoustic features.
 
-\citep{Suhm2001}
+% real-time correction
+Correction is normally a process that happens after the ASR transcription, but as \citet{Wald2007} demonstrated, it is
+possible to correct ASR transcripts in real-time as the audio is captured. However, during recordings, radio producers
+are normally pre-occupied with operating the equipment, asking questions or listening to the answers. As this does not
+leave enough space for performing real-time correction, an extra producer would be required, which is costly.
 
-%TypeTalker - editing spoken comments \citep{Arawjo2017}
-\textit{TypeTalker} from \citet{Arawjo2017} was an interface for editing synthesized speech comments using ASR
-transcripts. The speech was synthesized from recordings of the user's comments, which was done to reduce their
-self-consciousness. As well as being able to remove unwanted speech, the use of speech synthesis meant that new speech
-could be inserted and words could be changed.
+% alternative inputs
+The above systems used a keyboard and mouse interface to correct transcripts. \citet{Suhm2001} tested alternatives
+methods that used vocal correction and a pen interface.  They found that for skilled typists, keyboard and mouse input
+was faster than the alternatives, but that voice and pen input would be attractive for use by poor typists, or for 
+devices that don't allow fast keyboard input.
 
-%Colour, size and orientation guide visual attention for visual search \citep{Wolfe2004}
+% normally correction used to fix mistranscribed audio, but could be used to change errors in speech
+% correction can be used to change synthesised speech
+
+ASR transcripts contain errors in the text, but sometimes there are errors in the speech itself that producers may want
+to correct. \textit{TypeTalker} from \citet{Arawjo2017} was an interface for editing synthesized speech using ASR
+transcripts. The speech was synthesized based on a recording of the user, which was done to reduce the
+self-consciousness that resulted from them hearing their own voice. As well as being able to remove unwanted speech,
+the use of speech synthesis meant that new speech could be synthesised and words could be changed.
+\citet{AdobeSystems2016} demonstrated a prototype system called \textit{VoCo} that enabled users to change a word in a
+speech recording, whilst retaining the natural characteristics of the speaker's voice. Such technology could be used to
+create seamless repairs to errors in speech recordings. However, the use of such technology has ethical and legal
+implications, particularly in a broadcasting context \citep{Bendel2017}.
 
 % confidence shading
 \subsection{Confidence shading}
@@ -1245,14 +1275,14 @@ study of 34 participants and measured the comprehension of short audio clips whe
 transcripts with and without confidence shading. Although the results indicated better comprehension with confidence
 shading, there was no statistically significant difference.
 
-\subsection{Keyword extraction}
+%\subsection{Keyword extraction}
 
-Keyword extraction \citep{Matsuo2004}
+%Keyword extraction \citep{Matsuo2004}
 
-Keywords used by \citet{Loviscach2011a} as part of his nimble video editor
+%Keywords used by \citet{Loviscach2011a} as part of his nimble video editor
 
-% keyphrases from speech, using ASR, poor quality
-Extracting keyphrases \citep{Inkpen2004}
+%% keyphrases from speech, using ASR, poor quality
+%Extracting keyphrases \citep{Inkpen2004}
 
 
 %TODO other applications
@@ -1438,6 +1468,67 @@ cognitive load and 8 of the 13 participants reported it to be ``very demanding''
 \clearpage
 \section{Research strategy}
 
+% WHAT HASN'T BEEN DONE
+
+In this chapter, we have described the context of our research topic by introducing radio production, semantic audio
+analysis, audio visualization, textual representation and audio playback interfaces.  We are now in a position to
+reflect upon our aim (Section~\ref{sec:aim}) and determine a strategy for achieving our goal.
+
+%In this chapter, we outlined the editing process in radio production and the tools that are used.  We introduced
+%semantic audio analysis and some of its applications that could be useful for radio production.  We then described how
+%previous work has used audio visualization, textual representation and audio playback interfaces to facilitate the
+%navigation and editing of audio content.
+
+% theme: not much work with radio producers
+%A characteristic problem within the scope of this work is related to 
+
+
+% CHAPTER 3 set-up
+
+% What hasn't been done
+We have seen in Section~\ref{sec:background-radio} that not many formal studies have investigated radio production. One
+potential reason for this is that radio producers are difficult to access. For example, \citet{Kim2003} worked with NPR
+to develop a speech archive interface, but reported that they were unable to recruit any radio producers to evaluate
+their system due to the small population and their limited availability.  The author of this thesis is an employee of
+BBC R\&D, which gives us extraordinary access to the resources of BBC Radio. This is unusual in academic research,
+where studies are often conducted with student participants and under laboratory conditions.
+
+\citet{Dewey2014} proposed a set of guidelines for the design and evaluation of user interfaces for the audio industry.
+Among their recommendations was the use of task analysis to better understand the process to be performed by the system
+being designed, and the use of expert users in the design and evaluation of systems.  We believe that to built
+effective production tools for radio production, we should first have a solid understanding of the radio production
+process.  Therefore, we will start our research by investigating how radio programmes are created. This will allow us
+to be better informed about the tasks and challenges involved, which will guide our design choices.  We will aim to
+take advantage of our position in the BBC by using the access available to us that other researchers would not have.
+
+
+% CHAPTER 4 set-up
+
+% DAW still using waveforms, despite limitations and opportunities for improvement
+We saw in Section~\ref{sec:background-daw} that DAWs use audio waveforms, which are limited in the information they can
+display. However, despite their widespread use, we could not find any studies that attempted to measure the performance
+of audio waveforms. Section~\ref{sec:background-visualization} described several promising methods for improving the
+navigation of audio content by adding semantic information to audio waveforms, but we could not find any formal
+evaluations of these methods.  To better understand audio waveforms and audio visualization techniques, we will
+investigate their performance.
+
+
+% CHAPTER 5 set-up
+In Chapter~\ref{sec:background-transcripts}, we saw that transcripts of speech have been successfully used to allow for
+navigation and editing of audio content. \citet{Rubin2013} demonstrated a system for the production of ``audio
+stories'', which is in many cases very similar to radio production. However, this system used verbatim transcripts,
+which are slow and expensive to produce. The system was also not evaluated, so it is unclear whether there is any
+benefit to producing content using this approach.
+Therefore, we will investigate whether semantic speech editing can be used for radio production.
+
+
+% semantic audio has applications for radio, but not tested
+% lack of user studies on semantic editing
+
+
+
+% WHAT NEEDS DOING
+
 % - better understanding of the current tools and their performance
 % - better understanding of the radio production process and which techniques could be used to improve it
 % - apply one or more of these techniques and test its effect in radio production to see:
@@ -1445,9 +1536,16 @@ cognitive load and 8 of the 13 participants reported it to be ``very demanding''
 %   - what the challenges are
 %   - identify missing elements for future research
 
-Process for designing and evaluating interfaces for audio industry \citep{Dewey2014}
 
-In previous sections, we outlined
+% HOW WE'RE GOING TO GO ABOUT IT
+
+%TODO Mention Dewey in Chp4 methods, Chp5 methods and Chp6 paper prototyping
+\citep{Dewey2014}
+Other recommendations include the use of paper prototyping for developing systems, expert users for
+design and evaluation, and using task completion time, accuracy and user preference to measure efficiency,
+effectiveness and satisfaction.
+
+
 An initial investigation of prevailing techniques revealed
 Therefore, in order to achieve the full potential of 
 we argue for advancements in 
@@ -1455,20 +1553,9 @@ and consider these advancements vital in applications like
 An underlying hypothesis for this work is that
 This may be achieved by
 
-A characteristic problem within the scope of this work is related to 
 Since data collection in the studio is a difficult task in itself, we focus on
 We argue that
 We aim to show that
 
-% make the most of access to producers
-Producers are difficult to access. \citet{Kim2003} attempted to recruit radio producers but couldn't.
-
-The author is an employee of the  Research and Development department at the BBC. This position allows him access to
-producers working in BBC Radio, both physically and politically. This is unusual in academic research, where often
-there is difficultly in gaining access to industry professionals and in running academic studies outline of a
-laboratory. In this research, we wanted to take advantage of this position by using, where possible, the professional
-resources available to the author that other researchers would not be able to access. This would allow the best
-contribution to the field given the circumstances of the author's position. The direction of research during this work
-was often guided by this decision.
 
 
