@@ -212,14 +212,14 @@ popular DAWs \citep{AskAudio2015} and found that all of them visualized the audi
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=.9\linewidth,height=.2\linewidth]{figs/waveform-zoomin.pdf}
-    \caption{Zoomed-in waveform. The frequency information is visible.}
+    \caption{Zoomed-in waveform, showing 250ms. The frequency information is visible.}
     \label{fig:waveform-zoomin}
   \end{subfigure}
   \\
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=.9\linewidth,height=.2\linewidth]{figs/waveform-zoomout.png}
-    \caption{Zoomed-out waveform. The frequency information is not visible.}
+    \caption{Zoomed-out waveform, showing 2500ms. The frequency information is not visible.}
     \label{fig:waveform-zoomout}
   \end{subfigure}
   \caption{Example audio waveforms of speech, demonstrating the effect of zoom on the visibility of frequency
@@ -320,244 +320,263 @@ as many parameters, so are much more consistent.
 \clearpage
 \section{Semantic audio analysis}
 
-Semantic audio is the extraction of perceptual attributes from an audio signal, which is used to describe sound in
-human-readable terms.
+Semantic audio analysis is the extraction of perceptual attributes from an audio signal, which is used to describe
+sound in human-readable terms.  Semantic audio can be used to make sound recordings less ``opaque'' by allowing users
+to interpret what is contained in the audio without having to listen to it first.  This approach can be applied to the
+improvement of audio production interfaces. For example, \citet{Fazekas2007} enhanced a DAW to assist music producers
+in navigating and editing their content by automatically segmenting music into verses and choruses.  We are interested
+in how semantic audio analysis can be applied to user interfaces for the purpose of assisting the production of radio.
 
-The ambition of semantic audio is to make sound less ``opaque'' by being able to understand what is contained within.
-
-Semantic audio brings together a wide variety of disciplines, including speech recognition, information retrieval,
-audio analysis, signal processing, psychoacoustics, and machine learning \citep{Foote1999}. As such, we will only aim
-to provide a brief overview of the methods and applications that may be relevant to radio production.
-
-extracting and describing the perceptual attributes of sound
-
-
-Review of audio information retrieval \citep{Foote1999}, including automatic speech recognition, word spotting, speaker
-and music identification, and audio similarity
-
-works by decomposing acoustic signals into semantic entities
-
-has applications in improving the usability of audio user interfaces
-
-music segmention by chorus and verses for intelligent audio editing \citep{Fazekas2007}
-
-Has applications to speech content too
-For example, it can be used to distinguish between music and speech \citep{Wieser2014}, show where different people are
-speaking \citep{AngueraMiro2012}, and who those people are \citep{Doddington1985}.
-
-Semantic audio analysis has wide applications to music and an active research community, as is evident by the annual
-community-driven evaluation of music information retrieval algorithms \citep{Downie2008}
-
+% different fields
+In this section, we will provide an overview of the methods and applications of semantic audio analysis.  Semantic
+audio brings together a wide variety of disciplines, including speech recognition, information retrieval, audio
+analysis, signal processing, psychoacoustics, and machine learning \citep{Foote1999}. As such, we will only aim to
+provide a brief overview of selected methods and applications that are relevant to radio production.  As the focus of
+our research is on the pre-production of speech programmes, we will only cover methods and applications related to
+speech content, which notably excludes the active field of music information retrieval \citep{Downie2008}.
 
 % METHODS 
-\subsection{Methods}
+\subsection{Semantic audio features}\label{sec:features}
 
-Semantic audio analysis begins with using an algorithm to process the raw audio data into semantically meaningful
-``features'' or ``descriptors'', known as \textit{feature extraction}. Audio features are a numerical representation of
-a certain property of the audio. For example, these might include how loud the sound is, or its estimated pitch.
+Semantic audio analysis is conducted by processing the audio using an algorithm to extract one or more semantically
+relevant ``features''. This process known as \textit{feature extraction}.  Audio features are numerical representations
+of certain properties of the audio, which are often categorised into low-level and high-level features
+\citep[p.~31]{Fazekas2012}.  Low-level features include physical and perceptual properties, such as the energy and
+spectral content of the sound.  High-level audio features correspond to more meaningful concepts, such as words and
+people, or stuctural segments such as programmes or topics.  Many semantic audio algorithms use classification or
+machine learning to map low-level features into high-level features. For example, in speech recognition, a
+language model is used to map individual phonemes of speech into words and sentences.
 
-Many semantic audio algorithms include a second stage, where the audio features are classified into semantically
-meaningful categories. For example, 
+%Feature selection and extraction are methods of reducing the dimensionality of a feature vector, either by choosing a
+%combination of vector components that best describe the content (selection), or by translating the feature vector to a
+%smaller vector while retaining as much information as possible (extraction).
+
+%This process can be unsupervised where only the feature data is known (such as with principal component analysis), or
+%supervised where the feature data has corresponding labels (such as with linear discriminant analysis).
+
+%Canonical correaltion analysis (CCA) has been used to reduce the dimensions of features for speaker diarization
+%\citep{Chaudhuri2009} and phonetic labelling \citep{Arora2014}, amongst other things. It is able to efficiently map
+%features to a subspace and can be used with the kernel trick (known as KCCA) to support non-linear mappings.
+
+%\citet{Chaudhuri2009} found that
+%``CCA-based algorithms consistently provide better performance than standard PCA-based
+%clustering methods''.
+
+In this section, we will describe methods for semantic audio analysis that have been used in applications related to
+radio production. We outline several feature extraction algorithms, and decribe some common methods that are used to
+map them to high-level features.
 
 %then classification/mapping/grouping/clustering
 % low-level (frequencies) to high-level (words)
 % map or group these features into semantically meaningful categories
 
-
 % Extraction
-\subsubsection{Feature extraction}
 
-There are a huge number of semantic audio features that can be extracted from an audio signal.  In this section, we
-will describe a selection of features that have applications to radio production, and are mentioned later in this
-thesis. These only represent a small selection of the available features, but we have included them to give the reader
-an impression of how semantic audio works.
+There are a huge selection of semantic audio features that can be extracted from an audio signal. In this section, we
+will describe a select few features that are touched upon in this thesis, to help illuminate the reader's understanding
+of their origin.
+%These only represent a small selection
+%of the available features, but we have included them to give the reader an impression of how semantic audio works.
 
-Semantic audio features can be broadly categorized into energy, temporal and spectral features. For musical features,
-we could extend this list to include rhythmic and harmonic features, but we have chosen to exclude music-only features
-from this section.
+There are many different types of audio features that can be extracted. With music, rhythmic features are used to
+extract the beats and tempo, and harmonic features are used to determine the notes and chords.  Speech is in some ways
+a more complex signal to analyse, so more generic features are often used. Below we have outlined three types --
+energy, temporal and spectral features.
 
-When an audio file is processed with a feature extraction algorithm, the audio is first cut into lots of overlapping
-clips, called ``frames''.  The vectors returned for each frame are then averaged, commonly by producing mean and
-standard deviation measurements.
+%Prior to feature extraction, the audio signal is first segmented by time into equal-length chunks, known as
+%``frames'', which are filtered using a window function. This enables the algorithm to 
 
-\paragraph{Energy features}
+%\paragraph{Feature learning}
 
-Energy features are very quick to calculate, which makes them attractive. The energy of the signal, and how it changes
-over time, can go some way to helping us understand or classify the audio.
+%Traditionally, audio features were developed by hand for specific tasks. This was usually done by attempting to write
+%an algorithm that calculated the properties of the sound that humans used to distinuish the categories in question.
+%More recently, fuelled by an ever-increasing availability of computing power, research has had a much greater focus on
+%automating this process.
 
-% RMS Energy
-Root mean square (RMS) energy is the square root of the mean of the square of the audio signal. RMS is commonly used in
-scientific work as a measurement of a signal’s power.
+%The above methods of reducing dimensionality are based on a relatively short information-rich feature vector that it
+%suitable for the target application.  More recent research on feature development is focussed on automated learning of
+%features using large labelled datasets.
 
-The root mean squared energy can be used also exclusively as an effective SMD classifier, as demonstrated in
-\citep{Ericsson2009} and \citep{Panagiotakis2005}.  Commonly used statistics of RMS include low energy ratio
-\citep{Liang2005,Ericsson2009,Saunders1996,Scheirer1997} and variance \citep{Ericsson2009} (including normalised
-variance \citep{Panagiotakis2005} and delta variance \citep{Carey1999}).
+%Deep learning is an increasingly popular method of learning features based on neural networks with large numbers (tens
+%or hundreds) of hidden units. This line of research has been enabled by the increasing availability of large amount of
+%processing power. When done properly, deep learning can produce the state-of-the-art in audio features, outperforming
+%even the best hand-crafted features \citep{Hamel2010,Sigtia2014}.
 
-% Low energy ratio
-Low energy ratio is the proportion of frames whose RMS amplitude is lower than a fixed threshold.
+%Such an approach requires a high-quality and very large labelled dataset, on which the success of the process depends.
+%The nature of neural networks means that it is very difficult to interpret what the resulting features represent which
+%isn't an issue when used as the input to a machine learning system, but would make it very difficult to map to a
+%visualization. The objective of the deep learning process is to minimise a cost function rather than to maximise the
+%link to human perception.
 
-Low energy ratio (also known as `silent interval frequency' and `energy contour dip') is a measure of the number of RMS
-energy frames that fall below a threshold. It exploits the fact that speech has freqent silent gaps between words,
-wheras music does not. The threshold can be set as a fixed value \citep{Liang2005}, a function of a moving average
-\citep{Ericsson2009} or moving peak value \citep{Saunders1996}.
-
-Kacprzak and Zi\'{o}\l{}ko recently proposed a modified version of low energy ratio called `minimum energy density'
-\citep{Kacprzak2013}. It is calculated by normalizing over a $\sim$15 second window and finding the minimum of the
-normalization function over a $\sim$1--3 second window. It has similar performance to low energy ratio with a moving
-average threshold, but has fewer parameters to set.
-
-\paragraph{Temporal features}
-
-% Zero-crossing rate
-This is the number of times the audio signal crosses the time axis per second. It is a crude measure of pitch, but is a
-very quick and easy feature to calculate.
-
-\paragraph{Zero-crossing rate} is the rate at which a signal crosses the time axis, which is an easy-to-calculate
-measure for the spectral energy distribution. Early work in SMD \citep{Saunders1996} identified that ``speech signals
-produce a marked rise in the ZCR during periods of fricativity occuring at the beginning and end of words'', wheras
-music does not. This causes a bimodality which skews the ZCR distribition, which can be measured using the third
-standardized moment (skewness). The variance of ZCR has also been found to perform well for SMD \citep{Scheirer1997}.
-
-ZCR also played a significant role in two steps of a five-step classifer \citep{Panagiotakis2005}. During silent
-intervals the number of zero crossings is null, so this was used to detect gaps between speech. The authors also noted
-that ``RMS and ZCR are somewhat correlated for speech signals, while essentially independent for music'', and so the
-product of RMS and ZCR was used for the second classifier.
-
-A review \citep{Carey1999} of features for SMD found ZCR to perform least well, but did not consider the skewness,
-variance, or probability of null zero-crossings.
+%Deep belief networks for feature learning \citep{Hamel2010}
+%Deep neural networks for learning musical features \citep{Sigtia2014}
 
 
-\paragraph{Spectral features}
+% low-level vs high-level?
+
+\subsubsection{Energy features}
+
+Energy features are based on the energy of the audio signal, and how it changes over time.  Similarly to audio
+waveforms, energy features can be used to infer certain properties of the sound, such as whether it is likely to be
+music or speech.  Calculating energy features is often computationally efficient, which makes them attractive for use
+in real-time applications, or on large data sets.
+
+A simple and popular low-level energy feature is \textit{root mean square} (RMS), which is calculated as the square
+root of the mean square of the audio signal. RMS is commonly used in scientific work as a measurement of a signal’s
+power.  The statistics of an audio signal's RMS value can be used as an effective classifier of music and speech, as
+demonstrated by \citet{Ericsson2009} and \citet{Panagiotakis2005}.
+
+RMS energy is also used as the basis for other features.  \textit{Low energy ratio} (also known as `silent interval
+frequency' or `energy contour dip') is a measure of the number of RMS energy frames that fall below a threshold. It is
+used for speech/music discrimination (SMD), and works by exploiting the fact that speech has freqent silent gaps between
+words, wheras music does not. The threshold can be set as a fixed value \citep{Liang2005}, a function of a moving
+average \citep{Ericsson2009} or moving peak value \citep{Saunders1996}.
+
+\subsubsection{Temporal features}
+
+Temporal features are based on statistics of the audio samples. These statistics are calculated in the time domain, so
+like energy features, temporal features are computationally efficient.  A popular temporal feature is
+\textit{zero-crossing rate} (ZCR), which is the rate at which a signal crosses the time axis. ZCR can be used as a
+crude measure of pitch or the distribution of spectral energy.
+
+Early work in SMD \citep{Saunders1996} identified that ``speech signals produce a marked rise in the ZCR during periods
+of fricativity occuring at the beginning and end of words'', wheras music does not. This causes a bimodality in the
+distribution of the ZCR, which can be detected by measuring its ``skewness''.
+%The variance of ZCR has also been found to perform well for SMD \citep{Scheirer1997}.
+\citet{Panagiotakis2005} also found that ``RMS and ZCR are somewhat correlated for speech signals, while essentially
+independent for music'', and so the product of RMS and ZCR can also be used as a SMD classifier.
+
+%ZCR also played a significant role in two steps of a five-step classifer \citep{Panagiotakis2005}. During silent
+%intervals the number of zero crossings is null, so this was used to detect gaps between speech.
+
+%A review \citep{Carey1999} of features for SMD found ZCR to perform least well, but did not consider the skewness,
+%variance, or probability of null zero-crossings.
+
+\subsubsection{Spectral features}
+
+Spectral features decompose the audio signal into frequency bands to analyse the frequencies that are present in the
+signal, and in what proportion.  This is commonly performed using a fast Fourier transform.
 
 % Spectral centroid
-Spectral centroid is often used to measure the ‘brightness’ of an audio signal. This is done by treating the spectrum
-as a distribution of frequencies, with the probability of each frequency being based on its normalised amplitude.
+\textit{Spectral centroid} is a measure of the ``centre of mass'' of the spectrum, calculated as the mean of the audio
+frequencies, weighted by the magnitude of each frequency bin.  Audio with more higher frequencies than lower
+frequencies has a higher spectral centroid value, and vice-versa.  Spectral centroid is a good predictor of the
+perceived ``brightness'' of the audio, which can be used to distingish sounds of different timbre
+\citep{Schubert2004}.
 
-% MFCC
-Mel-frequency Cepstral Coefficients are a compact representation of the spectral envelope. They were developed [38]
-for, and are commonly used as a speech analysis tool, but also have applications in music analysis. The coefficients
-are calculated using a cepstrum (non-linear spectrum of a spectrum) of the audio signal, but with the frequency bands
-spaced using the mel scale, which gives a better approximation to the human hearing system.
+% What are MFCCs?
+The \textit{cepstrum} of a signal is the power spectrum of the log of its power spectrum \citep{Noll1967}. The cepstrum
+is a compact representation of how the frequencies in a signal change over time.  The Mel-frequency cepstrum is
+calculated by spacing the frequency bands using the Mel scale \citep{Stevens1937}, which gives a better approximation
+to the human hearing system. The audio features produced through this process are called \textit{Mel-frequency Cepstral
+Coefficients}, or \textit{MFCCs} \citep{Imai1983}.
+MFCCs are commonly used as a speech analysis tool, and have been successfully applied to SMD
+\citep{Liang2005,Pikrakis2008,Pikrakis2006a,Sell2014,Wieser2014} and speaker segmentation
+\citep{AngueraMiro2012,Friedland2009}.
 
-The audio signal is first filtered into K separate signals using a triangular filter bank. Each output signal is a sum
-of the FFT bins, with each bin weighted by the ‘amplitude’ of its centre frequency in the filter bank (see Figure
-12). Every filter bank implementation is slightly different, but most have linear spacing up to approx. 1kHz, with log
-spacing following that. The QMUL implementation uses the following formula to calculate the boundary frequencies for
-NLIN + NLOG filters.
+%The mapping between MFCCs and semantic labels is usually complex, so is often used in combination with machine
+%learning techniques.
 
-The MFCCs are calculated using a weighted sum of the log-energy of the K signals, using the
-formula below.
+%Friendland et. al. \citep{Friedland2009} found that enhancing the standard MFCC features with prosodic features, which
+%measure the rhythm and intonation of speech, improved speaker diarization by 24\%.
 
-Mel-frequency cepstral coefficients have long been the workhorse of audio analysis, and they have been successfully
-used in SMD applications \citep{Carey1999,Liang2005,Pikrakis2008,Pikrakis2006a,Sell2014,Wieser2014}.  Notably, their
-use has only been successful when used in combination with strong machine learning systems, indicating that the
-relationship of MFCCs to SMD labels is complex and non-linear. This would make it difficult to map to a visual
-representation.
+%proposed enhancing the standard MFCC features with a set of long-term features
+%representing prosody (the rhythm and intonation of speech). 52 candidate features were ranked using feature selection,
+%which showed that ``the median and mean fundamental frequency are the best features, following by high formants (F4,
+%F5)''. Inclusion of the top ten prosodic features improved the speaker diarization system by 24\%.
 
-Friendland et. al. \citep{Friedland2009} proposed enhancing the standard MFCC features with a set of long-term features
-representing prosody (the rhythm and intonation of speech). 52 candidate features were ranked using feature selection,
-which showed that ``the median and mean fundamental frequency are the best features, following by high formants (F4,
-F5)''. Inclusion of the top ten prosodic features improved the speaker diarization system by 24\%.
+%% CLASSIFICATION
+%\subsubsection{Classification}
 
-\paragraph{Feature selection/extraction}
-Feature selection and extraction are methods of reducing the dimensionality of a feature vector, either by choosing a
-combination of vector components that best describe the content (selection), or by translating the feature vector to a
-smaller vector while retaining as much information as possible (extraction).
+%% Mapping/grouping/clustering/modelling
+%% - machine learning
+%% - clustering
+%% - markov models
+%% - GMMS
 
-This process can be unsupervised where only the feature data is known (such as with principal component analysis), or
-supervised where the feature data has corresponding labels (such as with linear discriminant analysis).
-
-Canonical correaltion analysis (CCA) has been used to reduce the dimensions of features for speaker diarization
-\citep{Chaudhuri2009} and phonetic labelling \citep{Arora2014}, amongst other things. It is able to efficiently map
-features to a subspace and can be used with the kernel trick (known as KCCA) to support non-linear mappings. In the
-case of speaker clustering, ``CCA-based algorithms consistently provide better performance than standard PCA-based
-clustering methods'' \citep{Chaudhuri2009}.
-
-
-\paragraph{Feature learning}
-
-Traditionally, audio features were developed by hand for specific tasks. This was usually done by attempting to write
-an algorithm that calculated the properties of the sound that humans used to distinuish the categories in question.
-More recently, fuelled by an ever-increasing availability of computing power, research has had a much greater focus on
-automating this process.
-
-The above methods of reducing dimensionality are based on a relatively short information-rich feature vector that it
-suitable for the target application.  More recent research on feature development is focussed on automated learning of
-features using large labelled datasets.
-
-Deep learning is an increasingly popular method of learning features based on neural networks with large numbers (tens
-or hundreds) of hidden units. This line of research has been enabled by the increasing availability of large amount of
-processing power. When done properly, deep learning can produce the state-of-the-art in audio features, outperforming
-even the best hand-crafted features \citep{Hamel2010,Sigtia2014}.
-
-Such an approach requires a high-quality and very large labelled dataset, on which the success of the process depends.
-The nature of neural networks means that it is very difficult to interpret what the resulting features represent which
-isn't an issue when used as the input to a machine learning system, but would make it very difficult to map to a
-visualization. The objective of the deep learning process is to minimise a cost function rather than to maximise the
-link to human perception.
-
-Deep belief networks for feature learning \citep{Hamel2010}
-Deep neural networks for learning musical features \citep{Sigtia2014}
-
-% CLASSIFICATION
-\subsubsection{Feature classification}
-
-% Mapping/grouping/clustering/modelling
-% - machine learning
-% - clustering
-% - markov models
-% - GMMS
+%HMM intro \citep{Rabiner1989}
 
 \subsection{Applications}
 
-In this section we will look at some of the applications of semantic audio analysis that are relevant to radio
-production.  As most original radio productions are speech-based, and because speech production is the focus of our
-work, we will not cover applications to music-only content.
+Semantic audio analysis allows us to gain insights into the content of audio recordings without having to listen to
+them. The techniques we described have already been used to tackle a variety of problems \citep{Foote1999}.  In this
+section, we will present three applications of semantic audio analysis that have applications to radio production, and
+outline their aim, methods and performance.
 
-\paragraph{Audio classification}
-\citet{Liang2005} divides audio streams into five classes: silence, noise, pure speech, speech over background sound
-and music. Four new features are proposed, including silence ratio, pitch frequency standard deviation, harmonicity
-ratio and smooth pitch ratio.
+%\paragraph{Audio classification}
+%\citet{Liang2005} divides audio streams into five classes: silence, noise, pure speech, speech over background sound
+%and music. Four new features are proposed, including silence ratio, pitch frequency standard deviation, harmonicity
+%ratio and smooth pitch ratio.
 
-Survey \citep{Duan2014}
+%Survey \citep{Duan2014}
 
-\paragraph{Speech/music discrimination}
+\subsubsection{Speech/music discrimination}
 
-Speech/music discrimination (SMD) is the process of segmenting audio content into parts labelled by the categories
-speech and music. In general, SMD classifiers use a collection of different features. This section lists the ones that
-are used frequently or have recently been found to perform well.
+\textit{Speech/music discrimination} (SMD) is the task of segmenting and labelling audio content into sections of
+either music or speech.  Many SMD systems have been specifically developed for use with radio broadcasts
+\citep{Saunders1996,Pikrakis2006,Pikrakis2008,Ericsson2009,Wieser2014} and television broadcasts
+\citep{Seyerlehner2007,Sell2014}.  SMD systems have been successfully implemented using a variety of different
+features, including low energy ratio \citep{Ericsson2009}, ZCR skewness \citep{Saunders1996}, spectral entropy
+\citep{Pikrakis2006}, continuous frequency activation \citep{Seyerlehner2007,Wieser2014}, chromagrams \citep{Sell2014}
+and MFCCs \citep{Pikrakis2008}.  \citet{Carey1999} compares the performance of some common SMD audio features.
 
-Comparison of features \citep{Carey1999}
-For Swedish Radio \citep{Ericsson2009}
-Music detection in TV broadcasts \citep{Seyerlehner2007}
+Most SMD systems report high accuracy figures of 96\% and above, which shows that automatic SMD is likely to be useful
+in real-life applications.  However, each system is evaluated using different data sets that are inconsistent in
+content and length, which makes it difficult to compare them \citep{Pikrakis2008}.  \citet{Wieser2014} found that by
+including a user-adjustible slider, the accuracy of their SMD system increased from 96.6\% to 100\%.
 
-\paragraph{Speaker diarization}
+\subsubsection{Speaker diarization}
+\textit{Speaker diarization} is the task of segmenting an audio recording into labelled segments that identify who
+spoke when \citep{AngueraMiro2012}. With this task, the location of any speech content and number of speakers is
+usually unknown. Speaker diarization has clear applications to the production of radio, where there are often multiple
+people speaking in a single recording, and it is desirable to know where they are speaking without having to listen.
 
-Speaker diarization is the process of segmenting a speech recording by where different people are talking. Review
-papers from 2006 \citep{Tranter2006} and 2012 \citep{AngueraMiro2012} show that the vast majority of systems are based
-on clustering of MFCC or PLP features, which are low-dimensional representations of speech. Rather than developing new
-features, the research is primarily focussed on improvement of the clustering algorithms and pre-processing stages such
-as Wiener filtering, speech activity detection and beamforming.
+\citet{Tranter2006} and \citet{AngueraMiro2012} show that the vast majority of systems are based on clustering of
+MFCCs, and that current research is focussed on the improvement of clustering algorithms and pre-processing stages,
+rather than audio features. Most of the recent research has focussed on recordings of meetings, rather than broadcast
+content.
 
-\paragraph{Speaker identificaton}
+%Friendland et. al. \citep{Friedland2009} found that enhancing the standard MFCC features with prosodic features, which
 
-Overview \citep{Doddington1985}
-Book \citep{Lee1999a}
+\citet{AngueraMiro2012} found that the average error rate for speaker diarization systems was 11.6\% and 17.7\% for two
+standard data sets. However, these data sets are based on microphone recordings of meetings, rather than broadcast
+content.  \citet{Bell2015} conducted an evaluation of speaker diarization systems on television recordings of multiple
+genres.  These results showed that the error rate was 47.5\%, which is considerably higher.  However, the evalation was
+conducted across multiple recordings, which made the task of matching speakers more difficult.  A breakdown of the
+results showed that most of the errors were misidentification of speakers, and that misidentification of speech
+accounted for less than 8\% of the error rate.
 
-\paragraph{Automatic speech recognition}
+Speaker diarization systems assign a unique identity to each speaker, but they do not attempt to identify who the
+speaker is. \textit{Speaker recognition} is the task of identifying a person based on the sound of their voice
+\citep{Doddington1985,Lee1999a}. Extracting metadata such as participant names and genders from radio content would
+enable automated information searching and indexing \citet{Kinnunen2010}. Speaker recognition relies on access to a
+database of trained speaker models, which represent people's voices. In radio, many of the contributors are from a
+small pool of presenters, so it may be feasible to use speaker recognition techniques to detect their voices with
+sufficient accuracy.
 
-General books \citep{Junqua1995,Lee1999a}
-Speaker diarization review \citep{AngueraMiro2012}
-Speech to text on TV (MGB) \citep{Bell2015}
-Speech alignment \citep{Bohac2013}
-HMM intro \citep{Rabiner1989}
+%Book \citep{Lee1999a}
 
+\subsubsection{Automatic speech recognition}\label{sec:asr}
+
+\textit{Automatic speech recognition} (ASR) can be used to automatically convert speech to text.  Modern ASR systems
+can be broken down into two main stages \citep{Junqua1995}.  The ability to convert audio signals to text opens up many
+possibilities in radio production, such as being able to navigate audio recordings through searching and skimming.
+These opportunities are discussed in greater detail in Section~\ref{sec:background-transcripts}.
+
+Modern ASR systems can be broken down into two main stages \citep{Junqua1995}. The first stage uses an acoustic model
+to map the audio to a set of ``phonemes'' that make up the speech. In the second stage, a language model converts the
+sequence of phonemes into words and sentences. Both the acoustic and language models are developed using machine
+learning techniques to train the system based on recordings and transcripts of speech.  The success of an ASR system
+depends on both how advanced the technology is, and the quality and fitness of the data that it is trained on.
+
+% accuracy
+Despite advances in the field \citep{Lee1999a}, ASR produces erroneous transcripts.  \citet{Bell2015} conducted an
+evaluation of ASR systems on television programmes of various genres. Each system was judged by the proportion of
+incorrect words, known as the ``word error rate'' (WER).  The mean average WER of the systems tested was 23.7\%,
+however the variance across the programmes was high, with the WER varying from 10 -- 41\% across the 16 programmes.
+
+%Speech alignment \citep{Bohac2013}
 % can also be used with post-processing to conduct topic identification and segmentation
-
-
-
-
 
 %=====================================================================================================================
 % VISUALISATION
@@ -1011,21 +1030,17 @@ discussions with radio producers, it can take them between 2 and 5 times the len
 the speech, and is a slow and tedious process. Producers can save time by only transcribing the most salient words, but
 this makes the transcript much less readable, particularly to others who haven't heard the original recording.
 Alternatively, producers can use a third-party to transcribe the speech on their behalf, but this slow and expensive.
-For example \texttt{rev.com} charges \$1 per minute for a 12-hour
+For example, \texttt{rev.com} charges \$1 per minute for a 12-hour
 turnaround\footnote{\url{https://www.rev.com/transcription}, accessed 11/12/2017}.
 
 % two types: manually written (perfect, but expensive and slow) or automatic (erroneous, but fast and cheap)
 % comparison?
-Automatic speech recognition \citep{Junqua1995}, known as ``ASR'', can be used to convert speech to text.  ASR is
-quicker and cheaper than manual transcription.  ASR also produces accurate timestamps for each word, which can be used
-to precisely navigate and edit the audio, but word-level timestamps can also be added to manually-written transcripts
-using speech alignment \citep{Griggs2007,Bohac2013}.  ASR transcripts don't include letter capitalization or
-punctuation, but this can be estimated and added using post-processing.
+As we saw in Section~\ref{sec:asr}, ASR can be used to convert speech to text automatically.  ASR is quicker and
+cheaper than manual transcription.  ASR also produces accurate timestamps for each word, which can be used to precisely
+navigate and edit the audio, but word-level timestamps can also be added to manually-written transcripts using speech
+alignment \citep{Griggs2007,Bohac2013}.  ASR transcripts don't include letter capitalization or punctuation, but this
+can be estimated and added using post-processing.
 
-Despite advances in the field \citep{Lee1999a}, ASR produces erroneous transcripts.  \citet{Bell2015} conducted an
-evaluation of ASR systems on television programmes of various genres. Each system was judged by the proportion of
-incorrect words, known as the ``word error rate'' (WER).  The mean average WER of the systems tested was 23.7\%,
-however the variance across the programmes was high, with the WER varying from 10 -- 41\% across the 16 programmes.
 Erroneous transcripts reduce listener comprehension \citep{Stark2000,Vemuri2004} and increase the time it takes to
 search audio content \citep{Ranjan2006} and correct errors \citep{Burke2006}.  However, despite these errors, ASR
 transcripts provide a highly effective tool for browsing audio content as users can visually scan the text to focus on
