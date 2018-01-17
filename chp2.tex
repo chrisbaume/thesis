@@ -19,8 +19,8 @@
 In this chapter, we start with a brief overview of radio production and the current tools that producers use to edit
 radio programmes.  We show how semantic audio analysis can be used to extract information about the audio content that
 describes the sound in human-readable terms.  We then consider previous user interfaces that have used this semantic
-data to improve the navigation and editing of audio through visualization, segmentation, textual representation and
-audio playback.  We finish by considering the research strategy we will use to answer our research questions.
+data to improve the navigation and editing of audio through visualization, transcripts, and audio playback.  We finish
+by considering the research strategy we will use to answer our research questions.
 
 %Stolen: In this chapter, we can find a review of a variety of systems and technologies that are related to the
 %approach we have chosen for our search interface. It is organized in sections according to different research fields
@@ -43,27 +43,45 @@ audio playback.  We finish by considering the research strategy we will use to a
 %Production is ``a method of combining various sources of sound into a product that accomplishes something specific'' \citep[p.~20]{Hausman2012}
 
 % WHAT IS RADIO PRODUCTION?
-Radio production is both a creative and technical endeavour. The aim of radio production is to ``manipulate sound to
-create an effect or deliver a message'', which is achieved by combining various sources of sound into a programme
-\citep[pp. 12, 20]{Hausman2012}.  Producing radio requires the combination of complex audio technology with artistic
-taste and judgement \citep{Barbour2004}.
+The focus of this thesis is on the production of audio content for radio broadcast.  Radio production is both a
+creative and technical endeavour. The aim of radio production is to ``manipulate sound to create an effect or deliver a
+message'', which is achieved by combining various sources of sound into a programme \citep[pp. 12, 20]{Hausman2012}.
+Producing radio requires the combination of complex audio technology with artistic taste and judgement
+\citep{Barbour2004}.  In this section, we shall start by giving an overview of radio production activities at the BBC,
+then describe how the audio content is put together using audio editing.
 
-In this section, we shall look at what audio editing is, and how it is performed using digital audio workstations.
-
-%Most radio is broadcast live, where the audience is listening to the radio as it is
-%created. However, 
 
 \subsection{BBC Radio}
+
+% Political structure
+% - radio stations, listeners
+% - amount spent on production
+% - indies, compare to TV
+
+Ten UK-wide radio networks and two national radio services each in Scotland, Wales and Northern Ireland, 40 local radio
+stations in England and the Channel Islands. \citep{BBC2017a}
+
+Radio is relatively cheap to produce.
+The national BBC radio stations cost between 0.5p and 5.7p per listener hour to produce, which is much lower than
+the national television channels, which cost between 3p and 20.9p to produce \citep[pp. 25, 27]{BBC2017a}.
+
+World Service Radio has 154M listeners per week \cite[p.~32]{BBC2017a}.
+
 
 9 national stations with 34m listeners, 40 local stations with 8m listeners, one global station in 29 languages with
 269m listeners
 
 The BBC spent \textsterling471M on radio production in 2016/17 \citep[p. 111]{Ofcom2017}.
 
-%TODO Complete paragraph
-% production environment
-%Audio production in office environments \citep{Brixen2003}
+%Most radio is broadcast live, where the audience is listening to the radio as it is
+%created. However, 
 
+
+% Production environment
+% - OBH since 1932
+% - locations, London and Manchester
+
+%Audio production in office environments \citep{Brixen2003}
 
 \subsection{Audio editing}
 
@@ -536,6 +554,10 @@ MFCCs, and that current research is focussed on the improvement of clustering al
 rather than audio features. Most of the recent research has focussed on recordings of meetings, rather than broadcast
 content.
 
+%\citet{Foote1998} describes a video browser prototype that allowed the user to control this threshold value,
+%using a slider in the user interface. Their prototype identified speaker turns, but did not attempt to match the
+%identities of the speakers.
+
 %Friendland et. al. \citep{Friedland2009} found that enhancing the standard MFCC features with prosodic features, which
 
 \citet{AngueraMiro2012} found that the average error rate for speaker diarization systems was 11.6\% and 17.7\% for two
@@ -553,6 +575,21 @@ enable automated information searching and indexing \citet{Kinnunen2010}. Speake
 database of trained speaker models, which represent people's voices. In radio, many of the contributors are from a
 small pool of presenters, so it may be feasible to use speaker recognition techniques to detect their voices with
 sufficient accuracy.
+
+\citet{Raimond2014} introduced the \textit{BBC World Service Archive prototype}, which was an interface that used
+automatic keyword tagging and crowd-sourcing to support the search and discovery of a large radio archive.
+The interface used speaker diarization and speaker identification to help users navigate within individual radio
+programmes. Figure~\ref{fig:bg-world-service-archive} shows an example of a radio programme that has been segmented
+into five named speakers.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figs/world-service-archive.jpg}
+  \caption{Speaker diarization and identification interface in the BBC World Service Archive prototype, from
+  \citet{Raimond2014}}
+  \label{fig:bg-world-service-archive}
+\end{figure}
+
 
 %Book \citep{Lee1999a}
 
@@ -911,113 +948,67 @@ of application would be in the context of radio production.
 
 % Could use image synthesis \citep{Levkowitz1991}
 
-\clearpage
-\section{Speech segmentation}
+%\clearpage
+%\section{Speech segmentation}
 
-Waveforms and spectrograms provide a direct mapping of sound to vision, which is then interpreted by the user. The
-benefit of this approach is that it can be used for a wide variety of tasks with any type of content.  The downside is
-that the user must learn how to read these visualizations, and view them at an appropriate scale.
+%Waveforms and spectrograms provide a direct mapping of sound to vision, which is then interpreted by the user. The
+%benefit of this approach is that it can be used for a wide variety of tasks with any type of content.  The downside is
+%that the user must learn how to read these visualizations, and view them at an appropriate scale.
 
-With many audio recordings, the content can be divided into logical groupings that could help the user navigate the
-recording. For example, a ``magazine-style'' radio programme is made up of several pieces on different topics. Being
-able to view what those topics were, and where they occured in the programme, would assist listeners in navigating to
-a topic of interest.
+%With many audio recordings, the content can be divided into logical groupings that could help the user navigate the
+%recording. For example, a ``magazine-style'' radio programme is made up of several pieces on different topics. Being
+%able to view what those topics were, and where they occured in the programme, would assist listeners in navigating to
+%a topic of interest.
 
-Semantic audio analysis techniques have been widely used to classify and segment audio into a range of logical
-categories. These are often combined with data visualization techniques \citep{Aigner2011} to create novel user
-interfaces that aid the navigation and editing of audio content.
+%Semantic audio analysis techniques have been widely used to classify and segment audio into a range of logical
+%categories. These are often combined with data visualization techniques \citep{Aigner2011} to create novel user
+%interfaces that aid the navigation and editing of audio content.
 
-We have divided these segmentation techniques into two broad categories: classification, where audio is segmented by
-the character of the audio (speech, music etc.), and topic summarization, where the audio is segmented by its content.
+%We have divided these segmentation techniques into two broad categories: classification, where audio is segmented by
+%the character of the audio (speech, music etc.), and topic summarization, where the audio is segmented by its content.
 
-\subsection{Classification}
+%\subsection{Classification}
 
-Audio can be divided into human-readable segments using semantic audio analysis techniques.  Semantic audio analysis
-typically operates in two main steps: dividing an audio file into sematically meaningful segments, then grouping these
-segments into semantically meaningful categories \citep{Lu2009,Zhang2010}. These categories can be chosen to match the
-application being targeted. For example, a radio broadcast might be divided into speech, music, speech mixed with music
-and applause.
+%Audio can be divided into human-readable segments using semantic audio analysis techniques.  Semantic audio analysis
+%typically operates in two main steps: dividing an audio file into sematically meaningful segments, then grouping these
+%segments into semantically meaningful categories \citep{Lu2009,Zhang2010}. These categories can be chosen to match the
+%application being targeted. For example, a radio broadcast might be divided into speech, music, speech mixed with music
+%and applause.
 
-This semantic audio segmentation has applications to audio editing \cite{Avdelidis2007}.
+%This semantic audio segmentation has applications to audio editing \cite{Avdelidis2007}.
 
-\subsubsection{Speech/music discrimination}
-Speech-music discrimination (SMD) is the task of segmenting an audio recording and labelling those segments as either
-speech or music.
-Previous research into automated SMD has often targeted recordings of radio broadcasts
-\citep{Goodwin2004,Wieser2014,Saunders1996,Pikrakis2008,Pikrakis2006a}.
-%Clustering is a task in which comes naturally to humans, but machines often struggle with.
-
-
-
-
-\subsubsection{Speaker diarization and identification}
-\textit{Speaker diarization} is the task of segmenting a speech recording according to speaker identity, which is used
-to answer the question ``who spoke when?'' \citep{AngueraMiro2012}. Segments are given a unique label for each speaker,
-but the identity of the speakers is unknown.  \textit{Speaker identification} is the task of identifying the person who
-is speaking based on the sound of their voice.
-
-\citet{Raimond2014} introduced the \textit{BBC World Service Archive prototype}, which was an interface that used
-automatic keyword tagging and crowd-sourcing to support the search and discovery of a large radio archive.
-The interface used speaker diarization and speaker identification to help users navigate within individual radio
-programmes. Figure~\ref{fig:bg-world-service-archive} shows an example of a radio programme that has been segmented
-into five named speakers.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{figs/world-service-archive.jpg}
-  \caption{Speaker diarization and identification interface in the BBC World Service Archive prototype, from
-  \citet{Raimond2014}}
-  \label{fig:bg-world-service-archive}
-\end{figure}
-
-%Speaker identification with crowd-sourcing achieved 85\% precision and a 43\% recall
-
-which used speaker diarization and
-identification to facilitate navigation of radio programmes. The prototype relied on crowd-sourcing to add the speaker
-names, which then populated a central database of speaker identities.
-
-Segmentation algorithms often use a threshold value to configure their sensitivity. In the case of speaker diarization,
-a low threshold would increase the recall and reduce the precision. For example, more speaker turns would be detected,
-but some may be incorrect.  This threshold is often set to minimise a cost function, which balances the precision and
-recall.  \citet{Foote1998} describes a video browser prototype that allowed the user to control this threshold value,
-using a slider in the user interface. Their prototype identified speaker turns, but did not attempt to match the
-identities of the speakers.
+%\subsubsection{Speech/music discrimination}
+%Speech-music discrimination (SMD) is the task of segmenting an audio recording and labelling those segments as either
+%speech or music.
+%Previous research into automated SMD has often targeted recordings of radio broadcasts
+%\citep{Goodwin2004,Wieser2014,Saunders1996,Pikrakis2008,Pikrakis2006a}.
+%%Clustering is a task in which comes naturally to humans, but machines often struggle with.
 
 
 
-% TOPIC SEGMENTATION
-\subsection{Topic summarization}
 
-Topic summarization has previously been used to assist the discovery and search of media archives \citep{Raimond2014,
-Kim2003}. However, the same techniques can also be applied to aiding the navigation of audio files using segmentation.
+%\subsubsection{Speaker diarization and identification}
+%\textit{Speaker diarization} is the task of segmenting a speech recording according to speaker identity, which is used
+%to answer the question ``who spoke when?'' \citep{AngueraMiro2012}. Segments are given a unique label for each speaker,
+%but the identity of the speakers is unknown.  \textit{Speaker identification} is the task of identifying the person who
+%is speaking based on the sound of their voice.
 
-% can use text summarization
-Text summarization review paper \citep{Lloret2012}
+%%Speaker identification with crowd-sourcing achieved 85\% precision and a 43\% recall
 
-% video digests
-Video digests divide video recordings into chapters, sections and summaries.
-\citet{Pavel2014} describes an interface for writing and editing video digests
+%which used speaker diarization and
+%identification to facilitate navigation of radio programmes. The prototype relied on crowd-sourcing to add the speaker
+%names, which then populated a central database of speaker identities.
 
-% segmentation with keywords 
-\citet{Abdulhamid2013,Abdulhamid2013a} introduced \textit{SpEx}, which is an interface designed to help students
-navigate lecture recordings.
-
-World service archive \citep{Raimond2014} topic extraction
+%Segmentation algorithms often use a threshold value to configure their sensitivity. In the case of speaker diarization,
+%a low threshold would increase the recall and reduce the precision. For example, more speaker turns would be detected,
+%but some may be incorrect.  This threshold is often set to minimise a cost function, which balances the precision and
+%recall.
 
 
-% OTHER
 
-% repeated bits
-Similarity matrix can be used to discover and display repeated regions of audio \citep[p. 6]{Cooper2006}
-
-% text
-Text segmentation \citep{Choi2000}
-
-% (below not relevant)
-%Evaluation of SpeechBot for searching radio archives \citep{Kim2003}
 
 \clearpage
-\section{Textual representation}\label{sec:background-transcripts}
+\section{Semantic speech interfaces}\label{sec:background-transcripts}
 
 Writing is widely used to record speech, in a process known as ``transcription''. Transcripts can be used to record
 exactly what somebody said, and the transcript text can be read, copied, shared, skimmed and searched using a variety
@@ -1275,6 +1266,37 @@ study of 34 participants and measured the comprehension of short audio clips whe
 transcripts with and without confidence shading. Although the results indicated better comprehension with confidence
 shading, there was no statistically significant difference.
 
+%\subsection{Topic summarization}
+
+%Topic summarization has previously been used to assist the discovery and search of media archives \citep{Raimond2014,
+%Kim2003}. However, the same techniques can also be applied to aiding the navigation of audio files using segmentation.
+
+%% can use text summarization
+%Text summarization review paper \citep{Lloret2012}
+
+%% video digests
+%Video digests divide video recordings into chapters, sections and summaries.
+%\citet{Pavel2014} describes an interface for writing and editing video digests
+
+%% segmentation with keywords 
+%\citet{Abdulhamid2013,Abdulhamid2013a} introduced \textit{SpEx}, which is an interface designed to help students
+%navigate lecture recordings.
+
+%World service archive \citep{Raimond2014} topic extraction
+
+
+%% OTHER
+
+%% repeated bits
+%Similarity matrix can be used to discover and display repeated regions of audio \citep[p. 6]{Cooper2006}
+
+%% text
+%Text segmentation \citep{Choi2000}
+
+% (below not relevant)
+%Evaluation of SpeechBot for searching radio archives \citep{Kim2003}
+
+
 %\subsection{Keyword extraction}
 
 %Keyword extraction \citep{Matsuo2004}
@@ -1491,11 +1513,13 @@ potential reason for this is that radio producers are difficult to access. For e
 to develop a speech archive interface, but reported that they were unable to recruit any radio producers to evaluate
 their system due to the small population and their limited availability.  The author of this thesis is an employee of
 BBC R\&D, which gives us extraordinary access to the resources of BBC Radio. This is unusual in academic research,
-where studies are often conducted with student participants and under laboratory conditions.  We believe that to built
-effective production tools for radio production, we should first have a solid understanding of the radio production
-process.  Therefore, we will start our research by investigating how radio programmes are created. This will allow us
-to be better informed about the tasks and challenges involved, which will guide our design choices.  We will aim to
-take advantage of our position in the BBC by using the access available to us that other researchers would not have.
+where studies are often conducted with student participants and under laboratory conditions.
+
+We believe that to built effective production tools for radio production, we should first have a solid understanding of
+the radio production process.  Therefore, we will start our research by investigating how radio programmes are created.
+This will allow us to be better informed about the tasks and challenges involved, which will guide our design choices.
+We will aim to take advantage of our position in the BBC by using the access available to us that other researchers
+would not have.
 
 
 % CHAPTER 4 set-up
