@@ -1,18 +1,48 @@
 % !TeX root = main.tex
 \chapter{Paper-based semantic speech editing}\label{chp:paper}
 
-% Need for paper
-One of the findings from Chapter~\ref{chp:screen} was that some producers find their work environment noisy and
-distracting, and do not like working with screens for extended periods. This leads many to print out transcripts of
-speech recordings so that they can review and edit the recordings away from the screen and/or office.
+In Chapter~\ref{chp:ethno}, we found that producers we observed use paper as part of their current production workflow.
+We also saw that producers used transcripts to help them navigate and structure their content.  In
+Chapter~\ref{chp:screen}, we saw that some radio producers found their work environment noisy and distracting, and did
+not like working with screens for extended periods.  We found that one producer chose to print their transcripts as
+they found the production process easier to achieve on paper than directly on screen.
 
-% Advantage of paper
+%A similar process happens in the production of media content. The production workflow typically involves recording
+%material, selecting which parts of that material to use, then editing the desired material down to the final output
+%\citep{Baume2015}.  Many producers will `log' the material after it is recorded by writing transcripts of what was
+%said.  This is either done themselves or using a third-party service. These transcripts help producers to recall what
+%was said and when, identify themes, and make links between different parts of their content.
+
 Working on paper offers a number of advantages over working on screens.  Paper is lightweight, portable and does not
 require any power, which allows users to work almost anywhere.  It is not back-lit, so is easier on the eyes.  It can
 be navigated quickly, annotated freely whilst reading, and individual pages can be laid out and easily compared.  Its
 physical low-tech nature also means that it is intuitive, robust, durable and does not crash or lose data.  Reading
-from paper rather than a screen also improves comprehension \citep{Mangen2013}, recollection \citep{Singer2017}, sense
-of structure and cross-referencing \citep{OHara1997}.
+from paper rather than a screen has been found to improve comprehension \citep{Mangen2013}, recollection
+\citep{Singer2017}, sense of structure and cross-referencing \citep{OHara1997} and to be faster \citep{Kurniawan2001}.
+
+Radio producers can use paper to make hand-written annotations to help them structure their program and make editorial
+decisions.  However, printing a document breaks the link to its digital source, so is normally a one-way process in
+which any information that is changed/added is not fed back.  For example, when a producer uses the paper transcript to
+decide which parts of the audio they want to use in their programme, they must use a digital audio workstation (DAW) to
+manually execute those editorial decisions, which is a tedious and slow process.  Creating a ``digital bridge'' between
+paper and its digital source may allow us to combine the advantages of paper and digital workflows.
+
+%Using this approach, it is possible to
+%link the words on a printed transcript of speech to the time they were spoken in the original audio recording.
+%Furthermore, by linking the paper annotations to audio edit commands, the paper transcript could be used to directly
+%edit the audio content.
+
+In this chapter, we describe the design, development and evaluation of \textit{PaperClip} -- a novel system for editing
+speech recordings directly on a printed transcript using a digital pen.  In Section~\ref{sec:paper-background} we
+review previous approaches to semantic speech editing and natural annotation of digital content. In
+Section~\ref{sec:paper-requirements} we describe our first study in which we worked with radio producers to design the
+layout of our system. In Section~\ref{sec:paper-design} we describe the design of PaperClip, which we developed in
+collaboration with a digital pen manufacturer. In Section~\ref{sec:paper-method} we explain the methodology of our
+second study in which radio producers edited content for their programmes using PaperClip, a screen interface and a
+normal printed transcript.  We present the results in Section~\ref{sec:paper-results} which compares the strengths of
+the digital pen and screen interfaces, and shows how the accuracy of the transcript and listening affect the editing
+process.  We discuss these results in Section~\ref{sec:paper-discussion} and present our conclusions in
+Section~\ref{sec:paper-conclusion}.
 
 %Transcripts are often printed out because:
 %- it is easier to read than on screen
@@ -24,38 +54,200 @@ of structure and cross-referencing \citep{OHara1997}.
 %- reduces battery anxiety,
 %- more trusted by non-tech-savvy users
 
-%A similar process happens in the production of media content. The production workflow typically involves recording
-%material, selecting which parts of that material to use, then editing the desired material down to the final output
-%\citep{Baume2015}.  Many producers will `log' the material after it is recorded by writing transcripts of what was
-%said.  This is either done themselves or using a third-party service. These transcripts help producers to recall what
-%was said and when, identify themes, and make links between different parts of their content.
-
-% Disadvantage of paper
-Compared to digital media, working with a physical medium like paper introduces restrictions that make it more
-difficult to copy, share, store and archive information. Printing a document breaks the link to its digital source, so
-is normally a one-way process, where any information that is changed/added cannot is not fed back. Additionally,
-freehand annotations are unstructured, and cannot easily be digitised and re-used. This forces users to manually
-re-enter the information into a computer. In the case of radio production, paper notes are manually translated into
-edit commands using a digital audio workstation, which can be slow and tedious.
-
-% Digital paper
-There are a number of technological solutions that can be used to create a `digital bridge' between paper and
-its digital source. These offer the possibility to combine the advantages of paper and digital workflows. Using this
-approach, it is possible to link the words on a printed transcript of speech to the time they were spoken in the
-original audio recording. Furthermore, by linking the paper annotations to audio edit commands, the paper transcript
-could be used to directly edit the audio content.
-
-% Intro
-In this chapter, we investigate paper-based workflows in the context of professional radio production. We describe how
-we captured the requirements for a paper-based speech editor, and how we designed and built a working prototype. We
-then describe a contextual study of radio production in which we directly compared screen-based and paper-based
-workflows. 
-
 \section{Background}\label{sec:paper-background}
-Radio production using a paper interface requires a system that automatically translates annotations on a printed
-transcript to audio edit commands. Such a system requires a method of linking paper to media.  We identified three
-main approaches for achieving this, using barcodes, digital ink and digital pens.  In this section, we will review
-previous systems and studies that have used these techniques to link media with written documents.
+
+%Radio production using a paper interface requires a system that automatically translates annotations on a printed
+%transcript to audio edit commands. Such a system requires a method of linking paper to media.  We identified three
+%main approaches for achieving this, using barcodes, digital ink and digital pens.  In this section, we will review
+%previous systems and studies that have used these techniques to link media with written documents.
+
+Our system combines semantic editing of speech with natural annotation of digital content. As we saw in
+Section~\ref{sec:background-semantic-editing}, previous semantic speech editing systems have all used screen
+interfaces. We identified three alternative types of interfaces that could be used to edit digital content using
+barcodes,
+%\citep{Hull2003,Klemmer2003,Erol2007,Erol2008}
+digital pens,
+%\citep{Fouse2011,Guimbretiere2003,Conroy2004,Weibel2008}
+and digital ink.
+%\citep{Weher1994,Diakopoulos2006,Cattelan2008,Cabral2016}
+In this section, we explore each of these approaches and their applications.
+
+\subsection{Barcodes}
+Barcodes printed on paper transcripts have been explored as a method of navigating video recordings by using a device
+to scan the barcode and play the video from that position. \textit{Video Paper} \citep{Hull2003} was a system that
+printed video keyframes and barcodes down the side of a paper transcript. Each barcode linked to a position in a video,
+which was downloaded from a database and played on the scanning device. \textit{Books with Voices} \citep{Klemmer2003}
+was a similar system that tested this approach on oral historians who found it effective for assisting a transcript
+editing task.  Erol et  al. \citep{Erol2007} went a step further by embedding the video data in the barcode, removing
+the need for a database.  \textit{HotPaper} \citep{Erol2008} removed the need for barcodes by using a camera to measure
+the whitespace between words and matching that to unique patterns in the text.
+
+Barcode-based systems provide a link between text and media, however they do not provide a convenient method of
+capturing annotations. It would be possible to use a handheld device to capture annotations and link them to a
+particular barcode.  However, this would require that the annotations are entered into a handheld device, rather that
+just written on the paper.  Additionally, the size of barcodes means that they cannot be used for each word, which
+affects the precision of the system.
+
+\subsection{Digital pens}
+
+A digital pen looks and functions as a normal pen, but includes an on-board infrared camera that tracks the position of
+the pen while it writes on paper. Digital pens must be used in combination with paper that has a unique non-repeating
+dot pattern printed onto it using a standard colour laser printer.  By reading this pattern, the pen can calculate
+exactly where it is when touching the page. The pen records its position up to 100 times a second and stores this onto
+the pen. Depending on which pen and software you're using, this information can either be streamed live via Bluetooth,
+or downloaded as a batch onto a computer. This technology has been patented by Anoto Group \citep{Fahraeus2003}, who
+exclusively manufacture and licence digital pen products. As such, this technology is commonly referred to as the
+\textit{Anoto dot pattern}.
+
+\textit{ChronoVis} \citep{Fouse2011} was a note-taking system that used the Anoto pattern for recording synchronised
+hand-written notes during playback of a video. An accompanying screen interface allowed users to click on the digital
+display of the handwritten notes to navigate to that position in the video.  or browse a list of timestamped notes.
+\citet{Weibel2012} conducted a longitudinal study of ChronoViz for use in observational research. The results show that
+notes became a mixture of linear notes and symbolic representations.  Asterisks, stars, lines and simple shapes were
+used as bookmarks for later referral, or for counting events.  The flexibility of freehand notes also enabled use of
+arrows in various contexts, such as to indicate direction and actions.
+
+\textit{PADD} \citep{Guimbretiere2003} was a concept for a system of editing documents that used the Anoto pattern to
+allow users to move from digital to paper and back again.  \textit{ProofRite} \citep{Conroy2004} was the first full
+implementation of this concept, which overlaid annotations made on paper into a word processor. The annotations were
+anchored to the text, such that they ``reflow'' when the text is moved.  Through informal feedback, users suggested
+that their annotations should translate into actions such as delete.  \textit{PaperProof} \citep{Weibel2008}
+interpreted edit annotations and automatically applied them to the document.  Gestures for delete, insert, replace,
+move and annotate were translated into modifications in a word processor, and intelligent character recognition was
+used to digitise any hand-written text. The interpretation of annotations allows for a two-way interaction between the
+digital and paper representations. We could not find any user studies of the PaperProof system.
+
+%ChronoVis \citep{Fouse2011} used the Anoto dot pattern to record paper notes during playback of a video. After writing
+%the notes, an on-screen playback interface allowed users to click on the digital display of the handwritten notes to
+%navigate to that position in the video,
+%Alternatively, they could reprint their
+%notes and use a wirelessly-connected digital pen to tap on the notes, which controlled the playback position.
+%ChronoVis can also coordinate multiple data sources, such as GPS logs.
+
+%\citet{Conroy2004} created
+%`ProofRite', which was the first full implementation of a PADD system. It captured annotations made to a printed text
+%document, and overlaid the annotations onto the text in a word processor. The annotations were anchored to the text,
+%such that they `reflow' when the text is moved.
+
+%\citet{Weibel2012} conducted a longitudinal study of ChronoViz for use in observational research. They studied how
+%three research groups used the technology over a period of 18 months by observing their use of ChronoVis, and
+%conducting regular focus group and brainstorming discussions.  The study found that the introduction of the system
+%changed the note-taking practices of the participants.  Paper-digital notes introduce time as an additional
+%structuring factor, and the authors discuss the tension between the use of time and space. They point out that
+%`deciding when time, space or both are important in a paper-digital form is complex'.  One benefit of a paper-digital
+%interface is that when the digital pen fails, the paper still contains important information, however this is not true
+%for time information.  Based on feedback from this study, ChronoVis was enhanced with features to control video
+%playback, automatically recognise specific symbols and add notes on top of existing notes.
+
+\subsection{Digital ink}
+\textit{Digital ink} refers to technology that digitally captures and responds to the movements of a pen, such as a
+stylus.  Typically, digital ink systems use a device with a backlit screen and a touch-sensitive interface like a
+tablet PC.  Several systems have experimented with using a stylus with interactive sliders to provide advanced control
+for navigating video content, such as \textit{LEAN} \citep{Ramos2003}, \textit{Zlider} \citep{Ramos2005} and
+\textit{MobileZoomSlider/ScrollWheel} \citep{Huerst2008}. However, these systems are limited to the navigation of
+content, without changing or labelling it.  As we will see in this section, digital ink interfaces can also be used to
+annotate and edit media.
+
+\textit{Marquee} \citep{Weher1994} synchronised handwritten notes with a live video recording by using a horizontal
+line gesture to mark a timestamp.  \textit{Dynomite} \citep{Wilcox1997} synchronised handwritten notes to a live audio
+recording, and allowed the user to categorise their annotations using keywords, and highlight regions of audio using a
+button.  In the evaluations of each of their systems, \citet{Weher1994} and \citet{Wilcox1997} both found that users
+took fewer notes when using the digital ink system, and that they wanted to go back and use the audio/video to improve
+the notes afterwards.
+
+%`Marquee' \citep{Weher1994} was a digital ink system for supporting the task of logging during a live video recording.
+%Users could make synchronised handwritten notes by drawing a horizontal line to mark a timestamp, then writing their
+%notes below.  Additionally, they could create a list of keywords, and add them to their notes by pressing them at the
+%right moment.  Marquee was evaluated for note-taking during meetings with three participants. The study found that
+%users did not partake in discussions while logging, which may prevent such a system being used during an interview.
+%The freehand nature of the notes meant that it could easily handle the different styles of each user.  Users reported
+%that they didn't feel they had to make as many notes as they normally would, because they could later refer back to the
+%video recording. The authors also noted that videos can be further annotated during replay, allowing for an iterative
+%logging process.
+
+%`Dynomite' \citep{Wilcox1997} was a virtual notebook that recorded audio synchronously with digital ink handwritten
+%notes. The user's notes could be assigned to different `properties', either before or after they were written, to
+%indicate an action point, for example, or a user-specified keyword.  Users could also highlight a portion of the audio
+%by pressing a `mark' button or making a specific gesture.  This would highlight the audio for a specified time period,
+%unless the `extend' or `end mark' buttons were pressed.  Any notes made during this period were displayed in bold and
+%the highlighted segments were displayed using colours on a horizontal timeline. An evaluation of nine users found that
+%users took fewer notes when using the audio highlighting, and that they wanted to go back and use the audio to improve
+%the notes afterwards. Both of these findings mirror those from \citet{Weher1994}.
+
+\textit{Videotater} \citep{Diakopoulos2006} was another digital ink interface for segmenting and annotating
+pre-recorded video clips. A vertical line gesture on a video timeline split the video into a clip, which could be
+labelled with handwritten notes.  \textit{WaCTool} \citep{Cattelan2008} also included features for annotation, but
+added real-time collaboration and editing tools.  Users could assign a ``skip'' command, which is analagous to removal,
+by pressing buttons at the start and end of an unwanted region.  \textit{Video as Ink} \citep{Cabral2016} allows users
+to ``paint'' video frames onto the tablet interface and then edit the video by erasing unwanted frames.  Videotater,
+WaCTool and Video as Ink all rely on the manipulation of video thumbnails, which are unavailable in radio production.
+
+%\citet{Diakopoulos2006} developed a digital ink interface for creating and annotating segments of a pre-recorded video,
+%called `VideoTater'. Segments could be created by drawing a vertical line on a video timeline, and merged by drawing a
+%horizontal line between them. Each segment could be tagged by selecting it and hand-writing text. The back of
+%the pen could be used to erase tags.
+
+%\citet{Cattelan2008} added functionality for marking edit commands using digital ink in their system `WaCTool'.  Users
+%could use a pen to write annotations by tapping the video to freeze it, then drawing on the video frame.  Users could
+%apply a `skip' command to a segment of the video by using the pen to tap the bottom left of the video at the start of
+%an unwanted segment, and tapping the bottom right at the end. The `skip' command is analogous to removing part of the
+%video.  Similar commands for looping and slow motion were also available by tapping different regions.
+
+%`Video as Ink' \citep{Cabral2016} took an alternative approach by allowing users to `paint' video frames and segments
+%onto a 2D canvas using a pen and tablet interface. The canvas works as a timeline, but extends vertically in both
+%directions so that the video can be painted onto multiple rows.  An evaluation of 12 participants found that the
+%canvas allowed users to creatively explore different possibilities. However, the interface relies on the visual
+%organisation of images, which does not necessarily translate well to audio and text.
+
+Finally, as we saw in Section~\ref{sec:background-semantic-editing}, \textit{RichReview} \citep{Yoon2014} allowed users
+to trim or tidy voice recordings by drawing a line through words or pauses to remove them.  An evaluation with 12
+students found that the editing features were considered easy to use and efficient for removing ``umm''s and long
+pauses.
+
+\subsection{Summary}
+In this section, we have seen that barcodes, digital pens and digital ink have been used to link paper to digital
+media.  Barcodes are a simple way to achieve this.  They use real paper, can be annotated freely, are easy to generate
+and are robust to photocopying.  Although an additional device is needed, a camera on a mobile phone could be used to
+read the barcodes and play the digital content.  However, barcodes only provide a one-way link from paper to media as
+annotations on the paper are not captured.  Barcodes also occupy space on the page, which limits the precision with
+which they can be used.
+
+Digital ink interfaces have both a screen and a stylus. This allows them to both capture freehand annotations, and
+respond by replaying the original media, or erasing mistakes in the annotations.  However, as digital ink interfaces
+use screens, they do not benefit from the improved reading speed, comprehension and cross-referencing of paper. They
+are often bulky, have a short battery life, and in the event of battery or device failure, the transcript and
+annotations are lost.  Electronic paper is a technology that attempts to emulate the benefits of reading from paper.
+Although it has been commercially successful through its use in e-readers, studies have found that e-paper has a higher
+reading time, worse comprehension and higher eye fatigue than reading from normal paper \citep{Jeong2012, Daniel2013}.
+Additionally, we could not find any systems that provided the level of interaction that would be needed to mark-up a
+transcript.
+
+%TODO GAP IN LITERATURE
+% - previous paper or pen-based systems have concentrated on navigation and annotation
+% - some simple editing functionality was present in digital ink systems, but these didn't use transcripts
+% - PaperProof allowed editing of text, but this didn't link to media
+% - haven't considered audio, only audio-visual; not always translatable (e.g. video as ink)
+
+%Video editing functionality was present in \textit{VideoTater} \citep{Diakopoulos2006}, \textit{WaCTools}
+%\citep{Cattelan2008} and \textit{Video as Ink} \citep{Cabral2016}. However, all of these systems relied on the
+%manipulation of video thumbnails, which cannot be translated to audio editing. None of them considered text or
+%transcript-based editing.
+
+Digital pen interfaces combine many of the benefits of both barcode and digital ink interfaces. They use physical
+paper, which is better for reading, but also allow a two-way interaction by capturing freehand annotation. The
+pen-based interface is natural and familiar, and because the annotations are made on the paper itself, information is
+both accessible and backed-up in the event of device or battery failure. However, a colour laser printer must be used
+with proprietary software to print the required dot pattern, and the printouts cannot be photocopied. There is no easy
+way to undo or erase annotations, although this is an inherint problem with pens in general.  We have seen that digital
+pen technology has successfully been applied to text editing \citep{Weibel2008} and media annotation \citep{Fouse2011},
+but we could not find any previous literature which has combined these approaches to allow semantic editing of speech
+content.
+
+% Time dimension - time vs spatial representation
+
+% Multiple iterations
+
+%=====================================================================================================================
 
 %`The Audio Notebook' \citep{Stifelman2001} was a system that used a physical pen and paper interface in combination
 %with a device that recorded audio synchronously with the page and vertical location of the written notes.  The device
@@ -81,144 +273,6 @@ previous systems and studies that have used these techniques to link media with 
 %generated from subtitles, and Berthouzoz et al.  \citep{Berthouzoz2012} developed a system that used crowd-sourced
 %transcripts and image processing to allow text-based editing of multi-camera video interviews.
 
-\subsection{Barcodes}
-Paper transcripts have been explored as a method of navigating video recordings by using a device to detect the
-position in the text and play the video from that position. \citet{Hull2003} describes a system called `Video Paper',
-which embedded video keyframes with barcodes down the side of the page. A PDA was used to scan the barcodes that linked
-to a position in a video, which was downloaded and played on the device. \citet{Klemmer2003} used Video Paper as part
-of an oral history project called `Books with Voices'. An evaluation of 13 users found that it had ``substantial
-benefits with minimal overhead''.  \citet{Erol2007} went a step further by embedding the video in the barcode data,
-removing the need to download the video from a separate source. \citet{Erol2008} removed the need for barcodes by
-creating a system called `HotPaper', which used a camera to measure the whitespace between words and matched that to
-unique patterns in the text.
-
-Barcode-based systems provide a link between text and media, however they do not provide a convenient method of
-capturing annotations. It would be possible to use a PDA to capture annotations and link them to a particular barcode.
-However, this would require that the annotations are entered into a handheld device, rather that just written on the
-paper.  Additionally, the size of barcodes means that they cannot be used for each word, which affects the precision of
-the system.
-
-\subsection{Digital ink}
-`Digital ink' refers to technology that digitally captures and responds to the movements of a pen, such as a stylus.
-Typically, digital ink systems use a device with a backlit screen and a touch-sensitive interface like a tablet PC.
-We found that previous systems fall into three main use-cases: synchronised note-taking, video editing and
-proof-reading.
-
-\subsubsection{Synchronised note-taking}
-`Marquee' \citep{Weher1994} was a digital ink system for supporting the task of logging during a live video recording.
-Users could make synchronised handwritten notes by drawing a horizontal line to mark a timestamp, then writing their
-notes below.  Additionally, they could create a list of keywords, and add them to their notes by pressing them at the
-right moment.  Marquee was evaluated for note-taking during meetings with three participants. The study found that
-users did not partake in discussions while logging, which may prevent such a system being used during an interview.
-The freehand nature of the notes meant that it could easily handle the different styles of each user.  Users reported
-that they didn't feel they had to make as many notes as they normally would, because they could later refer back to the
-video recording. The authors also noted that videos can be further annotated during replay, allowing for an iterative
-logging process.
-
-`Dynomite' \citep{Wilcox1997} was a virtual notebook that recorded audio synchronously with digital ink handwritten
-notes. The user's notes could be assigned to different `properties', either before or after they were written, to
-indicate an action point, for example, or a user-specified keyword.  Users could also highlight a portion of the audio
-by pressing a `mark' button or making a specific gesture.  This would highlight the audio for a specified time period,
-unless the `extend' or `end mark' buttons were pressed.  Any notes made during this period were displayed in bold and
-the highlighted segments were displayed using colours on a horizontal timeline. An evaluation of nine users found that
-users took fewer notes when using the audio highlighting, and that they wanted to go back and use the audio to improve
-the notes afterwards. Both of these findings mirror those from \citet{Weher1994}.
-
-\subsubsection{Video editing}
-Several systems have experimented with using a stylus with interactive sliders to provide advanced control for
-navigating video content, such as `LEAN' \citep{Ramos2003}, `Zlider' \citep{Ramos2005} and MobileZoomSlider/ScrollWheel
-\citep{Huerst2008}. However, these systems are limited to the navigation of content, without changing or labelling it.
-Our interest is primarily in the annotation and editing of media, which the following systems have explored using
-digital ink interfaces.
-
-\citet{Diakopoulos2006} developed a digital ink interface for creating and annotating segments of a pre-recorded video,
-called `VideoTater'. Segments could be created by drawing a vertical line on a video timeline, and merged by drawing a
-horizontal line between them. Each segment could be tagged by selecting it and hand-writing text. The back of
-the pen could be used to erase tags. Pen pressure was used to distinguish between selection and tagging, with low
-pressure for selecting and high for tagging. Informal feedback from three users found that the gestures were
-successful, and that the pressure mapping worked well.
-
-\citet{Cattelan2008} added functionality for marking edit commands using digital ink in their system `WaCTool'. The
-system included a variety of features for annotation, editing and real-time collaboration. Users could use a pen to
-write annotations by tapping the video to freeze it, then drawing on the video frame.  Users could apply a `skip'
-command to a segment of the video by using the pen to tap the bottom left of the video at the start of an unwanted
-segment, and tapping the bottom right at the end. The `skip' command is analogous to removing part of the video.
-Similar commands for looping and slow motion were also available by tapping different regions.
-
-`Video as Ink' \citep{Cabral2016} took an alternative approach by allowing users to `paint' video frames and segments
-onto a 2D canvas using a pen and tablet interface. The canvas works as a timeline, but extends vertically in both
-directions so that the video can be painted onto multiple rows. The system includes gestures for adding, moving,
-erasing and selecting content. An evaluation of 12 participants found that the canvas allowed users to creatively
-explore different possibilities. However, the interface relies on the visual organisation of images, which does not
-necessarily translate well to audio and text.
-
-\subsubsection{Proof-reading}
-
-\citet{Yoon2014} created a collaborative digital ink document annotation system called `RichReview', which offered
-users three modalities in which to annotate documents - freeform inking, voice recording and deictic gestures. The
-voice recordings were displayed using a waveform, overlaid with an automatically generated transcript of the speech.
-Users could trim or tidy the voice recordings by drawing a line through words or pauses to remove them.  The system was
-evaluated using a qualitative study of 12 students which found that the editing features were considered easy to use
-and efficient for removing `umm's and long pauses.
-%However, many participants reported that the transcripts were not
-%accurate enough to use without having to listen to the audio.
-
-\subsection{Digital pens}
-A digital pen looks and functions as a normal pen, but includes an on-board infrared camera that tracks the position of
-the pen while it writes on paper. Digital pens must be used in combination with paper that has a unique non-repeating
-dot pattern printed onto it using a standard colour laser printer.  By reading this pattern, the pen can calculate
-exactly where it is when touching the page. The pen records its position up to 100 times a second and stores this onto
-the pen. Depending on which pen and software you're using, this information can either be streamed live via Bluetooth,
-or downloaded as a batch onto a computer. This technology has been patented by Anoto Group \citep{Fahraeus2003}, who
-exclusively manufacture and licence digital pen products. As such, this technology is commonly referred to as the
-`Anoto dot pattern'.
-
-% Pens
-%Livescribe Pulse
-%Live Pen 1 (DP-201)
-%Live Pen 2
-
-\subsubsection{Proof-reading}
-
-\citet{Guimbretiere2003} introduced a concept called `PADD', which was a system of editing documents that uses the
-Anoto pattern to allow users to move from digital documents to paper and back again. \citet{Conroy2004} created
-`ProofRite', which was the first full implementation of a PADD system. It captured annotations made to a printed text
-document, and overlaid the annotations onto the text in a word processor. The annotations were anchored to the text,
-such that they `reflow' when the text is moved. Through informal feedback, users suggested that their annotations
-should translate into actions such as delete.
-
-\citet{Weibel2008} created `PaperProof', which interpreted the edit annotations and automatically applied them to the
-document. Gestures for delete, insert, replace, move and annotate were translated into modifications in a word
-processor, and intelligent character recognition was used to digitise any hand-written text. Processing the annotations
-allows for a two-way interaction between the digital and paper representations. We could not find any user studies of
-the PaperProof system.
-
-\subsubsection{Synchronised note-taking}
-
-ChronoVis \citep{Fouse2011} used the Anoto dot pattern to record paper notes during playback of a video. After writing
-the notes, an on-screen playback interface allowed users to click on the digital display of the handwritten notes to
-navigate to that position in the video, or browse a list of timestamped notes. Alternatively, they could reprint their
-notes and use a wirelessly-connected digital pen to tap on the notes, which controlled the playback position.
-ChronoVis can also coordinate multiple data sources, such as GPS logs.
-
-\citet{Weibel2012} conducted a longitudinal study of ChronoViz for use in observational research. They studied how
-three research groups used the technology over a period of 18 months by observing their use of ChronoVis, and
-conducting regular focus group and brainstorming discussions.  The study found that the introduction of the system
-changed the note-taking practices of the participants.  Notes became a mixture of linear notes and symbolic
-representations.  Asterisks, stars and simple shapes were used as bookmarks for later referral.  Strokes in certain
-areas of the paper were used to capture structured data. Single strokes were used for binary data (like a checkbox),
-multiple strokes were used for counting events, and handwriting was used for categorical data.  One research group
-stopped manually writing the time as they normally would, because this information was captured automatically. The
-flexibility of freehand notes also enabled use of arrows in various contexts such as to indicate direction and actions.
-
-Paper-digital notes introduce time as an additional structuring factor, and the authors discuss the tension between the
-use of time and space. They point out that `deciding when time, space or both are important in a paper-digital form is
-complex'.  One benefit of a paper-digital interface is that when the digital pen fails, the paper still contains
-important information, however this is not true for time information.
-
-Based on feedback from this study, ChronoVis was enhanced with features to control video playback, automatically
-recognise specific symbols and add notes on top of existing notes.
-
 % Sensitivity of zones - a line which crosses from one zone to another can be a problem.
 % Problems when line or symbols crosses over zone
 
@@ -235,62 +289,6 @@ recognise specific symbols and add notes on top of existing notes.
 %TODO There are clearly defined symbols for use in proof correction (e.g. \citet{ISO5776}).
 
 %TODO Interfaces to correct errors in transcripts have also been considered, such as that from \citet{Suhm2001}.
-
-\subsection{Summary}
-
-% MECHANISMS
-% - digital ink vs digital pen vs barcode
-In this section, we have seen how barcodes, digital ink and digital pens have been used to link written documents to
-timed media.
-
-Barcodes provide a simple mechanism for linking physical printed paper to digital media. This provides the benefits
-that come with reading from and annotating paper, but with a link to the source media. Barcodes are easy to generate
-and robust to photocopying.  We need a device to read the barcodes, but we could do this using the camera on a mobile
-phone.  The systems to date have only provided a one-way link from paper to media.  It would be possible to implement a
-feedback mechanism, but the data would have to be entered into the scanning device rather than the paper. Although
-users can write freely on the paper, these notes would not be accessible without entering them into a device. Barcodes
-also take up a lot of space, so it is only practical to have them at the end of a line, rather than for each word. This
-limits the precision with which they can be used.
-
-Digital ink interfaces are vastly more feature-rich as they use a device with a screen that is capable of advanced
-two-way interaction. The device can integrate with media playback to allow users listen to the audio and navigate using
-the transcript. Freehand annotations can be used to annotate documents, and these can easily be undone or erased.
-Pressure mapping can also be used to interact in several different modes.  However, digital ink interfaces use screens
-rather than physical paper, so do not benefit from improved comprehension and cross-referencing. The screen in digital
-ink devices mean that they are often bulky and have a short battery life. Additionally, because the device must be used
-to access the information, this is lost in the event of device failure.
-
-Digital pen interfaces combine most of the benefits of both barcode and digital ink interfaces. They use physical
-paper, which is better for reading, but also allow a two-way interaction with freehand annotation. The pen-based
-interface is natural and familiar, and because the annotations are made on the paper itself, information is both
-accessible and backed-up in the event of device failure. However, a colour laser printer must be used with proprietary
-software to print the required dot pattern, and the printouts cannot be photocopied. There is no easy way to undo or
-erase annotations, although this is an inherint problem with pens in general.
-
-Electronic paper is a technology that attempts to emulate the benefits of reading from paper. Although it has been
-commercially successful through its use in e-readers, studies have found that e-paper has a higher reading time, worse
-comprehension and higher eye fatigue than reading from normal paper \citep{Jeong2012, Daniel2013}.
-Additionally, we could not find any systems that provided the level of interaction that would be needed to mark-up a
-transcript.
-
-%TODO GAP IN LITERATURE
-% - previous paper or pen-based systems have concentrated on navigation and annotation
-% - some simple editing functionality was present in digital ink systems, but these didn't use transcripts
-% - PaperProof allowed editing of text, but this didn't link to media
-% - haven't considered audio, only audio-visual; not always translatable (e.g. video as ink)
-
-Video editing functionality was present in \textit{VideoTater} \citep{Diakopoulos2006}, \textit{WaCTools}
-\citep{Cattelan2008} and \textit{Video as Ink} \citep{Cabral2016}. However, all of these systems relied on the
-manipulation of video thumbnails, which cannot be translated to audio editing. None of them considered text or
-transcript-based editing.
-
-We have seen that digital pen technology has successfully been applied to text editing \citep{Weibel2008} and media
-annotation \citep{Fouse2011}, but we could not find any previous literature which has combined these approaches to
-allow semantic editing of speech content.
-
-% Time dimension - time vs spatial representation
-
-% Multiple iterations
 
 \section{System requirements}\label{sec:paper-requirements}
 
@@ -908,7 +906,7 @@ processors.
   \label{fig:download-pdf}
 \end{figure}
 
-\section{Evaluation methodology}\label{sec:method}
+\section{Evaluation methodology}\label{sec:paper-method}
 
 To compare the paper and screen interfaces, we designed and conducted a user study.  The objective of our study was to
 see whether professional radio producers could use a paper-based semantic speech editing interface as part of their
@@ -1262,7 +1260,7 @@ screen.
 
 \textit{``I think you do read slower on screen.''} (P2)
 
-This aligns with the research by \cite{Kurniawan2001}, in which they compared the speed of reading from paper and
+This aligns with the research by \citet{Kurniawan2001}, in which they compared the speed of reading from paper and
 screens. They found that `in agreement with findings from previous studies, reading on paper was 10--30\% faster than
 reading online'.  This would have helped them to keep up with the audio playback and allowed them to edit the content
 in real time. With the screen, P5 found that they were selecting more audio than they needed because their inability to
