@@ -4,45 +4,49 @@
 %TODO Workplace studies book Luff2000
 
 % link to previous chapter
-
-We saw in Chapter~\ref{chp:colourised} that we can improve the performance of at least one audio editing task by
-enhancing the audio visualization. We were interested in exploring how we could apply these techniques to radio
-production, to help producers create programmes more efficiently.  To continue this research, we needed to decide which
-production tasks we should target. This required an understanding of the tasks involved in radio production, and of the
-challenges producers face in their roles.
+In pursuit of our ambition to develop better methods for radio production, we want to begin by selecting which
+production activities or tasks we should focus our research on.  This requires an understanding of the workflows
+involved in the production of radio and the challenges radio producers face in their roles.
 
 % radio production is not well documented and hard to access
 
-%Radio production is conducted globally on a large scale. The BBC alone has 9 national and 40 local radio stations,
-%%and BBC World Service, which broadcasts in 29 languages. 
-%each of which broadcast 24/7.
-
+% current literature is lacking
 There are two classic books that document the radio production process. \citet{McLeish2015}, now in its sixth edition,
 provides a broad overview of the practice of radio production with an emphasis on editorial, organisational and
 business concerns.  \citet{Hausman2012}, currently in its ninth edition, covers the more practical aspects of radio
 production including the use and operation of tools and equipment.  Despite the valuable contribution of these
 publications, they present a high-level overview of production practice that does not fully address the real-life
-challenges and issues that radio producers face in the industry.
-
-It can be difficult for those working outside of the radio industry to learn about the challenges of radio production.
-We could only find one published study that involved radio producers, by \citet{Dunaway2000}, which was based on his
-experience of being a documentary producer. This lack of studies may be a result of the limited number of radio
-producers, and their demanding workload, which can make it challenging to recruit them for research.  For example,
-\citet{Kim2003} worked with National Public Radio (NPR) to develop a system for searching speech archives.  Despite
-working directly with NPR, they were unsuccessful in recruiting radio producers to evaluate their system as there were
-not many producers, and they did not volunteer because they were too busy.
+challenges and issues that radio producers face in the industry.  We want to understand the specifics and complexities
+of the radio production process, so that we may gain insights into the authentic challenges producers face in creating
+audio content.
 
 % hard for researchers to develop solutions without understanding challenges and problems
 % lots of technology could help, but how to choose which?
 
-There are many semantic audio and user interface technologies that have the potential to improve the radio production
-workflow. Speech/music discrimination \citep{Wieser2014}, speaker diarization \citep{AngueraMiro2012}, speaker
-identification \citep{Lee1999a} and automatic speech recognition \citep{Junqua1995} can all be beneficial for use in
-radio systems \citep{Raimond2014,Bell2015}.  However, without a detailed understanding of the production process, it
-can be difficult to know which of these technologies have the most potential, or how they can best be applied to the
-workflow.  Additionally, it can be difficult for researchers outside of the industry to contribute developments that
-might benefit radio producers without them having a good understanding of the reality of radio production, or the
-challenges that producers face.
+% technical solutions available, which to choose?
+There are many semantic audio and user interface technologies that have the potential to support producers in the
+challenges faced when producing radio content. Speech/music discrimination \citep{Wieser2014}, speaker diarization
+\citep{AngueraMiro2012}, speaker identification \citep{Lee1999a} and automatic speech recognition \citep{Junqua1995}
+can all be beneficial for use in radio systems \citep{Raimond2014,Bell2015}.  However, without a detailed understanding
+of the production process, it can be difficult to know which of these technologies have the most potential, or how they
+can best be applied to the workflow.
+We would like to use our understanding of the semantic audio and user interface technologies to discover which of these
+can best be usefully applied to the challenges of radio production.
+
+%Additionally, it can be difficult for researchers outside of the industry to contribute developments that
+%might benefit radio producers without them having a good understanding of the reality of radio production, or the
+%challenges that producers face.
+
+% share with researcher who don't have access
+It can be difficult for those working outside of the radio industry to learn about the practices and demands of radio
+production.  We could only find two studies that involved radio producers \citep{Dunaway2000,Barbour2004}, both of
+which were written based on direct experience of being a producer. This lack of studies may be a result of the limited
+number of radio producers, and their demanding workload, which can make it challenging to recruit them for academic
+research. For example, \citet{Kim2003} worked with NPR to develop a speech archive interface, but reported that they
+were unable to recruit any radio producers to evaluate their system due to the small population and their limited
+availability.  We want to exploit our position within the BBC to be able to capture and share information about the
+radio production workflow. We hope this might allow other researchers to use what we learn to guide their research to
+maximise the benefit to the radio production community.
 
 %Previous studies of professional broadcast environments have focused on how producers collaborate during live
 %production \citep{Engstroem2010,Perry2009}, by using video recordings to analyse the interactions between producers.
@@ -52,9 +56,8 @@ To help us better understand the radio production process, we conducted three et
 BBC Radio.
 Section~\ref{sec:ethno-method} outlines the design of our study.
 Section~\ref{sec:ethno-results} presents the results of each case studies,
-Section~\ref{sec:ethno-discussion} discusses our findings, 
-Section~\ref{sec:ethno-conclusion} presents our conclusions, and
-Section~\ref{sec:ethno-future} suggests future work.
+Section~\ref{sec:ethno-discussion} discusses our findings and 
+Section~\ref{sec:ethno-conclusion} presents our conclusions.
 
 \section{Methodology}\label{sec:ethno-method}
 
@@ -345,10 +348,10 @@ task at hand, and there was no chatting or socialising.
 
 When creating clips from television broadcasts, the journalists must source the clips from 40-minute-long segments.  To
 find the audio, they used seek to navigate the recording and listened for a particular voice or mention of the topic of
-interest.  The \textit{MOS} plugin interface they used displayed a waveform, but this did not seem to help them find
-the audio.  Finding and cutting clips in this way is a time-consuming and difficult task, particularly when performed
-under pressure.  Application of segmentation or speech-to-text technology could help by indicating where people are
-speaking, displaying keywords that are mentioned, or allowing the recording to be searched by text.
+interest.  The \textit{MOS} plugin interface they used displayed an audio waveform, but this did not seem to help them
+find the audio.  Finding and cutting clips in this way is a time-consuming and difficult task, particularly when
+performed under pressure.  Application of segmentation or speech-to-text technology could help by indicating where
+people are speaking, displaying keywords that are mentioned, or allowing the recording to be searched by text.
 
 The bulletins written by the broadcast journalists must target a specific duration for when they are read.  They have
 no indication of how long it takes to read a piece of text. They must therefore estimate this based on experience, or
@@ -556,8 +559,9 @@ sign-off and broadcast.
 \subsubsection{Challenges}
 The clear syntax used to annotate the drama script shows that the production workflow is well-organised and makes good
 use of existing tools. However to convert those annotations into a rough edit, the SM must use a DAW to manually
-arrange and edit the clips, and remove any marked errors. This can be a lengthy and tedious process. If the annotations
-could be captured digitally, the rough edit stage could conceivably be fully or partly automated.
+arrange and edit the clips, and remove any marked errors. The SM must use the audio waveform to edit the clips.  As it
+is difficult to identify the location of the words in the waveform, this can be a lengthy and tedious process. If the
+annotations could be captured digitally, the rough edit stage could conceivably be fully or partly automated.
 
 In addition to being script-based, a defining characteristic of drama production is that multiple takes are recorded in
 order to capture the best possible performance. However, there is no simple way to directly compare performances. For
@@ -682,13 +686,16 @@ Once any changes are made and the programme is signed-off, the documentary is re
 into the \textit{dira!} radio production system. The producer must then listen to the entire programme in
 \textit{dira!} to ensure the audio that will be broadcast contains no errors.
 
-\subsubsection{Challenges and opportunities}
-The documentary production relies heavily on printed transcripts, which allow the team to collaborate and make notes.
+\subsubsection{Challenges}
+The documentary production relied heavily on printed transcripts, which allowed the team to collaborate and make notes.
 However, transcription is expensive if done using a third-party, and time-consuming if done by the team.  Transcripts
-can give an idea of what was said, but it is difficult to navigate the audio to listen to how it was said.  After the
-transcripts are annotated, the producer has to go back and manually edit the selected parts of the interviews, which is
-a slow and tedious process.  Creating a link between the printed transcripts and the audio recordings would allow the
-producers to work with transcripts as normal, but to simultaneously navigate and edit the audio content.
+can give an idea of what was said, but it is difficult to navigate the audio to listen to how it was said. Rough
+timestamps are usually written every few minutes, which helps the producer by narrowing the search area. However, they
+must use the audio waveform to find the specific word or sentence of interest. After the transcripts are annotated,
+the producer has to go back and manually edit the selected parts of the interviews. The navigation process of
+timestamps and audio waveforms makes this a slow and tedious process.  Creating a tighter link between the printed
+transcripts and the audio recordings would allow the producers to work with transcripts as normal, but to
+simultaneously navigate and edit the audio content.
 
 The studio manager used a DAW to manually remove redundant noises such as ``umm''s.  Finding and removing these noises
 is slow and difficult. If an acoustic model of redundant noises and phrases could be developed, these could either be
@@ -696,8 +703,38 @@ highlighted for easier identification, or removed automatically.
 
 \section{Discussion}\label{sec:ethno-discussion}
 Our study investigated audio editing workflows in radio production using three ethnographic case studies. We identified
-three themes from the results of the study with regard to textual representation, the use of paper and disconnection
-from the audio. We discuss each of these themes below.
+three themes from the results of the study with regard to waveform navigation, textual representation and the use of
+paper. We discuss each of these themes below.
+
+\subsection{Waveform navigation}
+In all of the case studies we observed, the audio was navigated using a waveform representation.  In the news bulletin,
+the journalist often had to search for a quote in a 40-minute clip using only the audio waveform and a rough idea of
+the location of the quote.  In the drama production, the SM used a waveform to navigate and edit the audio within each
+clip to match the annotations made on the script.  In the documentary production, the producer assembled their final
+programme by using a waveform to find, cut and arrange each audio clip marked on the transcript.
+
+As we discussed in Section~\ref{sec:background-waveforms}, audio waveforms are limited in the information they can
+display, which makes it difficult to identify words, sentences and speakers.  This can make it difficult for the
+producers to navigate and edit the audio content, as the location of their desired content in not apparent using the
+waveform. In Section~\ref{sec:background-waveforms-related}, we saw that previous work has used scaling and colour to
+enhance audio waveforms. These approaches may be able to provide producers with a richer visualization that would make
+it easier to identify the desired region of audio.
+
+%In the documentary production, the audio was represented using printed transcripts. Timestamps
+%were written in the transcript every few minutes to help producers locate the original audio, but some searching was
+%required to find and listen to the desired words.  In the drama production, scripts were used to refer to the audio
+%content. Each take was labelled with its episode, scene and take number. However, comparing multiple takes was a
+%process of manually importing and aligning the desired clips.  News bulletins are written as text, but designed to be
+%spoken aloud. Estimating the time it takes to speak the words required the journalist to either read the words in their
+%head, or estimate the time based on experience.
+
+%This disconnection from the audio means that often producers are making decisions based on an abstract representation of
+%the sound, such as text. The producers we observed used timestamps and labels to link to the audio, but
+%these links had a low precision and only reduced the area in which the producer had to search to listen to the audio.
+%Creating a more direct link from the text to the audio would allow producers to listen to the audio with greater
+%precision and efficiency. For example, if each word was labelled with a precise timestamp, an audio playback device
+%could instantly seek to that exact moment in the recording. More direct access to audio content
+%could allow producers to make better decisions on what content to include in their programme.
 
 \subsection{Textual representation}
 We observed that in all three case studies, the producers interacted with audio using a textual representation. A
@@ -714,9 +751,11 @@ audio, which demonstrated that they found value in using a textual representatio
 
 Generating transcripts of speech can be an expensive process. We saw that the documentary producers could only afford
 to transcribe less than half of their interviews, so had to transcribe the rest themselves, which took a long time and
-produced poor quality results.  Automatic speech recognition \citep{Lee1999a} could make this process faster
-and more affordable. However, automatically-generated transcriptions contain errors that may affect the usability of
-such transcripts in a radio production environment.
+produced poor quality results.  As we saw in Section~\ref{sec:asr}, automatic speech recognition (ASR) could make this
+process faster and more affordable. We also saw in Section~\ref{sec:background-transcripts} that semantic speech
+editing interfaces can be used to edit audio content using a transcript-based interface. However, ASR transcriptions
+contain errors and it is not known how these would affect the usability of such transcripts in a radio production
+environment.
 
 \subsection{Use of paper}
 We saw that in both the drama and documentary productions, the teams used printed scripts or transcripts as part of
@@ -732,24 +771,6 @@ the audio, which had to be done manually using a DAW. This is a tedious and slow
 captured in a structured digital format, they could then be automatically translated into audio edit commands. This may
 save producers time and effort without deviating much from their existing workflow.
 
-\subsection{Disconnection from audio}
-In all of the case studies we observed, there was a disconnection between the medium the producers use to represent the
-content and the audio. In the documentary production, the audio was represented using printed transcripts. Timestamps
-were written in the transcript every few minutes to help producers locate the original audio, but some searching was
-required to find and listen to the desired words.  In the drama production, scripts were used to refer to the audio
-content. Each take was labelled with its episode, scene and take number. However, comparing multiple takes was a
-process of manually importing and aligning the desired clips.  News bulletins are written as text, but designed to be
-spoken aloud. Estimating the time it takes to speak the words required the journalist to either read the words in their
-head, or estimate the time based on experience.
-
-This disconnection from the audio means that often producers are making decisions based on an abstract representation of
-the sound, such as text. The producers we observed used timestamps and labels to link to the audio, but
-these links had a low precision and only reduced the area in which the producer had to search to listen to the audio.
-Creating a more direct link from the text to the audio would allow producers to listen to the audio with greater
-precision and efficiency. For example, if each word was labelled with a precise timestamp, an audio playback device
-could instantly seek to that exact moment in the recording. More direct access to audio content
-could allow producers to make better decisions on what content to include in their programme.
-
 \section{Conclusion}\label{sec:ethno-conclusion}
 We investigated audio editing workflows in radio production by conducting three ethnographic case studies in BBC
 Radio. The case studies covered production of a news bulletin, a drama and a documentary.  Through direct observation,
@@ -764,3 +785,50 @@ decisions being made without listening to the audio.  We identified opportunitie
 production using automated speech recognition, digitisation of paper annotations and creating more direct links to
 audio content.
 
+\section{Intervention strategy}
+
+In this chapter, we described three ethnographic case studies that gave us insights into the challenges and
+opportunities that exist within the radio production process.  We are now in a position to reflect upon our research
+aim (Section~\ref{sec:aim}) and determine a strategy for achieving our goal.
+
+Our investigation into radio production practices uncovered three themes. Each of these provide an interesting avenue
+of research to be explored. In this section, we describe our plan for investigating these individually through
+technical intervention.
+
+\subsection{Audio waveforms}
+
+In all of the case studies, producers used audio waveforms to navigate their audio content.  As we saw in
+Section~\ref{sec:background-waveforms}, waveforms display limited information which can make them difficult to use for
+navigation.  However, despite their widespread use, we could not find any studies that attempted to measure the
+performance of audio waveforms.  Section~\ref{sec:background-waveforms-related} described several promising methods for
+enhancing audio waveforms by using colour to add semantic information. However, we could not find any formal
+evaluations of these methods.
+
+To better understand audio waveforms and colour-enhanced waveforms, we will perform a user study to evaluate their
+performance. Our interest is in using audio waveforms to make the production of radio programmes more efficient.
+Therefore, we will use audio content that is representative of radio broadcasts, evaluate the performance of these
+visualizations for a typical radio production task, and attempt to measure the user's efficiency in completing the
+task. Due to the lack of formal studies of both methods, we will not only compare colour-enhanced waveforms to normal
+waveforms, but also attempt to measure the performance of normal audio waveforms themselves.
+
+\subsection{Semantic speech editing}
+
+The producers in all three of our case studies interacted with audio content using textual representations. We also saw
+that the documentary producer wrote transcripts of all their interviews.  We saw in Section~\ref{sec:asr} that ASR can
+be used to automatically transcribe speech, and in Section~\ref{sec:background-transcripts} that transcripts of speech
+have been successfully used to allow for semantic navigation and editing of audio content.  \citet{Rubin2013}
+demonstrated a system for the production of ``audio stories'', which has many similarities to radio production.
+However, this system was not formally evaluated, so it is still unclear whether semantic editing can be used as part of
+the radio production process. Other semantic editing systems have been formally evaluated, but they were designed for
+navigating and editing voice messages and comments, which use a different type of audio content and have different
+requirements than radio production.
+
+We will investigate whether semantic speech editing can be used for radio production through a user study.
+
+\subsection{Paper interface}
+
+In two of our three case studies, producers used paper scripts and transcripts as part of their production workflow.
+This allowed them to collaborate face-to-face and make annotations that represented their audio edits. The remainder of
+the production workflow was digital, and transfering between the physical and digital representations was a manual
+process. It may be possible to use technology to bridge this gap between paper and digital. We will investigate whether
+this can be achieved, and attempt to develop and evaluate a system for producing radio content using a paper interface.

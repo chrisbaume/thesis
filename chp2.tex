@@ -82,7 +82,7 @@ monetises BBC content and brands \citep{BBCWorldwide2017}.
 % cost of radio
 The BBC spent \textsterling471M on radio production in 2016/17 \citep[p. 111]{Ofcom2017}. Approximately 60\% of this
 was spent on the national radio networks, 25\% of local stations and 15\% on regional services \citep{BBC2017a}.
-The average cost of producing radio on the national networks in 2p per listener per hour \citep[p.~\27]{BBC2017a}.
+The average cost of producing radio on the national networks in 2p per listener per hour \citep[p.~27]{BBC2017a}.
 %By comparison, television production costs at least six times more to produce per hour of consumption \citep[pp. 25,
 %27]{BBC2017a}.
 
@@ -251,7 +251,7 @@ popular DAWs \citep{AskAudio2015} and found that all of them visualized the audi
 %clarity of the message or losing the impact of the music and effects.
 
 
-\subsubsection{Waveforms}
+\subsubsection{Waveforms}\label{sec:background-waveforms}
 
 % WHAT IS A WAVEFORM?
 
@@ -813,7 +813,7 @@ Current audio visualizations exploit some of these cross-modal mappings. For exa
 and spectrograms map loudness to brightness, and pitch to elevation. However, this previous work shows that there are
 many more links between sound and vision that have yet to be fully exploited by audio visualizations.
 
-\subsection{Waveforms}
+\subsection{Waveforms}\label{sec:background-waveforms-related}
 
 The audio waveform is commonly used by most DAWs and other audio software as a visualization of an audio signal.  As
 such, users are very familiar with navigating audio content using waveforms, and many have learned how to read the
@@ -1517,14 +1517,14 @@ cognitive load and 8 of the 13 participants reported it to be ``very demanding''
 %\subsubsection{Mix audio and text}
 %Quixotic: Audio recorder with word processing interaction \citep{Milota2015}
 
-\clearpage
-\section{Research strategy}
+%\clearpage
+%\section{Research strategy}
 
 % WHAT HASN'T BEEN DONE
 
-In this chapter, we have described the context of our research topic by introducing radio production, semantic audio
-analysis, audio visualization, textual representation and audio playback interfaces.  We are now in a position to
-reflect upon our aim (Section~\ref{sec:aim}) and determine a strategy for achieving our goal.
+%In this chapter, we have described the context of our research topic by introducing radio production, semantic audio
+%analysis, audio visualization, textual representation and audio playback interfaces.  We are now in a position to
+%reflect upon our aim (Section~\ref{sec:aim}) and determine a strategy for achieving our goal.
 
 %In this chapter, we outlined the editing process in radio production and the tools that are used.  We introduced
 %semantic audio analysis and some of its applications that could be useful for radio production.  We then described how
@@ -1538,19 +1538,18 @@ reflect upon our aim (Section~\ref{sec:aim}) and determine a strategy for achiev
 % CHAPTER 3 set-up
 
 % What hasn't been done
-We have seen in Section~\ref{sec:background-radio} that not many formal studies have investigated radio production. One
-potential reason for this is that radio producers are difficult to access. For example, \citet{Kim2003} worked with NPR
-to develop a speech archive interface, but reported that they were unable to recruit any radio producers to evaluate
-their system due to the small population and their limited availability.  The author of this thesis is an employee of
-BBC R\&D, which gives us extraordinary access to the resources of BBC Radio. This is unusual in academic research,
-where studies are often conducted with student participants and under laboratory conditions.
+Our primary aim is to develop better tools for radio production. We believe that to achieve this, we first need to have
+a solid understanding of the radio production process.  The author of this thesis is an employee of BBC R\&D, which
+gives us extraordinary access to the resources of BBC Radio. This is unusual in academic research, where studies are
+often conducted with student participants and under laboratory conditions.  Therefore, we will start our research by
+using this position within the BBC to investigate how radio programmes are created.  This will allow us to be better
+informed about the tasks and challenges involved, which will guide our design choices.  This will also allow us to take
+advantage of access available to us that other researchers would not have.
 
-We believe that to built effective production tools for radio production, we should first have a solid understanding of
-the radio production process.  Therefore, we will start our research by investigating how radio programmes are created.
-This will allow us to be better informed about the tasks and challenges involved, which will guide our design choices.
-We will aim to take advantage of our position in the BBC by using the access available to us that other researchers
-would not have.
-
+%We have seen in Section~\ref{sec:background-radio} that not many formal studies have investigated radio production. One
+%potential reason for this is that radio producers are difficult to access. For example, \citet{Kim2003} worked with NPR
+%to develop a speech archive interface, but reported that they were unable to recruit any radio producers to evaluate
+%their system due to the small population and their limited availability.
 
 % CHAPTER 4 set-up
 
@@ -1564,7 +1563,7 @@ investigate their performance.
 
 
 % CHAPTER 5 set-up
-In Chapter~\ref{sec:background-transcripts}, we saw that transcripts of speech have been successfully used to allow for
+In Section~\ref{sec:background-transcripts}, we saw that transcripts of speech have been successfully used to allow for
 semantic navigation and editing of audio content. This approach could be benefitial for use in radio production.
 \citet{Rubin2013} demonstrated a system for the production of ``audio stories'', which is related to radio production.
 However, their system used verbatim transcripts, which are slow and expensive to produce. In addition, they did not
