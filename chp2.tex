@@ -16,11 +16,11 @@
 
 %Audio mixing designs based on data visualization first principles \citep{Dewey2016,Dewey2016a}
 
-In this chapter, we start with a brief overview of radio production and the current tools that producers use to edit
-radio programmes.  We show how semantic audio analysis can be used to extract information about the audio content that
-describes the sound in human-readable terms.  We then consider previous user interfaces that have used this semantic
-data to improve the navigation and editing of audio through visualization, transcripts, and audio playback.  We finish
-by considering the research strategy we will use to answer our research questions.
+In this chapter, we start with a brief overview of radio production and describing the limitations of the current tools
+that producers use to edit radio programmes.  We show how semantic audio analysis can be used to extract information
+from the audio content that usefully describes the sound.  We then consider previous user interfaces that have used
+this semantic data to improve the navigation and editing of audio through visualization, transcripts, and audio
+playback.  We finish by considering the research strategy we will use to answer our research questions.
 
 %Stolen: In this chapter, we can find a review of a variety of systems and technologies that are related to the
 %approach we have chosen for our search interface. It is organized in sections according to different research fields
@@ -47,41 +47,71 @@ The focus of this thesis is on the production of audio content for radio broadca
 creative and technical endeavour. The aim of radio production is to ``manipulate sound to create an effect or deliver a
 message'', which is achieved by combining various sources of sound into a programme \citep[pp. 12, 20]{Hausman2012}.
 Producing radio requires the combination of complex audio technology with artistic taste and judgement
-\citep{Barbour2004}.  In this section, we shall start by giving an overview of radio production activities at the BBC,
-then describe how the audio content is put together using audio editing.
+\citep{Barbour2004}.
 
+In this section, we start by giving an overview of radio production at the BBC to provide wider context to our research
+topic. We continue by describing how audio editing is used to create pre-produced radio programmes using digital audio
+workstations. We then discuss the limitations of the visual representations that are used to produce audio content.
 
 \subsection{BBC Radio}
 
-% Political structure
-% - radio stations, listeners
-% - amount spent on production
-% - indies, compare to TV
+The British Broadcasting Company, as the BBC was originally called, was formed in 1922 and started broadcasting daily
+radio programmes from studio 2LO in London \citep{BBC2015}. In 1927, the British Broadcasting Corporation
+was founded by Royal Charter, which defined the BBC's objectives, powers and obligations, and guaranteed its
+independence from government.  The current charter \citep{BBCCharter2016} states that the BBC's mission is to ``act in
+the public interest, serving all audiences through the provision of impartial, high-quality and distinctive output and
+services which inform, educate and entertain''.
 
-Ten UK-wide radio networks and two national radio services each in Scotland, Wales and Northern Ireland, 40 local radio
-stations in England and the Channel Islands. \citep{BBC2017a}
+Today, the BBC is the world's biggest broadcaster by number of employees, with over 21,000 full-time staff
+\citep[p.~56]{BBC2017a}. The BBC operates ten UK-wide radio networks, six regional services, and 40 local radio
+stations \citep[p.~4]{BBC2017a}.  In addition, BBC World Service Radio operates a global radio service in 29 languages,
+with over 154M listeners per week \citep[p.~32]{BBC2017a}.
+%9 national stations with 34m listeners, 40 local stations with 8m listeners, one global station in 29 languages with
+%269m listeners
 
-Radio is relatively cheap to produce.
-The national BBC radio stations cost between 0.5p and 5.7p per listener hour to produce, which is much lower than
-the national television channels, which cost between 3p and 20.9p to produce \citep[pp. 25, 27]{BBC2017a}.
+%funding 
+\subsubsection{Cost}
+The BBC is primarily funded through a television licence fee paid by each UK household that watches live television or
+uses on-demand services. The licence fee allows the BBC's UK services to remain free of advertisements and commercial
+or political interest. The licence fee collects \textsterling3.8B per year \citep{TVLicensing2017}.  This income is
+supplemented by an additional \textsterling210M from BBC Worldwide -- a wholly-owned commercial subsidary that
+monetises BBC content and brands \citep{BBCWorldwide2017}.
 
-World Service Radio has 154M listeners per week \cite[p.~32]{BBC2017a}.
+%by selling international broadcasting rights, DVDs, books, magazines and digital
+%downloads
+% cost of radio
+The BBC spent \textsterling471M on radio production in 2016/17 \citep[p. 111]{Ofcom2017}. Approximately 60\% of this
+was spent on the national radio networks, 25\% of local stations and 15\% on regional services \citep{BBC2017a}.
+The average cost of producing radio on the national networks in 2p per listener per hour \citep[p.~\27]{BBC2017a}.
+%By comparison, television production costs at least six times more to produce per hour of consumption \citep[pp. 25,
+%27]{BBC2017a}.
 
+% location
+\subsubsection{Environment}
+The BBC's national and global radio services are produced in three buildings -- Broadcasting House and Wogan House in
+London, and MediaCityUK in Salford.  Broadcasting House is the worldwide headquarters of the BBC and home of BBC Radio
+\citep{Hines2008}. When it opened in 1932, Broadcasting House was the first purpose-built broadcast centre in the UK
+\citep{BBC2015a}.  Following a major expansion between 2003 and 2013, Broadcasting House now contains 35 radio studios,
+from which 30 domestic and World Service radio stations are broadcast, and is the workplace for 6,000 staff
+\citep{BBCNews2013}.
+%Wogan House is home to Radio 2 and 6 Music, and MediaCityUK is home to Radio 5 Live.
 
-9 national stations with 34m listeners, 40 local stations with 8m listeners, one global station in 29 languages with
-269m listeners
+Increasing demands for space and cost of accommodation in London mean that more radio content is being produced in open
+plan offices. This creates challenges for audio production, such as noise, privacy and reliance on headphones for
+monitoring \citep{Brixen2003}.
 
-The BBC spent \textsterling471M on radio production in 2016/17 \citep[p. 111]{Ofcom2017}.
+% technology
+\subsubsection{Technology}
+The BBC's radio production activities are centrally operated through a radio production system called \textit{dira!
+Radio}, made by SCISYS \citep{SCISYS2015}. This system handles audio recording, storage management, editing, playout
+and scheduling. \textit{dira!} integrates with a range of other specialist systems for distribution, advanced audio
+editing, metadata publication, commissioning and rights management.
 
-%Most radio is broadcast live, where the audience is listening to the radio as it is
-%created. However, 
-
-
-% Production environment
-% - OBH since 1932
-% - locations, London and Manchester
-
-%Audio production in office environments \citep{Brixen2003}
+There are two audio editing systems used for BBC radio production -- \textit{StarTrack}, which is part of the
+\textit{dira!} production system, and \textit{SADiE} from Prism Sound. StarTrack has basic functionality for cutting
+audio and controlling levels. It integrates directly with the production system, so it used for close-to-broadcast
+editing.  SADiE has much more advanced functionality for controlling EQ and effects, and for handling bigger projects.
+Other audio editing systems are also used, such as Adobe Audition, but these are not sanctioned by the BBC.
 
 \subsection{Audio editing}
 
