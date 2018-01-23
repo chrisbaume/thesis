@@ -1,17 +1,30 @@
 % !TeX root = main.tex
 \chapter{Measuring audio visualization performance}\label{chp:colourised}
 
-An audio waveform is a plot of the amplitude of an audio signal over time. Waveforms are widely used in audio editing
-interfaces as a visual guide to help users navigate the audio. Radio producers interact with audio through the use of
-digital audio workstations (DAWs), which display multi-track audio using rows of parallel waveforms. Audio waveforms
-are the focal point of these interfaces, and have been since the introduction of DAWs in the early 1980s
-\citep{Ingebretsen1982}.
+An audio waveform is a plot of the amplitude of an audio signal over time. As we saw in
+Section~\ref{sec:background-daw-visual}, waveforms are widely used in audio editing interfaces as a visual guide to
+navigate the audio. As we learned in Chapter~\ref{chp:ethno}, the radio producers we observed used waveforms to
+navigate audio content as part of the radio production process.
 
+%interacted with audio through the use of digital audio workstations (DAWs), which
+%display multi-track audio using rows of parallel waveforms. Audio waveforms are the focal point of these interfaces,
+%and have been since the introduction of DAWs in the early 1980s \citep{Ingebretsen1982}.
+
+In Chapter~\ref{chp:ethno}, we found that the radio producers we observed used waveforms to navigate audio recordings.
+This reinforces what we discussed in Section~\ref{sec:background-daw-visual} about the use of visual representations in
+DAWs. Audio waveforms are widely used in audio production software, yet we could not find any formal studies that have
+attempted to measure their performance. We saw in Section~\ref{sec:background-waveforms} that waveforms are limited in
+the amount of information they can display. In Section~\ref{sec:background-waveforms-related}, we saw that previous
+work has used semantic audio to enhance audio waveforms through the use of colour. However, we could not find any
+formal studies that have attempted to evaluate this approach.
+
+% waveforms, are widely used
 The amplitude profile of a waveform can be used to identify different tracks and see which parts are loud or quiet. It
 can be used to identify errors such as clipping and unwanted noise. When viewed at the right resolution, waveforms can
 reveal whether the sound is monophonic, polyphonic, tonal or noise-like.  With experience, users can also learn to
 map the shape of the waveform to higher-level properties, such as distinguishing music from speech.
 
+% limitations
 In practice, audio recordings are often minutes or hours long. To be able to display these on a screen, only a portion
 of the waveform is displayed, which the user controls using pan and zoom commands.  For most practical uses, the
 waveform must be zoomed-out to fit on the screen. This reduces the resolution of the waveform in the time dimension,
@@ -21,6 +34,24 @@ users to efficiently navigate and edit audio content.  Audio waveforms are widel
 help users navigate audio content. The performance of the waveform as a navigational aid is therefore 
 important as it affects a large number of users.  However, we were unable to find any studies that have attempted to
 measure the effectiveness of waveforms for navigating or editing audio content.
+
+% semantic audio enhancement
+By designing an audio visualization that can present more information or present it in a way that is robust to zooming,
+this may give radio producers a more powerful tool to interact with audio content. We saw in
+Section~\ref{chp:background-waveform-related} that there have been several previous attempts to create audio
+visualizations that can display timbre \citep{Tzanetakis2000,Rice2005}, or assist the navigation of radio broadcasts
+\citep{Mason2007}.  These systems worked by extracting semantic audio features and mapping them to a visual
+representation using pseudocolour or false colour. Although these systems demonstrated the potential of enhanced
+visualizations, we could not find any formal user studies that attempted to measure the effect of this approach on
+navigation or editing tasks.
+
+% what we're doing
+We were interested in examining how audio visualizations affect audio editing tasks in radio production. In
+Section~\ref{sec:vis-method} we describe the design of our user study, in which we measured the performance of users in
+completing an editing task using different audio visualizations. Section~\ref{sec:vis-results} presents the results,
+which show that mapping semantic audio features to colour improved user performance in our task. We discuss these
+results in Section~\ref{sec:vis-discuss} and present our conclusions in Section~\ref{sec:vis-conclusions}.
+
 
 %TODO include this somewhere:
 %Audio is often subject to dynamic range compression, which shapes the amplitude profile into a rectangle and further
@@ -44,21 +75,6 @@ measure the effectiveness of waveforms for navigating or editing audio content.
 %Despite their ubiquity, we could not find any studies that have attempted to test how waveforms themselves affect
 %interaction with audio.
 
-By designing an audio visualization that can present more information or present it in a way that is robust to zooming,
-this may give radio producers a more powerful tool to interact with audio content. We saw in
-Chapter~\ref{chp:background} that there have been several previous attempts to create audio visualizations that can
-display timbre \citep{Tzanetakis2000,Rice2005}, or assist the navigation of radio broadcasts \citep{Mason2007}.  These
-systems worked by extracting semantic audio features and mapping them to a visual representation using pseudocolour or
-false colour. Although these systems demonstrated the potential of using enhanced visualizations for aiding navigation
-of audio, we could not find any user studies that attempted to measure the impact of this approach.
-
-We were interested in examining how audio visualizations affect audio editing in radio production. In
-Section~\ref{sec:vis-method} we describe the design of our user study in which we measured the performance of users in
-completing an editing task using different audio visualizations. Section~\ref{sec:vis-results} presents the results,
-which show that mapping semantic audio features to colour improved user performance in our task. We discuss what this
-might mean for radio production in Section~\ref{sec:vis-discuss}, further work in Section~\ref{sec:vis-further} and
-present our conclusions in Section~\ref{sec:vis-conclusions}.
-
 %These techniques could potentially provide applications to radio production and give
 %producers better tools for interacting with their content.  However, we could not find any studies that have attempted
 %to measure the impact of these visualization techniques on audio production.  As such, we were interested in exploring
@@ -81,36 +97,75 @@ present our conclusions in Section~\ref{sec:vis-conclusions}.
 
 \section{Methodology}\label{sec:vis-method}
 
-In this study we aimed to evaluate how audio visualizations affect audio editing in radio production.  We designed our
-study to measure user performance of a simple task, as this gave us a specific and repeatable action by which we could
-assess the effect of different audio visualizations.  We wanted the task to be an activity that is common within radio
-production, and to use audio that is representative of that used by radio producers.  However, in order to recruit
-enough participants, we wanted to use a task that did not require radio production experience, so that it could be
-performed by anybody.
+In this study we aimed to discover what effect audio visualizations have on audio editing in radio production.  We
+designed our study to measure user performance of a simple task, as this gave us a specific and repeatable action by
+which we could assess the effect of the visualizations.  We wanted the task to be an activity that is common within
+radio production, and to use audio that is representative of that used by radio producers.  However, in order to
+recruit enough participants, we chose a task that did not require radio production experience.
 
-In this section, we describe the task, conditions and audio clips we used for our study. We list the hypotheses we
-tested and the metrics we used to do so. We then describe our recruitment process, the design of our test interface,
-the protocol of our study and our analysis methodology. 
+In this section, we describe the task we chose, our approach to recruitment and the test interface we designed.  We
+explain the test conditions, our selection of audio clips, the metrics used to measure performance, and our hypotheses.
+Finally, we present the protocol of our study and our analysis methodology.
 
 % The task
 \subsection{Task}
-For the task, we chose segmentation of music from speech.
-In radio production, music has to be removed 
-when turning an off-air programme recording into a podcast. This is due to music licensing issues, which are different
-for downloadable content than they are for radio broadcasts. The music is removed by editing the audio with a DAW that uses a waveform to
-visualize the audio. Although the waveform can be used to distinguish between music and speech, at typical zoom levels
-it is not always visible. This means that removing the music can be a slow and tedious process.
+In radio production, music has to be removed when turning a broadcast programme recording into a podcast. This is due
+to music licensing issues, which are different for downloadable content than they are for radio broadcasts. The music
+is removed by editing the audio with a DAW that uses a waveform to visualize the audio. Although the waveform can be
+used to distinguish between music and speech, at typical zoom levels it is not always visible. This means that removing
+the music can be a slow and tedious process. Therefore, we chose the task to be segmentation of music from speech.
+
+\subsection{Recruitment}
+The radio production community is relatively small. Producers are very busy and not used to participating in academic
+studies.  We wanted to recruit enough participants for our results to have statistical significance. Based on estimates
+from informal testing, we needed at least 40 participants.  To get enough respondents, we chose to recruit technology
+researchers with experience in media technology and production, of which there is a much larger population.  To attract
+enough participants, we designed our study so that it could be completed online, and in 15 mins or less.  We used email
+distribution lists to advertise our study to everyone working at BBC Research and Development, and the Electronics and
+Computer Science department at Queen Mary University of London.
+
+\subsection{Test interface}
+To conduct the experiment, we developed a web-based test interface, shown in Figure~\ref{fig:visualization-interface}.
+The interface displayed the overall visualization as well as a zoomed-in view above it. The participant could navigate
+the audio by clicking on either view, which would seek to that position in the audio.  Buttons below the visualization
+controlled play/pause, zoom level and setting the in-- and out-points of the selection.  The selection was displayed by
+highlighting the visualization, and on a slider below it. The selection could be adjusted by dragging either end of the
+slider.  Training was provided using a ``pop-up tour'', which guided the user through the interface's features and
+operation using a series of pop-up text boxes.  The interface also captured the participant's questionnaire responses
+and preferences.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\columnwidth]{figs/browser-audio-interface.pdf}
+\caption{Screenshot of the test interface with the following features:
+zoomed-in audio visualization (1),
+overview audio visualization (2),
+play/pause control (3),
+zoom in/out control (4),
+mark in/out buttons (5),
+selection slider (6),
+selection highlighting (7),
+and training pop-ups (8).}
+\label{fig:visualization-interface}
+\end{figure}
+
+%We configured the interface to log and timestamp every action the user made, including each seek, play/pause, select
+%and zoom action. We also used these metrics to calculate the task completion time, defined as the time between the
+%first user action and the last select action.
+
+We generated the visualizations of the audio clips using a plugin framework we developed called ``Vampeyer'', which
+mapped the results of audio analysis plugins to a bitmap image. We then integrated those images into our test interface
+by developing an interactive web-based audio visualization library called ``BeatMap''.  We describe Vampeyer and
+Beatmap in greater detail in Appendices \ref{sec:vampeyer} and \ref{sec:beatmap}.
 
 % Conditions
 \subsection{Conditions}
-Radio producers edit audio with DAWs that use audio waveforms for navigating the recordings.  Adding colour to
-waveforms would allow us to include additional semantic information about the audio, while being able to retain a
-familiar visualization that users are comfortable with and can already read.  Therefore, rather than aiming to replace
-the waveform at this stage, we were interested in seeing whether mapping a relevant semantic audio feature to the
-colour would impact on the performance of the user's task.
-
-We chose to use the following conditions for the audio visualizations. An example of each condition is shown in
-Figure~\ref{fig:conditions}.
+As we saw in Section~\ref{sec:background-daw-visual}, radio producers edit audio with DAWs that use audio waveforms as
+the medium for interaction. In Section~\ref{sec:background-waveforms-related}, we also saw that by adding colour to
+audio waveforms, additional semantic information about the audio could be displayed, while retaining a the familiar
+audio waveform visualization.  We were interested in measuring the performance of both the normal audio waveform and a
+semantically enhanced waveform, and also comparing them directly.  Therefore, we chose to use the following conditions
+for the audio visualizations. An example of each condition is shown in Figure~\ref{fig:conditions}.
 
 \begin{enumerate}[label=C\arabic*.]
   \item \textbf{None}: No visualization, audio only.
@@ -140,37 +195,47 @@ Figure~\ref{fig:conditions}.
 \end{figure}
 
 % Listening
-We included a condition in which there was no visualization, as we were interested in using it as a baseline to measure
-the performance of the normal waveform. For this condition, the participant must rely purely on listening to the audio.
-For the other two conditions, they are able to both listen and use the visualization.
+We included a condition in which there was no visualization (C1), as we were interested in using it as a baseline to
+measure the performance of the normal waveform. For this condition, the participant must rely purely on listening to
+the audio.  For the other two conditions, they are able to both listen and use the visualization.
 
 % SMD
 For the enhanced visualization, we extracted an audio feature that was relevant to the task and mapped it to the colour
 of the waveform.
 Speech-music discrimination (SMD) is a research topic that aims to automatically segment speech and music.  This
 research often targets recordings of radio broadcasts
-\citep{Goodwin2004,Wieser2014,Saunders1996,Pikrakis2008,Pikrakis2006a}. In general, SMD systems extract several audio
-features, then use clustering techniques to group those features into segments labelled as either speech or music.
+\citep{Goodwin2004,Wieser2014,Saunders1996,Pikrakis2008,Pikrakis2006a}.
+%In general, SMD systems extract several audio
+%features, then use clustering techniques to group those features into segments labelled as either speech or music.
 %Clustering is a task in which comes naturally to humans, but machines often struggle with.
 
 % choosing a feature
-We wanted to select a feature that would assist the participant in completing their task, but not so much that they
-would not have to interpret the information to extract the result. To do this, we restricted ourselves to selecting a
-one-dimensional (scalar) feature.
+We wanted to select an audio feature that would assist the participant in completing their task.  However, we also
+wanted there to be an element of human judgement involved in the task. If we chose an audio feature that was very
+accurate, the algorithm would be doing all of the work, and the human would only be processing the results.  To avoid
+this situation, we restricted the performance of the audio feature by only allowing a one-dimensional (scalar) feature.
+
 %\citet{Carey1999} found that, other than cepstral features, amplitude-based features performed best.
 Low energy ratio (LER, also known as `silent interval frequency', `energy contour dip' and `low short-term energy
 ratio') is the frequency in which the energy of a signal falls below a threshold. This is a simple but effective
 feature which exploits the fact that speech has frequent silent gaps between words, whereas music does not.
-\citet{Panagiotakis2005} found that on its own, LER can classify 50\% of music segments.
+\citet{Panagiotakis2005} found that on its own, LER can classify 50\% of music segments with 100\% precision.
 
 % calculating the feature
 We calculated the low energy ratio by extracting the RMS energy (20ms frames, no overlap) and counting the proportion
-of frames which fell below a threshold.  The threshold can be set as a fixed value \citep{Liang2005,Panagiotakis2005},
-a function of the moving average \citep{Ericsson2009}, or a function of the moving peak value \citep{Saunders1996}.
-After empirically testing a variety of radio programme recordings, we chose the latter and configured our threshold as
-the third percentile of RMS energy in a one second sliding window.
+of frames which fell below a threshold (see Equation~\ref{eq:ler}).  The threshold can be set as a fixed value
+\citep{Liang2005,Panagiotakis2005}, a function of the moving average \citep{Ericsson2009}, or a function of the moving
+peak value \citep{Saunders1996}.  After empirically testing a variety of radio programme recordings, we chose to use a
+function of the moving average, which we configured as 3\% of the mean RMS energy in a one second sliding window.
 
-%\[ RMS = \sqrt{\displaystyle\sum\limits_{i=0}^n x_i^2} \]
+\begin{align}
+  x_{rms}(n) &= \sqrt{\frac{1}{F} \displaystyle\sum\limits_{i=Fn}^{F(n+1)} x_i^2}\\
+  X &= \{x_{rms}(n) \mid 0 \leq n < \frac{f_s}{F}\}\\
+  X_{low} &= \{X \mid X < 0.03\overline{X}\}\\
+  \text{LER} &= 100 \times \frac{|X_{low}|}{|X|}\label{eq:ler}
+\end{align}
+
+where $x_i$ are the audio samples, $f_s$ is the audio sample rate, and $F$ is the number of samples in each frame.
 
 %Metric does not return perfect results, so user must interpret them
 
@@ -181,14 +246,14 @@ the third percentile of RMS energy in a one second sliding window.
 
 % mapping the feature
 We coloured the waveform by mapping the low energy ratio to a linear gradient between two easily distinguished colours.
-We used blue for representing speech, match the waveform colour of the DAW most commonly used in BBC Radio. We used
-its inverse colour, pink, to represent music.
+We used blue for representing speech to match the waveform colour of the most commonly used DAW in BBC Radio. To
+represent music, we inverted the RGB values of the waveform colour to produce pink.
 
 \subsection{Audio clips}
 We used radio programme recordings for the audio clips, by choosing a representative selection of programme formats,
-musical genres and radio stations, shown in Table~\ref{tab:clips}.  We sourced the audio content from `off-air'
-recordings of BBC Radio. We selected ten 5-minute clips that contained only one section of music, with speech before
-and after. We cut the clips so that the music was in a different position in each clip.  We chose to use nine 5-minute
+musical genres and radio stations, shown in Table~\ref{tab:clips}.  We sourced the audio content from recordings of BBC
+Radio broadcasts. We selected ten 5-minute clips that contained only one section of music, with speech before and
+after. We cut the clips so that the music was in a different position in each clip.  We chose to use nine 5-minute
 clips so that the segmentation tasks could be completed in around 15 mins, and one clip for training.
 
 \begin{table}[htbp]
@@ -214,46 +279,37 @@ clips so that the segmentation tasks could be completed in around 15 mins, and o
   \label{tab:clips}
 \end{table}
 
-\subsection{Hypotheses}
-
-We were interested in testing the effectiveness of audio visualizations for editing audio content. In particular, we
-wanted to examine the following hypotheses:
-
-\newcommand{\subscript}[2]{$#1 _ #2$}
-\begin{enumerate}[label=H\arabic*.]
-  \item \textbf{Effort}: Audio visualization affects the effort required to segment music from speech, in
-    decreasing order of C1, C2 and C3.
-  \item \textbf{Time}: Audio visualization affects the time taken to segment music from speech, in decreasing
-    order of C1, C2 and C3.
-  \item \textbf{Accuracy}: Audio visualization affects the accuracy of segmenting music from speech, in
-    increasing order of C1, C2 and C3.
-    %\item The audio visualization affects the reported task load, in decreasing order of C1, C2 and C3.
-\end{enumerate}
-
 \subsection{Metrics}
 
-We measured user performance using quantitative and qualitative metrics.  This allowed us to check for both actual and
-perceived differences in performance.
+We wanted to measure the user's performance in completing the speech/music segmentation task when using different audio
+waveforms. We were interested not only in measuring whether there was an actual difference in the task performance, but
+also measuring whether the user perceived any difference in their performance.  To do this, we used both quantitative
+and qualitative metrics.
 
 \subsubsection{Quantitative metrics}
 Our audio segmentation task involves finding the target audio (in this case, music) and marking the start and end of
 the desired region. The two primary activities involved in this are seeking through the audio (by clicking on the
-visualization), and marking the segment (using the buttons or sliders). To measure effort, we counted the number of
-seek actions (i.e. clicks on the visualization) used to complete the task.
+visualization), and marking the segment (using the buttons or sliders).  We chose to use three metrics to quantify the
+effort, time and accuracy of the completed task.
 
-To measure time, we calculated how long it took to complete each task. To avoid including `downtime' at the start and
-end of the task, we calculated the task completion time as the difference between the first user action (e.g.
-play/seek/mark) and the last marking action.
-
-For accuracy, we measured the error of the result. We calculated this by using ground truth data about the precise
-start and end time of the music in the audio, then finding the sum of the absolute error of the selected in-point and
-out-point.
+\begin{itemize}
+  \item \textbf{Effort}: We counted the number of seek actions (i.e. clicks on the visualization) used to complete the
+    task.
+  \item \textbf{Time}: We calculated how long it took to complete each task. To avoid including ``downtime'' at the
+    start and end of the task, we calculated the task completion time as the difference between the first user action
+    (e.g.  play/seek/mark) and the last marking action.
+  \item \textbf{Accuracy}: We calculated the error of the result by using ground truth data about the precise start and
+    end time of the music in the audio, then finding the sum of the absolute error of the selected in-point and
+    out-point. We selected audio clips where the music had clear start and end points.
+\end{itemize}
 
 \subsubsection{Qualitative metrics}
 
 To gather perceptual data about the tasks, we included a questionnaire for the participants to complete after using
-each visualization.  For this, we used the NASA Task Load Index, or `NASA-TLX', \citep{Hart1988} questions, listed
-below. Responses are captured using on a scale between -10 and 10 with the following labels at each end.
+each visualization. To allow for greater repeatability and comparison with other studies, we chose to use a
+standardised set of questions. For this, we used the NASA Task Load Index, or \textit{TLX} questionnaire
+\citep{Hart1988}, listed below.  Responses are captured using on a scale between -10 and 10 with the following labels
+at each end:
 
 %\begin{table}[ht]
   %\begin{center}
@@ -285,12 +341,20 @@ below. Responses are captured using on a scale between -10 and 10 with the follo
 \end{itemize}
 }
 
-To measure effort, we used the \textit{effort} rating; to measure time, we used the \textit{temporal demand} rating;
-and to measure accuracy, we used the \textit{performance} rating.
+The full TLX measurement involves converting the sub-scales into an overall TLX rating by weighting them by importance
+and summing the result \citep{Hart2006}. We wanted to be able to analyse each individual sub-scale, so rather than
+calculating the overall TLX value, we are reporting the ``Raw TLX'' values.
 
-We excluding the second part of the NASA-TLX measurement, which converts the sub-scales into a single value by weighting
-them by importance \citep{Hart2006}. As such, we are reporting the `Raw TLX' values.  We did this to reduce the time
-required for data collection, and to be able to analyse each sub-scale individually.
+To match our quantitative metrics, we chose to use the following three qualitative metrics:
+
+\begin{itemize}
+  \item \textbf{Effort}:
+    We used the TLX \textit{effort} rating to measure perceived effort.
+  \item \textbf{Time}:
+    We used the TLX \textit{temporal demand} rating to measure perceived task completion time.
+  \item \textbf{Accuracy}:
+    We used the TLX \textit{performance} rating to measure perceived accuracy.
+\end{itemize}
 
 %{\singlespacing
 %\begin{enumerate}
@@ -312,48 +376,22 @@ required for data collection, and to be able to analyse each sub-scale individua
 %\end{enumerate}
 %}
 
-\subsection{Recruitment}
-We wanted to recruit approximately 50 participants so that our results would have statistical significance.  The radio
-production community is relatively small, producers are very busy and they are not used to participating in academic
-studies. To get enough respondents, we opted to recruit from a larger pool of technology researchers with experience in
-media technology and production.  Additionally, we designed our study so that it could be completed online in 15 mins
-or less.  We used email distribution lists to advertise our study to everyone working at BBC Research and Development,
-and the Electronics and Computer Science department at Queen Mary University of London.
+\subsection{Hypotheses}
 
-\subsection{Test interface}
-To conduct the experiment, we developed a web-based test interface, shown in Figure~\ref{fig:visualization-interface}.
-The interface displayed the overall visualization as well as a zoomed in view above it. The participant could navigate
-the audio by clicking on either view, which would seek to that position in the audio.  Buttons below the visualization
-controlled play/pause, zoom level and setting the in-- and out-points of the selection.  The selection was displayed by
-highlighting the visualization, and on a slider below it. The selection could be adjusted by dragging either end of the
-slider.  Training was provided using a `pop-up tour', which guided the user through the interface's features and
-operation using a series of pop-up text boxes.  The interface also captured the participant's questionnaire responses
-and preferences.
+We expected that for all of the metrics, the enhanced waveform would perform better than the normal waveform, and
+the normal waveform would perform better than nothing. Specifically, we defined the following hypotheses:
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\columnwidth]{figs/browser-audio-interface.pdf}
-\caption{Screenshot of the test interface with the following features:
-zoomed-in audio visualization (1),
-overview audio visualization (2),
-play/pause control (3),
-zoom in/out control (4),
-mark in/out buttons (5),
-selection slider (6),
-selection highlighting (7),
-and training pop-ups (8).}
-\label{fig:visualization-interface}
-\end{figure}
+\newcommand{\subscript}[2]{$#1 _ #2$}
+\begin{enumerate}[label=H\arabic*.]
+  \item \textbf{Effort}: Audio visualization affects the actual and perceived effort required to segment music from
+    speech, where C1 requires more effort than C2, and C2 requires more effort than C3.
+  \item \textbf{Time}: Audio visualization affects the actual and perceived time taken to segment music from speech,
+    where C1 requires more time than C2, and C2 requires more time than C3.
+  \item \textbf{Accuracy}: Audio visualization affects the actual and perceived accuracy of segmenting music from
+    speech, where C1 is less accurate than C2, and C2 is less accurate than C3.
+    %\item The audio visualization affects the reported task load, in decreasing order of C1, C2 and C3.
+\end{enumerate}
 
-%We configured the interface to log and timestamp every action the user made, including each seek, play/pause, select
-%and zoom action. We also used these metrics to calculate the task completion time, defined as the time between the
-%first user action and the last select action.
-
-We generated the visualizations of the audio clips using a plugin framework we developed called `Vampeyer', which
-mapped the results of a Vamp audio analysis plugin\footnote{\url{http://www.vamp-plugins.org/}} to a bitmap image. We
-then integrated those images into our test interface using in an interactive web-based audio visualization library we
-developed called `BeatMap'.  Sections \ref{sec:vampeyer} and \ref{sec:beatmap} contain more detail about Vampeyer and
-BeatMap, respectively.
 
 \subsection{Procedure}
 Before the study began, we asked the participant to read an information sheet and agree to a consent form. There were
@@ -377,21 +415,22 @@ professional experience:
 We used a `pop-up tour' to overlay a sequence of text boxes on the interface (see
 Figure~\ref{fig:visualization-interface}). These explained the features and operation of the test interface, then
 prompted the user to complete and submit a training task. We measured the error of the training task and did not allow
-the participant to continue until they had completed the task successfully (defined as an error of less than 5 seconds).
+the participant to continue until they had completed the task successfully (as defined in
+Section~\ref{sec:waveform-analysis}).
 
 \paragraph{Stage 3: Segmentation task}
 The participant used the test interface to mark the position of music in a speech recording, then submit their result.
 We logged and timestamped the participant's actions, including seek, play/pause, zoom and mark.  This exercise was
-repeated three times for each condition, for a total of nine tasks.  We chose to group the presentation of the
-conditions rather than interleave them (e.g. AAABBBCCC instead of ACACBABCB).  We did this so we could capture feedback
-directly after each condition, and to avoid possible confusion due to switching too often.
+repeated three times for each condition, for a total of nine tasks.  We wanted to gather feedback directly after each
+condition to capture the participant's reaction, and to avoid possible confusion due to switching too often.  To
+achieve this, we grouped the presentation of the conditions rather than interleaving them (e.g. AAABBBCCC instead of
+ACACBABCB).
 
 Each audio clip can only be used once per participant, otherwise they would be able to remember the location of the the
-music. To define a balanced sequence for the audio clips, we used a Williams design Latin square, generated using the
-`crossdes' package\footnote{\url{http://cran.r-project.org/web/packages/crossdes/index.html}} in R.  We used Latin
-squares to block out the effect of the order of presentation, and a Williams design, which is balanced for first-order
-carryover effects.  As the sequence length is an odd number, the Williams design uses two Latin squares to produce an
-$18\times9$ matrix.
+music. To define a balanced sequence for the audio clips, we used a Williams design Latin square \citep{Williams1949},
+generated using the \texttt{crossdes} package in R \citep{Sailer2013}. We used Latin squares to block out the effect of
+the order of presentation, and a Williams design, which is balanced for first-order carryover effects.  As the sequence
+length is an odd number, the Williams design uses two Latin squares to produce an $18\times9$ matrix.
 
 To generate the order of visualizations, we needed to produce a balanced $18\times3$ sequence. We did this by taking
 three columns from our $18\times9$ Latin square and mapping the values 1--3, 4--6 and 7--9 to 1, 2 and 3, respectively.
@@ -468,12 +507,15 @@ using the NASA-TLX metrics. We captured the responses using sliders with the lab
 
 \paragraph{Stage 4: User preference}
 After all the tasks were completed, we asked the participant to select which condition they thought was the easiest,
-and which was the most frustrating, using the thumbnail images in Figure~\ref{fig:conditions}.
+and which was the most frustrating. We used thumbnail images from Figure~\ref{fig:conditions} to remind them of what
+each condition looked like.
 
-\subsection{Analysis}
-We wanted to ensure that all participants completed their tasks correctly.  To do so, we rejected any participant that
-submitted a segment with an error of more than five seconds. We calculated the error as the sum of the absolute error
-of the in-point and out-point.
+\subsection{Analysis}\label{sec:waveform-analysis}
+As the experiment was unsupervised, we wanted to ensure that all participants completed the tasks correctly.  We did
+this by measuring the error of the task and rejecting participants that submitted a response with an error of 5 seconds
+or greater. We chose this threshold after running informal tests which showed that under supervision, all responses had
+an error of less than 5 seconds.  We calculated the error as the sum of the absolute error of the in-point and
+out-point.
 
 %\begin{figure}[ht]
   %\begin{center}
@@ -486,19 +528,30 @@ of the in-point and out-point.
 %\end{figure}
 
 We tested for statistically significant differences in the task load ratings by using SPSS to conduct a repeated
-measures analysis of variance (rANOVA). We then used Tukey's honest significant difference (HSD) post-hoc test to make
-pairwise comparisons between the visualization for each metric.
+measures analysis of variance (rANOVA) \citep[p.~409]{Shalabh2009}.  We tested the underlying assumptions of normality
+and sphericity by plotting the distribution and using Mauchly's Test of Sphericity \citep[p.~415]{Shalabh2009}.
+Mauchly's Test indicated that the assumption of sphericity had been violated for the effort metric [$\chi^2(2) = 9.657,
+p=.008$] and temporal demand metric [$\chi^2(2) = 17.918, p<.001$]. Therefore, we corrected the degrees of freedom
+using the conservative Greenhouse-Geisser Correction \citep[p.~416]{Shalabh2009}.  We then used Tukey's honest
+significant difference (HSD) post-hoc test \citep[p.~139]{Shalabh2009} to make pairwise comparisons between the mean
+values of the metrics.
 
-We couldn't re-use audio clips for the tasks, so each participant only experienced a subset of the combinations of
-visualizations and audio clips. This resulted in an incomplete dataset, which prevented us from using from using
-repeated measures ANOVA. Instead, we used a mixed model as it can account for incomplete data and repeated measures
-design.
+Our study contained one fixed effect (visualization) and two random effects (audio clip and participant).  We could not
+re-use audio clips for the tasks as participant would remember the position of the music.  Therefore, as we did not
+have results from every participant for every combination of audio clip and visualization, our dataset was incomplete.
+As we are using a repeated measures design, we would normally analyse the results using a repeated measures ANOVA.
+However this requires a complete dataset, so we were unable to use this analysis.
 
-We used SPSS to perform a linear mixed effects analysis of the relationship between visualization and the three
-performance metrics (seek actions, task completion time and task error).  We configured the visualizations as a fixed
-effect and the audio clips and participants as random effects.  Visual inspection of residual plots did not reveal any
-obvious deviations from homoscedasticity or normality.  We used Fisher's Least Significant Difference (LSD) post-hoc
-test to make pairwise comparisons between the visualizations for each metric.
+We used a linear mixed model to analyse the results of the metrics because it can account for an incomplete dataset and
+a repeated measures design \citep{Gueorguieva2004}.  We used SPSS to perform a linear mixed effects analysis
+\citep[p.~274]{Shalabh2009} of the relationship between visualization and the three performance metrics (seek actions,
+task completion time and task error).  We configured the visualizations as a fixed effect and the audio clips and
+participants as random effects. We tested the underlying assumptions of homoscedasticity and normality by plotting the
+residual errors and visually inspecting them, which did not reveal any obvious deviations.
+%P-values were obtained by likelihood ratio tests of the full model with the effect in question against the model
+%without the effect in question.
+We then used the Least Significant Difference (LSD) post-hoc test \citep[p.~137]{Shalabh2009} to make pairwise
+comparisons between the mean values of the metrics.
 
 %\paragraph{Box plot}
 %A box plot \citep{McGill1978} is a technique used to graph distributions by their quartile values (i.e. 25th, 50th and
@@ -530,11 +583,11 @@ test to make pairwise comparisons between the visualizations for each metric.
 %number of standard deviations an observation is above the mean.
 
 \section{Results}\label{sec:vis-results}
-63 participants completed the study. Of those, 41 (65\%) passed the acceptance criteria. This was lower than expected,
-so we analysed the rejected tasks and participants to look for evidence of any systematic errors that might explain the
-high number of rejections.
+Our study was completed by 63 participants, of which 41 (65\%) passed the acceptance criteria of all task errors being
+under 5 seconds. The failure rate was higher than expected, so we analysed the rejected tasks and participants to look
+for evidence of any systematic errors that might explain the high number of rejections.
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -546,7 +599,7 @@ high number of rejections.
       ytick=data,
       xmin=0,
       ylabel=Clip,
-      xlabel=Rejected responses,
+      xlabel=Rejected responses count,
       symbolic y coords={9,8,7,6,5,4,3,2,1},
     ]
     \addplot[fill=black!15] coordinates
@@ -563,13 +616,13 @@ high number of rejections.
 \end{figure}
 
 Figure~\ref{fig:rejected-clips} shows the number of clips and conditions that were used for the rejected responses.
-Although clips 4 and 5 had a higher number of rejections, the incorrect responses came from all clips and all
+Although clips 4 and 5 had a higher number of rejections, these incorrect responses came from all clips and all
 conditions. There was also no combination of clips and conditions that caused an unusually high number of rejections.
 We did not find any notable difference in error between the in-points and out-points.  Figure~\ref{fig:demographics}
 shows the demographics of the participants.  We did not find any correlation between rejected participants and DAW
 experience, professional experience, age or gender.
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -626,8 +679,8 @@ experience, professional experience, age or gender.
 \label{fig:demographics}
 \end{figure}
 
-We were unable to find any systematic errors that would explain the rejected responses. However, as the test was online
-and unsupervised, this may have led some participants to perform the task to a lower standard than was required.
+We were unable to find any systematic errors that would explain the rejected responses, so we suspect that the lack of
+supervision may have led some participants to perform the task to a lower standard than was required.
 
 Figure~\ref{fig:demographics} shows that the vast majority of participants had previous experience of using both
 consumer and professional audio editing software. 61\% of participants also had professional experience of working with
@@ -691,14 +744,14 @@ audio. All participants reported that they understood what an audio waveform was
 
 \subsection{Quantitative metrics}
 
-We analysed the quantitative performance metrics using a linear mixed model.
+We analysed the quantitative performance metrics using a linear mixed model \citep[p.~274]{Shalabh2009}.
 %Our model found statistically significant differences
 %between the three conditions for seek actions, task time, and task error.
 Figure~\ref{fig:visualization-metrics} shows
 the mean values and confidence intervals of the performance metrics and Table~\ref{tab:pairwise-performance} lists the
 statistical significance of the pairwise comparisons between the conditions.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   \begin{subfigure}[t]{0.5\textwidth}
     \centering
@@ -769,7 +822,7 @@ statistical significance of the pairwise comparisons between the conditions.
 \newcommand{\highsig}{\cellcolor{black!20}}
 \newcommand{\medsig}{\cellcolor{black!10}}
 \newcommand{\nosig}{\cellcolor{white}}
-\begin{table}[ht]
+\begin{table}[t]
     \begin{tabular}{L{.35\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.23\textwidth-2\tabcolsep}}
 \hline
 & \textbf{C1 vs C2} & \textbf{C2 vs C3} & \textbf{C1 vs C3} \\ \hline
@@ -868,43 +921,6 @@ hypothesis H3 (accuracy) is confirmed for C2$<$C3, but not for C1$<$C2.
 
 \subsection{Qualitative metrics}
 
-We analysed the task load ratings using repeated measures multivariate ANOVA, which found that the audio visualization
-had a significant effect on the task load ratings from participants [$F(12,152)=3.552, p<0.001$].
-Figure~\ref{fig:tlx-results} shows the mean values and confidence intervals of the task load metrics and
-Table~\ref{tab:pairwise-perceptual} lists the statistical significance of the pairwise comparisons between the conditions.
-
-\begin{table}[ht]
-  \begin{threeparttable}
-    \begin{tabular}{L{.35\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.23\textwidth-2\tabcolsep}}
-\hline
-& \textbf{C1 vs C2} & \textbf{C2 vs C3} & \textbf{C1 vs C3} \\ \hline
-  Effort\tnote{1} & \medsig$<0.05$  & \highsig$<0.01$ & \highsig$<0.01$ \\
-	Frustration     & \medsig$<0.05$  & \medsig$<0.05$  & \highsig$<0.01$  \\
-	Mental demand   & \nosig$>0.05$   & \highsig$<0.01$ & \highsig$<0.01$ \\
-	Performance     & \nosig$>0.05$   & \medsig$<0.05$  & \highsig$<0.01$  \\
-	Physical demand & \nosig$>0.05$   & \highsig$<0.01$ & \highsig$<0.01$ \\
-  Temporal demand\tnote{1} & \nosig$>0.05$ & \medsig$<0.05$ & \nosig$>0.05$ \\ \hline
-\end{tabular}
-\caption{$p$-values of pairwise comparisons for the perceptual metrics. Statistically significant differences are shaded.}
-\label{tab:pairwise-perceptual}
-\begin{tablenotes}
-    \item[1] Mauchly's Test of Sphericity indicated that the assumption of sphericity had been violated for the effort
-      metric [$\chi^2(2) = 9.657, p=.008$] and temporal demand metric [$\chi^2(2) = 17.918, p<.001$]. Therefore, we
-      have adjusted the degrees of freedom for the univariate tests using the conservative Greenhouse-Geisser
-      Correction.
-  \end{tablenotes}
-  \end{threeparttable}
-\end{table}
-
-The task load ratings from participants show that compared to both the normal waveform (C2) and no visualization (C1),
-the enhanced waveform (C3) was less mentally and physically demanding, had better performance, was less frustrating and
-required less effort (all $p<0.05$).  They also rated the enhanced waveform as less temporally demanding than the normal
-waveform ($p<0.05$).  Compared to having no visualization (C1), participants rated the normal waveform (C2) as being
-less frustrating and requiring less effort (both $p<0.05$). 
-
-The effort ratings confirm hypothesis H1 (effort); the temporal demand ratings confirm hypothesis H2 (time) for
-C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C3.
-
 \begin{figure}[p]
   \centering
   \begin{subfigure}[t]{0.5\textwidth}
@@ -912,6 +928,7 @@ C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C
     \begin{tikzpicture} 
     \begin{axis}[
       width=\textwidth,
+      height=0.8\textwidth,
       ylabel=Effort,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
@@ -932,6 +949,7 @@ C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C
     \begin{tikzpicture} 
     \begin{axis}[
       width=\textwidth,
+      height=0.8\textwidth,
       ylabel=Frustration,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
@@ -952,6 +970,7 @@ C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C
     \begin{tikzpicture} 
     \begin{axis}[
       width=\textwidth,
+      height=0.8\textwidth,
       ylabel=Mental demand,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
@@ -972,6 +991,7 @@ C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C
     \begin{tikzpicture} 
     \begin{axis}[
       width=\textwidth,
+      height=0.8\textwidth,
       ylabel=Performance,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
@@ -992,6 +1012,7 @@ C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C
     \begin{tikzpicture} 
     \begin{axis}[
       width=\textwidth,
+      height=0.8\textwidth,
       ylabel=Physical demand,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
@@ -1012,6 +1033,7 @@ C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C
     \begin{tikzpicture} 
     \begin{axis}[
       width=\textwidth,
+      height=0.8\textwidth,
       ylabel=Temporal demand,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
@@ -1029,6 +1051,36 @@ C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C
   \caption{Mean task load index (TLX) values with 95\% confidence intervals. Lower values are better.}
   \label{fig:tlx-results}
 \end{figure}
+
+\begin{table}[p]
+    \begin{tabular}{L{.35\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.23\textwidth-2\tabcolsep}}
+\hline
+& \textbf{C1 vs C2} & \textbf{C2 vs C3} & \textbf{C1 vs C3} \\ \hline
+  Effort          & \medsig$<0.05$  & \highsig$<0.01$ & \highsig$<0.01$ \\
+	Frustration     & \medsig$<0.05$  & \medsig$<0.05$  & \highsig$<0.01$  \\
+	Mental demand   & \nosig$>0.05$   & \highsig$<0.01$ & \highsig$<0.01$ \\
+	Performance     & \nosig$>0.05$   & \medsig$<0.05$  & \highsig$<0.01$  \\
+	Physical demand & \nosig$>0.05$   & \highsig$<0.01$ & \highsig$<0.01$ \\
+  Temporal demand & \nosig$>0.05$ & \medsig$<0.05$ & \nosig$>0.05$ \\ \hline
+\end{tabular}
+\caption{$p$-values of pairwise comparisons for the perceptual metrics. Statistically significant differences are shaded.}
+\label{tab:pairwise-perceptual}
+\end{table}
+
+We analysed the task load ratings using repeated measures ANOVA \citep[p.~409]{Shalabh2009}, which found that the audio
+visualization had a significant effect on the task load ratings from participants [$F(12,152)=3.552, p<0.001$].
+Figure~\ref{fig:tlx-results} shows the mean values and confidence intervals of the task load metrics and
+Table~\ref{tab:pairwise-perceptual} lists the statistical significance of the pairwise comparisons between the
+conditions.
+
+The task load ratings from participants show that compared to both the normal waveform (C2) and no visualization (C1),
+the enhanced waveform (C3) was less mentally and physically demanding, had better performance, was less frustrating and
+required less effort (all $p<0.05$).  They also rated the enhanced waveform as less temporally demanding than the normal
+waveform ($p<0.05$).  Compared to having no visualization (C1), participants rated the normal waveform (C2) as being
+less frustrating and requiring less effort (both $p<0.05$). 
+
+The effort ratings confirm hypothesis H1 (effort); the temporal demand ratings confirm hypothesis H2 (time) for
+C2$>$C3; and the performance ratings confirm hypothesis H3 (accuracy) for C2$<$C3.
 
 %\begin{figure}[p]
   %\centering
@@ -1312,9 +1364,9 @@ using these visualizations.
 %   - we didn't choose the best
 %   - other features may perform better
 %   - using multiple features is likely to improve performance further
-We selected low energy ratio as a semantic audio feature for discriminating between music and speech.  Low energy ratio
+We selected low energy ratio (LER) as a semantic audio feature for discriminating between music and speech.  Low energy ratio
 is based on detecting changes in the amplitude profile.  Although these changes can clearly be seen using an audio
-waveform, they are only visible when the waveform is sufficiently zoomed-in.  It is therefore important to not only
+waveform, they are only visible when the waveform is sufficiently zoomed-in.  It is therefore important not only to 
 include the right information, but to present it in a way that humans can read.
 
 We restricted our selection of the semantic audio feature to a one-dimensional value, and used pseudocolour to map the
@@ -1332,9 +1384,9 @@ length.
 
 \section{Conclusion}\label{sec:vis-conclusions}
 
-We conducted a within-subjects user study in which 41 participants segmented music from speech using three conditions
--- a normal audio waveform, a waveform enhanced by mapping semantic information to colour, and without using any
-visualization.  Based on both quantitative and qualitative metrics, we found that using the enhanced waveform,
+We conducted an online user study in which 41 participants segmented music from speech using three within-subjects
+conditions -- a normal audio waveform, a waveform enhanced by mapping semantic information to colour, and without using
+any visualization.  Based on both quantitative and qualitative metrics, we found that using the enhanced waveform,
 participants completed the task faster, more accurately and with less effort than the normal waveform. Using the normal
 waveform required less effort than no visualization, but was not significantly faster, nor more accurate.
 

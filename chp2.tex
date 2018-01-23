@@ -1,4 +1,5 @@
 % !TeX root = main.tex
+
 \chapter{Background}\label{chp:background}
 
 %Study on TV sport \citep{Perry2009} and \citep{Engstroem2010}
@@ -202,7 +203,7 @@ saving an \textit{edit decision list}, or \textit{EDL}, which records the positi
 audio files. With EDLs, audio edits can be moved or undone retrospectively. Only when the final edits are ready does
 the audio get destructively ``rendered'' or ``bounced'' to a file.
 
-\subsection{Visual representation}
+\subsection{Visual representation}\label{sec:background-daw-visual}
 
 %``In computer-assisted editing, the information is stored digitally and manipulated through visual representation on a
 %computer screen''
@@ -475,11 +476,11 @@ root of the mean square of the audio signal. RMS is commonly used in scientific 
 power.  The statistics of an audio signal's RMS value can be used as an effective classifier of music and speech, as
 demonstrated by \citet{Ericsson2009} and \citet{Panagiotakis2005}.
 
-RMS energy is also used as the basis for other features.  \textit{Low energy ratio} (also known as `silent interval
-frequency' or `energy contour dip') is a measure of the number of RMS energy frames that fall below a threshold. It is
-used for speech/music discrimination (SMD), and works by exploiting the fact that speech has freqent silent gaps between
-words, wheras music does not. The threshold can be set as a fixed value \citep{Liang2005}, a function of a moving
-average \citep{Ericsson2009} or moving peak value \citep{Saunders1996}.
+RMS energy is also used as the basis for other features.  \textit{Low energy ratio} (also known as ``silent interval
+frequency'', ``silence ratio'' or ``energy contour dip'') is a measure of the number of RMS energy frames that fall
+below a threshold \citep{Liang2005}. It is used for speech/music discrimination (SMD), and works by exploiting the fact
+that speech has freqent silent gaps between words, wheras music does not. The threshold can be set as a fixed value
+\citep{Liang2005}, a function of a moving average \citep{Ericsson2009} or moving peak value \citep{Saunders1996}.
 
 \subsubsection{Temporal features}
 
