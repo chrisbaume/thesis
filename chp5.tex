@@ -1,29 +1,77 @@
 % !TeX root = main.tex
 \chapter{Screen-based semantic speech editing}\label{chp:screen}
 
-Speech is a natural form of communication which is rich in information. Since the early twentieth century, radio
-broadcasting has been used to transmit and consume speech-based content. Today, radio listenership remains high and
-podcasting continues to grow in popularity. 
+%The producers in all three of our case studies interacted with audio content using textual representations. We also saw
+%that the documentary producer wrote transcripts of all their interviews.
+In Chapter~\ref{chp:ethno}, the radio producers we observed all used textual representations to navigate and edit audio
+content. The drama producers used a script to write notes on what they recorded, any changes or mistakes that were made, and the
+quality of the performances. The documentary producers wrote transcripts of their recordings to help them navigate and
+arrange their content, and to mark up the parts they wanted to use in the programme. The news journalists also used
+text to label their audio clips with the words spoken at the start and end of the clip.
 
-Although many radio programmes are still broadcast live, a large proportion are pre-recorded and put together using
-audio editing software. Efficient navigation and editing of speech is crucial to the radio production process.
-However, unlike text, speech must be consumed sequentially, and does not naturally support visual search techniques
-\citep{Wolfe2004}. 
+In Section~\ref{sec:background-transcripts} we saw that transcripts have been successfully used to develop interfaces
+that allow for semantic navigation and editing of speech content.  \citet{Whittaker2002} found that their semantic
+speech interface could be used to quickly extract information and judge which parts were relevant, without having to
+play the audio.  \citet{Whittaker2004} found that semantic editing was faster and as accurate as editing with a
+waveform-based interface, and \citet{Sivaraman2016} found that semantic editing was more accessible than waveform
+editing.  \citet{Rubin2013} presented a semantic speech interface for producing ``audio stories'', which has many
+similarities to radio production. However, this system was not formally tested, so it is still unclear what effect
+semantic editing interfaces have on the production of audio content.
 
-Audio editing interfaces display a visual representation of the amplitude of the sound, called a `waveform'. This gives
-users some ability to visually search and scan audio content. Although the waveform is useful for many editing tasks,
-it displays very limited information, especially when zoomed out \citep{Loviscach2011}.
+%In Section~\ref{sec:asr}, we described how ASR can be used to automatically transcribe speech, and
+% Rubin used verbatim transcript, not ASR
+%Other semantic editing systems that use ASR been formally evaluated
+%\citep{Whittaker2004,Yoon2014,Sivaraman2016}, but they were designed for navigating and editing voice messages and
+%comments, which use a different style of audio content and have different requirements than radio production.
+We saw in Chapter~\ref{chp:ethno} that the documentary producers we observed either manually transcribed their
+recordings, which may not be the best use of their time, or paid a third-party to transcribe on their behalf, which is
+slow and expensive.  As we discussed in Section~\ref{sec:asr}, automatic speech recognition (ASR) could be used to
+replace the manual transcription process. However, the errors in ASR transcripts reduce listener comprehension
+\citep{Stark2000,Vemuri2004} and increase the time it takes to search audio content \citep{Ranjan2006} and correct
+errors \citep{Burke2006}. The semantic speech editor from \citet{Rubin2013} used verbatim transcripts, so it is not
+clear how these errors might affect audio production. Several semantic speech editors that used ASR were formally
+evaluated \citep{Whittaker2004,Yoon2014,Sivaraman2016}, but they were designed for navigating and editing voice
+messages and comments, which use a different style of audio content and have different requirements than radio
+production.
 
-Semantic audio analysis technology can be used to extract higher-level information from the sound, such as whether it
-is speech or music \citep{Panagiotakis2005}, where different people are speaking \citep{AngueraMiro2012} or an
-approximate transcript of what they are saying.  Presenting this information to the user could allow them to navigate
-and edit audio content much more efficiently \citep{Whittaker2004}.
+%We will investigate whether semantic speech editing can be used for radio production through a user study.
+%To ensure the results relate to real-life requirements, we will use our access to BBC Radio to recruit professional
+%radio producers, and evaluate semantic speech editing for use in production of genuine radio programmes.
+%To measure its performance, we will compare semantic speech editing to the current production workflow.
 
-In this chapter, we investigate semantic speech editing in the context of professional radio production. We explore
-what the existing production process is, including the workflow and tools that are used.  We then evaluate a semantic
-audio editing system through a contextual study of radio producers, who use the system as part of the production of
-real programmes for broadcast. From this, we aim to discover whether semantic speech editing can be used for radio
-production, how it is used, and whether current systems fulfills the users' requirements.
+
+
+
+
+%Speech is a natural form of communication which is rich in information. Since the early twentieth century, radio
+%broadcasting has been used to transmit and consume speech-based content. Today, radio listenership remains high and
+%podcasting continues to grow in popularity. 
+
+%Although many radio programmes are still broadcast live, a large proportion are pre-recorded and put together using
+%audio editing software. Efficient navigation and editing of speech is crucial to the radio production process.
+%However, unlike text, speech must be consumed sequentially, and does not naturally support visual search techniques
+%\citep{Wolfe2004}. 
+
+%Audio editing interfaces display a visual representation of the amplitude of the sound, called a `waveform'. This gives
+%users some ability to visually search and scan audio content. Although the waveform is useful for many editing tasks,
+%it displays very limited information, especially when zoomed out \citep{Loviscach2011}.
+
+%Semantic audio analysis technology can be used to extract higher-level information from the sound, such as whether it
+%is speech or music \citep{Panagiotakis2005}, where different people are speaking \citep{AngueraMiro2012} or an
+%approximate transcript of what they are saying.  Presenting this information to the user could allow them to navigate
+%and edit audio content much more efficiently \citep{Whittaker2004}.
+
+We were interested in investigating whether semantic speech editing can be used for radio production, and understanding
+what effect semantic editing and ASR transcripts have on the production process.  In this chapter, we describe the
+design and development of \textit{Dialogger} -- a semantic speech editing interface for radio production, and explain
+how we evaluated our system with radio producers at the BBC.
+
+In Section~\ref{sec:screen-requirements}, we review the existing production process to gather requirements for the
+design of our system.  In Section~\ref{sec:screen-design}, we describe the design and development of Dialogger.  In
+Section~\ref{sec:screen-methods}, we outline the methodology of our contextual user study in which radio producers used
+Dialogger as part of the production of real radio programmes. We present the results of our study in
+Section~\ref{sec:screen-results}, discuss our findings and their implications in Section~\ref{sec:screen-discussion}
+and present our conclusions in Section~\ref{sec:screen-conclusion}.
 
 % RESEARCH QUESTIONS?
 
@@ -77,30 +125,35 @@ production, how it is used, and whether current systems fulfills the users' requ
 %, which explored the workflow, roles, motivations and
 %environmental factors.
 
-\section{System requirements}\label{sec:requirements}
+\section{System requirements}\label{sec:screen-requirements}
 
 %The objectives of the pilot study were to discover how radio programmes are created, and to identify any opportunities
 %to improve the process.  Three representative programme types were studied: a news bulletin, a drama and a documentary.
 %The producers of each programme were observed and interviewed to fully document their workflow, which took between half
 %a day (for news) and four days (for the documentary).
 
-In Chapter~\ref{chp:ethno}, we found that the participants preferred to work with text-based representations of audio,
-rather than working with the audio directly.  In this section, we will review the results of the study and map them
-into system requirements for our semantic editing system.
+%In Chapter~\ref{chp:ethno}, we found that the participants preferred to work with text-based representations of audio,
+%rather than working with the audio directly.
+In this section, we will review the results of our study in Chapter~\ref{chp:ethno} and map our observations into
+high-level system requirements for our semantic editing system.
 
-The producers of the documentary `logged' each interview they recorded by transcribing it themselves, or by paying a
-third-party service to write a full transcription.  They then used the transcripts to select which bits they wanted to
-use, and copied the text to create a rough script of the programme. Once the script was mostly complete, they had to
-find and cut each piece of audio for the programme to create what is known as a `rough edit'.  Both the logging and
-rough edit processes are very time-consuming for the producer.  From these results, we identified an opportunity to
-apply semantic speech editing techniques to these parts of the production workflow.
+We saw that the producers of the documentary ``logged'' each interview they recorded by transcribing it themselves, or
+by paying a third-party service to write a full transcription.  They then used the transcripts to select which bits
+they wanted to use, and copied the text to create a rough script of the programme. Once the script was mostly complete,
+they had to find and cut each piece of audio for the programme, then assemble them into a draft composition known as a
+``rough edit''.
 
-\subsection{Transcripts}
-Radio programmes are assigned a slot in the broadcast schedule, so producers have a strict deadline for finishing their
-programme. Programmes are often scheduled about three weeks in advance, but sometimes as little as a week in advance.
-This means that producers have very little time to spare. If a programme's budget allows, interview recordings can be
-sent to a transcription service where they are transcribed by a person overnight. However, most programmes do not have
-the budget for this, so the producer transcribes the recordings themselves.
+Both the transcription and rough edit processes are time-consuming for the producer. Semantic speech
+editing may be able to make these two production activities more efficient. We will consider these
+individually to gather high-level requirements for our system.
+
+\subsection{Transcription}
+As we discovered in Chapter~\ref{chp:ethno}, radio programmes are assigned a slot in the broadcast schedule, so
+producers have a strict deadline for finishing their programme. Programmes are sometimes scheduled up to three
+weeks in advance, but sometimes as little as a week in advance.  This means that producers have very little time to
+spare. If a programme's budget allows, interview recordings can be sent to a transcription service where they are
+transcribed by a person overnight. However, many programmes do not have the budget for this, in which case the producer
+transcribes the recordings themselves.
 
 Transcripts are used to help the producer make editorial decisions, but are usually not published. For this reason, the
 transcripts only have to be sufficiently accurate to use for editing. Both \citet{Whittaker2004} and
@@ -111,27 +164,31 @@ them. However, both also found that users wanted to be able to fix incorrect wor
 should be accurate enough to be useful for editing, and allow for correction where necessary.
 
 \subsection{Editing}
-There are already well-established systems and software in place for producing radio programmes. Producers use a
-digital audio workstation (`DAW') to select the parts of each interview that they want to use in their programme, and
-to arrange them into a narrative. The BBC provide two different DAWs -- dira!  StarTrack (made by SCISYS) and SADiE
-(made by Prism Sound). Some producers prefer to use other DAWs, but as installation of software is restricted on
-corporate computers, they must use their personal computers.
+There are already well-established systems and software packages in place for producing radio programmes. As we discussed in
+Section~\ref{sec:background-daw}, producers use a digital audio workstation (DAW) to select the parts of each interview
+that they want to use in their programme, and to arrange them into a narrative. In Chapter~\ref{chp:ethno}, we learned
+that the BBC provide two different DAWs --
+dira! StarTrack (made by SCISYS) and SADiE (made by Prism Sound).
+%Some producers prefer to use other DAWs, but as
+%installation of software is restricted on corporate computers, they must use their personal computers.
+Both of these use waveforms to visually represent audio to help the user navigate the recordings. The edits performed
+in a DAW are ``non-destructive'' because the original recordings remain untouched (see
+Section~\ref{sec:background-daw}). This allows the producer the flexibility to adjust or undo their decisions at any
+point during the editing process.
 
-Waveforms are used to visually represent audio in the DAW to help the user navigate the recordings. The edits performed
-in a DAW are `non-destructive' because the original recordings remain untouched. This allows the producer the
-flexibility to adjust or undo their decisions at any point during the editing process.
+For the documentary production we observed in Chapter~\ref{chp:ethno}, specialist sound engineers (known as ``studio
+managers'') were brought in on the last day of production to ensure that the sound was well balanced, and to do any
+advanced editing that was required. This included removal of unwanted ``umm''s or breaths in a process called
+``de-umming''. The SM for the observed documentary suggested that being able to de-umm speech in a way that is
+inaudible to the listener is a skilled task that requires precision, judgement and experience.
 
-Specialist sound engineers (known as `studio managers') are sometimes brought in on the last day of production to
-ensure that the sound is well balanced, and to do any advanced editing that is required. This includes removal of
-unwanted ``umm''s or breaths in a process called `de-umming'. Being able to de-umm speech in a way that is inaudible to
-the listener is considered to be a skilled task that requires precision, judgement and experience.
-
-Music is often included in a programme, either as a theme tune, a short interlude or in the background. Producers
-select the music, often from their personal collection. However, a number of services are also used for finding
-suitable commercial or rights-free music, such as Audio Network\footnote{\url{https://www.audionetwork.com/} (accessed
+Music is often included in a programme, either as a theme tune, a short interlude or in the background. We observed
+that producers
+select the music either from their personal collection, or from one of a number of services for finding
+commercial or rights-free music, such as Audio Network\footnote{\url{https://www.audionetwork.com/} (accessed
 15.08.2016)}.  The music is added and edited using the DAW.
 
-At the end of the editing process, the producer's supervisor (known as the `editor') listens to the programme with the
+At the end of the editing process, the editor listens to the programme with the
 producer to give their feedback and sign-off. As part of this process, they both listen out for repeated words or
 phrases. However, this is only usually a problem in drama production where multiple takes of the same lines are
 recorded.
@@ -171,11 +228,12 @@ production.
 % X Repeats don't happen in interviews, only in drama really
 
 \section{System design}\label{sec:screen-design}
-This section describes the design of our system, which we named \textit{Dialogger}. The design was guided by the
-requirements set out in Section~\ref{sec:requirements}.
+This section describes the design of our system, as guided by the requirements set out in
+Section~\ref{sec:screen-requirements}. We explain our choice of transcription, editing interface and excluded features
+before describing the functionality and operation of Dialogger.
 
 \subsection{Transcript}
-Three factors were considered when choosing a transcription method -- turnaround time, cost and accuracy. Manual
+We considered three factors when choosing a transcription method -- turnaround time, cost and accuracy. Manual
 transcriptions are nearly 100\% accurate, however they are expensive (about \$1 per minute) and slow (typically 24
 hours). Automatic transcriptions are imperfect, but cheap (about \$1 per hour) and fast (quicker than real-time
 listening). Our system requires quick and cheap transcripts that are sufficiently accurate, so we chose to use automatic
@@ -183,26 +241,31 @@ transcripts generated by a state-of-the-art commercial web service\footnote{\url
   (accessed 15.08.2016)}.
 \citet{Whittaker2004} and \citet{Sivaraman2016} found that users want to be able to correct the transcript, so we
 designed our system so that users can fix incorrect words.
-The other systems did not include this feature as they used perfect transcripts.
+\citet{Rubin2013} did not include this feature as they used verbatim transcripts.
 
 \subsubsection{Speaker diarization}
 %The speech-to-text system we chose to produce transcripts generates additional information from the audio. It attempts
 %to identify the people speaking in the recording by their gender and a numeric identifier (e.g. [M2], [F5]). Also, for
 %each word, the system assigns a value between 0 and 1 of how confident it is that the word is correct. We decided to
 %include these extra pieces of information, as they should both be useful to the producer.
-We segmented the transcript into paragraphs to indicate changes in speaker. This information was generated as part of
-the automated transcription process, which also gave each speaker an identification number and estimated their gender.
-We presented this information as a text label at the beginning of each paragraph (e.g. [M2], [F5]).  \citet{Rubin2013}
-also identified speakers by placing their respective parts of the transcript in different columns.  However, this
-approach limits the number of speakers by the number of columns that can be displayed. By labelling paragraphs, we are
-able to support multiple speakers.
+
+As part of the transcription process, the ASR system performed speaker diarization (see
+Section~\ref{sec:background-diarization}), gave each speaker an identification number and estimated their gender.  We
+segmented the transcript into paragraphs to indicate changes in speaker, and used a text label at the beginning of each
+paragraph to display the gender and identification number (e.g.  [M2], [F5]).  \citet{Rubin2013} also identified
+speakers by placing their respective parts of the transcript in different columns.  However, this approach limits the
+number of speakers by the number of columns that can be displayed. By labelling paragraphs, we are able to support
+multiple speakers.
 
 \subsubsection{Confidence shading}
-We used the confidence value for each word to shade words that fell below a threshold, using a technique known as
-`confidence shading'. \citet{Suhm2001} found that confidence shading slowed down correction, but \citet{Vemuri2004}
-found that it improved comprehension. However, neither of these results were statistically significant.
-\citet{Burke2006} did not test the performance of confidence shading, but the study participants reported that
-confidence shading was helpful for identifying mistakes in the SCANMail interface.
+The ASR system provided us with a rating for each transcribed word that indicated the system's confidence in the
+accuracy of that word.  As we discussed in Section~\ref{sec:background-confidence}, \textit{confidence shading} is a
+technique used to shade words that fall below a confidence threshold.  \citet{Suhm2001} found that confidence shading
+slowed down correction, but \citet{Vemuri2004} found that it improved comprehension. However, neither of these results
+were statistically significant.  \citet{Burke2006} did not test the performance of confidence shading, but the study
+participants reported that confidence shading was helpful for identifying mistakes in the SCANMail interface.  On
+balance, we chose to include confidence shading because the findings from \citet{Vemuri2004} and \citet{Burke2006} are
+based on more modern ASR systems.
 
 %The speech-to-text system can recognise esoteric words like `ribosome' and `ARPANET', but can struggle with
 %colloquialisms and casual conversation. If the recording is too quiet or noisy, or a word isn't in its dictionary, the
@@ -230,14 +293,14 @@ the world on any operating system, but the downside that they have to be connect
 
 Our system needs to be able to integrate with the existing radio production tools. We designed Dialogger to be used as
 the first stage of the editing process, and to smoothly integrate with the DAWs that are used in BBC Radio. We achieved
-this by providing a novel features to export edited content from our system, either as a .wav audio file or as an `edit
-decision list' (EDL).
+this by providing a novel features to export edited content from our system, either as a .wav audio file or as an ``edit
+decision list'' (EDL).
 
-The first option exported a single .wav audio file of the edit. This method is a `destructive' edit, in that it throws
-away the pieces of the recording which weren't selected.  The other option exported an EDL, which contains metadata
-about which parts of an audio or video recording make up an edit. These can be read by the two most common audio
-editors used at the BBC -- SADiE and dira! StarTrack.  This method is `non-destructive' because the full original
-recordings are retained and the edit points can be re-adjusted in the audio editor.
+The first option exported a single .wav audio file of the edit. This method is a ``destructive'' edit, in that it
+throws away the pieces of the recording which weren't selected.  The other option exported an EDL, which contains
+metadata about which parts of an audio or video recording make up an edit. These can be read by the two most common
+audio editors used at the BBC -- SADiE and dira! StarTrack.  This method is considered ``non-destructive'' as the full
+original recordings are retained and the edit points can be re-adjusted in the audio editor.
 %Following early informal feedback, features were added to allow the text to be printed or exported into a word
 %processor.
 
@@ -250,14 +313,15 @@ recordings are retained and the edit points can be re-adjusted in the audio edit
 %speech-to-text, information about the position of `umm's and breaths is not
 %available.
 
-We did not include features for adding or editing music. During the pilot study, we found that specialist tools are
-already used for finding and choosing music, and that editing of music is already efficiently handled by the DAW.
-\citet{Rubin2013} included features for finding music tracks and creating loops within them.
+\citet{Rubin2013} included features for finding music tracks and creating loops within them.  In
+Chapter~\ref{chp:ethno}, we found that specialist tools are already used for finding and choosing music, and that
+editing of music is already efficiently handled by the DAW. Therefore, we chose not to include features for adding or
+editing music. 
 
-\citet{Rubin2013} also included detection of repeated words and phrases. We chose not to include this, as our pilot
-study found that repeats are only an issue in drama production. As the production of drama involves a very different
-workflow of recording multiple takes of lines from a script \citep{Baume2015}, we chose to focus on production
-workflows for pre-recorded content in our system design or study.
+\citet{Rubin2013} also included detection of repeated words and phrases. We chose not to include this, as we found in
+Chapter~\ref{chp:ethno} that repeats are only an issue in drama production. As the production of drama involves a very
+different workflow of recording multiple takes of lines from a script, we chose to focus on production workflows for
+pre-recorded content in our system design or study.
 
 %\begin{figure}
 %\centering
@@ -269,8 +333,9 @@ workflows for pre-recorded content in our system design or study.
 \subsection{System description}
 
 This section gives a brief overview of Dialogger, including its functionality and operation.  A screenshot of the
-interface and numbered list of the main features are shown in Figure~\ref{fig:interface}.  A live demo of the system is
-also available\footnote{\url{https://speecheditor.virt.ch.bbc.co.uk/demo} (accessed 15.08.2016)}.
+interface and numbered list of the main features are shown in Figure~\ref{fig:interface}.
+%A live demo of the system is
+%also available\footnote{\url{https://speecheditor.virt.ch.bbc.co.uk/demo} (accessed 15.08.2016)}.
 
 \begin{figure*}[ht]
 \centering
@@ -426,19 +491,19 @@ file or as an EDL (11) for further editing in a DAW.
 %built using Node.js and MongoDB running on a virtualised Ubuntu server.
 %Communication between the two was done through a REST API.
 
-\section{Evaluation methodology}\label{sec:methods}
+\section{Evaluation methodology}\label{sec:screen-methods}
 
-We wanted to determine whether professional radio producers could successfully employ the features of Dialogger
-as part of the production of a real radio programme. Specifically, we were interested in measuring
-whether the system was faster than their existing technique, and if it continued to be used after the trial.  We also
-wanted to investigate how the system was used and whether there were any features that could be added to improve the
+We wanted to determine whether professional radio producers could successfully employ the features of Dialogger as part
+of the production of a real radio programme. Specifically, we were interested in measuring whether semantic speech
+editing was faster than their existing technique, and if it continued to be used after the trial.  We also wanted to
+investigate how the semantic editor was used and whether there were any features that could be added to improve the
 functionality.
 
 Additionally, we wanted to take this opportunity to continue our research on the existing radio production workflow to
-learn more about the challenges producers face and the tools they use to produce their programmes. Our pilot study did
-not explore requirements in-depth, and there is not much previous literature that analyses actual radio production
-practice, so we wanted to be able to inform researchers and designers about real requirements and behaviour in this
-field.
+learn more about the challenges producers face and the tools they use to produce their programmes. Our study in
+Chapter~\ref{chp:ethno} did not explore requirements in-depth, and there is not much previous literature that analyses
+actual radio production practice, so we wanted to be able to inform researchers and designers about real requirements
+and behaviour in this field.
 
 To achieve these goals, we conducted a qualitative contextual study of radio producers working under two conditions --
 the existing editing workflow and the semantic editing workflow.
@@ -455,12 +520,13 @@ the existing editing workflow and the semantic editing workflow.
 %\end{itemize}
 
 \subsection{Approach}
-Gaining access to radio producers can be difficult as there are not many of them and they are normally very busy. A
-number of unrelated studies on television production systems have previously been conducted
-\citep{Engstroem2010,Perry2009}, but we were unable to find any studies at all which used radio producers.
-\citet{Kim2003} attempted to recruit radio producers but was unsuccessful because the producers were ``so highly
-tasked''. However, in this case we were able to recruit professional radio producers from the BBC due to the access
-available to us as an internal research department.
+Gaining access to radio producers can be difficult as there are not many of them and they are normally very busy.
+%A number of unrelated studies on television production systems have previously been conducted
+%\citep{Engstroem2010,Perry2009}, but 
+%We were only able to find two studies which used radio producers.
+For example, \citet{Kim2003} attempted to recruit radio producers but was unsuccessful because the producers were ``so
+highly tasked''. However, in this case we were able to recruit professional radio producers from the BBC Radio due to
+the access available to us from working within the BBC.
 
 %To account for this, we designed our study to take place at their desk and to overlap as much as possible
 %with the work they already need to do.
@@ -470,72 +536,19 @@ use contextual inquiry techniques to allow us to learn about the workflows, tool
 physical environments. This took the form of an initial interview, followed by a period of observation, then a final
 interview.
 
-Radio producers find it difficult to step away from their day-to-day work for too long.  To account for this, each
-system was used for the production of the programme that the participant was working on at the time, and the audio
-content they needed to edit that day. Participants were interviewed and observed in their normal working environment.
-
-\subsection{Design and procedure}
-We designed a five-stage experimental procedure that followed a typical contextual inquiry format of
-interview/observation/interview. In addition, we recorded some simple metrics such as task completion time and feature
-usage.
-
-\paragraph{Stage 1: Background interview}
-    Participants were first given an overview of the project and the study, and asked to complete a consent form. This
-    was immediately followed by a semi-structured interview to learn about the participant's background, their existing
-    production workflow and the tools they used as part of that. The investigator asked participants to describe the
-    radio production process in detail, and used follow-up questions to clarify their understanding. This information
-    was recorded using written notes.
-
-\paragraph{Stage 2: Dialogger training}
-    A short training session on the Dialogger interface.  Each participant was trained on the interface's
-    functionality using a pre-written `tool-tip tour', in which the participant was presented with a sequence of
-    instructional pop-up dialog boxes overlaid on the interface.  This ensured consistency of training between
-    participants. Each participant was then issued with a series of tasks that utilised all of the system
-    functionality. The investigator observed this stage and wrote notes of any unexpected behaviour or stumbling
-    blocks.
-
-\paragraph{Stage 3: Task observation}
-    Observing the participant as they produced a radio programme.  Each programme is composed of a number of interviews
-    on a single topic, or set of topics.  We observed the participant while they logged and rough-edited two
-    different interviews for the same programme. They did this by editing an interview under each condition -- one
-    using their existing production workflow, and the other using Dialogger. The order of the conditions was
-    counterbalanced.
-
-    The investigator sat beside the participant during the task and wrote notes on the workflow, tools, generated
-    metadata, usability issues, task completion time, and unexpected reactions or usage.
-    The actions of the participant on Dialogger were logged electronically. After they completed the task, they were
-    asked to rate each condition using the NASA Task Load Index metrics \citep{Hart1988}.
-
-    %The tasks were performed as part of the production of a real radio programme,
-    %and the observation was done in the participant's normal work environment.
-
-\paragraph{Stage 4: Interview}
-    A semi-structured interview about the participant's experience of each system and how they compared. The
-    investigator questioned participants about the advantages and disadvantages of each workflow, then asked about any
-    specific topics, issues or questions that cropped up during observation. The audio from this interview was recorded
-    and transcribed to allow for further detailed analysis.
-    %The questions asked were:
-
-    %\begin{itemize}
-        %\setlength\itemsep{0em}
-      %\item Which aspects of the existing system did you / did you not find useful?
-      %\item Which aspects of the prototype system did you / did you not find useful?
-      %\item Overall, which system did you prefer and why?
-      %%\item Did the prototype change the way you made the programme? If so, how?
-    %\end{itemize}
-
-\paragraph{Stage 5: Follow-up}
-    Each participant was then given access to Dialogger for a further month, and was invited to continue to use it if
-    they wished. Each week, they were asked via email whether they had been using the system, and if so, which features
-    they valued most/least or were missing.  During this time, their usage of Dialogger was also logged electronically.
+Radio producers find it difficult to step away from their day-to-day work for too long.  To account for this, we
+designed our study so that the tasks overlapped with
+the production of the programme that the participant was working on at the time, and the audio
+content they needed to edit that day. We interviewed and observed participants in their normal working environment to
+ensure that the production workflow was not affected by an artificial setting.
 
 \subsection{Recruitment}
 
 We invited professional radio producers with at least five years of experience to take part by sending an email to
 departments in BBC Radio that create pre-produced factual programmes.  Drama programmes were excluded from the study as
-their production workflow involves making multiple recordings of lines in a script and selecting the best ones
-\citep{Baume2015}. This is a sufficiently different process to other programme genres that it warrants a different
-interface.
+we saw in Chapter~\ref{chp:ethno} that their production workflow involves making multiple recordings of lines in a
+script and selecting the best ones. This is a sufficiently different process to other programme genres that it warrants
+a different interface.
 
 Five participants (P1--P5) were recruited (4 male, 1 female) who each had between 6 and 20 years experience in working
 as a radio producer. Although we had a small number of participants, the experience of the producers and the depth of
@@ -552,19 +565,75 @@ P4 produced a 14-min archive programme
 P5 produced a single 27-min magazine show (covering multiple stories on a
 single theme).
 
+\subsection{Procedure}
+We designed a five-stage experimental procedure that followed a typical contextual inquiry format of
+interview/observation/interview. In addition, we recorded some simple metrics such as task completion time and feature
+usage.
+
+\paragraph{Stage 1: Background interview}
+    The participants was first given an overview of the project and the study, and asked to complete a consent form. This
+    was immediately followed by a semi-structured interview to learn about the participant's background, their existing
+    production workflow and the tools they used. The investigator asked the participant to describe the
+    radio production process in detail, and used follow-up questions to clarify their understanding. This information
+    was recorded using written notes.
+
+\paragraph{Stage 2: Dialogger training}
+    %A short training session on the Dialogger interface.
+    Each participant was trained on the functionality of the Dialogger interface using a pre-written ``tool-tip tour'',
+    in which the participant was presented with a sequence of instructional pop-up dialog boxes overlaid on the
+    interface.  This ensured consistency of training between participants. Each participant was then issued with a
+    series of tasks that utilised all of the system functionality. The investigator observed this stage and wrote notes
+    of any unexpected behaviour or stumbling blocks.
+
+\paragraph{Stage 3: Task observation}
+    %Observing the participant as they produced a radio programme.
+    Each programme is composed of a number of interviews
+    on a single topic, or set of topics.  We observed the participant while they logged and rough-edited two
+    different interviews for the same programme. They did this by editing an interview under each condition -- one
+    using their existing production workflow, and the other using Dialogger. The order of the conditions was
+    counterbalanced.
+
+    The investigator sat beside the participant during the task and wrote notes on the workflow, tools, generated
+    metadata, usability issues, task completion time, and unexpected reactions or usage.
+    The actions of the participant on Dialogger were logged electronically. After they completed the task, they were
+    asked to rate each condition using the NASA Task Load Index metrics \citep{Hart1988}.
+
+    %The tasks were performed as part of the production of a real radio programme,
+    %and the observation was done in the participant's normal work environment.
+
+\paragraph{Stage 4: Interview}
+    We conducted a semi-structured interview about the participant's experience of each system and how they compared.
+    The investigator questioned participants about the advantages and disadvantages of each workflow, then asked about
+    any specific topics, issues or questions that cropped up during observation. The audio from this interview was
+    recorded and transcribed to allow for further detailed analysis.
+    %The questions asked were:
+
+    %\begin{itemize}
+        %\setlength\itemsep{0em}
+      %\item Which aspects of the existing system did you / did you not find useful?
+      %\item Which aspects of the prototype system did you / did you not find useful?
+      %\item Overall, which system did you prefer and why?
+      %%\item Did the prototype change the way you made the programme? If so, how?
+    %\end{itemize}
+
+\paragraph{Stage 5: Longitudinal deployment}
+    Each participant was then given access to Dialogger for a further month, and was invited to continue to use it if
+    they wished. Each week, they were asked via email whether they had been using the system, and if so, which features
+    they valued most/least or were missing.  During this time, their usage of Dialogger was also logged electronically.
+
 \subsection{Analysis}
-The study produced a large amount of data, including observation notes, interviews and metrics. We used coding to
-analyse the textual data and statistical analysis for the numeric data, as described below.
+Our study produced observation notes, interview transcripts and metrics. We used thematic analysis with open, flat
+coding to interpret the textual data, and we used statistical analysis to process the numerical data, as described below.
 
 \subsubsection{Coding}
 We manually transcribed the audio recorded from the interviews in Stage 4 to produce a verbatim transcript, and
 collated them with notes made by the investigator from Stages 1, 2 and 3. To organise and process this textual
-information, we employed the use of coding techniques.
+information, we employed the use of thematic coding techniques.
 
-We performed a two-stage coding process.  Firstly, we openly coded each part of the transcripts into a flat structure.
-As there are not many previous studies on radio production, we decided to use open coding so that the categories would
-emerge from the data we collected, rather than attempting to test an existing model.  We used the software package RQDA
-\citep{RQDA} to execute this stage.
+We performed a two-stage coding process.  Firstly, we openly coded each part of the transcripts using grounded theory
+\citep{Silverman2016} into a flat structure.  As there are not many previous studies on radio production, we decided to
+use open coding so that the categories would emerge from the data we collected, rather than attempting to test an
+existing model.  We used the software package RQDA \citep{RQDA} to execute this stage.
 
 Once all of the text had been processed, we grouped the codes that had common themes. We used mind-mapping software to
 help us re-arrange the codes into various hierarchical structures until a logical solution was found.  The coding
@@ -574,19 +643,19 @@ and grouping was performed by the investigator that collected the data.
 Although this was primarily a qualitative study, we chose to collect some basic metrics to measure task completion
 time, cognitive load and usage after the trial.
 
-We used task completion time from stage 3 as a metric for editing speed. As participants used different interviews of
+We used task completion time from Stage 3 as a metric for editing speed. As participants used different interviews of
 varying lengths for each condition, we measured task completion time relative to the length of the audio
-recording being edited. We used a paired \textit{t}-test to test for any significant difference between the existing
-and semantic editing workflows.
+recording being edited. We used a paired \textit{t}-test \citep[p.~17]{Shalabh2009} to test for any significant
+difference between the existing and semantic editing workflows.
 
-To measure the cognitive load of each task, we used the raw TLX metrics gathered from the questionnaire in stage 3. We
+To measure the cognitive load of each task, we used the raw TLX metrics gathered from the questionnaire in Stage 3. We
 used a paired \textit{t}-test on each of the six metrics to test them individually for any significant differences.
 
-Finally, to measure the level of usage during the follow-up in stage 5, we collected the time spent using the
+Finally, to measure the level of usage during the longitudinal deployment in Stage 5, we collected the time spent using the
 interface, the number of new uploads and the number of exported edits. As this data is only relevant to the semantic
-editing workflow, the raw numbers will be reported.
+editing workflow, we will report the raw numbers.
 
-\section{Results}
+\section{Results}\label{sec:screen-results}
 
 The coding process resulted in 40 codes, which were grouped into ten categories and four themes (see
 Table~\ref{tab:codes}). The codes contain comments about both the existing and semantic editing workflows, however for
@@ -595,15 +664,17 @@ clarity we will present these results individually.
 We start by going through the existing radio production workflow in detail, with an emphasis on the challenges that
 were identified, and the tools that are used as part of the process. We then consider the semantic editing workflow and
 expand on the four themes identified during coding. Finally, we look at the results of the metrics that we captured
-during the observation and final follow-up stage.
+during the observation and longitudinal deployment.
 
 \begin{table}[h]
 \centering
 {\small
 \begin{tabular}{|p{0.18\linewidth}|p{0.2\linewidth}|p{0.5\linewidth}|}
 \hline
+\textbf{Theme} & \textbf{Category} & \textbf{Codes} \\ \hline
+\hline
 \multirow{5}{*}{Comprehension}
- & Challenges & Complexity, quantity, environment, concentration, take taken \\ \cline{2-3}
+ & Challenges & Complexity, quantity, environment, concentration, time taken \\ \cline{2-3}
  & Navigation & Speed, search, paragraphs, speaker segmentation, time since recording, cross-referencing \\ \cline{2-3} 
  & Accuracy & Correction, accents, good enough, confidence shading, use after editing \\ \hline 
 \multirow{3}{*}{Organisation}
@@ -618,7 +689,7 @@ during the observation and final follow-up stage.
  & Misc & DAW integration, transcript turnaround time, simultaneous uploads, video support, waveform, avoidance of repetition \\ \hline
 \end{tabular}
 }
-\caption{Topics, categories and codes (left to right), that emerged from analysis of the interviews in Stage 4 and the
+\caption{Topics, categories and codes that emerged from analysis of the interviews in Stage 4 and the
 observation notes from Stages 1, 2 and 3.}
 \label{tab:codes}
 \end{table}
@@ -637,9 +708,9 @@ observation notes from Stages 1, 2 and 3.}
 
 This section describes the existing radio production workflow. The process is documented as described by participants
 in the interviews (Stages 1 and 4) and as witnessed by the investigator during the observation (Stage 3).  We start by
-providing an overview of the workflow, then discuss the topics identified through coding.
+describing the production workflow, then we discuss the topics identified through thematic coding.
 
-\subsubsection{Overview}
+\subsubsection{Workflow description}
 
 This section describes the high-level production workflow for pre-produced content as described by the
 participants. This is also represented by the numbered diagram in Figure~\ref{fig:workflow}, and the description below
@@ -668,7 +739,7 @@ venue or via a telecommunication link.
 %text in to script, sufficient to find the bits of the audio you want to use and to make sense to the presenter.
 
 Once material has been recorded, the next step is for the producer to select which parts of the audio they want to use
-in the programme.  This selection process is often aided by creating `logs' of the interviews.  Logging (3) helps the
+in the programme.  This selection process is often aided by creating ``logs'' of the interviews.  Logging (3) helps the
 producer by allowing them to see, on screen or on paper, what was said in each interview, when and by whom, without
 having to listen to it.  This allows them to quickly find and share the pieces that they want to use in the final
 programme.  It also helps them structure their thoughts, identify themes running through discussions, and make links
@@ -684,8 +755,8 @@ between different interviews.
 
 Logs are usually written by the producer themselves. As they have done the research and are normally present at the
 recordings, they can use their memory to navigate the material and use their experience to quickly determine which
-parts are relevant. Some programmes that are under particular time pressure will use a third-party to create a verbatim
-transcript of a few interviews \citep{Baume2015}, but most do not because it is too expensive.
+parts are relevant. As we saw in Chapter~\ref{chp:ethno}, some programmes that are under particular time pressure will
+use a third-party to create a verbatim transcript of a few interviews, but most do not because it is too expensive.
 
 In the observation, P1 and P3 wrote their logs in Microsoft Word whilst using a digital audio workstation (DAW) to play
 the recording (see Figure~\ref{fig:desk}). P5 reported that they usually followed a similar process, but did not do any
@@ -712,12 +783,12 @@ idea of what the programme will look like before they make any recordings, so wi
 be guided by the content of the interviews, so will wait until they have some recordings before creating a script.
 
 \textit{``As I'm organising a programme, booking interviews, talking to contributors, and planning interviews, I'm all
-the time assembling a scratch structure that will eventually be the script.''} (P3) % It's not set in stone unless it
-has to be
+the time assembling a scratch structure that will eventually be the script.''} (P3)
+% It's not set in stone unless it has to be
 
 The script is also used to collaborate with and get feedback (6) from the presenter.  Using a written document rather
 than audio files makes it easier to quickly review the content of the programme, make notes and suggestions, and to do
-this over large geographic distances. The presenter uses the document to write and insert `links', which are the
+this over large geographic distances. The presenter uses the document to write and insert ``links'', which are the
 narrative elements spoken by the presenter to link the interview clips into a story. They also insert comments and
 notes for the producer. Once the script is nearing its final stages, the presenter records (7) their links and sends
 them to the producer.
@@ -729,12 +800,12 @@ or the BBC's Desktop Jukebox.
 Once the interview, links and music are ready, the producer will assemble these into an edit (9) that matches the
 script, using the DAW. This edit will be about twice as long as the final programme, sometimes significantly longer
 (e.g. P5 reported that they once created 22-hour-long rough edit for a 37-min programme). The producer then continues
-to edit the audio, primarily to `get it down to time', but also to give it a final polish by cleaning up the audio.
+to edit the audio, primarily to ``get it down to time'', but also to give it a final polish by cleaning up the audio.
 Cleaning involves finely adjusting sound levels to be consistent, removing ``umm''s and breaths, and adding non-speech
 sounds to create a rich auditory scene.  Producers who are skilled at using a DAW will usually clean up the audio
-themselves, but others will bring in a sound engineer (known in the BBC as a `studio manager'), to help with this (10).
+themselves, but others will bring in a sound engineer (known in the BBC as a ``studio manager''), to help with this (10).
 
-Before a programme is broadcast, it must be signed-off by the department head, known as the `editor'. Most producers
+Before a programme is broadcast, it must be signed-off by the department head, known as the ``editor''. Most producers
 will get feedback from the editor (11) before this, so that they have time to make any requested changes. Often this
 happens a day or two before transmission. Some participants reported that they sit in the room with the editor while
 the current version is played, while others sent an audio file to the editor to listen by themselves. In both cases,
@@ -756,7 +827,9 @@ audio file and added to the playout system for the editor to sign-off (12).
 %using the programme script to collaborate. The presenter records the links in a studio and the producer then assembles
 %them into the edit.
 
-\subsubsection{Comprehension: Challenges}
+We now consider the comments made by participants, organised by the categories from the thematic coding (see Table~\ref{tab:codes}).
+
+\subsubsection{Challenges of comprehension}
 
 The skill of the producer is to \textit{``separate the wheat from the chaff''} (P1, P3, P4 -- all verbatim) and to find
 the clips which will make an interesting programme.
@@ -807,8 +880,9 @@ regular breaks.
 
 \textit{``it's boring and it's not very easy to be efficient at it [...] when
   I'm normally doing it I'm checking my emails, making a cup of tea.''} (P3)
-\subsubsection{Organisation: Programme script}
-The producers organised the programme by writing a `script'. This is primarily used to help them structure their
+
+\subsubsection{Programme script}
+The producers organised the programme by writing a ``script''. This is primarily used to help them structure their
 thoughts, but also to help communicate with the presenter over email.
 
 %The scripts contain varying amounts
@@ -831,7 +905,7 @@ different length, or for pulling out clips for the website.
   %to the finished programme in the system.
 \textit{``[The script] is going to be invaluable when it comes to re-cutting this.''} (P5)
 
-\subsubsection{Organisation: Mark-up}
+\subsubsection{Mark-up}
 
 P1, P3 and P5 would make comments for themselves in the log to help them when
 editing. For example, ``\textit{[good to here, dull after]}'' or
@@ -853,7 +927,7 @@ played the recording in a DAW and used a keyboard shortcut to create timed marke
 where the markers clustered, they identified where to make clips, then gave each of the clips labels. This approach
 allowed them to focus more on the audio, but didn't allow them to make any detailed notes.
 
-\subsubsection{Editing: Sound quality}\label{sec:existing-quality}
+\subsubsection{Sound quality}\label{sec:existing-quality}
 
 Radio is an audio-only medium, so the quality of the content is highly dependent on the quality of the sound.  The
 criteria producers use for deciding whether a piece of audio is good enough to use in their programme is not just about
@@ -873,7 +947,7 @@ transcript is very difficult or impossible.
 
 Every participant that performed logging played the audio faster than real time at least once. This allowed them to
 efficiently listen out for anything they might want to use while reviewing parts of the interview that may not be of
-interest (e.g. off-topic or `off-mic' discussions).  P2 also used faster playback to prevent themselves from
+interest (e.g. off-topic or ``off-mic'' discussions).  P2 also used faster playback to prevent themselves from
 over-thinking their edit decisions and picking out too much material.
 
 \textit{``The ability to listen at faster than real-time [...] gives me the opportunity to come to a swifter decision.''}
@@ -881,7 +955,7 @@ over-thinking their edit decisions and picking out too much material.
 
 %\textit{``There's quite a lot of judgement I've got to make just on what the listening quality is.''} (P2)
 
-\subsubsection{Editing: Technique}
+\subsubsection{Edit technique}
 
 If the recording was short and had been recorded recently, as was the case for P4 and P5, it can be edited
 without first creating a log.
@@ -905,7 +979,7 @@ which was only available to them on a desktop computer.
 P2 comes from a television production background and used Apple's Final Cut Pro, which is primarily a video editor but
 also includes audio editing functionality.  P2 used Final Cut Pro because they were familiar with the interface and had
 it on their laptop. In addition, they enjoyed being able to import audio directly from video content without having to
-use another program to extract the audio first, and being able to use the video `titles' feature to make written notes
+use another program to extract the audio first, and being able to use the video ``titles'' feature to make written notes
 that can later be viewed in time with the audio.
 
 \subsection{Semantic editing workflow}\label{sec:resultsnew}
@@ -917,7 +991,7 @@ audio playback. This is a common shortcut in most DAWs which these participants 
 previous semantic editing systems have not mentioned keyboard shortcuts, however they could be used to assist the
 editing process.
 
-In the rest of this section, we will discuss each of the themes that came out of the coding (see Table~\ref{tab:codes}).
+In the rest of this section, we will discuss each of the themes that came out of the thematic coding (see Table~\ref{tab:codes}).
 
 %To evaluate the semantic editing interface, participants were observed while
 %they used the system to log and rough edit recordings for a programme.
@@ -967,7 +1041,7 @@ In the rest of this section, we will discuss each of the themes that came out of
 %interface to complete a common production task and interviewed about it
 %afterwards. This section documents the findings.
 
-\subsubsection{Comprehension: Navigation}
+\subsubsection{Navigation}
 
 Participants reported that having the transcript available in the semantic
 editing interface allowed them to read and search the recordings much faster
@@ -1027,7 +1101,7 @@ better suited to these tasks. This supports our design decision to integrate wit
 %The primary benefit of reading over listening is that you can quickly scan ahead and jump around with your eyes,
 %whereas listening can only be done at a fixed pace. 
 
-\subsubsection{Comprehension: Accuracy}
+\subsubsection{Transcript accuracy}
 When using the semantic editing interface, editing decisions are based on an
 automated transcript which is only partially accurate. Previous research has shown that for editing
 voicemail recordings \citep{Whittaker2004}, discussions \citep{Sivaraman2016} and spoken comments \citep{Yoon2014},
@@ -1103,7 +1177,7 @@ Being able to provide corrected transcripts has the potential to make an impact 
 %This workaround could be exploited to improve the performance of a more
 %advanced speaker diarization system.
 
-\subsubsection{Organisation: Mark-up}
+\subsubsection{Mark-up}
 %Before creating any clips, P1 immediately copied the transcript text into Word
 %in order to allow them to make annotations.
 
@@ -1154,7 +1228,7 @@ The most basic feature that could be added is highlighting, which is often used 
   \label{fig:highlight}
 \end{figure}
 
-\subsubsection{Usability: Portability}
+\subsubsection{Portability}
 
 P5 reported that working on paper allowed them to be productive outside of
 the office, such as during their commute.
@@ -1196,7 +1270,7 @@ them collaborate with their presenter.
   printout, and highlight the bits we want and cross out the bits we don't.''}
 (P4)
 
-\subsubsection{Editing: Sound quality}
+\subsubsection{Sound quality}
 Part of the appeal of having a transcript is that it frees the user from listening to the audio in real-time. It also
 allows users to work on paper, away from any electronic devices. However, disconnecting the audio from the text
 fundamentally changes the production process.
@@ -1232,7 +1306,7 @@ broken, re-linking the two together can be costly.
   %rather than what is the content of those words. Those sorts of things you obviously can't tell from the written
   %page''} (P4)
 
-\subsubsection{Usability: Drag-and-drop}
+\subsubsection{Drag-and-drop}
 
 In Dialogger, we used a drag-and-drop technique for users to create clips from various interviews and
 re-order them in a clipboard area. All of the participants were able to use this successfully, however we quickly
@@ -1252,7 +1326,7 @@ the area they occupy.
 %Difficult to highlight long text as it is off the screen, have to scroll down.
 %P1 and P4 suggested using shift-click with cursor.
 
-\subsubsection{Usability: Misc}
+\subsubsection{Usability}
 
 Users could transfer their edits from Dialogger to a DAW by saving and opening a file. However, some
 participants wanted much tighter integration with the DAW, including bi-directional transfer of edits, so that edits
@@ -1373,17 +1447,7 @@ duplication of content. This could also be achieved by marking which parts of re
 
 % ran out of space
 
-\subsubsection{Follow-up}\label{sec:followup}
-
-After the interviews and observations were complete, the participants were given access to Dialogger for a further
-month (Stage 5). During this time their actions were logged electronically and they were emailed each week to ask which
-features they found useful, or were missing. P3 was unavailable immediately after the study, so could not take part in
-the follow-up stage.
-
-Most of the comments received in the follow-up stage were already picked up by the first part of the study. In the
-remaining comments, all of the participants said they enjoyed being able to use Dialogger outside of the office and at
-home. Some reported that they had issues uploading content with their slow network connections, and P2 suggested that
-allowing multiple simultaneous uploads would allow them to leave it running overnight.
+%\subsubsection{Longitudinal deployment}\label{sec:followup}
 
 
 \subsection{Metrics}\label{sec:resultsmetrics}
@@ -1419,12 +1483,12 @@ allowing multiple simultaneous uploads would allow them to leave it running over
     variation in usage, no conclusions about time performance can be drawn.}
   \label{fig:time} \end{figure}
 
-The time taken to complete the observed tasks was recorded (see Figure~\ref{fig:time}). As various recordings of
-different lengths were used for the existing and new workflows, the times are reported relative to the length of the
-original unedited audio. In all cases, the producers were able to run the ASR processing as a background
-task so this was not included in the calculation. P1, P2 and P3 used the semantic editor after their existing process,
-while P4 and P5 did the opposite. However as different recordings were editing on each system, the presentation order
-is not expected to affect the results.
+We recorded the time participants took to complete the observed tasks (see Figure~\ref{fig:time}). As various
+recordings of different lengths were used for the existing and new workflows, we divided the edit time by the audio
+duration to calculate the relative edit time.  In all cases, the producers were able to run the ASR processing as a
+background task so this was not included in the calculation. P1, P2 and P3 used the semantic editor after their
+existing process, while P4 and P5 did the opposite. However as different recordings were edited on each system, the
+presentation order is not expected to affect the results.
 
 The mean average time for semantic editing was 0.79 minutes per minute of audio, versus 1.13 minutes for the existing
 method, which is a 44\% improvement. However, a paired \textit{t}-test revealed that there was no statistically
@@ -1500,14 +1564,24 @@ demanding and scores lower in performance.
   %\label{fig:tlx}
 %\end{figure}
 
-\subsubsection{Follow-up usage}
-Participants were given access to the system for one month after the study.  The logs from the interface were analysed
-to see how the participants used Dialogger during the follow-up stage of the study.
+\subsection{Longitudinal deployment}
 
+After the interviews and observations were complete, the participants were given access to Dialogger for a further
+month (Stage 5). During this time their actions were logged electronically and they were emailed each week to ask which
+features they found useful, or were missing. P3 was unavailable immediately after the study, so could not take part in
+this stage.
+
+Most of the comments received in the longitudinal deployment were already picked up by the first part of the study. In
+the remaining comments, all of the participants said they enjoyed being able to use Dialogger outside of the office and
+at home. Some reported that they had issues uploading content with their slow network connections, and P2 suggested
+that allowing multiple simultaneous uploads would allow them to leave it running overnight.
+
+Participants were given access to the system for one month after the study.  The logs from the interface were analysed
+to see how the participants used Dialogger during this stage of the study.
 All of the participants continued to use the semantic editor of their own accord as part of their work. The total time
-spent by the four remaining participants (P1, P2, P4, P5) using Dialogger in the follow-up period was 23 hours and 58
-minutes.  Over 14 hours of those were from P2, with P4 using it for 5 hours, P1 for 3 hours and P5 for 20 minutes.
-During this period, 86 recordings were uploaded and 58 audio edits were exported.
+spent by the four remaining participants (P1, P2, P4, P5) using Dialogger in the month-long deployment period was 23
+hours and 58 minutes.  Over 14 hours of those were from P2, with P4 using it for 5 hours, P1 for 3 hours and P5 for 20
+minutes.  During this period, 86 recordings were uploaded and 58 audio edits were exported.
 
 %\begin{figure}
 %\centering
@@ -1546,7 +1620,7 @@ preference for navigating by text compared to waveforms.
 
 %Paper is still used, portable and easy on eyes
 
-\section{Discussion}\label{sec:discussion}
+\section{Discussion}\label{sec:screen-discussion}
 %Two key aims of radio production are to find the most relevant or interesting parts of speech recordings, and
 %assemble them into a story.
 We found that producers face a number of challenges with audio editing in radio production. There is often a large
@@ -1558,7 +1632,7 @@ noisy and distracting office environment.
 We observed that in their existing workflow, participants tackled these challenges by employing a number of techniques
 to filter and arrange their audio content. They started by listening back to all of their recordings, which allowed
 them to simultaneously assess the editorial content and sound quality of the audio. For long recordings, many
-participants `logged' the audio as they listened, by typing rough transcriptions and notes into a word processor, which
+participants ``logged'' the audio as they listened, by typing rough transcriptions and notes into a word processor, which
 they later used to help them edit the audio using a digital audio workstation (DAW). For short recordings, instead of
 logging, participants segmented their recordings in the audio editor during playback, and went back to remove unwanted
 segments and label the rest.
@@ -1571,20 +1645,24 @@ We introduced a semantic editing system into professional radio production, whic
 successfully use as part of their workflow. On average, the semantic editing workflow was much faster than the existing
 workflow, in line with previous findings from \citet{Whittaker2004}, but this result was not statistically significant,
 so requires further investigation.  We compared the semantic editing workflow, which included a transcript, to the
-existing workflow, which did not. Further research could consider how much benefit is derived from the transcript
+existing workflow, which did not. Therefore, we were unable to measure how much benefit was derived from the transcript
 itself, compared to the semantic editing interface.  All participants voluntarily continued to use the system after the
 trial, which indicates that they found value in using it. However, we identified a number of important features that
-were missing or could be used to improve future semantic speech editing systems.
+were missing or could be used to improve future semantic speech editing systems. These related to listening,
+annotation, collaboration and portability.
+
+\subsubsection{Listening}
 
 Logging is an important process that primarily involves labelling and organising content, however it is time consuming.
-Natural language processing could also be used to assist this process. For example, a text segmentation algorithm
-\citep{Choi2000} could divide an interview into different topics, and a keyword extraction algorithm \citep{Matsuo2004}
-could provide a summary of what was discussed. However, some participants found the logging process to be valuable
+%Natural language processing could also be used to assist this process. For example, a text segmentation algorithm
+%\citep{Choi2000} could divide an interview into different topics, and a keyword extraction algorithm \citep{Matsuo2004}
+%could provide a summary of what was discussed. However,
+Some participants found the logging process to be valuable
 because it gave them the opportunity to listen back through their recordings, and make connections between various bits
 of content. This cross-referencing could also be assisted by providing links between words within and between
 recordings. For example, selecting a word could display and replay other mentions of that word in other recordings.
 
-Another important reason for listening is to ensure a high `sound quality'. Participants wanted to avoid low quality
+Another important reason for listening is to ensure a high ``sound quality''. Participants wanted to avoid low quality
 audio such as ``umm''s, mumbling, coughing and excessive background noise, but they also wanted to ensure they didn't
 miss any high quality audio moments that might not have been identified using the transcript.  Faster playback is
 already used in radio production to reduce the time spent listening to material, however more sophisticated time
@@ -1592,7 +1670,7 @@ compression algorithms such as those described by \citet{Arons1997} could be use
 included in previous semantic editing systems, but should be considered in the future, especially as \citet{Vemuri2004}
 found that the maximum time compression factor is significantly higher when an automated transcript is present.
 
-Removal of ``umm''s and breaths, known in radio production as `de-umming', is either done by the producer themselves or
+Removal of ``umm''s and breaths, known in radio production as ``de-umming'', is either done by the producer themselves or
 with the help of a sound engineer, depending on the producer's experience and time pressure. To maintain sound quality,
 the removal of umms/breaths must be audibly transparent and participants reported that this can difficult to achieve.
 Previous semantic editing systems have included functionality to remove umms \citep{Berthouzoz2012} and breaths
@@ -1601,6 +1679,8 @@ explicitly transcribed those items. ASR systems are normally trained to ignore u
 transcribe them, which prevented us from including this functionality. A transcription system that includes these would
 allow us to add this functionality, however further research is needed into the extent to which de-umming can be
 automated in this way.
+
+\subsubsection{Annotation}
 
 All of the participants used a script document to structure and assemble their programme, and as a
 medium to inform and gather feedback from the presenter about the content and layout of the programme. Although the
@@ -1619,6 +1699,8 @@ inserted and edited. Furthermore, the drag-and-drop editing could be replaced wi
 \citet{Whittaker2004} and \citet{Rubin2013}. An alternative approach could be to add semantic speech editing
 functionality to a word processor, rather than adding word processing functionality to a semantic speech editor.
 
+\subsubsection{Collaboration}
+
 Scripts are used as a tool for collaborating with colleagues such as the
 presenter because the programme's content and structure can be quickly reviewed and
 commented on by others without them having to spend time downloading and listening to the audio. Our semantic editing
@@ -1631,6 +1713,8 @@ semantic editor and vice-versa.
 %Collaborative annotation features such as those explored by \citet{Yoon2014} could also
 %be integrated.
 
+\subsubsection{Portability}
+
 Participants reported that the open-plan office environment in which they worked was often noisy and distracting, and
 that they had difficultly working on screens for extended periods. As a result, many reported that they work from home
 to get away from the office or print transcripts so they can get away from the screen. A more portable semantic speech
@@ -1641,6 +1725,8 @@ anywhere and does not involve screens. Additionally, it naturally supports freeh
 medium for face-to-face collaboration.  \citet{Klemmer2003} has previously explored how speech can be navigated using
 paper transcripts and \citet{Weibel2008} describes how an Anoto system can be used to edit digital documents, however
 these approaches have yet to be combined.
+
+\subsubsection{ASR transcripts}
 
 Participants reported that the automatically-generated transcripts were sufficiently accurate for editing, supporting
 similar previous findings from \citet{Whittaker2004} and \citet{Sivaraman2016}. This is helped by the fact that radio
@@ -1844,11 +1930,28 @@ were included.
 
 \subsection{Outcome}
 Based on the results of this work, we developed the prototype further to take into account the feedback from the
-producers in our study.  We handed the prototype over to a development team at the BBC who have now turned it into an
+producers in our study.  We handed the prototype over to a development team at the BBC who turned it into an
 officially supported production tool.  This has allowed producers from around the BBC to use the tool as part of their
-normal workflow.
-As of October 2016, the system had 45 active users and has processed 265 audio recordings.
+normal workflow.  As of October 2016, the system had 45 active users and has processed 265 audio recordings.
 %We will continue to collect usage and interaction metrics for later analysis.
+
+\begin{figure}[ht]
+\centering
+  \includegraphics[width=.8\columnwidth]{figs/descript.png}
+  \caption{Interface of the Descript semantic speech editor.}
+  \label{fig:descript}
+\end{figure}
+
+Following our study, in late 2017, a commercial semantic speech editing system called \textit{Descript} was
+released\footnote{\url{https://www.descript.com/}}. Descript is an audio production interface that uses ASR and manual
+transcription to allow users to transcribe and edit their audio. The interface, shown in Figure~\ref{fig:descript},
+includes annotation features such as bold, italic, highlighting and time markers.  Rather than using a drag-and-drop
+technique for editing the audio, Descript uses strikethrough annotation to remove segments of audio. The transcript can
+be corrected by switching from editing mode to correction mode, and the transcript includes speaker diarization.  In
+addition to these features, Descript includes an integrated waveform editor that can be used for fine editing and
+inserting cross-fades.  This recent commercial interest in semantic speech editing suggests that there is interest in
+using this technology for audio production, and that ASR systems are now sufficiently accurate to support it.
+
 
 %In further research work we have added the ability to print augmented paper transcripts, whose annotations result in
 %automatic edits to the source audio. This was done in a collaboration between the BBC and Anoto, and is currently being
@@ -1916,7 +2019,7 @@ As of October 2016, the system had 45 active users and has processed 265 audio r
 %they do already \citep{Vemuri2004}.
 
 
-\section{Conclusion}\label{sec:conclusion}
+\section{Conclusion}\label{sec:screen-conclusion}
 We conducted a contextual study of semantic speech editing in professional radio production. The participants were able
 to use our system to produce real programmes and they continued to use it after the study.  However, the results
 highlighted a number of opportunities to better address the needs of radio producers.
@@ -1926,7 +2029,7 @@ Radio production is a collaborative process, so semantic editing tools should su
 operational transformation would allow concurrent editing and integration between multiple interfaces.
 Some participants struggled with office and screen-based working so portable interfaces, such as those offered by
 digital pen technology, would give producers the flexibility to work where they are most productive. 
-Unwanted noises such as `umms' and breaths must be removed transparently, which is done by the producer or sound
+Unwanted noises such as ``umm''s and breaths must be removed transparently, which is done by the producer or sound
 engineer. By training ASR systems to transcribe these noises, this could be done in the semantic editor.
 However, further research is required into the sound quality achieved by this approach.
 Finally, ``radio is made with your ears'' so there are limits to how much editing can be done using a text-based

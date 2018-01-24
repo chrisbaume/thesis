@@ -575,7 +575,7 @@ in real-life applications.  However, each system is evaluated using different da
 content and length, which makes it difficult to compare them \citep{Pikrakis2008}.  \citet{Wieser2014} found that by
 including a user-adjustible slider, the accuracy of their SMD system increased from 96.6\% to 100\%.
 
-\subsubsection{Speaker diarization}
+\subsubsection{Speaker diarization}\label{sec:background-diarization}
 \textit{Speaker diarization} is the task of segmenting an audio recording into labelled segments that identify who
 spoke when \citep{AngueraMiro2012}. With this task, the location of any speech content and number of speakers is
 usually unknown. Speaker diarization has clear applications to the production of radio, where there are often multiple
@@ -1273,7 +1273,7 @@ create seamless repairs to errors in speech recordings. However, the use of such
 implications, particularly in a broadcasting context \citep{Bendel2017}.
 
 % confidence shading
-\subsection{Confidence shading}
+\subsection{Confidence shading}\label{sec:background-confidence}
 In addition to producing a transcript, many automatic speech recognition systems return a confidence score for each
 transcibed word, indicating how sure the system is that the word is correct. ``Confidence shading'' is a technique for
 displaying this score by colouring words with a low confidence score in a lighter shade.
