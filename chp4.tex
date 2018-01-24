@@ -1,56 +1,52 @@
 % !TeX root = main.tex
 \chapter{Measuring audio visualization performance}\label{chp:colourised}
 
-An audio waveform is a plot of the amplitude of an audio signal over time. As we saw in
-Section~\ref{sec:background-daw-visual}, waveforms are widely used in audio editing interfaces as a visual guide to
-navigate the audio. As we learned in Chapter~\ref{chp:ethno}, the radio producers we observed used waveforms to
-navigate audio content as part of the radio production process.
-
 %interacted with audio through the use of digital audio workstations (DAWs), which
 %display multi-track audio using rows of parallel waveforms. Audio waveforms are the focal point of these interfaces,
 %and have been since the introduction of DAWs in the early 1980s \citep{Ingebretsen1982}.
 
-In Chapter~\ref{chp:ethno}, we found that the radio producers we observed used waveforms to navigate audio recordings.
-This reinforces what we discussed in Section~\ref{sec:background-daw-visual} about the use of visual representations in
-DAWs. Audio waveforms are widely used in audio production software, yet we could not find any formal studies that have
-attempted to measure their performance. We saw in Section~\ref{sec:background-waveforms} that waveforms are limited in
-the amount of information they can display. In Section~\ref{sec:background-waveforms-related}, we saw that previous
-work has used semantic audio to enhance audio waveforms through the use of colour. However, we could not find any
-formal studies that have attempted to evaluate this approach.
-
-% waveforms, are widely used
-The amplitude profile of a waveform can be used to identify different tracks and see which parts are loud or quiet. It
-can be used to identify errors such as clipping and unwanted noise. When viewed at the right resolution, waveforms can
-reveal whether the sound is monophonic, polyphonic, tonal or noise-like.  With experience, users can also learn to
-map the shape of the waveform to higher-level properties, such as distinguishing music from speech.
+% what waveforms are, widely used, untested
+An audio waveform is a plot of the amplitude of an audio signal over time \citep[p.~92]{Hausman2012}.  The amplitude
+profile of a waveform can be used to identify different tracks, see which parts are loud or quiet, and to identify
+errors such as clipping and unwanted noise.  Users can also learn to read the cadence of speech, or even to spot
+certain consonants, but his requires experience and practice \citep[p.~115]{Hausman2012}.  As we saw in
+Section~\ref{sec:background-daw-visual}, audio waveforms are used in many digital audio workstations as a visual guide
+for navigating audio. We learned in Chapter~\ref{chp:ethno} that the radio producers we observed relied on
+waveforms to navigate and edit audio content as part of the radio production process.
 
 % limitations
-In practice, audio recordings are often minutes or hours long. To be able to display these on a screen, only a portion
-of the waveform is displayed, which the user controls using pan and zoom commands.  For most practical uses, the
-waveform must be zoomed-out to fit on the screen. This reduces the resolution of the waveform in the time dimension,
-which means that frequency information and fine variations in the amplitude are no longer visible.  Without frequency
-information, users cannot see the pitch, spectrum or timbre of the audio.  This potentially impacts on the ability of
-users to efficiently navigate and edit audio content.  Audio waveforms are widely used in audio production software to
-help users navigate audio content. The performance of the waveform as a navigational aid is therefore 
-important as it affects a large number of users.  However, we were unable to find any studies that have attempted to
-measure the effectiveness of waveforms for navigating or editing audio content.
+We saw in Section~\ref{sec:background-waveforms} that waveforms are limited in the amount of information they can
+display because of their need to zoom to different levels \citep{Loviscach2011}.  The producers we observed in
+Chapter~\ref{chp:ethno} used audio waveforms to navigate long audio recordings. To view a long recording on a screen,
+the waveform must be zoomed-out so that it can fit on the display.  This reduces the resolution of the waveform, which
+means that frequency information and fine variations in the amplitude are no longer visible.  Without this information,
+users cannot see the pitch, spectrum or timbre of the audio, which may reduce their ability to efficiently navigate and
+edit audio content.  Despite the widespread use of waveforms in audio production software, we could not find any formal
+studies that have attempted to measure their performance.
 
 % semantic audio enhancement
-By designing an audio visualization that can present more information or present it in a way that is robust to zooming,
-this may give radio producers a more powerful tool to interact with audio content. We saw in
-Section~\ref{chp:background-waveform-related} that there have been several previous attempts to create audio
-visualizations that can display timbre \citep{Tzanetakis2000,Rice2005}, or assist the navigation of radio broadcasts
-\citep{Mason2007}.  These systems worked by extracting semantic audio features and mapping them to a visual
-representation using pseudocolour or false colour. Although these systems demonstrated the potential of enhanced
-visualizations, we could not find any formal user studies that attempted to measure the effect of this approach on
-navigation or editing tasks.
+We saw in Section~\ref{sec:background-waveforms-related} that previous work has used semantic audio analysis to enhance
+audio waveforms through the use of colour.  \citet{Rice2005,Akkermans2011,Loviscach2011a} used pseudocolour to map
+scalar values to a colour gradient to display information about the timbre of the audio.
+\citet{Tzanetakis2000,Mason2007} used false colour to map audio feature vectors to RGB colour space to distinguish
+musical genres and navigate radio broadcasts.  These systems demonstrated the potential of enhancing audio waveforms by
+mapping semantic audio features to colour. However, we could not find any formal user studies that attempted to
+evaluate the effect of this approach on navigation or editing tasks.
+
+%By designing an audio visualization that can present more information or present it in a way that is robust to zooming,
+%this may give radio producers a more powerful tool to interact with audio content. We saw in
+%Section~\ref{chp:background-waveform-related} that there have been several previous attempts to create audio
+%visualizations that can display timbre \citep{Tzanetakis2000,Rice2005}, or assist the navigation of radio broadcasts
+%\citep{Mason2007}.  These systems worked by extracting semantic audio features and mapping them to a visual
+%representation using pseudocolour or false colour.
 
 % what we're doing
-We were interested in examining how audio visualizations affect audio editing tasks in radio production. In
-Section~\ref{sec:vis-method} we describe the design of our user study, in which we measured the performance of users in
-completing an editing task using different audio visualizations. Section~\ref{sec:vis-results} presents the results,
-which show that mapping semantic audio features to colour improved user performance in our task. We discuss these
-results in Section~\ref{sec:vis-discuss} and present our conclusions in Section~\ref{sec:vis-conclusions}.
+We were interested in examining how audio waveforms affect editing tasks in radio production, and whether enhancing
+waveforms with colour improves their performance. In Section~\ref{sec:vis-method} we describe the design of our user
+study, in which we measured the performance of users in completing an editing task using different audio
+visualizations. Section~\ref{sec:vis-results} presents the results, which show that mapping semantic audio features to
+colour improved user performance in our task. We discuss these results in Section~\ref{sec:vis-discuss} and present our
+conclusions in Section~\ref{sec:vis-conclusions}.
 
 
 %TODO include this somewhere:
@@ -103,17 +99,9 @@ which we could assess the effect of the visualizations.  We wanted the task to b
 radio production, and to use audio that is representative of that used by radio producers.  However, in order to
 recruit enough participants, we chose a task that did not require radio production experience.
 
-In this section, we describe the task we chose, our approach to recruitment and the test interface we designed.  We
+In this section, we describe our approach to recruitment, the task we chose, and the test interface we designed.  We
 explain the test conditions, our selection of audio clips, the metrics used to measure performance, and our hypotheses.
 Finally, we present the protocol of our study and our analysis methodology.
-
-% The task
-\subsection{Task}
-In radio production, music has to be removed when turning a broadcast programme recording into a podcast. This is due
-to music licensing issues, which are different for downloadable content than they are for radio broadcasts. The music
-is removed by editing the audio with a DAW that uses a waveform to visualize the audio. Although the waveform can be
-used to distinguish between music and speech, at typical zoom levels it is not always visible. This means that removing
-the music can be a slow and tedious process. Therefore, we chose the task to be segmentation of music from speech.
 
 \subsection{Recruitment}
 The radio production community is relatively small. Producers are very busy and not used to participating in academic
@@ -124,7 +112,16 @@ enough participants, we designed our study so that it could be completed online,
 distribution lists to advertise our study to everyone working at BBC Research and Development, and the Electronics and
 Computer Science department at Queen Mary University of London.
 
+% The task
+\subsection{Task}
+In radio production, music has to be removed when turning a broadcast programme recording into a podcast. This is due
+to music licensing issues, which are different for downloadable content than they are for radio broadcasts. The music
+is removed by editing the audio with a DAW that uses a waveform to visualize the audio. Although the waveform can be
+used to distinguish between music and speech, at typical zoom levels it is not always visible. This means that removing
+the music can be a slow and tedious process. Therefore, we chose the task to be segmentation of music from speech.
+
 \subsection{Test interface}
+
 To conduct the experiment, we developed a web-based test interface, shown in Figure~\ref{fig:visualization-interface}.
 The interface displayed the overall visualization as well as a zoomed-in view above it. The participant could navigate
 the audio by clicking on either view, which would seek to that position in the audio.  Buttons below the visualization
@@ -134,7 +131,7 @@ slider.  Training was provided using a ``pop-up tour'', which guided the user th
 operation using a series of pop-up text boxes.  The interface also captured the participant's questionnaire responses
 and preferences.
 
-\begin{figure}[ht]
+\begin{figure}[h]
 \centering
 \includegraphics[width=\columnwidth]{figs/browser-audio-interface.pdf}
 \caption{Screenshot of the test interface with the following features:
@@ -148,6 +145,7 @@ selection highlighting (7),
 and training pop-ups (8).}
 \label{fig:visualization-interface}
 \end{figure}
+
 
 %We configured the interface to log and timestamp every action the user made, including each seek, play/pause, select
 %and zoom action. We also used these metrics to calculate the task completion time, defined as the time between the
@@ -173,7 +171,7 @@ for the audio visualizations. An example of each condition is shown in Figure~\r
   \item \textbf{Enhanced}: Audio waveform with colour mapped to low energy ratio.
 \end{enumerate}
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   \begin{subfigure}{.3\textwidth}
     \centering
@@ -587,7 +585,7 @@ Our study was completed by 63 participants, of which 41 (65\%) passed the accept
 under 5 seconds. The failure rate was higher than expected, so we analysed the rejected tasks and participants to look
 for evidence of any systematic errors that might explain the high number of rejections.
 
-\begin{figure}[t]
+\begin{figure}[h]
 \centering
   \begin{tikzpicture}
     \begin{axis}[
@@ -622,7 +620,7 @@ We did not find any notable difference in error between the in-points and out-po
 shows the demographics of the participants.  We did not find any correlation between rejected participants and DAW
 experience, professional experience, age or gender.
 
-\begin{figure}[t]
+\begin{figure}[h]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -751,7 +749,7 @@ Figure~\ref{fig:visualization-metrics} shows
 the mean values and confidence intervals of the performance metrics and Table~\ref{tab:pairwise-performance} lists the
 statistical significance of the pairwise comparisons between the conditions.
 
-\begin{figure}[t]
+\begin{figure}[p]
   \centering
   \begin{subfigure}[t]{0.5\textwidth}
     \centering
@@ -822,7 +820,7 @@ statistical significance of the pairwise comparisons between the conditions.
 \newcommand{\highsig}{\cellcolor{black!20}}
 \newcommand{\medsig}{\cellcolor{black!10}}
 \newcommand{\nosig}{\cellcolor{white}}
-\begin{table}[t]
+\begin{table}[p]
     \begin{tabular}{L{.35\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.21\textwidth-2\tabcolsep} C{.23\textwidth-2\tabcolsep}}
 \hline
 & \textbf{C1 vs C2} & \textbf{C2 vs C3} & \textbf{C1 vs C3} \\ \hline
