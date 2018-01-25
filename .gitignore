@@ -15,3 +15,5 @@ refs.bib
 *-blx.bib
 main.pdf
 *.DS_Store
+*.bak
+*.synctex.gz
