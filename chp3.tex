@@ -832,16 +832,17 @@ technical intervention.
 
 In all of the case studies, producers used audio waveforms to navigate their audio content.  As we saw in
 Section~\ref{sec:background-waveforms}, waveforms display limited information which can make them difficult to use for
-navigation.  However, despite their widespread use, we could not find any studies that attempted to measure the
+navigation.  However, despite their widespread use, the author could not find any studies that attempted to measure the
 performance of audio waveforms.  Section~\ref{sec:background-waveforms-related} described several promising methods for
-enhancing audio waveforms by using colour to add semantic information. However, we could not find any formal
+enhancing audio waveforms by using colour to add semantic information. However, the author could not find any formal
 evaluations of these methods.
 
-To better understand audio waveforms and colour-enhanced waveforms, we will perform a user study to evaluate their
-performance. Our interest is in using audio waveforms to make the production of radio programmes more efficient.
-Therefore, we will use audio content that is representative of radio broadcasts, evaluate the performance of these
-visualizations for a typical radio production task, and measure the user's efficiency in completing the task. Due to
-the lack of formal studies of both methods, we will not only compare colour-enhanced waveforms to normal waveforms, but
+To better understand audio waveforms and colour enhancement, in Chapter~\ref{chp:colourised} we will perform a user
+study to evaluate their performance. Our interest is in using audio visualization techniques to make the production of
+radio programmes more efficient.  Therefore, we will design an audio visualization that uses colour enhancement to
+support a radio production task.  We will evaluate our visualization using audio content that is representative of
+radio broadcasting, and measure the efficiency of users in completing the task using our visualization. Due to the lack
+of formal studies of both methods, we will not only compare our colour-enhanced visualization to normal waveforms, but
 also measure the performance of normal audio waveforms themselves.
 
 \subsection{Semantic speech editing}
@@ -849,14 +850,15 @@ also measure the performance of normal audio waveforms themselves.
 The producers in all three of our case studies interacted with audio content using textual representations. We also saw
 that the documentary producer wrote transcripts of all their interviews.  In Section~\ref{sec:asr}, we described how
 ASR can be used to automatically transcribe speech, and in Section~\ref{sec:background-transcripts} we saw that
-transcripts of speech have been successfully used to allow for semantic navigation and editing of audio content.
+transcripts have been successfully used to allow for semantic navigation and editing of speech content.
 \citet{Rubin2013} demonstrated a system for the production of ``audio stories'', which has many similarities to radio
 production.  However, this system was not formally evaluated, so it is still unclear what effect semantic editing has
 on the radio production process. Other semantic editing systems have been formally evaluated
 \citep{Whittaker2004,Yoon2014,Sivaraman2016}, but they were designed for navigating and editing voice messages and
 comments, which use a different style of audio content and have different requirements than radio production.
 
-We will investigate whether semantic speech editing can be used for radio production through a user study.
+In Chapter~\ref{chp:screen}, we will investigate whether semantic speech editing can be used for radio production by
+designing and developing a semantic speech editor for radio production, and evaluating it through a user study.
 To ensure the results relate to real-life requirements, we will use our access to BBC Radio to recruit professional
 radio producers, and evaluate semantic speech editing for use in production of genuine radio programmes.
 To measure its performance, we will compare semantic speech editing to the current production workflow.
@@ -866,10 +868,11 @@ To measure its performance, we will compare semantic speech editing to the curre
 In two of our three case studies, producers used paper scripts and transcripts as part of their production workflow.
 This allowed them to collaborate face-to-face and to describe their audio edits using annotations. The remainder of
 their production workflow was digital, and transferring between the paper and digital representations was a manual
-process. It may be possible to use technology to ``bridge the gap'' between paper and digital. We will investigate how
-this can best be achieved, and develop and evaluate a system for producing radio content using a paper interface.
+process. It may be possible to use technology to ``bridge the gap'' between paper and digital.
 
-To ensure our system fulfils the real-life requirements of radio production, we will evaluate it for use in the
-production of genuine programmes by professional producers.  We will compare this approach to a fully digital workflow
-by measuring our system against a similar screen interface. To understand the benefits of paper-digital integration, we
-will measure the performance of the system with and without the integration between the two.
+In Chapter~\ref{chp:paper}, we will investigate how this can best be achieved, and develop and evaluate a system for
+producing radio content using a paper interface.  To ensure our system fulfils the real-life requirements of radio
+production, we will evaluate it for use in the production of genuine programmes by professional producers.  We will
+compare this approach to a fully digital workflow by measuring our system against a similar screen interface. To
+understand the benefits of paper-digital integration, we will measure the performance of the system with and without
+the integration between the two.
