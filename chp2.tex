@@ -347,7 +347,7 @@ waveforms.
 % WHAT IS A SPECTROGRAM?
 A \textit{spectrogram} is a plot of the intensity of the Short-Time Fourier Transform \citep{Smith2007}, which visually
 represents of the spectrum of frequencies in an audio signal over time. Higher frequencies are displayed at the top of
-the spectrogram, and the energy of the signal is mapped to the brightness (or sometimes colour) of the image.
+the spectrogram, and the intensity of the signal is mapped to the brightness (or sometimes colour) of the image.
 Figure~\ref{fig:spectrogram-example} shows an example spectrogram of a speech recording.
 
 Spectrograms clearly display the frequencies that make up the sound, and in what proportions.  When viewed at different
@@ -362,10 +362,10 @@ of speech. However, they also found that this was impossible for the average use
 present the data very clearly, users must still learn how to interpret the information.  
 
 Reading spectrograms requires users to have a theoretical understand of audio frequencies and how they behave, such as
-how a single pitch can be composed of many harmonics.  Although spectrograms display the energy present in each
-frequency band, it is not apparent what the overall energy of the signal is at a given time.  Additionally,
+how a single pitch can be composed of many harmonics.  Although spectrograms display the intensity of the signal in
+each frequency band, it is not apparent what the overall volume of the audio is at a given time.  Additionally,
 spectrograms have a wide range of parameters that control how they are displayed, including window size and shape,
-linear/non-linear frequency and energy scaling, min/max values and colour mapping.  This creates inconsistencies
+linear/non-linear frequency and intensity scaling, min/max values and colour mapping.  This creates inconsistencies
 between different spectrograms, which can make it difficult for users to move between software.  Waveforms don't have
 as many parameters, so are much more consistent.
 
@@ -777,18 +777,18 @@ most of the population. These could be exploited to aid the navigation and editi
   \centering
   \includegraphics[width=0.8\textwidth]{figs/bouba-kiki.pdf}
   \caption[Demonstration of crossmodal perception.]{Demonstration of crossmodal perception. \citet{Ramachandran2001}
-  found that 95--98\% of the population assigned the names `bouba' and `kiki' to these shapes in same order. See
+  found that 95--98\% of the population assigned the names ``bouba'' and ``kiki'' to these shapes in same order. See
   footnote \ref{bouba-kiki-answer} on page \pageref{bouba-kiki-answer} for answer.}
   \label{fig:boubakiki}
 \end{figure}
 
 The ``bouba/kiki effect'' is a demonstration of cross-modal mapping between sound and vision, originally discovered in
 an experiment by \citet{Koehler1929}.  Participants were shown two abstract shapes, shown in
-Figure~\ref{fig:boubakiki}, and asked to assign the name `bouba' to one, and `kiki' to the other\footnote{K\"ohler used
-the words `baluma' and `takete' in the original experiment, but the result was the same.}.  \citet{Ramachandran2001}
+Figure~\ref{fig:boubakiki}, and asked to assign the name ``bouba'' to one, and ``kiki'' to the other\footnote{K\"ohler used
+the words ``baluma'' and ``takete'' in the original experiment, but the result was the same.}.  \citet{Ramachandran2001}
 found that 95--98\% of the population gave the same answer\footnote{\label{bouba-kiki-answer}The vast majority of
-participants chose to name the sharp, pointy shape on the right `kiki' and the curvy, rounded shape on the left
-`bouba'.}. This is an example of just one audio-visual mapping that is common amongst the population.
+participants chose to name the curvy, rounded shape on the left ``bouba'', and the sharp, pointy shape on the right
+``kiki''.}. This is an example of just one audio-visual mapping that is common amongst the population.
 
 %\citep{Hubbard1996} did some work to determine which sounds related to which visual properties
 
@@ -975,12 +975,33 @@ green, dark blue and dark green, respectively. Tibregrams were later used to col
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=.8\textwidth]{figs/Mason2007.png}
-  \caption{Audio visualization of the BBC radio programme ``From Our Own Correspondant'', using an audio waveform (top)
-  and false colour visualization of three audio features (bottom), from \citet{Mason2007}. The location of the five
-  segments of the programme can be seen in the false colour visualization, but not the waveform.}
+  \begin{subfigure}[b]{0.8\textwidth}
+      \includegraphics[width=\textwidth]{figs/fooc-waveform.png}
+      \caption{Waveform}
+      \label{fig:Mason2007-waveform}
+  \end{subfigure}
+
+  %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+  %(or a blank line to force the subfigure onto a new line)
+  \begin{subfigure}[b]{0.8\textwidth}
+      \includegraphics[width=\textwidth]{figs/fooc-false.png}
+      \caption{False colour}
+      \label{fig:Mason2007-false}
+  \end{subfigure}
+  \caption{Audio visualization of an episode of the BBC radio programme ``From Our Own Correspondent'', from
+  \citet{Mason2007}. The location of the five segments of the programme can be seen in the false colour visualization,
+  but not the waveform.}
   \label{fig:Mason2007}
 \end{figure}
+
+%\begin{figure}[t]
+  %\centering
+  %\includegraphics[width=.8\textwidth]{figs/Mason2007.png}
+  %\caption{Audio visualization of the BBC radio programme ``From Our Own Correspondant'', using an audio waveform (top)
+  %and false colour visualization of three audio features (bottom), from \citet{Mason2007}. The location of the five
+  %segments of the programme can be seen in the false colour visualization, but not the waveform.}
+  %\label{fig:Mason2007}
+%\end{figure}
 
 \citet{Mason2007} used false colour to assist radio listeners in navigating recently-broadcast material. They mapped
 three empirically-chosen audio features to RGB colour space. The authors reported that the system was successful at
@@ -1195,13 +1216,13 @@ audio.
 
 \subsection{Semantic speech editing}\label{sec:background-semantic-editing}
 In addition to supporting the navigation of speech recordings, transcripts have also been used as a method of editing
-speech content. The first of these was the `Large Interactive Display System Wave Speech Editor', or
+speech content. The first of these was the ``Large Interactive Display System Wave Speech Editor'', or
 \textit{LIDSWSEdit}, from \citet{Apperley2002}, which used ASR transcripts to allow users to navigate and edit lecture
 recordings.  Any edits made to the transcript were correspondingly applied to the underlying audio recording, known as
 ``semantic speech editing''. Users could re-arrange sentences and words by selecting the text, then using a
 drag-and-drop action.  Alternatively, speech could be removed by selecting text then clicking a button to either delete
 the selected text, or everything except the selected text.  LIDSWSEdit was further developed into the
-`TRanscription-based Audio EDitor', or \textit{TRAED} \citep{Masoodian2006}.  TRAED used the same editing actions as
+``TRanscription-based Audio EDitor'', or \textit{TRAED} \citep{Masoodian2006}.  TRAED used the same editing actions as
 LIDSWSEdit, but rather than displaying the text and audio waveform separately, it displayed the waveform in-line with
 the text. Individual words were indicated by drawing boxes around the waveform and word. The boundary between each word
 pair could be adjusted by dragging the boundary edge.  The author could not find any user studies of LIDSWSEdit or
@@ -1300,7 +1321,7 @@ script correction and collaborative note-taking.
 
 \citet{Shin2016} created a system called \textit{Voice Script} that supports an integrated workflow for writing
 scripts, and recording/editing audio. An informal study with four amateur participants found that it could support
-various workflows including multiple iterations. It included a `master script' layout which was used to bring together
+various workflows including multiple iterations. It included a ``master script'' layout which was used to bring together
 different recordings,  and that was found to work well.  A second study of four amateur participants directly compared
 the system to that of \citet{Rubin2013}, which found that participants were able to complete an audio production task
 25\% faster using the Voice Script system.  This study demonstrates that for workflows that involve pre-written
