@@ -16,4 +16,5 @@ refs.bib
 main.pdf
 *.DS_Store
 *.bak
+*.swp
 *.synctex.gz
