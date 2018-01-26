@@ -1,18 +1,95 @@
 % !TeX root = main.tex
 \chapter{Technological developments}\label{app:tech}
 
+As part of the research presented in this theis, we developed several systems for semantic speech editing and audio
+visualization. We have since published these systems as open-source software for others to use. This chapter outlines
+the technical details behind the implementation of these systems, including notes on how we approached the more
+challenging aspects.
+
 \section{Dialogger}\label{sec:dialogger}
 
-\texttt{https://github.com/bbc/dialogger}
+Dialogger is a semantic audio and video editor that enables the navigation and editing of media recordings using a
+text-based interface. We have published the system as open-source software under an Apache 2.0 licence at the following
+URL: \url{https://github.com/bbc/dialogger}
 
-\begin{figure}[h]
+%Requirements:
+%Correction (i.e. text editing)
+%while retaining timestamps
+%Editing (i.e. audio editing)
+%Live preview of edits
+%Display/edit speaker segments
+%Display timestamps
+%Export EDL
+
+%Solution:
+%Use CKEditor for text editing with restricted functionality
+  %No cut/copy/paste or dragging
+  %Replace only
+  %Selections jump to start/end of words
+  %Generate new timestamps when replacing >1 word
+%Edit audio using bold/underline
+%Use HTML5-video-compositor for preview
+%JSON->HTML, HTML->JSON
+%JSON->EDL
+
+Dialogger includes features for playback and navigation of media using a transcript, transcript editing, export of edit
+decision lists (EDLs), user accounts and media asset management. Our system does not include an ASR system, media
+format converter or media file export, however these can easily be integrated using the guide in the README.
+
+The structure and data flow of Dialogger is shown in Figure~\ref{fig:dialogger-flow}. We divided our system into a
+presentation layer (front end) and a data management layer (back end). The front end used HTML, CSS and Javascript so
+that the system could be access through a web browser.  We used Semantic UI as a user interface framework, Backbone as
+a model-view-controller framework and Dropzone to handle file uploads.
+
+\begin{figure}[t]
 \centering
-  \includegraphics[width=\columnwidth]{figs/dialogger-flow-diagram.png}
-  \caption{Flow diagram of the Dialogger system. Excluded components are shown in red.}
+  \includegraphics[width=.8\textwidth]{figs/dialogger-flow-diagram.pdf}
+  \caption{Flow diagram of the Dialogger system. Excluded components are shaded.}
   \label{fig:dialogger-flow}
 \end{figure}
 
-Made a screen-based semantic speech editor. Here's how it works.
+
+Back-end
+Node.js / Express
+Database: MongoDB (Apache-2.0)
+Authentication: Passport.js (MIT)
+Media info: Mimovie (MIT)
+Logging: Bunyan (MIT)
+
+\subsection{Word processing}
+
+We included word processing functionality in Dialogger to allow users to correct mistakes and mark up edit decisons.
+
+Unique requirement that each word had to include a hidden timestamp, and for that timestamp to be retained throughout
+the editing process.
+
+We used the \textit{CKEditor} Javascript library as the basis for the word processing functionality in our interface.
+Word processing gives users the freedom to move and edit words freely. However, this freedom can make it easy to
+run into problems. Below we explain what these problems were and how we solved them.
+
+\paragraph{Re-ordering}
+
+When text is moved around it becomes very difficult for the user to keep track of the original location and order of
+the words. Our solution was to retain the sequence of the words so that their original positions were retined. This
+prevented re-ordering of the words, but this could be handled later by a DAW.  We implemented this restriction by
+disabling cut copy, paste and drag-and-drop.
+
+\paragraph{Selection}
+
+
+We had to restict the functionality of the text editing
+interface to avoid unintentional errors. We disabled cut,
+
+\paragraph{Timestamp}
+
+
+  %No cut/copy/paste or dragging
+  %Replace only
+  %Selections jump to start/end of words
+  %Generate new timestamps when replacing >1 word
+
+\subsection{Media preview}
+Media playback: HTML5 Video Compositor (Apache-2.0)
 
 \clearpage
 \section{Vampeyer}\label{sec:vampeyer}
