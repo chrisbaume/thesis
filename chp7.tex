@@ -1,5 +1,5 @@
 % !TeX root = main.tex
-\chapter{Conclusions}\label{chp:conclusions}
+\chapter{Conclusions and further work}\label{chp:conclusions}
 
 The aim of this research was to ``develop and evaluate methods for radio production that improve the production
 process'' (Section~\ref{sec:aim}).  We focused our research on pre-production of speech content by professional radio
@@ -9,13 +9,15 @@ recordings, through audio visualization, semantic speech editing and a digital p
 methods based on genuine requirements gathered from radio producers and evaluated them in the workplace to
 ensure that our methods and results were relevant to real-life application.
 
-To conclude this thesis, we will summarise our approach, the results and their relation to previous
-work, and the contributions we made.  We reflect upon some of the tensions we observed between reading
-transcripts and listening, and between paper and screen interfaces.  Finally, we consider some potential options for
-further work, including follow-up research resulting from our studies, as well as some broader applications
-of semantic audio production tools.
+To conclude this thesis, we first discuss our approach, results and contributions in
+Section~\ref{sec:conclusions-discussion}, where we also reflect upon some of the tensions we observed between reading
+transcripts and listening, and between paper and screen interfaces.  In Section~\ref{sec:conclusions-further}, we
+describe potential options for further work, including follow-up research resulting from our studies, as well as some
+broader applications of semantic audio production tools.  Finally, in Section~\ref{sec:conclusions-conclusions} we
+summarise the novelties and achievements of this work.
 
-\section{Radio production practice}
+%\section{Radio production practice}
+\section{Discussion}\label{sec:conclusions-discussion}
 
 We began our research by conducting three ethnographic case studies in the workplace to learn more about real-life
 radio production practice.  We used the results to develop theoretical models of production workflows for a news
@@ -27,7 +29,7 @@ insights contribute to the academic understanding of radio production practice. 
 highlighted three directions for research involving audio visualization, textual representation of speech, and the use
 of paper.  We then investigated each of these through technical intervention.
 
-\section{Semantic audio visualization}
+\subsection{Semantic audio visualization}
 
 % Coloured waveform was better
 Our initial investigation looked at using pseudocolour to visualize a semantic audio feature to support audio editing.
@@ -60,7 +62,7 @@ completing audio editing tasks. The performance of waveforms significantly impac
 this poor performance is concerning. However, this finding highlights an opportunity to increase the efficiency of
 audio production software by making improvements to the waveform visualization.
 
-\section{Semantic speech editing}
+\subsection{Semantic speech editing}
 
 % can be used for pro production
 We conducted two user studies in which semantic speech editing was successfully used by professional radio producers to
@@ -142,7 +144,7 @@ much more easily using a semantic speech editor.
 %songs. Doing this manually requires huge amounts of patience and time to edit, but could be achieved relatively quickly
 %using a semantic speech editor.
 
-\section{Reading vs listening}
+\subsection{Reading vs listening}
 
 % Limitations of transcripts
 Transcripts display the words that were spoken in a recording, but much of the content's true meaning is hidden in the
@@ -195,7 +197,7 @@ Internet search engines, for example.  Word-level timings could also be used to 
 example, NPR's online clipping tool ``Shortcut'' \citep{Friedhoff2016} allows radio listeners to create a short clip
 from a radio programme and share it with their friends. 
 
-\section{Paper vs screen}
+\subsection{Paper vs screen}
 
 Our workplace studies identified that many radio producers enjoy working with paper.  Our user study in
 Chapter~\ref{chp:screen} also found that many producers want to be able to work away from their screens.  This led us
@@ -510,7 +512,7 @@ easier to edit content that required more listening, such as old or unfamiliar r
 
 
 
-\section{Further work}
+\section{Further work}\label{sec:conclusions-further}
 
 Further work that could follow on from the research of this thesis includes:
 
@@ -537,24 +539,26 @@ material by removing unwanted vocal noises, known as ``de-umming''. Examples of 
 their presence is not clearly visible using current tools, and they can be difficult to remove as they often overlap
 and blend with the speech. \citet{Loviscach2013} demonstrated a prototype ``umm detector'' that extracted MFCC
 \citep{Imai1983} features from the audio and used template matching to visually highlight potential ``umm''s. We could
-not find any other work that attempted to detect or remove unwanted speech noises.  One solution could be to train an
+not find any other work that attempted to detect or remove unwanted speech noises.
+
+One solution could be to train an
 ASR system to ``transcribe'' unwanted sounds. These ``words'' could then be highlighted, or removed in the same way
 that transcripts can be semantically edited.  However, this assumes that these noises have clearly defined boundaries,
 which they often do not.  In our experience, de-umming involves a level of editorial and creative judgement, so a
 interface that supports a human-in-the-loop system may be necessary.
 % - Rubin2013 and Berthouzoz2012 included de-umm features
 
-\paragraph{Informed automatic speech recognition:}
+\paragraph{Improved automatic speech recognition:}
 % use prior information to produce better transcripts
 
 In this thesis, we found that the transcripts produced by current ASR systems were sufficiently accurate to perform
 semantic speech editing in professional radio production. However, as discussed in
 Section~\ref{sec:transcript-generation}, ASR quality affects comprehension, search, and the need for correction, so it
 is desirable to improve the transcript accuracy. Prior to transcription, much is already known about the content of the
-speech, and by providing this information to the ASR system, it could be used to improve the quality of the transcript.
-For example, the topic of conversation could be used to weight the likelihood of words related to that topic appearing.
-Many ASR system have a speaker diarization pre-processing stage, and the number, gender and identity of speakers could
-also be used to inform this process.
+speech, and by providing this information to the ASR system in advance, it could be used to improve the quality of the
+transcript.  For example, the topic of conversation could be used to weight the likelihood of words related to that
+topic appearing.  Many ASR system have a speaker diarization pre-processing stage, and the number, gender and identity
+of speakers could also be used to inform this process.
 
 \paragraph{Improved digital pen system:}
 % re-ordering and labelling
@@ -565,7 +569,9 @@ also be used to inform this process.
 The design of our digital pen semantic editor in Chapter~\ref{chp:paper} was influenced by the technical limitations of
 the technology that we used to implement it.  This prevented us from including certain features such as integrated
 listening and correction, and was inflexible in interpreting the user's gestures.  These issues could be solved by
-using a different system for implementation.  The digital pen we used operated in batch mode as it connected to the
+using a different system for implementation.
+
+The digital pen we used operated in batch mode as it connected to the
 computer using a USB dock. This prevented us from integrating control over the playback of the audio. A digital pen
 with a wireless link could allow a user to play, pause and navigate the audio using the paper transcript.  The design
 of our paper layout used strict rectangular boundaries to capture edit commands, which created a potential source of
@@ -598,15 +604,17 @@ corrections and labels.
 In Chapter~\ref{chp:colourised}, we showed that speech/music segmentation can be performed faster, more easily and more
 accurately by using pseudocolour to map a semantic audio scalar feature to a colour gradient. Previous systems from
 \citet{Tzanetakis2000} and \citet{Mason2007} have also showed how false colour can be used to map multiple features to
-colour space.  The author believes that there is significant untapped potential to design a rich audio visualization
-that ``looks like it sounds''. Such a visualization could provide an efficient and accessible way of navigating all
-types of audio content.  Crossmodal correspondences could be exploited when designing the mapping between semantic
-audio features and visual properties.  Many of the links listed in Section~\ref{sec:crossmodality} have yet to be
-tested for visually navigating audio content, and previous work on audio visualization has mostly focused on colour.
-Other visual properties such as shape and texture could be used to increase the richness of the information presented
-in the image.  For example, textures can be generated using procedural techniques \citep{Ebert1994}, which allows them
-to be synthesised from semantic audio features.  However, selecting the best combination of semantic audio features and
-visual mappings is a huge challenge, and is likely to be different for each task and signal.
+colour space.  Onomatopoeia is the formation of words that resemble the sound they describe.  The author believes that
+there is significant untapped potential to design an onomatopoeic audio visualization that ``looks like it sounds''.
+Such a visualization could provide an efficient and accessible way of navigating all types of audio content.
+
+Crossmodal correspondences could be exploited when designing the mapping between semantic audio features and visual
+properties.  Many of the links listed in Section~\ref{sec:crossmodality} have yet to be tested for visually navigating
+audio content, and previous work on audio visualization has mostly focused on colour.  Other visual properties such as
+shape and texture could be used to increase the richness of the information presented in the image.  For example,
+textures can be generated using procedural techniques \citep{Ebert1994}, which allows them to be synthesised from
+semantic audio features.  However, selecting the best combination of semantic audio features and visual mappings is a
+huge challenge, and is likely to be different for each task and signal.
 
 %\paragraph{Cost/benefit of transcripts:}
 %We found that semantic editing was faster for long recordings, but it would be
@@ -651,4 +659,48 @@ production tools, but this is currently unknown, so may be an interesting direct
 %allow the director to make a better informed decision on which takes to use. Automatically aligning the takes on
 %different tracks in the DAW would be an easy way to make such comparisons.
 
+
+\clearpage
+\section{Summary}\label{sec:conclusions-conclusions}
+
+%New methods for the analysis of audio production workflows.
+%A set of novel theoretical models of audio editing workflows that contribute to the academic understanding of
+%professional radio production.
+
+%The first formal study on the effect of audio waveforms and semantic audio visualization on user performance.
+%Insights into the effectiveness of audio waveforms, for segmenting music from speech.
+
+%The first application of semantic speech editing to professional radio production. Development of a semantic speech
+%editor that includes a novel DAW integration. The first formal user study of semantic speech editing for audio
+%production. Insights into the challenges and limitations of semantic speech editing in the context of radio
+%production. 
+
+%A novel approach to editing speech recordings through the combination of semantic speech editing and a digital pen
+%interface. Insights into the relative benefits of paper and screen interfaces for semantic speech editing.
+
+We started our research by conducted three ethnographic case studies of professional radio production. We found that
+the radio producers used audio waveforms and textual representations to navigate and edit audio content, and used paper
+to make freehand annotations and facilitate face-to-face collaboration.  Based on these findings, we developed and
+evaluated three semantic audio tools for radio production using audio visualization, and semantic speech editing on 
+screen and paper interfaces.
+
+We developed a simple semantic audio visualization for segmenting music from speech and conducted the first formal
+study on the effect of audio waveforms and semantic audio visualization on user performance. We found that our semantic
+audio visualization was faster, more accurate and required less effort than using a waveform.  Using an audio waveform
+required less effort than no visualization, but was not significantly faster, nor more accurate.
+
+We developed a semantic speech editing system for radio production, and evaluated this approach with professional radio
+producers for the production of genuine programmes. The radio producers were successful in using semantic speech
+editing with ASR transcripts as part of their workflow, and continued to use our system after the study. Through our
+study, we also gained insights into the importance of annotation, collaboration, portability and listening.
+
+Finally, we designed and developed a novel system for semantic speech editing on paper using a digital pen. We compared
+our paper interface to a screen interface and normal paper through a user study of professional radio producers. We
+found that the benefits of reading from paper and the simplicity of the pen interface made it better for fast, simple
+editing with familiar audio and accurate transcripts.  The integrated listening and correction features of the screen
+interface made it better for more complex editing with less familiar audio and less accurate transcripts.  We also
+gained insights into effect of ASR accuracy, the role of listening, and the relative benefits of paper and screen
+interfaces for collaboration and portability.
+
+%In this thesis, we have demonstrated three successful approaches to improving radio production.
 
