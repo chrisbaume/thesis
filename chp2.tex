@@ -1646,8 +1646,8 @@ cognitive load and 8 of the 13 participants reported it to be ``very demanding''
 %\subsubsection{Mix audio and text}
 %Quixotic: Audio recorder with word processing interaction \citep{Milota2015}
 
-%\clearpage
-%\section{Research strategy}
+\clearpage
+\section{Strategy}\label{sec:background-strategy}
 
 % WHAT HASN'T BEEN DONE
 
@@ -1667,75 +1667,92 @@ cognitive load and 8 of the 13 participants reported it to be ``very demanding''
 % CHAPTER 3 set-up
 
 % What hasn't been done
-Our primary aim is to develop better tools for radio production. We believe that to achieve this, we first need to have
-a solid understanding of the radio production process.  The author of this thesis is an employee of BBC R\&D, which
-gives us extraordinary access to the resources of BBC Radio. This is unusual in academic research, where studies are
-often conducted with student participants and under laboratory conditions.  Therefore, we will start our research by
-using this position within the BBC to investigate how radio programmes are created.  This will allow us to be better
-informed about the tasks and challenges involved, which will guide our design choices.  This will also allow us to take
-advantage of access available to us that other researchers would not have.
+Our primary aim is to develop better tools for radio production. To achieve this, we first need to have a solid
+understanding of the radio production process. Despite the large scale of radio production activity, the author could
+only find two studies that involved radio producers \citep{Dunaway2000,Barbour2004}, both of which were written based
+on direct experience of being a producer. This lack of studies may be a result of the limited number of radio
+producers, and their demanding workload, which can make it challenging to recruit them for academic research. For
+example, \citet{Kim2003} worked with National Public Radio (NPR) to develop a speech archive interface, but reported
+that they were unable to recruit any radio producers to evaluate their system due to the small population and their
+limited availability.
+
+%It can be difficult for those working outside of the radio industry to learn about the practices and demands of radio
+%production.
+
+The author of this thesis is an employee of BBC R\&D, which gives us extraordinary access to the resources of BBC
+Radio. This is unusual in academic research, where studies are often conducted with student participants and under
+laboratory conditions. We want to exploit our position within the BBC to be able to capture and share information about
+how radio programmes are produced.
+
+In Chapter~\ref{chp:ethno}, we begin our research by conducting three ethnographic case studies of production practice
+within BBC Radio.  The results of this study will allow us to be better informed about the tasks and challenges
+involved in production, which will guide our design choices.  This study will also allow us to take advantage of access
+available to us that other researchers would not have. Once we have gained a better understanding of the processes and
+challenges of radio production, in Section~\ref{sec:ethno-strategy} we will reflect upon our findings and our research
+aim to determine a research strategy for achieving our goal.
 
 %We have seen in Section~\ref{sec:background-radio} that not many formal studies have investigated radio production. One
 %potential reason for this is that radio producers are difficult to access. For example, \citet{Kim2003} worked with NPR
 %to develop a speech archive interface, but reported that they were unable to recruit any radio producers to evaluate
 %their system due to the small population and their limited availability.
 
-% CHAPTER 4 set-up
+%% CHAPTER 4 set-up
 
-% DAW still using waveforms, despite limitations and opportunities for improvement
-We saw in Section~\ref{sec:background-daw} that DAWs use audio waveforms, which are limited in the information they can
-display. However, despite their widespread use, we could not find any studies that attempted to measure the performance
-of audio waveforms. Section~\ref{sec:background-visualization} described several promising methods for improving the
-navigation of audio content by adding semantic information to audio waveforms, but we could not find any formal
-evaluations of these methods.  To better understand audio waveforms and audio visualization techniques, we will
-investigate their performance.
+%% DAW still using waveforms, despite limitations and opportunities for improvement
 
-
-% CHAPTER 5 set-up
-In Section~\ref{sec:background-transcripts}, we saw that transcripts of speech have been successfully used to allow for
-semantic navigation and editing of audio content. This approach could be beneficial for use in radio production.
-\citet{Rubin2013} demonstrated a system for the production of ``audio stories'', which is related to radio production.
-However, their system used verbatim transcripts, which are slow and expensive to produce. In addition, they did not
-evaluate their system, so it is unclear what impact this has on the production process.  The semantic editing systems
-that were evaluated were designed for navigating and editing voice messages and comments. These systems have different
-requirements and use different content than radio production.  Therefore, in order to better understand the effect of
-semantic editing on the radio production process, we will investigate its use in the creation of radio programmes
-through an evaluation.
-
-% WHAT NEEDS DOING
-
-% - better understanding of the current tools and their performance
-% - better understanding of the radio production process and which techniques could be used to improve it
-% - apply one or more of these techniques and test its effect in radio production to see:
-%   - whether it works
-%   - what the challenges are
-%   - identify missing elements for future research
+%We saw in Section~\ref{sec:background-daw} that DAWs use audio waveforms, which are limited in the information they can
+%display. However, despite their widespread use, we could not find any studies that attempted to measure the performance
+%of audio waveforms. Section~\ref{sec:background-visualization} described several promising methods for improving the
+%navigation of audio content by adding semantic information to audio waveforms, but we could not find any formal
+%evaluations of these methods.  To better understand audio waveforms and audio visualization techniques, we will
+%investigate their performance.
 
 
-% HOW WE'RE GOING TO GO ABOUT IT
+%% CHAPTER 5 set-up
+%In Section~\ref{sec:background-transcripts}, we saw that transcripts of speech have been successfully used to allow for
+%semantic navigation and editing of audio content. This approach could be beneficial for use in radio production.
+%\citet{Rubin2013} demonstrated a system for the production of ``audio stories'', which is related to radio production.
+%However, their system used verbatim transcripts, which are slow and expensive to produce. In addition, they did not
+%evaluate their system, so it is unclear what impact this has on the production process.  The semantic editing systems
+%that were evaluated were designed for navigating and editing voice messages and comments. These systems have different
+%requirements and use different content than radio production.  Therefore, in order to better understand the effect of
+%semantic editing on the radio production process, we will investigate its use in the creation of radio programmes
+%through an evaluation.
 
-%TODO Mention Dewey in Chp4 methods, Chp5 methods and Chp6 paper prototyping
+%% WHAT NEEDS DOING
 
-%\citet{Dewey2014} proposed a set of guidelines for the design and evaluation of user interfaces for the audio industry.
-%Among their recommendations was the use of task analysis to better understand the process to be performed by the system
-%being designed, and the use of expert users in the design and evaluation of systems.
-
-%\citep{Dewey2014}
-%Other recommendations include the use of paper prototyping for developing systems, expert users for
-%design and evaluation, and using task completion time, accuracy and user preference to measure efficiency,
-%effectiveness and satisfaction.
+%% - better understanding of the current tools and their performance
+%% - better understanding of the radio production process and which techniques could be used to improve it
+%% - apply one or more of these techniques and test its effect in radio production to see:
+%%   - whether it works
+%%   - what the challenges are
+%%   - identify missing elements for future research
 
 
-%An initial investigation of prevailing techniques revealed
-%Therefore, in order to achieve the full potential of 
-%we argue for advancements in 
-%and consider these advancements vital in applications like 
-%An underlying hypothesis for this work is that
-%This may be achieved by
+%% HOW WE'RE GOING TO GO ABOUT IT
 
-%Since data collection in the studio is a difficult task in itself, we focus on
-%We argue that
-%We aim to show that
+%%TODO Mention Dewey in Chp4 methods, Chp5 methods and Chp6 paper prototyping
+
+%%\citet{Dewey2014} proposed a set of guidelines for the design and evaluation of user interfaces for the audio industry.
+%%Among their recommendations was the use of task analysis to better understand the process to be performed by the system
+%%being designed, and the use of expert users in the design and evaluation of systems.
+
+%%\citep{Dewey2014}
+%%Other recommendations include the use of paper prototyping for developing systems, expert users for
+%%design and evaluation, and using task completion time, accuracy and user preference to measure efficiency,
+%%effectiveness and satisfaction.
+
+
+%%An initial investigation of prevailing techniques revealed
+%%Therefore, in order to achieve the full potential of 
+%%we argue for advancements in 
+%%and consider these advancements vital in applications like 
+%%An underlying hypothesis for this work is that
+%%This may be achieved by
+
+%%Since data collection in the studio is a difficult task in itself, we focus on
+%%We argue that
+%%We aim to show that
 
 
 
