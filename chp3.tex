@@ -53,6 +53,69 @@ Section~\ref{sec:ethno-discussion}, and present our conclusions in Section~\ref{
 Section~\ref{sec:ethno-strategy}, we reflect upon what we learned, and the previous research that has been conducted,
 to determine an intervention strategy for achieving our research aim.
 
+\section{BBC Radio}
+
+The British Broadcasting Company, as the BBC was originally called, was formed in 1922 and started broadcasting daily
+radio programmes from studio 2LO in London \citep{BBC2015}. In 1927, the British Broadcasting Corporation was founded
+by Royal Charter, which defined the BBC's objectives, powers and obligations, and guaranteed its independence from
+government.  The current charter states that the BBC's mission is to ``act in the public interest, serving all
+audiences through the provision of impartial, high-quality and distinctive output and services which inform, educate
+and entertain'' \citep{BBCCharter2016}.
+
+Today, the BBC is the world's biggest broadcaster by number of employees, with over 21,000 full-time staff
+\citep[p.~56]{BBC2017a}. The BBC operates ten UK-wide radio networks, six regional services, and 40 local radio
+stations, in addition to a global radio service in 29 languages, with over 154M listeners per week \citep[pp.~4,
+32]{BBC2017a}.
+%9 national stations with 34m listeners, 40 local stations with 8m listeners, one global station in 29 languages with
+%269m listeners
+
+%funding 
+\subsubsection{Cost}
+The BBC is primarily funded through a television licence fee paid by each UK household that watches live television or
+uses on-demand services. The licence fee allows the BBC's UK services to remain free of advertisements and commercial
+or political interest. The licence fee collects \textsterling3.8B per year \citep{TVLicensing2017}.  This income is
+supplemented by an additional \textsterling210M from BBC Worldwide -- a wholly-owned commercial subsidiary that
+monetises BBC content and brands \citep{BBCWorldwide2017}.
+
+%by selling international broadcasting rights, DVDs, books, magazines and digital
+%downloads
+% cost of radio
+The BBC spent \textsterling471M on radio production in 2016/17 \citep[p. 111]{Ofcom2017}. Approximately 60\% of this
+was spent on the national radio networks, 25\% of local stations and 15\% on regional services \citep{BBC2017a}.  The
+average cost of producing radio on the national networks in 2p per listener per hour \citep[p.~27]{BBC2017a}.  By
+comparison, television production costs approximately five times more to produce per hour of consumption \citep[pp. 25,
+27]{BBC2017a}.
+
+% location
+\subsubsection{Environment}
+The BBC's national and global radio services are produced in three buildings -- Broadcasting House and Wogan House in
+London, and MediaCityUK in Salford.  Broadcasting House is the worldwide headquarters of the BBC and home of BBC Radio
+\citep{Hines2008}. When it opened in 1932, Broadcasting House was the first purpose-built broadcast centre in the UK
+\citep{BBC2015a}.  Following a major expansion between 2003 and 2013, Broadcasting House now contains 35 radio studios
+from which 30 domestic and World Service radio stations are broadcast, and is the workplace for 6,000 staff
+\citep{BBCNews2013}.
+%Wogan House is home to Radio 2 and 6 Music, and MediaCityUK is home to Radio 5 Live.
+
+Increasing demands for space and cost of accommodation mean that more radio content is being produced in open plan
+offices. This creates challenges for audio production, such as noise, privacy and reliance on headphones for monitoring
+\citep{Brixen2003}.
+
+% technology
+\subsubsection{Technology}
+%This section outlines the technology that is used for radio production within the BBC, based on the author's experience
+%of working there.
+The BBC's radio production activities are centrally operated through a radio production system
+called \textit{dira!  Radio}, made by SCISYS \citep{SCISYS2015}. This system handles audio recording, storage
+management, editing, playout and scheduling. \textit{dira!} integrates with a range of other specialist systems for
+distribution, advanced audio editing, metadata publication, commissioning and rights management.
+
+There are two audio editing systems used for BBC radio production -- \textit{StarTrack}, which is part of the
+\textit{dira!} production system, and \textit{SADiE} from Prism Sound. StarTrack has basic functionality for cutting
+audio and controlling levels. It integrates directly with the production system, so can be used for editing very close
+to the time of broadcast.  SADiE has much more advanced functionality for controlling sound equalisation and effects,
+and for handling bigger projects.  Other audio editing systems are also used, such as Adobe Audition, but these are not
+officially supported.
+
 \section{Methodology}\label{sec:ethno-method}
 
 % objective of study
@@ -281,9 +344,9 @@ integrates with the \textit{dira!} radio production system.
 \begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{figs/news-intake-pixelated.jpg}
-  \caption{Arrivals board in BBC newsroom, showing the ID number, name and arrival time of each audio clip.  ``VCS'' is
-  the colloquial name for the \textit{dira!} radio production system, as it is made by a company that used to be called
-VCS.}
+  \caption[Arrivals board in the BBC newsroom.]{Arrivals board in BBC newsroom, showing the ID number, name and arrival
+  time of each audio clip.  ``VCS'' is the colloquial name for the \textit{dira!} radio production system, as it is
+  made by a company that used to be called VCS.}
   \label{fig:news-arrivals}
 \end{figure}
 
@@ -654,8 +717,9 @@ description of the workflow with labelled tasks is presented below.
 \begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{figs/docs-workflow.pdf}
-  \caption{Operational sequence diagram of radio documentary production, partitioned by role and location.\\
-  {\footnotesize ($^{*}$some interviews are transcribed using a third-party service)}}
+  \caption[Operational sequence diagram of radio documentary production, partitioned by role and location.]{Operational
+  sequence diagram of radio documentary production, partitioned by role and location.\\ {\footnotesize ($^{*}$some
+  interviews are transcribed using a third-party service)}}
   \label{fig:ethno-docs-workflow}
 \end{figure}
 
@@ -815,9 +879,10 @@ audio content.
 
 In this chapter, we described three ethnographic case studies that gave us insights into the challenges and
 opportunities that exist within the radio production process.  We are now in a position to reflect upon our research
-aim (Section~\ref{sec:aim}) and determine a strategy for achieving our goal.
+aim (Section~\ref{sec:aim}) and research questions (Section~\ref{sec:background-questions}) to determine a strategy for
+achieving our goal.
 
-Our investigation into radio production practices uncovered three themes. Each of these provide an interesting avenue
+Our investigation into radio production practice uncovered three themes. Each of these provide an interesting avenue
 of research to be explored. In this section, we describe our plan for investigating these individually through
 technical intervention.
 
@@ -830,13 +895,14 @@ performance of audio waveforms.  Section~\ref{sec:background-waveforms-related} 
 enhancing audio waveforms by using colour to add semantic information. However, the author could not find any formal
 evaluations of these methods.
 
-To better understand audio waveforms and colour enhancement, in Chapter~\ref{chp:colourised} we will perform a user
-study to evaluate their performance. Our interest is in using audio visualization techniques to make the production of
-radio programmes more efficient.  Therefore, we will design an audio visualization that uses colour enhancement to
-support a radio production task.  We will evaluate our visualization using audio content that is representative of
-radio broadcasting, and measure the efficiency of users in completing the task using our visualization. Due to the lack
-of formal studies of both methods, we will not only compare our colour-enhanced visualization to normal waveforms, but
-also measure the performance of normal audio waveforms themselves.
+To answer our research question on the role and efficacy of audio visualization (see
+Section~\ref{sec:background-questions}), we will perform a user study in Chapter~\ref{chp:colourised} to evaluate the
+performance of audio waveforms and colour-enhanced visualizations. Our interest is in using audio visualization
+techniques to make the production of radio programmes more efficient.  Therefore, we will design an audio visualization
+that uses colour enhancement to support a radio production task.  We will evaluate our visualization using audio
+content that is representative of radio broadcasting, and measure the efficiency of users in completing the task using
+our visualization. Due to the lack of formal studies of both methods, we will not only compare our colour-enhanced
+visualization to normal waveforms, but also measure the performance of normal audio waveforms themselves.
 
 \subsection{Semantic speech editing}
 
@@ -844,28 +910,44 @@ The producers in all three of our case studies interacted with audio content usi
 that the documentary producer wrote transcripts of all their interviews.  In Section~\ref{sec:asr}, we described how
 ASR can be used to automatically transcribe speech, and in Section~\ref{sec:background-transcripts} we saw that
 transcripts have been successfully used to allow for semantic navigation and editing of speech content.
-\citet{Rubin2013} demonstrated a system for the production of ``audio stories'', which has many similarities to radio
-production.  However, this system was not formally evaluated, so it is still unclear what effect semantic editing has
-on the radio production process. Other semantic editing systems have been formally evaluated
-\citep{Whittaker2004,Yoon2014,Sivaraman2016}, but they were designed for navigating and editing voice messages and
-comments, which use a different style of audio content and have different requirements than radio production.
 
-In Chapter~\ref{chp:screen}, we will investigate whether semantic speech editing can be used for radio production by
-designing and developing a semantic speech editor for radio production, and evaluating it through a user study.
-To ensure the results relate to real-life requirements, we will use our access to BBC Radio to recruit professional
-radio producers, and evaluate semantic speech editing for use in production of genuine radio programmes.
-To measure its performance, we will compare semantic speech editing to the current production workflow.
+As we discussed in Section~\ref{sec:background-questions}, \citet{Rubin2013} demonstrated a system for the production
+of ``audio stories'', which has many similarities to radio production.  However, this system was not formally
+evaluated, so it is still unclear what effect semantic editing has on the radio production process. Other semantic
+editing systems have been formally evaluated \citep{Whittaker2004,Yoon2014,Sivaraman2016}, but they were designed for
+navigating and editing voice messages and comments, which use a different style of audio content and have different
+requirements than radio production.
+
+To answer our research question on how transcripts can be applied to radio production (see
+Section~\ref{sec:background-questions}), we will investigate in Chapter~\ref{chp:screen} whether semantic speech
+editing can be used for radio production by designing and developing a semantic speech editor for radio production, and
+evaluating it through a user study.  To ensure the results relate to real-life requirements, we will use our access to
+BBC Radio to recruit professional radio producers, and evaluate semantic speech editing for use in production of
+genuine radio programmes.  To measure its performance, we will compare semantic speech editing to the current
+production workflow.
 
 \subsection{Paper interface}
 
 In two of our three case studies, producers used paper scripts and transcripts as part of their production workflow.
 This allowed them to collaborate face-to-face and to describe their audio edits using annotations. The remainder of
 their production workflow was digital, and transferring between the paper and digital representations was a manual
-process. It may be possible to use technology to ``bridge the gap'' between paper and digital.
+process.  It may be possible to use technology to ``bridge the gap'' between paper and digital, which may have benefits
+to the radio production workflow.
 
-In Chapter~\ref{chp:paper}, we will investigate how this can best be achieved, and develop and evaluate a system for
-producing radio content using a paper interface.  To ensure our system fulfils the real-life requirements of radio
-production, we will evaluate it for use in the production of genuine programmes by professional producers.  We will
-compare this approach to a fully digital workflow by measuring our system against a similar screen interface. To
-understand the benefits of paper-digital integration, we will measure the performance of the system with and without
-the integration between the two.
+This finding about the use of paper within radio production was unexpected, but provided an interesting new avenue for
+our research. This gave rise to an additional research question that we wanted to address in this thesis:
+\\
+
+\noindent
+%\hangindent=15pt
+%\hangafter=1
+\textbf{Question 4:} What is the potential role of augmented paper in radio production?
+\\
+
+In Chapter~\ref{chp:paper}, we will investigate how augmented paper can best be applied to radio production, and
+develop and evaluate a system for producing radio content using a paper interface.  To ensure our system fulfils the
+real-life requirements of radio production, we will evaluate it for use in the production of genuine programmes by
+professional producers.  We will compare this approach to a fully digital workflow by measuring our system against a
+similar screen interface. To understand the benefits of paper-digital integration, we will measure the performance of
+the system with and without the integration between the two.
+
