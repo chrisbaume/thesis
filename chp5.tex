@@ -150,7 +150,7 @@ individually to gather high-level requirements for our system.
 \subsection{Transcription}
 As we discovered in Chapter~\ref{chp:ethno}, radio programmes are assigned a slot in the broadcast schedule, so
 producers have a strict deadline for finishing their programme. Programmes are sometimes scheduled up to three
-weeks in advance, but sometimes as little as a week in advance.  This means that producers have very little time to
+weeks in advance, but sometimes as little as one week in advance.  This means that producers have very little time to
 spare. If a programme's budget allows, interview recordings can be sent to a transcription service where they are
 transcribed by a person overnight. However, many programmes do not have the budget for this, in which case the producer
 transcribes the recordings themselves.
@@ -167,7 +167,7 @@ should be accurate enough to be useful for editing, and allow for correction whe
 There are already well-established systems and software packages in place for producing radio programmes. As we discussed in
 Section~\ref{sec:background-daw}, producers use a digital audio workstation (DAW) to select the parts of each interview
 that they want to use in their programme, and to arrange them into a narrative. In Chapter~\ref{chp:ethno}, we learned
-that the BBC provide two different DAWs --
+that the BBC provides two different DAWs --
 dira! StarTrack (made by SCISYS) and SADiE (made by Prism Sound).
 %Some producers prefer to use other DAWs, but as
 %installation of software is restricted on corporate computers, they must use their personal computers.
@@ -176,11 +176,11 @@ in a DAW are ``non-destructive'' because the original recordings remain untouche
 Section~\ref{sec:background-daw}). This allows the producer the flexibility to adjust or undo their decisions at any
 point during the editing process.
 
-For the documentary production we observed in Chapter~\ref{chp:ethno}, specialist sound engineers (known as ``studio
-managers'') were brought in on the last day of production to ensure that the sound was well balanced, and to do any
-advanced editing that was required. This included removal of unwanted ``umm''s or breaths in a process called
-``de-umming''. The SM for the observed documentary suggested that being able to de-umm speech in a way that is
-inaudible to the listener is a skilled task that requires precision, judgement and experience.
+For the documentary production we observed in Chapter~\ref{chp:ethno}, a specialist sound engineer, known in the BBC as
+a \textit{studio manager} (SM), was brought in on the last day of production to ensure that the sound was well
+balanced, and to do any advanced editing that was required. This included removal of unwanted ``umm''s or breaths in a
+process called ``de-umming''. The SM for the observed documentary suggested that being able to de-umm speech in a way
+that is inaudible to the listener is a skilled task that requires precision, judgement and experience.
 
 Music is often included in a programme, either as a theme tune, a short interlude or in the background. We observed
 that producers
@@ -281,25 +281,26 @@ based on more modern ASR systems.
 
 Our semantic editing system needs to be able to select and arrange parts of audio recordings. To achieve this, we used
 the same drag-and-drop interface as \citet{Hyperaudio2016} as it is a simple method for extracting and re-ordering
-clips. It also allows clips from different recordings to be added and re-arranged. \citet{Casares2002},
-\citet{Sivaraman2016} and \citet{Berthouzoz2012} used a select/delete interface, where parts of an individual
-transcript can be chosen or removed, and \citet{Whittaker2004} and \citet{Rubin2013} used a cut/paste/delete interface.
+clips. As shown in Figure~\ref{fig:Boas2011} (on page \pageref{fig:Boas2011}), it also allows clips from different
+recordings to be added and re-arranged. \citet{Casares2002}, \citet{Sivaraman2016} and \citet{Berthouzoz2012} used a
+select/delete interface, where parts of an individual transcript could be chosen or removed, and \citet{Whittaker2004}
+and \citet{Rubin2013} used a cut/paste/delete interface.
 
 We designed our interface to be browser-based, as the BBC corporate policy meant that it was not possible to install
 new software on the producers' computers. This came with the added benefit of allowing users to work from anywhere in
-the world on any operating system, but the downside that they have to be connected to the Internet.
+the world on any operating system, but the downside is that they have to be connected to the Internet.
 
 \subsection{DAW integration}
 
 Our system needs to be able to integrate with the existing radio production tools. We designed Dialogger to be used as
 the first stage of the editing process, and to smoothly integrate with the DAWs that are used in BBC Radio. We achieved
-this by providing a novel features to export edited content from our system, either as a .wav audio file or as an ``edit
-decision list'' (EDL).
+this by providing a novel feature to export edited content from our system, either as a WAVE audio file or as an
+\textit{edit decision list} (EDL).
 
-The first option exported a single .wav audio file of the edit. This method is a ``destructive'' edit, in that it
+The first option exported a single WAVE audio file of the edit. This method is a destructive edit, in that it
 throws away the pieces of the recording which weren't selected.  The other option exported an EDL, which contains
 metadata about which parts of an audio or video recording make up an edit. These can be read by the two most common
-audio editors used at the BBC -- SADiE and dira! StarTrack.  This method is considered ``non-destructive'' as the full
+audio editors used at the BBC -- SADiE and dira! StarTrack.  This method is considered non-destructive as the full
 original recordings are retained and the edit points can be re-adjusted in the audio editor.
 %Following early informal feedback, features were added to allow the text to be printed or exported into a word
 %processor.
@@ -333,7 +334,7 @@ pre-recorded content in our system design or study.
 \subsection{System description}
 
 This section gives a brief overview of Dialogger, including its functionality and operation.  A screenshot of the
-interface and numbered list of the main features are shown in Figure~\ref{fig:interface}.
+interface, and numbered list of its main features, are shown in Figure~\ref{fig:interface}.
 %A live demo of the system is
 %also available\footnote{\url{https://speecheditor.virt.ch.bbc.co.uk/demo} (accessed 15.08.2016)}.
 
@@ -354,7 +355,7 @@ edit, (11) export edit to audio file or digital audio workstation.}
 The ASR system we chose was evaluated using a large multi-genre television dataset \citep{Bell2015}.  It had an overall
 word error rate of 47\%, however for news content, which is clearly spoken by a native speaker, this dropped to 16\%.
 As the speech on radio programmes is similar in nature to speech on television news, we found the error rate to be
-comparable. However recordings with non-native speakers or significant background noise had a higher error rate.  For
+comparable. However, recordings with non-native speakers or significant background noise had a higher error rate.  For
 comparison, the reported error rate of the system used by \citet{Whittaker2004} was 28\%, and for \citet{Sivaraman2016}
 it was 10\%.
 
@@ -401,11 +402,11 @@ account (1) and create a project where they can upload their speech recordings (
 appears in the middle section.  The recording can be played (5) and navigated by using the waveform (4) or by clicking
 on a word in the transcript (6). The transcript shows where different people are speaking using paragraphs labelled
 with the speaker's gender and an identification number (e.g. [F2]). Words which are likely to be incorrect are shaded
-grey (7), known as `confidence shading'.  Incorrect words can be fixed by double-clicking them and typing the correct
+grey (7), known as ``confidence shading''.  Incorrect words can be fixed by double-clicking them and typing the correct
 word.  The transcript text can be copied or printed using buttons at the top. The audio can be edited by selecting a
 range of words (8), then using drag-and-drop to place it in the area to the right which creates a clip (9).  Clips can
 be re-ordered and deleted. The total duration of the edited clips is displayed (10). The edited audio can be played
-through to preview the result, and the edit can be saved. Finally, the edited clips can be exported as a .wav audio
+through to preview the result, and the edit can be saved. Finally, the edited clips can be exported as a WAVE audio
 file or as an EDL (11) for further editing in a DAW.
 
 %During this period there was no easy
@@ -548,7 +549,7 @@ we saw in Chapter~\ref{chp:ethno} that their production workflow involves making
 script and selecting the best ones. This is a sufficiently different process to other programme genres that it warrants
 a different interface.
 
-Five participants (P1--P5) were recruited (4 male, 1 female) who each had between 6 and 20 years experience in working
+Five participants (P1--P5) were recruited (4 male, 1 female) who each had between 6 and 20 years experience working
 as a radio producer. Although we had a small number of participants, the experience of the producers and the depth of
 the study means that their feedback should carry significant weight. Five participants is also considered sufficient
 for identifying most usability problems \citep{Nielsen1993}.
@@ -602,7 +603,7 @@ usage.
 \paragraph{Stage 4: Interview}
     We conducted a semi-structured interview about the participant's experience of each system and how they compared.
     The investigator questioned participants about the advantages and disadvantages of each workflow, then asked about
-    any specific topics, issues or questions that cropped up during observation. The audio from this interview was
+    any specific topics, issues or questions that arose during observation. The audio from this interview was
     recorded and transcribed to allow for further detailed analysis.
     %The questions asked were:
 
@@ -625,7 +626,7 @@ coding to interpret the textual data, and we used statistical analysis to proces
 
 \subsubsection{Coding}
 We manually transcribed the audio recorded from the interviews in Stage 4 to produce a verbatim transcript, and
-collated them with notes made by the investigator from Stages 1, 2 and 3. To organise and process this textual
+collated them with notes made by the investigator from stages 1, 2 and 3. To organise and process this textual
 information, we employed the use of thematic coding techniques.
 
 We performed a two-stage coding process.  Firstly, we openly coded each part of the transcripts using grounded theory
@@ -670,7 +671,6 @@ during the observation and longitudinal deployment.
 \begin{tabular}{|p{0.18\linewidth}|p{0.2\linewidth}|p{0.5\linewidth}|}
 \hline
 \textbf{Theme} & \textbf{Category} & \textbf{Codes} \\ \hline
-\hline
 \multirow{5}{*}{Comprehension}
  & Challenges & Complexity, quantity, environment, concentration, time taken \\ \cline{2-3}
  & Navigation & Speed, search, paragraphs, speaker segmentation, time since recording, cross-referencing \\ \cline{2-3} 
@@ -704,128 +704,130 @@ observation notes from Stages 1, 2 and 3.}
 %around the editing requirements at the time of observation. This meant that P4
 %and P5 did not do any logging during observation.
 
-This section describes the existing radio production workflow. The process is documented as described by participants
-in the interviews (Stages 1 and 4) and as witnessed by the investigator during the observation (Stage 3).  We start by
-describing the production workflow, then we discuss the topics identified through thematic coding.
+%This section describes the existing radio production workflow. The process is documented as described by participants
+%in the interviews (Stages 1 and 4) and as witnessed by the investigator during the observation (Stage 3).  We start by
+%describing the production workflow, then we discuss the topics identified through thematic coding.
 
-\subsubsection{Workflow description}
+In this section, we consider the comments made by participants about their existing workflow. We have organised these
+by the categories from the thematic coding (see Table~\ref{tab:codes}).
 
-This section describes the high-level production workflow for pre-produced content as described by the
-participants. This is also represented by the numbered diagram in Figure~\ref{fig:workflow}, and the description below
-uses numbers to make reference to each part of the diagram.
+%\subsubsection{Workflow description}
 
-\begin{figure}[ht]
-\centering
-  \includegraphics[width=.6\columnwidth]{figs/workflow.png}
-  \caption{Radio production workflow as described by participants}
-  \label{fig:workflow}
-\end{figure}
+%This section describes the high-level production workflow for pre-produced content as described by the
+%participants. This is also represented by the numbered diagram in Figure~\ref{fig:workflow}, and the description below
+%uses numbers to reference each part of the diagram.
 
-When a programme is commissioned, the producer starts by researching the
-subject (1) in detail to identify a compelling story and to find the best
-contributors. This is done by reading, listening and watching existing material
-on the subject, and finding and talking to relevant people. During this time
-they also recruit a presenter for the programme.
+%\begin{figure}[ht]
+%\centering
+  %\includegraphics[width=.6\columnwidth]{figs/workflow.png}
+  %\caption{Radio production workflow as described by participants}
+  %\label{fig:workflow}
+%\end{figure}
 
-After researching the topic, the producers then arrange interviews with
-contributors and record them (2) with the presenter either in a studio, an external
-venue or via a telecommunication link.
+%When a programme is commissioned, the producer starts by researching the
+%subject (1) in detail to identify a compelling story and to find the best
+%contributors. This is done by reading, listening and watching existing material
+%on the subject, and finding and talking to relevant people. During this time
+%they also recruit a presenter for the programme.
 
-% Quote from P3
-%Once you've got all the interviews recorded, before you start formally scripting and cutting the programme, you log
-%them. You don't transcribe them precisely, but you do a rough transcription that is sufficient to copy those bits of
-%text in to script, sufficient to find the bits of the audio you want to use and to make sense to the presenter.
+%After researching the topic, the producers then arrange interviews with
+%contributors and record them (2) with the presenter either in a studio, an external
+%venue or via a telecommunication link.
 
-Once material has been recorded, the next step is for the producer to select which parts of the audio they want to use
-in the programme.  This selection process is often aided by creating ``logs'' of the interviews.  Logging (3) helps the
-producer by allowing them to see, on screen or on paper, what was said in each interview, when and by whom, without
-having to listen to it.  This allows them to quickly find and share the pieces that they want to use in the final
-programme.  It also helps them structure their thoughts, identify themes running through discussions, and make links
-between different interviews.
+%% Quote from P3
+%%Once you've got all the interviews recorded, before you start formally scripting and cutting the programme, you log
+%%them. You don't transcribe them precisely, but you do a rough transcription that is sufficient to copy those bits of
+%%text in to script, sufficient to find the bits of the audio you want to use and to make sense to the presenter.
 
-\begin{figure}[ht]
-\centering
-  \includegraphics[width=\columnwidth]{figs/phil-desk.jpg}
-  \caption{P3 logging interviews with a digital audio workstation on the desktop
-    PC and word processor on the laptop}
-  \label{fig:desk}
-\end{figure}
+%Once material has been recorded, the next step is for the producer to select which parts of the audio they want to use
+%in the programme.  This selection process is often aided by creating ``logs'' of the interviews.  Logging (3) helps the
+%producer by allowing them to see, on screen or on paper, what was said in each interview, when and by whom, without
+%having to listen to it.  This allows them to quickly find and share the pieces that they want to use in the final
+%programme.  It also helps them structure their thoughts, identify themes running through discussions, and make links
+%between different interviews.
 
-Logs are usually written by the producer themselves. As they have done the research and are normally present at the
-recordings, they can use their memory to navigate the material and use their experience to quickly determine which
-parts are relevant. As we saw in Chapter~\ref{chp:ethno}, some programmes that are under particular time pressure will
-use a third-party to create a verbatim transcript of a few interviews, but most do not because it is too expensive.
+%\begin{figure}[ht]
+%\centering
+  %\includegraphics[width=\columnwidth]{figs/phil-desk.jpg}
+  %\caption{P3 logging interviews with a digital audio workstation on the desktop
+    %PC and word processor on the laptop}
+  %\label{fig:desk}
+%\end{figure}
 
-In the observation, P1 and P3 wrote their logs in Microsoft Word whilst using a digital audio workstation (DAW) to play
-the recording (see Figure~\ref{fig:desk}). P5 reported that they usually followed a similar process, but did not do any
-logging during observation.
+%Logs are usually written by the producer themselves. As they have done the research and are normally present at the
+%recordings, they can use their memory to navigate the material and use their experience to quickly determine which
+%parts are relevant. As we saw in Chapter~\ref{chp:ethno}, some programmes that are under particular time pressure will
+%use a third-party to create a verbatim transcript of a few interviews, but most do not because it is too expensive.
 
-The exact format of the logs varied between individuals, but they usually contained a rough transcript of the interview
-with occasional timestamps and notes. They reported that this helped them to find important bits in the recording later
-on. Each producer has their own syntax, but there are commonalities.
+%In the observation, P1 and P3 wrote their logs in Microsoft Word whilst using a digital audio workstation (DAW) to play
+%the recording (see Figure~\ref{fig:desk}). P5 reported that they usually followed a similar process, but did not do any
+%logging during observation.
 
-Timestamps were written on the logs, approximately \textit{``every 30 to 120 seconds''} (P1) with minutes and seconds
-in parenthesis: \texttt{(4'20)}, for example.  This allows the producer to navigate to a particular piece of audio much
-faster than they would otherwise by narrowing down their search range.
+%The exact format of the logs varied between individuals, but they usually contained a rough transcript of the interview
+%with occasional timestamps and notes. They reported that this helped them to find important bits in the recording later
+%on. Each producer has their own syntax, but there are commonalities.
 
-The next stage is to rough edit (4) each recording, which involves segmenting the audio into chunks, removing the
-chunks they don't intend on using, and to label and arrange the remaining chunks.  The editing reduces the amount of
-material they need to work with, and the labels make it easier to identify which parts are which.  If a recording is
-short (around 15 mins or less), then this process is usually done without logging the content first.
+%Timestamps were written on the logs, approximately \textit{``every 30 to 120 seconds''} (P1) with minutes and seconds
+%in parenthesis: \texttt{(4'20)}, for example.  This allows the producer to navigate to a particular piece of audio much
+%faster than they would otherwise by narrowing down their search range.
 
-This process of recording, logging and rough-editing is repeated until the producer has enough material for their
-programme. Throughout this process, a script is used to organise and structure (5) the content of the programme.  The
-script usually takes the form of a Microsoft Word document, but can also be written on paper. Some producers only write
-a rough outline, whilst others will copy in full transcriptions of the content they are using.  Some producers have an
-idea of what the programme will look like before they make any recordings, so will create the script first. Others will
-be guided by the content of the interviews, so will wait until they have some recordings before creating a script.
+%The next stage is to rough edit (4) each recording, which involves segmenting the audio into chunks, removing the
+%chunks they don't intend on using, and to label and arrange the remaining chunks.  The editing reduces the amount of
+%material they need to work with, and the labels make it easier to identify which parts are which.  If a recording is
+%short (around 15 mins or less), then this process is usually done without logging the content first.
 
-\textit{``As I'm organising a programme, booking interviews, talking to contributors, and planning interviews, I'm all
-the time assembling a scratch structure that will eventually be the script.''} (P3)
-% It's not set in stone unless it has to be
+%This process of recording, logging and rough-editing is repeated until the producer has enough material for their
+%programme. Throughout this process, a script is used to organise and structure (5) the content of the programme.  The
+%script usually takes the form of a Microsoft Word document, but can also be written on paper. Some producers only write
+%a rough outline, whilst others will copy in full transcriptions of the content they are using.  Some producers have an
+%idea of what the programme will look like before they make any recordings, so will create the script first. Others will
+%be guided by the content of the interviews, so will wait until they have some recordings before creating a script.
 
-The script is also used to collaborate with and get feedback (6) from the presenter.  Using a written document rather
-than audio files makes it easier to quickly review the content of the programme, make notes and suggestions, and to do
-this over large geographic distances. The presenter uses the document to write and insert ``links'', which are the
-narrative elements spoken by the presenter to link the interview clips into a story. They also insert comments and
-notes for the producer. Once the script is nearing its final stages, the presenter records (7) their links and sends
-them to the producer.
+%\textit{``As I'm organising a programme, booking interviews, talking to contributors, and planning interviews, I'm all
+%the time assembling a scratch structure that will eventually be the script.''} (P3)
+%% It's not set in stone unless it has to be
 
-If the programme is part of a series, it will often have theme music. Any other music is chosen (8) by the producer,
-often using production music services such as Audio Network\footnote{\url{http://audionetwork.com} (accessed 28/4/17)},
-or the BBC's Desktop Jukebox.
+%The script is also used to collaborate with and get feedback (6) from the presenter.  Using a written document rather
+%than audio files makes it easier to quickly review the content of the programme, make notes and suggestions, and to do
+%this over large geographic distances. The presenter uses the document to write and insert \textit{links}, which are the
+%narrative elements spoken by the presenter to link the interview clips into a story. They also insert comments and
+%notes for the producer. Once the script is nearing its final stages, the presenter records (7) their links and sends
+%them to the producer.
 
-Once the interview, links and music are ready, the producer will assemble these into an edit (9) that matches the
-script, using the DAW. This edit will be about twice as long as the final programme, sometimes significantly longer
-(e.g. P5 reported that they once created 22-hour-long rough edit for a 37-min programme). The producer then continues
-to edit the audio, primarily to ``get it down to time'', but also to give it a final polish by cleaning up the audio.
-Cleaning involves finely adjusting sound levels to be consistent, removing ``umm''s and breaths, and adding non-speech
-sounds to create a rich auditory scene.  Producers who are skilled at using a DAW will usually clean up the audio
-themselves, but others will bring in a sound engineer (known in the BBC as a ``studio manager''), to help with this (10).
+%If the programme is part of a series, it will often have theme music. Any other music is chosen (8) by the producer,
+%often using production music services such as Audio Network\footnote{\url{http://audionetwork.com} (accessed 28/4/17)},
+%or the BBC's Desktop Jukebox.
 
-Before a programme is broadcast, it must be signed-off by the department head, known as the ``editor''. Most producers
-will get feedback from the editor (11) before this, so that they have time to make any requested changes. Often this
-happens a day or two before transmission. Some participants reported that they sit in the room with the editor while
-the current version is played, while others sent an audio file to the editor to listen by themselves. In both cases,
-the editor gives oral feedback and suggests changes.  Once the editing is complete, a final version is rendered to an
-audio file and added to the playout system for the editor to sign-off (12).
+%Once the interview, links and music are ready, the producer will assemble these into an edit (9) that matches the
+%script, using the DAW. This edit will be about twice as long as the final programme, sometimes significantly longer
+%(e.g. P5 reported that they once created 22-hour-long rough edit for a 37-min programme). The producer then continues
+%to edit the audio, primarily to ``get it down to time'', but also to give it a final polish by cleaning up the audio.
+%Cleaning involves finely adjusting sound levels to be consistent, removing ``umm''s and breaths, and adding non-speech
+%sounds to create a rich auditory scene.  Producers who are skilled at using a DAW will usually clean up the audio
+%themselves, but others will bring in an SM to help with this (10).
 
-% Quote from P3
-%So once you've got that done, you then start using your structure to assemble sound, assemble scripts, write links to
-%go with those bits of transcript in the structure as it becomes a script. 
+%Before a programme is broadcast, it must be signed-off by the department head, known as the editor. Most producers
+%will get feedback from the editor (11) before this, so that they have time to make any requested changes. Often this
+%happens a day or two before transmission. Some participants reported that they sit in the room with the editor while
+%the current version is played, while others sent an audio file to the editor to listen by themselves. In both cases,
+%the editor gives oral feedback and suggests changes.  Once the editing is complete, a final version is rendered to an
+%audio file and added to the playout system for the editor to sign-off (12).
 
-% Quote from P3
-%The way I do it is that I have a piece of paper with the names of the sections, the rough amount of time I'm budgeting
-%for each one and once I've done an assemblage of the amount of time I've got of each one I can see I've got 37 mins for
-%part one where actually I need 4 mins and that motivates you to crunch it down. You just keep going round and round and
-%round that until you get something that's coherent, clear and to time.
+%% Quote from P3
+%%So once you've got that done, you then start using your structure to assemble sound, assemble scripts, write links to
+%%go with those bits of transcript in the structure as it becomes a script. 
 
-%\paragraph{(7) Record presenter} The next stage is to add narrative elements, known as `links' to join the clips
-%together into a storyline. The producers reported that they work with their presenter to write the links together,
-%using the programme script to collaborate. The presenter records the links in a studio and the producer then assembles
-%them into the edit.
+%% Quote from P3
+%%The way I do it is that I have a piece of paper with the names of the sections, the rough amount of time I'm budgeting
+%%for each one and once I've done an assemblage of the amount of time I've got of each one I can see I've got 37 mins for
+%%part one where actually I need 4 mins and that motivates you to crunch it down. You just keep going round and round and
+%%round that until you get something that's coherent, clear and to time.
 
-We now consider the comments made by participants, organised by the categories from the thematic coding (see Table~\ref{tab:codes}).
+%%\paragraph{(7) Record presenter} The next stage is to add narrative elements, known as `links' to join the clips
+%%together into a storyline. The producers reported that they work with their presenter to write the links together,
+%%using the programme script to collaborate. The presenter records the links in a studio and the producer then assembles
+%%them into the edit.
+
 
 \subsubsection{Challenges of comprehension}
 
@@ -880,7 +882,7 @@ regular breaks.
   I'm normally doing it I'm checking my emails, making a cup of tea.''} (P3)
 
 \subsubsection{Programme script}
-The producers organised the programme by writing a ``script''. This is primarily used to help them structure their
+The producers organised the programme by writing a script. This is primarily used to help them structure their
 thoughts, but also to help communicate with the presenter over email.
 
 %The scripts contain varying amounts
@@ -911,7 +913,7 @@ editing. For example, ``\textit{[good to here, dull after]}'' or
 quality of each point, for example ``\textit{[**** should use this stuff, but
   dramatically cut down]}''.
 
-\textit{``What I sometimes do when I edit are star good bits, and I think
+\textit{``What I sometimes do when I edit is star good bits, and I think
   that's quite a common trait.''} (P3)
 
 Bold highlighting was also used by P1 and P3 to mark bits of the transcript
@@ -939,7 +941,7 @@ such as people mumbling, stumbling, coughing, or any excessive background noise.
 \textit{``I've done paper edits before where I've gone back to that bit of audio and they didn't quite finish the
   sentence or they muttered it. You just couldn't use it at that point.''} (P3)
 
-However, the producers were are also listening out for anything that worked particularly well, such as a moment of
+However, the producers were also listening out for anything that worked particularly well, such as a moment of
 comedy or passion, or a sound that perfectly captures the right feeling. Identifying these using the text of a
 transcript is very difficult or impossible. 
 
@@ -1193,7 +1195,7 @@ They inserted paragraph breaks, added notes after paragraphs, and
 highlighted desired parts of the transcript in bold. Once the transcript was
 annotated in Microsoft Word, they went back to Dialogger, found the parts of the
 transcript they wanted by scrolling though the text, then dragged and
-exported each clip individually as a .wav file.
+exported each clip individually as a WAVE file.
 
 \textit{``it would be better to take raw lumps of transcripts and plonking them
   in Word because Word has higher functionality than this''} (P3)
@@ -1256,7 +1258,7 @@ they then used the Ctrl+F text search to find the highlighted words in Dialogger
 
 \textit{``it allowed me to get to clips very quickly from a reference point on a printed transcript''} (P2)
 
-However P2 noted that having timestamps on the printout may be a faster
+However, P2 noted that having timestamps on the printout may be a faster
 way of achieving the same thing.
 Once they had found and clipped all of the highlighted parts in Dialogger, they exported the clips into SADiE.
 
@@ -1282,9 +1284,9 @@ overlooked.
 \textit{``I was anxious it might not have sounded as good as it read, or that I might be missing bits that sounded
   great ''} (P2)
 
-As discussed in Section~\ref{sec:existing-quality}, the participants existing workflow includes playing the audio
-faster than real time, but that feature was not included in Dialogger.  Several of the participants noted that they
-would like to have this feature added.
+As discussed in Section~\ref{sec:existing-quality}, the existing workflow of the participants includes playing the
+audio faster than real time, but that feature was not included in Dialogger.  Several of the participants noted that
+they would like to have this feature added.
 
 \textit{``it's a little bit annoying that there's no facility for that.''} (P2)
 
@@ -1455,10 +1457,10 @@ duplication of content. This could also be achieved by marking which parts of re
 \centering
   \begin{tikzpicture}
   \begin{axis}[
-      width=\columnwidth,
+      width=.7\columnwidth,
       xbar=0pt,
       bar width=6pt,
-      xlabel=Task duration / Audio duration,
+      xlabel=$\frac{\text{Task duration}}{\text{Audio duration}}$,
       y=16pt,
       xmin=0,
       xmax=3,
@@ -1469,9 +1471,9 @@ duplication of content. This could also be achieved by marking which parts of re
       reverse legend,
       legend cell align={left},
       ]
-  \addplot[fill=violet, opacity=0.5] coordinates {(0.619,P1) (0.941,P2*) (1.48,P3) (0.395,P4**) (0.529,P5**)};
+  \addplot[fill=black!40, opacity=0.5] coordinates {(0.619,P1) (0.941,P2*) (1.48,P3) (0.395,P4**) (0.529,P5**)};
   \addlegendentry{New}
-  \addplot[fill=teal, opacity=0.5] coordinates {(1.125,P1) (1.0,P2*) (2.75,P3) (0.258,P4**)
+  \addplot[fill=black!65, opacity=0.5] coordinates {(1.125,P1) (1.0,P2*) (2.75,P3) (0.258,P4**)
     (0.565,P5**)};
   \addlegendentry{Existing}
   \end{axis}
@@ -1486,7 +1488,7 @@ We recorded the time participants took to complete the observed tasks (see Figur
 recordings of different lengths were used for the existing and new workflows, we divided the edit time by the audio
 duration to calculate the relative edit time.  In all cases, the producers were able to run the ASR processing as a
 background task so this was not included in the calculation. P1, P2 and P3 used the semantic editor after their
-existing process, while P4 and P5 did the opposite. However as different recordings were edited on each system, the
+existing process, while P4 and P5 did the opposite. However, as different recordings were edited on each system, the
 presentation order is not expected to affect the results.
 
 The mean average time for semantic editing was 0.79 minutes per minute of audio, versus 1.13 minutes for the existing
@@ -1528,7 +1530,7 @@ With only five participants and marginal differences, it was not possible to
 draw any conclusions about cognitive load from these results.  They indicate
 that Dialogger requires slightly less effort and mental demand, and is less
 frustrating.
-However it is considered more physically demanding, temporally
+However, it is considered more physically demanding, temporally
 demanding and scores lower in performance.
 
 %To put these results in context, we must look at what the
@@ -1631,7 +1633,7 @@ noisy and distracting office environment.
 We observed that in their existing workflow, participants tackled these challenges by employing a number of techniques
 to filter and arrange their audio content. They started by listening back to all of their recordings, which allowed
 them to simultaneously assess the editorial content and sound quality of the audio. For long recordings, many
-participants ``logged'' the audio as they listened, by typing rough transcriptions and notes into a word processor, which
+participants \textit{logged} the audio as they listened, by typing rough transcriptions and notes into a word processor, which
 they later used to help them edit the audio using a digital audio workstation (DAW). For short recordings, instead of
 logging, participants segmented their recordings in the audio editor during playback, and went back to remove unwanted
 segments and label the rest.
@@ -1669,15 +1671,14 @@ compression algorithms such as those described by \citet{Arons1997} could be use
 included in previous semantic editing systems, but should be considered in the future, especially as \citet{Vemuri2004}
 found that the maximum time compression factor is significantly higher when an automated transcript is present.
 
-Removal of ``umm''s and breaths, known in radio production as ``de-umming'', is either done by the producer themselves or
-with the help of a sound engineer, depending on the producer's experience and time pressure. To maintain sound quality,
-the removal of umms/breaths must be audibly transparent and participants reported that this can difficult to achieve.
-Previous semantic editing systems have included functionality to remove umms \citep{Berthouzoz2012} and breaths
-\citep{Rubin2013}, however these were made possible because the manually generated transcripts 
-explicitly transcribed those items. ASR systems are normally trained to ignore umms/breaths rather than
-transcribe them, which prevented us from including this functionality. A transcription system that includes these would
-allow us to add this functionality, however further research is needed into the extent to which de-umming can be
-automated in this way.
+Removal of ``umm''s and breaths through de-umming is either done by the producer themselves or with the help of a sound
+engineer, depending on the producer's experience and time pressure. To maintain sound quality, the removal of
+umms/breaths must be audibly transparent and participants reported that this can be difficult to achieve.  Previous
+semantic editing systems have included functionality to remove umms \citep{Berthouzoz2012} and breaths
+\citep{Rubin2013}, however these were made possible because the manually generated transcripts explicitly transcribed
+those items. ASR systems are normally trained to ignore umms/breaths rather than transcribe them, which prevented us
+from including this functionality. A transcription system that includes these would allow us to add this functionality,
+however further research is needed into the extent to which de-umming can be automated in this way.
 
 \subsection{Annotation}
 
@@ -1931,7 +1932,7 @@ were included.
 Based on the results of this work, we developed the prototype further to take into account the feedback from the
 producers in our study.  We handed the prototype over to a development team at the BBC who turned it into an
 officially supported production tool.  This has allowed producers from around the BBC to use the tool as part of their
-normal workflow.  As of October 2016, the system had 45 active users and has processed 265 audio recordings.
+normal workflow.  As of October 2016, the system had 45 active users and had processed 265 audio recordings.
 %We will continue to collect usage and interaction metrics for later analysis.
 
 \begin{figure}[ht]
