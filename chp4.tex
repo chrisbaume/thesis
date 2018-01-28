@@ -128,10 +128,10 @@ To conduct the experiment, we developed a web-based test interface, shown in Fig
 The interface displayed the overall visualization as well as a zoomed-in view above it. The participant could navigate
 the audio by clicking on either view, which would seek to that position in the audio.  Buttons below the visualization
 controlled play/pause, zoom level and setting the in and out points of the selection.  The selection was displayed by
-highlighting the visualization, and on a slider below it. The selection could be adjusted by dragging either end of the
-slider.  Training was provided using a ``pop-up tour'', which guided the user through the interface's features and
-operation using a series of pop-up text boxes.  The interface also captured the participant's questionnaire responses
-and preferences.
+highlighting both the visualization itself and a slider below it. The selection could be adjusted by dragging either
+end of the slider.  Training was provided using a ``pop-up tour'', which guided the user through the interface's
+features and operation using a series of pop-up text boxes.  The interface also captured the participant's
+questionnaire responses and preferences.
 
 \begin{figure}[h]
 \centering
@@ -162,7 +162,7 @@ Beatmap in greater detail in Appendices \ref{sec:vampeyer} and \ref{sec:beatmap}
 \subsection{Conditions}
 As we saw in Section~\ref{sec:background-daw-visual}, radio producers edit audio with DAWs that use audio waveforms as
 the medium for interaction. In Section~\ref{sec:background-waveforms-related}, we also saw that by adding colour to
-audio waveforms, additional semantic information about the audio could be displayed, while retaining a the familiar
+audio waveforms, additional semantic information about the audio could be displayed, while retaining the familiar
 audio waveform visualization.  We were interested in measuring the performance of both the normal audio waveform and a
 semantically enhanced waveform, and also comparing them directly.  Therefore, we chose to use the following conditions
 for the audio visualizations. An example of each condition is shown in Figure~\ref{fig:conditions}.
@@ -231,7 +231,7 @@ function of the moving average, which we configured as 3\% of the mean RMS in a 
 \begin{align}
   x_{rms}(n) &= \sqrt{\frac{1}{F} \displaystyle\sum\limits_{i=Fn}^{F(n+1)} x_i^2}\\
   X &= \{x_{rms}(n) \mid 0 \leq n < \frac{f_s}{F}\}\\
-  X_{low} &= \{x\ | \ x \in X \wedge x < 0.03 \overline{X} \}
+  X_{low} &= \{x\ | \ x \in X \wedge x < 0.03 \overline{X} \}\\
   \text{LER} &= 100 \times \frac{|X_{low}|}{|X|}\label{eq:ler}
 \end{align}
 
@@ -529,17 +529,17 @@ out-point.
   %\label{eq:accept}
 %\end{figure}
 
-We tested for statistically significant differences in the task load ratings by using SPSS to conduct a repeated
-measures analysis of variance (rANOVA) \citep[p.~409]{Shalabh2009}.  We tested the underlying assumptions of normality
-and sphericity by plotting the distribution and using Mauchly's Test of Sphericity \citep[p.~415]{Shalabh2009}.
-Mauchly's Test indicated that the assumption of sphericity had been violated for the effort metric [$\chi^2(2) = 9.657,
-p=.008$] and temporal demand metric [$\chi^2(2) = 17.918, p<.001$]. Therefore, we corrected the degrees of freedom
-using the conservative Greenhouse-Geisser Correction \citep[p.~416]{Shalabh2009}.  We then used Tukey's honest
-significant difference (HSD) post-hoc test \citep[p.~139]{Shalabh2009} to make pairwise comparisons between the mean
-values of the metrics.
+We tested for statistically significant differences in the TLX ratings by using SPSS to conduct a repeated measures
+analysis of variance (rANOVA) \citep[p.~409]{Shalabh2009}.  We tested the underlying assumptions of normality and
+sphericity by plotting the distribution for each condition and using Mauchly's Test of Sphericity
+\citep[p.~415]{Shalabh2009}.  Mauchly's Test indicated that the assumption of sphericity had been violated for the
+effort metric [$\chi^2(2) = 9.657, p=.008$] and temporal demand metric [$\chi^2(2) = 17.918, p<.001$]. Therefore, we
+corrected the degrees of freedom using the conservative Greenhouse-Geisser Correction \citep[p.~416]{Shalabh2009}.  We
+then used Tukey's honest significant difference (HSD) post-hoc test \citep[p.~139]{Shalabh2009} to make pairwise
+comparisons between the mean values of the metrics.
 
 Our study contained one fixed effect (visualization) and two random effects (audio clip and participant).  We could not
-re-use audio clips for the tasks as participant would remember the position of the music.  Therefore, as we did not
+re-use audio clips for the tasks as participants would remember the position of the music.  Therefore, as we did not
 have results from every participant for every combination of audio clip and visualization, our dataset was incomplete.
 As we are using a repeated measures design, we would normally analyse the results using a repeated measures ANOVA.
 However this requires a complete dataset, so we were unable to use this analysis.
@@ -817,7 +817,7 @@ statistical significance of the pairwise comparisons between the conditions.
     \end{tikzpicture}
     \caption{Task completion time}
   \end{subfigure}
-  \caption{Mean performance metric values with 95\% confidence intervals. Lower values are better.}
+  \caption{Mean performance metric values with 95\% confidence intervals. Lower values represent better performance.}
   \label{fig:visualization-metrics}
 \end{figure}
 
@@ -842,7 +842,7 @@ statistical significance of the pairwise comparisons between the conditions.
 
 \subsubsection{Seek actions}
 The audio visualization had a significant effect on the number of seek actions used to complete the task
-[$F(3,366)=93.871, p<.00001$]. Based on the mean averages, the enhanced waveform (C3) required 7.5 (30\%) fewer seek
+[$F(3,366)=93.871, p<.001$]. Based on the mean averages, the enhanced waveform (C3) required 7.5 (30\%) fewer seek
 actions than the normal waveform (C2), and 12.7 (43\%) fewer than having no visualization (C1). Additionally, the
 normal waveform (C2) required 5.2 (17\%) fewer seek actions than having no visualization (C1).  The differences in seek
 actions between all three conditions were statistically significant ($p<.01$). These results confirm hypothesis H1
@@ -850,14 +850,14 @@ actions between all three conditions were statistically significant ($p<.01$). T
 
 \subsubsection{Task completion time}
 The audio visualization had a significant effect on the time required to complete the task [$F(3,366)=25.261,
-p<.00001$].  Based on the mean averages, the task was completed 9 seconds (13\%) faster using the enhanced waveform
+p<.001$].  Based on the mean averages, the task was completed 9 seconds (13\%) faster using the enhanced waveform
 (C3) compared to the normal waveform (C2), and 10.9 seconds (15\%) faster compared to having no visualization (C1),
 both with $p<.01$.  There was no statistically significant difference in task completion time between the normal
 waveform (C2) and no visualization (C1).  The mean time of the normal waveform (C2) was only 1.9 seconds (3\%) faster
 than no visualization (C1).  These results confirm hypothesis H2 (time) for C2$>$C3, but not for C1$>$C2.
 
 \subsubsection{Task error}
-The audio visualization had a significant effect on the accuracy of the task result [$F(3,366)=42.462, p<.00001$].
+The audio visualization had a significant effect on the accuracy of the task result [$F(3,366)=42.462, p<.001$].
 Based on the mean averages, the error when using the enhanced waveform (C3) was 87ms (14\%) lower than when using the
 normal waveform (C2) with $p<.05$, and 122ms (19\%) lower than when there was no visualization (C1) with $p<.01$. There
 was no statistically significant difference in task error between the normal waveform (C2) and no visualization (C1).
@@ -937,6 +937,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
       ylabel=Effort,
       ymax=2,
       ymin=-8.5,
+      ytick distance=3,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
       \addplot[black,mark=*]
@@ -948,7 +949,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
         };
     \end{axis} 
     \end{tikzpicture}
-    \caption{Effort}
+    %\caption{Effort}
   \end{subfigure}%
   ~
   \begin{subfigure}[t]{0.5\textwidth}
@@ -960,6 +961,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
       ylabel=Frustration,
       ymax=2,
       ymin=-8.5,
+      ytick distance=3,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
       \addplot[black,mark=*]
@@ -971,7 +973,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
         };
     \end{axis} 
     \end{tikzpicture}
-    \caption{Frustration}
+    %\caption{Frustration}
   \end{subfigure}%
 
   \begin{subfigure}[t]{0.5\textwidth}
@@ -983,6 +985,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
       ylabel=Mental demand,
       ymax=2,
       ymin=-8.5,
+      ytick distance=3,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
       \addplot[black,mark=*]
@@ -994,7 +997,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
         };
     \end{axis} 
     \end{tikzpicture}
-    \caption{Mental demand}
+    %\caption{Mental demand}
   \end{subfigure}%
   ~
   \begin{subfigure}[t]{0.5\textwidth}
@@ -1006,6 +1009,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
       ylabel=Performance,
       ymax=2,
       ymin=-8.5,
+      ytick distance=3,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
       \addplot[black,mark=*]
@@ -1017,7 +1021,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
         };
     \end{axis} 
     \end{tikzpicture}
-    \caption{Performance}
+    %\caption{Performance}
   \end{subfigure}%
 
   \begin{subfigure}[t]{0.5\textwidth}
@@ -1029,6 +1033,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
       ylabel=Physical demand,
       ymax=2,
       ymin=-8.5,
+      ytick distance=3,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
       \addplot[black,mark=*]
@@ -1040,7 +1045,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
         };
     \end{axis} 
     \end{tikzpicture}
-    \caption{Physical demand}
+    %\caption{Physical demand}
   \end{subfigure}%
   ~
   \begin{subfigure}[t]{0.5\textwidth}
@@ -1052,6 +1057,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
       ylabel=Temporal demand,
       ymax=2,
       ymin=-8.5,
+      ytick distance=3,
       xtick={1,2,3},
       xticklabels={C1,C2,C3}]
       \addplot[black,mark=*]
@@ -1063,9 +1069,9 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
         };
     \end{axis} 
     \end{tikzpicture}
-    \caption{Temporal demand}
+    %\caption{Temporal demand}
   \end{subfigure}%
-  \caption{Mean task load index (TLX) values with 95\% confidence intervals. Lower values are better.}
+  \caption{Mean task load index (TLX) values with 95\% confidence intervals. Lower values represent better performance.}
   \label{fig:tlx-results}
 \end{figure}
 
@@ -1084,13 +1090,13 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
 \label{tab:pairwise-perceptual}
 \end{table}
 
-We analysed the task load ratings using repeated measures ANOVA \citep[p.~409]{Shalabh2009}, which found that the audio
-visualization had a significant effect on the task load ratings from participants [$F(12,152)=3.552, p<.001$].
-Figure~\ref{fig:tlx-results} shows the mean values and confidence intervals of the task load metrics.
+We analysed the TLX ratings using repeated measures ANOVA \citep[p.~409]{Shalabh2009}, which found that the audio
+visualization had a significant effect on the TLX ratings from participants [$F(12,152)=3.552, p<.001$].
+Figure~\ref{fig:tlx-results} shows the mean values and confidence intervals of the TLX metrics.
 Table~\ref{tab:pairwise-perceptual} lists the statistical significance of the pairwise comparisons between the
 conditions.
 
-The task load ratings from participants show that compared to both the normal waveform (C2) and no visualization (C1),
+The TLX ratings from participants show that compared to both the normal waveform (C2) and no visualization (C1),
 the enhanced waveform (C3) was perceived to be less mentally and physically demanding, better performing, less
 frustrating and requiring less effort (all $p<.05$).  The participants also rated the enhanced waveform as less
 temporally demanding than the normal waveform ($p<.05$).  Compared to having no visualization (C1), participants rated
@@ -1312,8 +1318,8 @@ the most frustrating.
 
 \section{Discussion}\label{sec:vis-discuss}
 
-Our study found that using an enhanced waveform visualization, participants could segment music from speech faster,
-more accurately and with less effort than using a normal waveform.  When using the normal waveform, participants could
+Our study found that by using an enhanced waveform visualization, participants could segment music from speech faster,
+more accurately and with less effort than by using a normal waveform.  When using the normal waveform, participants could
 segment music from speech with less effort than having no visualization, but we did not find any significant
 differences in the time it took, nor the accuracy of the result.  Table~\ref{tab:hypotheses} summarises the findings
 for the hypotheses we tested.
