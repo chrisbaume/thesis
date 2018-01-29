@@ -1,37 +1,29 @@
 % !TeX root = main.tex
 \chapter*{Abstract}
 
-Radio producers use specialist audio editing tools to browse long sound recordings and edit them into a programme.
-These tools predominantly use audio waveforms to visually assist users in navigating and editing the audio.  However,
-audio waveforms display very limited information so do not always fulfil the needs of radio producers. We found through
-a short task-based online study that by colourising waveforms, users were able to perform simple edits with less
-effort. In this thesis, we investigate whether the radio production process can be improved by developing
-visualisations and tools that better match the requirements of professional users.
+Radio production is a creative pursuit that uses sound to inform, educate and entertain an audience. Radio producers
+use audio editing tools to visually select, re-arrange and assemble sound recordings into programmes. However, current
+tools represent audio using waveform visualizations that display limited information about the sound.
 
-We conducted a brief ethnographic study of radio production techniques in three environments – news, drama and
-documentaries. We found that radio production is mainly speech-based and often involves written transcripts of the
-speech. Many producers annotate the transcripts with editorial decisions, then use audio editing software to manually
-apply those edits to the audio. We identified an opportunity to improve this process by using a semantic audio editor
-to allow producers to edit the audio directly using a transcript.
+Semantic audio analysis can be used to extract useful information from audio recordings, including when people are
+speaking and what they are saying. This thesis shows how such information can be applied to create semantic audio tools
+that improve the radio production process.
 
-To investigate the impact of this approach, we developed a semantic audio editing tool based on automated
-speech-to-text that integrated with professional radio production systems. We used this tool to conduct a qualitative
-study comparing a semantic audio editing workflow to the existing process. Our study involved five professional radio
-producers who used our tool to create programmes that were later broadcast. We found that the automated transcripts
-were accurate enough to be used for audio editing, but that listening is still an important part of audio production.
-For long recordings, we found that semantic editing was twice as fast as the existing technique. The participants
-continued to use our system in the months after the study, and it has since been developed into a supported production
-tool.
+An initial ethnographic study of radio production at the BBC reveals that producers use textual representations and
+paper transcripts to interact with their audio content, and waveforms to edit their programmes. Based on these
+findings, three methods for improving radio production are developed and evaluated, which form the primary contribution
+of this thesis.
 
-This study also revealed that many producers prefer working with printed transcripts to working on screen. To
-investigate how paper transcripts are used, we observed five radio producers interacting with printouts of automated
-transcripts. We found that they use a variety of annotation methods, but underlining and strikethrough are most common.
-Working with a commercial partner, we developed a pen-based interface to our semantic audio editor. This enabled users
-to directly edit audio content on paper by making underline and strikethrough marks with a digital pen.
+Audio visualizations can be enhanced by mapping semantic audio features to colour, but this approach had not been
+formally tested. We show that with an enhanced audio waveform, a typical radio production task can be completed faster,
+with less effort and with greater accuracy than a normal waveform.
 
-We conducted a qualitative study of eight radio producers to perform a three-way comparison of audio editing using
-normal printed transcripts, screen-based semantic editing and pen-based semantic editing. The producers scored the
-normal transcripts as most useful and usable, as it was well-aligned to their existing workflow. The screen-based
-editor appealed to those who have migrated to a purely digital workflow, and showed potential for being developed into
-a collaborative editing tool. Producers edited fastest using the pen-based system, and it was popular with those who
-already use paper, but its limited functionality and simplicity meant it scored least useful and usable.
+Speech recordings can be represented and edited using transcripts, but this approach had not been formally evaluated
+for audio production. By developing and testing a semantic speech editor, we show that automatically-generated
+transcripts can be used to semantically edit speech in a professional radio production context, and identify
+requirements for annotation, collaboration, portability and listening.
+
+Finally, we present a novel approach for editing audio on paper that combines semantic speech editing with a digital
+pen interface. We compare the relative benefits of using paper and screen interfaces for semantic speech editing, and
+gain insights into the effect of transcription errors and the reasons for listening.
+
