@@ -1,16 +1,17 @@
 % !TeX root = main.tex
-\chapter{Technological developments}\label{app:tech}
+\chapter{Published software}\label{app:tech}
 
 As part of the research presented in this theis, we developed several systems for semantic speech editing and audio
 visualization. We have since published these systems as open-source software for others to use. This chapter outlines
 the technical details behind the implementation of these systems, including notes on how we approached the more
-challenging aspects.
+challenging aspects of design.
 
 \section{Dialogger}\label{sec:dialogger}
 
 Dialogger is a semantic audio and video editor that enables the navigation and editing of media recordings using a
-text-based interface. We have published the system as open-source software under an Apache 2.0 licence at the following
-URL: \url{https://github.com/bbc/dialogger}
+text-based interface. The design and operation of Dialogger is outlined in Section~\ref{sec:paper-screen-design}. We
+have published the system as open-source software under an Apache 2.0 licence at the following URL:
+\url{https://github.com/bbc/dialogger}
 
 %Requirements:
 %Correction (i.e. text editing)
@@ -34,12 +35,14 @@ URL: \url{https://github.com/bbc/dialogger}
 
 Dialogger includes features for playback and navigation of media using a transcript, transcript editing, export of edit
 decision lists (EDLs), user accounts and media asset management. Our system does not include an ASR system, media
-format converter or media file export, however these can easily be integrated using the guide in the README.
+format converter or media file export, however these can easily be integrated using the instructions in the user guide.
+
+\subsection{System overview}
 
 The structure and data flow of Dialogger is shown in Figure~\ref{fig:dialogger-flow}. We divided our system into a
 presentation layer (front end) and a data management layer (back end). The front end used HTML, CSS and Javascript so
-that the system could be access through a web browser.  We used Semantic UI as a user interface framework, Backbone as
-a model-view-controller framework and Dropzone to handle file uploads.
+that the system could be accessed through a web browser.  We used \textit{Semantic UI} as a user interface framework,
+\textit{Backbone} as a model-view-controller framework and \textit{Dropzone} to handle file uploads.
 
 \begin{figure}[t]
 \centering
@@ -48,48 +51,66 @@ a model-view-controller framework and Dropzone to handle file uploads.
   \label{fig:dialogger-flow}
 \end{figure}
 
-
-Back-end
-Node.js / Express
-Database: MongoDB (Apache-2.0)
-Authentication: Passport.js (MIT)
-Media info: Mimovie (MIT)
-Logging: Bunyan (MIT)
+For the back end, we used \textit{Node.js} and \textit{Express} as our framework, and \textit{MongoDB} for our
+database. We authenticated users using \textit{Passport.js}, logged errors using \textit{Bunyan} and used
+\textit{Mimovie} to extract metadata from uploaded media files.
 
 \subsection{Word processing}
 
-We included word processing functionality in Dialogger to allow users to correct mistakes and mark up edit decisons.
+We included word processing functionality in Dialogger to allow users to navigate the speech, correct mistakes in the
+transcript and mark up edit decisons.  We used the \textit{CKEditor} Javascript library as the basis for the word
+processing functionality in our interface.
 
-Unique requirement that each word had to include a hidden timestamp, and for that timestamp to be retained throughout
-the editing process.
+\paragraph{Timestamps}
+In addition to the requirements of a normal word processor, our system had a unique requirement for each word to
+include a hidden timestamp, and for that timestamp to be retained throughout the editing process.  We achieved this by
+using HTML formatting for the text, adding a HTML tag to each word, and including the timestamp as an attribute in the 
+tag. This linked the timestamps to the words, but certain edit actions created problems, as explained below.
 
-We used the \textit{CKEditor} Javascript library as the basis for the word processing functionality in our interface.
-Word processing gives users the freedom to move and edit words freely. However, this freedom can make it easy to
-run into problems. Below we explain what these problems were and how we solved them.
+\paragraph{Split words}
+Traditional word processors allow users to select text with the granularity of individual characters. This caused an
+issue where words could be split by cutting, moving or replacing only part of a word. To avoid this problem, we
+restricted editing to word level-granularity by automatically moving the user's selection to the start and end of any
+selected words.
+
+\paragraph{Joined words}
+Occassionally, ASR systems will transcribe a single word as two words. When the user selects both words and types a
+replacement, then both words are replaced and their timestamps are lost. To avoid this, we added logic that detected
+this behaviour and created a new word with the start time of the first word and the end time of the last word.
 
 \paragraph{Re-ordering}
+Word processing gives users the freedom to move and edit words freely.  However, when text is moved around it becomes
+very difficult for the user to keep track of the original location and order of the words. This is a problem with audio
+editing as some edits sound unacceptable, so users will often want to adjust the edit.
+Our solution was to retain the sequence of the words so that their original positions were retined. This prevented
+re-ordering of the words, but this could be handled later by a DAW.  We implemented this restriction by disabling cut,
+copy, paste and drag-and-drop.
 
-When text is moved around it becomes very difficult for the user to keep track of the original location and order of
-the words. Our solution was to retain the sequence of the words so that their original positions were retined. This
-prevented re-ordering of the words, but this could be handled later by a DAW.  We implemented this restriction by
-disabling cut copy, paste and drag-and-drop.
+\subsection{Media integration}
 
-\paragraph{Selection}
+We used timestamps to link each word in the transcript to a segment of source media.  To integrate the transcript with
+the media, we built systems to generate an edit decisions list (EDL) based on the user's annotations, instantly preview
+those edits in the browser, and allow the user to download a copy of the final edit.
+
+\paragraph{EDL generation}
+In addition to including the start and end timestamp of each word in their HTML tag, we included the timestamp of the
+next word. To find edit points, we simply looked for any difference in the predicted and actual timestamp of a word.
+We could then generate an EDL by filtering words based on their annotation, then looking for edit points. However, this
+approach relies on the words being in their original sequence.
+
+\paragraph{Preview}
+We wanted users to be able to preview their edits to quickly hear whether they sound acceptable or not.  To implement
+this feature, we used \textit{HTML5 Video Compositor} --- a media composition engine that can play edit decision lists
+in the browser.
+
+Content can be dynamically appended to the EDL as it's playing to create interactive and responsive content.
+
+In video editing terms an EDL defines the points at which to cut and assemble video sources. VideoCompositor uses a simple JSON based EDL to describe how to cut and assemble HTML5 video sources, images, and WebGL contexts, it also provides a framework for performing shader based compositing operations (i.e cross-fades, green-screen).
 
 
-We had to restict the functionality of the text editing
-interface to avoid unintentional errors. We disabled cut,
 
-\paragraph{Timestamp}
+\paragraph{Export}
 
-
-  %No cut/copy/paste or dragging
-  %Replace only
-  %Selections jump to start/end of words
-  %Generate new timestamps when replacing >1 word
-
-\subsection{Media preview}
-Media playback: HTML5 Video Compositor (Apache-2.0)
 
 \clearpage
 \section{Vampeyer}\label{sec:vampeyer}
@@ -162,3 +183,9 @@ both prototyping and for back-end processing on a server, for example.
 \clearpage
 \section{BeatMap}\label{sec:beatmap}
 
+\begin{figure}[h]
+\centering
+  \includegraphics[width=\textwidth]{figs/beatmap.png}
+  \caption{Example user interface that uses the BeatMap library.}
+  \label{fig:beatmap}
+\end{figure}
