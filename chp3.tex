@@ -161,8 +161,8 @@ process.
 % sampling
 Due to the scale and variety of the radio operations at the BBC, it would be impossible to cover all production genres
 and techniques. To limit the scope of our work, we followed a ``maximum variation sampling'' strategy \citep[p.
-172]{Patton1990} to choose a small number of heterogeneous case studies. We aimed to select programmes of different
-genres to cover a variety of cultures and work practices.
+172]{Patton1990} to choose a small number of heterogeneous case studies. We selected programmes of different genres to
+cover a variety of cultures and work practices.
 
 The time needed to produce programmes can vary significantly, with some being produced over many weeks or months. To
 reduce our observation time, we worked with each production team to create a schedule of observations that sampled
@@ -201,15 +201,15 @@ interviews to ensure they understood the reasons and motivation behind the produ
 The researcher used a laptop computer to type field notes throughout the observation.  The notes specifically included
 the following:
 
-{\singlespacing
+%{\singlespacing
 \begin{itemize}
-	\item \textbf{Roles} -- Who are the team members? What are their responsibilities? Which other teams are involved?
-	\item \textbf{Environment} -- What is the location? How is the physical space laid out?
-	\item \textbf{Tools} -- Which tools are used? For what purpose? How do the users operate them?
-	\item \textbf{Tasks} -- What tasks are involved? Who does what? In what sequence do they take place?
-	\item \textbf{Challenges} -- Were there any problems or frustrations? Which activities were demanding or mundane?
+	\item \textbf{Roles} --- Who are the team members? What are their responsibilities? Which other teams are involved?
+	\item \textbf{Environment} --- What is the location? How is the physical space laid out?
+	\item \textbf{Tools} --- Which tools are used? For what purpose? How do the users operate them?
+	\item \textbf{Tasks} --- What tasks are involved? Who does what? In what sequence do they take place?
+	\item \textbf{Challenges} --- Were there any problems or frustrations? Which activities were demanding or mundane?
 \end{itemize}
-}
+%}
 
 The researcher also took photographs of any relevant locations, tools or other items, with the permission of the
 participant.
@@ -274,7 +274,7 @@ minute.  Once approved, the finished bulletins are read out live by a \textit{Ne
 generally has no direct contact with the rest of the team.
 
 The Summaries team gather audio content by working with the Intake team and directly with Reporters. The
-`\textit{Intake}' team set up and record live incoming audio and video feeds from Reporters in the field. They use an
+\textit{Intake} team set up and record live incoming audio and video feeds from Reporters in the field. They use an
 intercom to notify Summaries of the incoming feeds so that they can listen-in to the live feeds and provide instant
 feedback to the Reporter.  Summaries also work directly with individual Reporters that have been commissioned to record
 clips for the bulletins. These are recorded and edited by the Reporters themselves and provided to the team directly.
@@ -297,43 +297,36 @@ desktop TV monitor is used to keep an eye on the 24-hour BBC News television cha
 currently being reported. Most communication is within the team, which is helped by sitting close together at the same
 desk.
 
-\begin{figure}
+\begin{figure}[p]
   \centering
   \includegraphics[width=\columnwidth]{figs/newsroom.pdf}
   \caption{The newsroom in BBC New Broadcasting House. Image source: BBC.}
   \label{fig:newsroom}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=4in]{figs/news-layout.pdf}
-  \caption{Layout of Radio Summaries within the BBC newsfloor.}
+  \caption{Physical layout of Radio Summaries in the BBC newsroom.}
 	\label{fig:newsroom-layout}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[p]
   \centering
   \includegraphics[width=\columnwidth]{figs/news-desk-labelled.pdf}
-  \caption{Desk of the Radio Summaries Assistant Editor. The switching interface controls the output of the monitor and
-    headphones.}
+  \caption[Desk of the Radio Summaries Assistant Editor.]{Desk of the Radio Summaries Assistant Editor.  The switching
+  interface controls the output of the monitor and headphones.}
   \label{fig:news-desktop}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[p]
   \centering
   \includegraphics[width=\columnwidth]{figs/news-enps-labelled.pdf}
-  \caption{User interface for Electronic News Production System (ENPS). The Media Object Server (MOS) plugin is used to
-  find and edit audio clips in the \textit{dira!} radio production system.}
+  \caption[User interface for Electronic News Production System (ENPS).]{User interface for Electronic News Production
+  System (ENPS).  The Media Object Server (MOS) plugin is used to find and edit audio clips in the \textit{dira!} radio
+production system.}
   \label{fig:news-enps-edit}
 \end{figure}
-
-The Broadcast Journalists and Assistant Editor write the summaries on a desktop PC using a software package called
-``Electronic News Production System'' (\textit{ENPS}). Figure~\ref{fig:news-enps-edit} shows the ENPS interface. ENPS
-is used for writing scripts, compiling and approving news bulletins, and monitoring newswire services\footnote{Newswire
-services are global news agencies that provide news reports to subscribing news organisations, such as Reuters and
-Associated Press (AP).}. The system is networked so that any changes made in ENPS are instantaneously updated for
-everybody. Audio clips are browsed, imported and edited using a plugin called Media Object Server (\textit{MOS}), which
-integrates with the \textit{dira!} radio production system.
 
 \begin{figure}[p]
   \centering
@@ -344,6 +337,22 @@ integrates with the \textit{dira!} radio production system.
   \label{fig:news-arrivals}
 \end{figure}
 
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=.9\columnwidth]{figs/news-workflow.pdf}
+  \caption{Operational sequence diagram of news summaries production, partitioned by role and location.}
+	\label{fig:news-flowchart}
+\end{figure}
+
+
+The Broadcast Journalists and Assistant Editor write the summaries on a desktop PC using a software package called
+``Electronic News Production System'' (\textit{ENPS}). Figure~\ref{fig:news-enps-edit} shows the ENPS interface. ENPS
+is used for writing scripts, compiling and approving news bulletins, and monitoring newswire services\footnote{Newswire
+services are global news agencies that provide news reports to subscribing news organisations, such as Reuters and
+Associated Press (AP).}. The system is networked so that any changes made in ENPS are instantaneously updated for
+everybody. Audio clips are browsed, imported and edited using a plugin called Media Object Server (\textit{MOS}), which
+integrates with the \textit{dira!} radio production system.
+
 When Intake upload a clip to \textit{dira!}, it appears on a large screen in the news floor called the ``arrivals
 board'' (see Figure~\ref{fig:news-arrivals}). The display includes a reference number which can be used to find the
 clip, as well as the upload time and a description. The description often contains the subject, reporter's name and
@@ -352,13 +361,6 @@ their location, but the descriptions are written quickly and their is no formal 
 \subsubsection{Task analysis}
 Figure~\ref{fig:news-flowchart} shows the operational sequence diagram of the Radio Summaries production process. A
 description of the workflow with labelled tasks is presented below.
-
-\begin{figure}[p]
-	\centering
-	\includegraphics[width=.9\columnwidth]{figs/news-workflow.pdf}
-  \caption{Operational sequence diagram of news summaries production, partitioned by role and location.}
-	\label{fig:news-flowchart}
-\end{figure}
 
 % read newswires
 % monitor TV news
@@ -398,8 +400,8 @@ and end of the clip.  The name, in/out words and duration of the clip appear in 
 % read bulletin on-air
 The finished bulletin must fit an exact time slot (e.g. 120 seconds), so the Broadcast Journalist must estimate how
 long it takes to read their bulletin, including the audio clips, and edit the text to the correct length (10).  When a
-Journalist has finished writing their bulletin, it is placed into the `running order' (11) and named according to the
-network and time (e.g. `R4 Thu 10:00').  The Assistant Editor then reviews the bulletin and listens to the clips (12). This
+Journalist has finished writing their bulletin, it is placed into the ``running order'' (11) and named according to the
+network and time (e.g. ``R4 Thu 10:00'').  The Assistant Editor then reviews the bulletin and listens to the clips (12). This
 is to ensure the bulletin is of the right length, is factually accurate, uses the correct language, and complies with
 BBC editorial policy. Any required changes are made either by giving feedback to the Journalist (13), or by the Assistant
 Editor making the changes themselves (14).  When the item is approved in ENPS, it is labelled with a green flag, which
@@ -442,12 +444,12 @@ help the journalists to recall the clip and write the script around it.
 Radio 4's ``15 Minute Drama'' is a series of original drama and book dramatisations, broadcast twice-daily. Drama
 production is very different from most other genres in radio, as it is based on a pre-written script of a radio play.
 Each episode takes around two days to produce, but production of the series spans several weeks.  The researcher
-observed the production over two full days -- one for the recording of the drama and the other for the editing process.
+observed the production over two full days --- one for the recording of the drama and the other for the editing process.
 The observation did not include the writing of the script.
 
 \subsubsection{Roles and responsibilities}
 The production team is led by a \textit{Director} who works with a \textit{Broadcast Assistant} and three studio
-managers (SMs) -- a \textit{Panel SM}, \textit{Grams SM} and \textit{Spot SM}. The team record a \textit{cast} of
+managers (SMs) --- a \textit{Panel SM}, \textit{Grams SM} and \textit{Spot SM}. The team record a \textit{cast} of
 actors who perform the drama.
 
 The Director is responsible for leading the team and making editorial and creative decisions. Before the recording,
@@ -480,6 +482,7 @@ Radio Drama Company (RDC), which is a rotating group of actors that are employed
 radio play in the studio, working under instruction from the Director.
 
 \subsubsection{Environment and tools}
+
 The drama we observed was recorded in Studio 60A, which is a purpose-built flexible performance space at BBC New
 Broadcasting House in London. The studio contains various spaces with different acoustic properties, including a
 staircase with wood, concrete and carpet steps, an upstairs bedroom, a fully working kitchen and a foam-lined spiral
@@ -487,6 +490,20 @@ corridor, used to simulate distance.  There are many fixtures and a range of pro
 common environmental sounds such as freestanding doors/windows with a variety of knockers and letter boxes. The studio
 is a large space, so there are four CCTV cameras which are used to help the producers in the cubicle to see parts of
 the studio that are out of sight. 
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=3.5in]{figs/drama-layout.pdf}
+  \caption{Physical layout of the drama studio and cubicle.}
+  \label{fig:drama-layout}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=.7\columnwidth]{figs/60a.jpg}
+  \caption{Cubicle of studio 60A, showing the view of the Panel SM into the studio.}
+  \label{fig:drama-studio}
+\end{figure}
 
 The studio is connected by a large acoustically-isolated window to the control room, known as the ``cubicle'', where
 the production team sit.  Figure~\ref{fig:drama-layout} shows the layout of the two spaces and
@@ -504,42 +521,40 @@ walking in during recording.  The Grams SM uses software called ``SpotOn'' \cite
 pre-recorded sound effects. They use the ProTools DAW to record audio clips of each performance, and label them with
 the episode, scene and take numbers.
 
-Figure~\ref{fig:drama-edit} shows the editing suite where the Panel SM and Director perform the post-production work.
-The editing suite is a compact acoustically-treated room which houses a PC running ProTools, stereo speakers, a small
-mixing desk and level meters.  The left monitor is used to find pre-recorded sound effects and the right monitor is
-used to arrange and edit the audio clips. The Panel SM uses an annotated copy of the script to guide this process.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=3.5in]{figs/drama-layout.pdf}
-  \caption{Physical layout of the drama studio and cubicle.}
-  \label{fig:drama-layout}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{figs/60a.jpg}
-  \caption{Cubicle of studio 60A.}
-  \label{fig:drama-studio}
-\end{figure}
-
-\begin{figure}
+\begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figs/drama-edit-labelled.pdf}
   \caption{Radio drama edit suite.}
   \label{fig:drama-edit}
 \end{figure}
 
+Figure~\ref{fig:drama-edit} shows the editing suite where the Panel SM and Director perform the post-production work.
+The editing suite is a compact acoustically-treated room which houses a PC running ProTools, stereo speakers, a small
+mixing desk and level meters.  The left monitor is used to find pre-recorded sound effects and the right monitor is
+used to arrange and edit the audio clips. The Panel SM uses an annotated copy of the script to guide this process.
+
+
 \subsubsection{Task analysis}
 Figures~\ref{fig:ethno-drama-recording} and \ref{fig:ethno-drama-editing} show the operational sequence diagrams of the
 radio drama recording and editing processes, respectively. Descriptions of each workflow with labelled tasks are
 presented individually below.
 
-\begin{figure}
+\begin{figure}[p]
   \centering
   \includegraphics[angle=90,width=\columnwidth]{figs/drama-recording-workflow.pdf}
   \caption{Operational sequence diagram of radio drama recording, partitioned by role and location.}
   \label{fig:ethno-drama-recording}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/drama-markup-labelled.pdf}
+  \caption[A drama script page with annotations that identify recorded takes and any mistakes made.]{An annotated drama
+    script page. Recordings for each take are marked with different coloured lines (1). The best take is marked with a
+    highlighter pen (2). The backup CD/track and take numbers are marked at the top of each line (3) and the length of
+    the take in seconds is marked at the bottom (4).  Freehand notes are often attached to takes (5). Repeated lines
+  are marked using square brackets in the colour of the take (6). Words are \textcopyright~2014 Marcy Kahan.}
+  \label{fig:drama-script}
 \end{figure}
 
 \paragraph{Recording}
@@ -568,19 +583,9 @@ for each scene is marked by highlighting the line for that take.  Words that are
 repeated words or phrases are marked with square brackets.  Different coloured pens are used to distinguish the marks
 for each take.  
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{figs/drama-markup-labelled.pdf}
-  \caption[An annotated drama script page.]{An annotated drama script page. Recordings for each take are marked with
-    different coloured lines (1). The best take is marked with a highlighter pen (2). The backup CD/track and take
-    numbers are marked at the top of each line (3) and the length of the take in seconds is marked at the bottom (4).
-    Freehand notes are often attached to takes (5). Repeated lines are marked using square brackets in the colour of
-  the take (6). Words are \textcopyright~2014 Marcy Kahan.}
-  \label{fig:drama-script}
-\end{figure}
 
 At the end of a take, the Panel SM stops the backup CD recording (18) and the Grams SM stops the DAW recording (19).
-The Grams SM uses the DAW to label the clip with the episode, scene and take number -- for example, ``e2s3t1'' (20).
+The Grams SM uses the DAW to label the clip with the episode, scene and take number --- for example, ``e2s3t1'' (20).
 The Broadcast Assistant marks the printed script and spreadsheet with the length of the take and the backup CD number
 (21).  If the Director wants to record another take (22), they discuss the performance with the production team, then
 provide the cast with feedback, either by walking into the studio, or using the intercom (23).  If the Director is
@@ -664,7 +669,7 @@ techniques could be used to detect and highlight where this happens.
 \subsection{Documentary}\label{sec:doc}
 ``The Report'' is a weekly investigative documentary that covers topical news stories. It is produced over a three week
 period by the Radio Current Affairs department in BBC News and is broadcast at 8pm every Thursday on Radio 4. The
-researcher observed the team for a total of four days -- one day during their research phase, one day during their
+researcher observed the team for a total of four days --- one day during their research phase, one day during their
 interviewing phase and two days during their editing phase.
 
 \subsubsection{Roles and responsibilities}
@@ -712,15 +717,6 @@ version.
 Figure~\ref{fig:ethno-docs-workflow} shows the operational sequence diagram of the documentary production.  A
 description of the workflow with labelled tasks is presented below.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{figs/docs-workflow.pdf}
-  \caption[Operational sequence diagram of radio documentary production, partitioned by role and location.]{Operational
-  sequence diagram of radio documentary production, partitioned by role and location.\\ {\footnotesize ($^{*}$some
-  interviews are transcribed using a third-party service)}}
-  \label{fig:ethno-docs-workflow}
-\end{figure}
-
 Production starts with researching the chosen topic of the documentary (1).  The purpose of the research stage is to
 form the story-line for the documentary, and to identify people to interview.  Often the topic will be in the news that
 week and the Producer will be looking for an interesting angle which can be explored in greater depth.  The Producer
@@ -730,7 +726,7 @@ draft outline of the programme (2).
 
 Once the team have identified who they might want to interview, the Producer or Researcher will approach them to see if
 they are interested (3).  If the interviewee has the time available, the Producer or Researcher will do a
-`pre-interview' over the phone, which simulates a real interview but is not recorded (4). This is done to see what the
+``pre-interview'' over the phone, which simulates a real interview but is not recorded (4). This is done to see what the
 person will say and whether it suits the story-line of the documentary.  Most interviews are recorded face-to-face,
 either on-location or in a studio, depending on the situation (5).  During interviews, the Presenter asks the questions
 while the Producer records the audio and monitors the levels.  For on-location interviews, the Presenter holds the
@@ -749,7 +745,16 @@ are informally written on the page.  After the team have marked-up the interview
 a guide to find and create audio clips of the content they highlighted (9), and piece it together into a rough edit
 using a DAW (10). The timestamps written in the transcript are used to help them navigate the audio.
 
-While the Producer creates a rough edit, the Presenter writes the programme's ``links'' -- the narrative elements that
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/docs-workflow.pdf}
+  \caption[Operational sequence diagram of radio documentary production, partitioned by role and location.]{Operational
+  sequence diagram of radio documentary production, partitioned by role and location.\\ {\footnotesize ($^{*}$some
+  interviews are transcribed using a third-party service)}}
+  \label{fig:ethno-docs-workflow}
+\end{figure}
+
+While the Producer creates a rough edit, the Presenter writes the programme's ``links'' --- the narrative elements that
 sit between the interview clips (11). When the first rough edit is complete, the whole team sits down with the Editor
 for a ``run-through'' (12). The programme is performed out loud from beginning to end, with the Presenter reading the
 links and the Producer playing the clips from the DAW. This allows the Editor to hear the programme and give early
@@ -852,11 +857,11 @@ them coordinate what they were recording, and to make annotations that were late
 programme. The documentary Producer printed the transcripts of their recordings to help them collaborate face-to-face
 in deciding which parts to use, then marking their selections using a highlighter pen.
 
-Paper is a flexible medium, which can be handed around, pointed at and annotated freely, amongst other things.
-However, with both the documentary and drama, the annotations made on the page were used as instructions on how to edit
-the audio, which had to be done manually using a DAW. This is a tedious and slow process. If these annotations could be
-captured in a structured digital format, they could then be automatically translated into audio edit commands. This may
-save producers time and effort without deviating much from their existing workflow.
+Paper is a flexible medium that can be handed around, pointed at and annotated freely, amongst other things.  However,
+with both the documentary and drama, edit decisions that were written on paper had to be manually translated into audio
+edits using a DAW. This is a tedious and slow process. If these annotations could be captured in a structured digital
+format, they could then be automatically translated into audio edit commands. This may save producers time and effort
+without deviating much from their existing workflow.
 
 \section{Conclusion}\label{sec:ethno-conclusion}
 We investigated audio editing workflows in radio production by conducting three ethnographic case studies in BBC

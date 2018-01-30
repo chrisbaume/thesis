@@ -42,11 +42,11 @@ evaluate the effect of this approach on navigation or editing tasks.
 
 % what we're doing
 We were interested in examining how audio waveforms affect editing tasks in radio production, and whether enhancing
-waveforms with colour improves their performance. In Section~\ref{sec:vis-method} we describe the design of our user
-study, in which we measured the performance of users in completing an editing task using different audio
-visualizations. Section~\ref{sec:vis-results} presents the results, which show that mapping semantic audio features to
-colour improved user performance in our task. We discuss these results in Section~\ref{sec:vis-discuss} and present our
-conclusions in Section~\ref{sec:vis-conclusions}.
+audio waveforms with colour improves their performance. In Section~\ref{sec:vis-method} we describe the design of our
+user study, in which we measured the performance of users in completing an editing task using different audio
+visualizations. We present the results in Section~\ref{sec:vis-results}, which show that mapping semantic audio
+features to colour improved user performance in our task. We discuss these results in Section~\ref{sec:vis-discuss} and
+present our conclusions in Section~\ref{sec:vis-conclusions}.
 
 
 %TODO include this somewhere:
@@ -133,18 +133,11 @@ end of the slider.  Training was provided using a ``pop-up tour'', which guided 
 features and operation using a series of pop-up text boxes.  The interface also captured the participant's
 questionnaire responses and preferences.
 
-\begin{figure}[h]
+\begin{figure}[p]
 \centering
 \includegraphics[width=\columnwidth]{figs/browser-audio-interface.pdf}
-\caption[Screenshot of our test user interface.]{Screenshot of our test user interface, with the following features:
-zoomed-in audio visualization (1),
-overview audio visualization (2),
-play/pause control (3),
-zoom in/out control (4),
-mark in/out buttons (5),
-selection slider (6),
-selection highlighting (7),
-and training pop-ups (8).}
+\caption{Screenshot of the user interface used to display the audio visualizations, complete the segmentation task and
+measure the user's performance.}
 \label{fig:visualization-interface}
 \end{figure}
 
@@ -158,22 +151,7 @@ mapped the results of audio analysis plugins to a bitmap image. We then integrat
 by developing an interactive web-based audio visualization library called ``BeatMap''.  We describe Vampeyer and
 Beatmap in greater detail in Appendices \ref{sec:vampeyer} and \ref{sec:beatmap}.
 
-% Conditions
-\subsection{Conditions}\label{sec:colourised-conditions}
-As we saw in Section~\ref{sec:background-daw-visual}, radio producers edit audio with DAWs that use audio waveforms as
-the medium for interaction. In Section~\ref{sec:background-waveforms-related}, we also saw that by adding colour to
-audio waveforms, additional semantic information about the audio could be displayed, while retaining the familiar
-audio waveform visualization.  We were interested in measuring the performance of both the normal audio waveform and a
-semantically enhanced waveform, and also comparing them directly.  Therefore, we chose to use the following conditions
-for the audio visualizations. An example of each condition is shown in Figure~\ref{fig:conditions}.
-
-\begin{enumerate}[label=C\arabic*.]
-  \item \textbf{None}: No visualization, audio only.
-  \item \textbf{Waveform}: Audio waveform in a single colour.
-  \item \textbf{Enhanced}: Audio waveform with colour mapped to low energy ratio.
-\end{enumerate}
-
-\begin{figure}[t]
+\begin{figure}[p]
   \centering
   \begin{subfigure}{.3\textwidth}
     \centering
@@ -190,9 +168,24 @@ for the audio visualizations. An example of each condition is shown in Figure~\r
     \includegraphics[width=\columnwidth]{figs/condition3.png}
     \caption{C3: Enhanced}
   \end{subfigure}
-  \caption{The audio visualization conditions we tested.}
+  \caption{The audio visualization conditions that were evaluated.}
   \label{fig:conditions}
 \end{figure}
+
+% Conditions
+\subsection{Conditions}\label{sec:colourised-conditions}
+As we saw in Section~\ref{sec:background-daw-visual}, radio producers edit audio with DAWs that use audio waveforms as
+the medium for interaction. In Section~\ref{sec:background-waveforms-related}, we also saw that by adding colour to
+audio waveforms, additional semantic information about the audio could be displayed, while retaining the familiar
+audio waveform visualization.  We were interested in measuring the performance of both the normal audio waveform and a
+semantically enhanced waveform, and also comparing them directly.  Therefore, we chose to use the following conditions
+for the audio visualizations. An example of each condition is shown in Figure~\ref{fig:conditions}.
+
+\begin{enumerate}[label=C\arabic*.]
+  \item \textbf{None}: No visualization, audio only.
+  \item \textbf{Waveform}: Audio waveform in a single colour.
+  \item \textbf{Enhanced}: Audio waveform with colour mapped to low energy ratio.
+\end{enumerate}
 
 % Listening
 We included a condition in which there was no visualization (C1) to use it as a baseline to measure the performance of
@@ -277,7 +270,7 @@ position in each clip.  We chose to use nine 5-minute clips so that the segmenta
     \end{tabular}
   }
   \end{center}
-  \caption{Descriptions of the radio programmes used for the evaluation}
+  \caption{Descriptions of the radio programmes used as the source of the audio clips.}
   \label{tab:clips}
 \end{table}
 
@@ -584,6 +577,7 @@ comparisons between the mean values of the metrics.
 %Standardisation maps observations to the `\textbf{standard score}'. This is a dimensionless unit which represents the
 %number of standard deviations an observation is above the mean.
 
+\clearpage
 \section{Results}\label{sec:vis-results}
 Our study was completed by 63 participants, of which 41 (65\%) passed the acceptance criteria of all task errors being
 under 5 seconds. The failure rate was higher than expected, so we analysed the rejected tasks and participants to look
@@ -677,7 +671,7 @@ experience, age or gender.
   \caption{Professional experience}
   \label{fig:pro-experience}
 \end{subfigure}
-\caption{Participant demographics}
+\caption{Participant demographics.}
 \label{fig:demographics}
 \end{figure}
 
@@ -835,7 +829,8 @@ statistical significance of the pairwise comparisons between the conditions.
 	Task completion time& \nosig$>.05$   & \highsig$<.01$ & \highsig$<.01$ \\
 	Task error          & \nosig$>.05$   & \medsig$<.05$  & \highsig$<.01$  \\
 \end{tabular}
-\caption{$p$-values of pairwise comparisons for the performance metrics. Statistically significant differences are shaded.}
+\caption[$p$-values of pairwise comparisons for the performance metrics.]{$p$-values of pairwise comparisons for the
+performance metrics.  Statistically significant differences are shaded.}
 \label{tab:pairwise-performance}
 \end{table}
 
@@ -1071,7 +1066,7 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
     \end{tikzpicture}
     %\caption{Temporal demand}
   \end{subfigure}%
-  \caption{Mean task load index (TLX) values with 95\% confidence intervals. Lower values represent better performance.}
+  \caption{Mean task load index values with 95\% confidence intervals. Lower values represent better performance.}
   \label{fig:tlx-results}
 \end{figure}
 
@@ -1086,7 +1081,8 @@ hypothesis H3 (accuracy) for C2$<$C3, but not for C1$<$C2.
 	Physical demand & \nosig$>.05$   & \highsig$<.01$ & \highsig$<.01$ \\
   Temporal demand & \nosig$>.05$ & \medsig$<.05$ & \nosig$>.05$ \\ \hline
 \end{tabular}
-\caption{$p$-values of pairwise comparisons for the perceptual metrics. Statistically significant differences are shaded.}
+\caption[$p$-values of pairwise comparisons for the perceptual metrics.]{$p$-values of pairwise comparisons for the
+perceptual metrics.  Statistically significant differences are shaded.}
 \label{tab:pairwise-perceptual}
 \end{table}
 
@@ -1099,7 +1095,7 @@ conditions.
 The TLX ratings from participants show that compared to both the normal waveform (C2) and no visualization (C1),
 the enhanced waveform (C3) was perceived to be less mentally and physically demanding, better performing, less
 frustrating and requiring less effort (all $p<.05$).  The participants also rated the enhanced waveform as less
-temporally demanding than the normal waveform ($p<.05$).  Compared to having no visualization (C1), participants rated
+temporally demanding than the normal waveform ($p<.05$).  Compared to no visualization (C1), participants rated
 the normal waveform (C2) as being less frustrating and requiring less effort (both $p<.05$). 
 
 The effort ratings confirm hypothesis H1 (effort); the temporal demand ratings confirm hypothesis H2 (time) for
@@ -1130,13 +1126,13 @@ easiest to use by three quarters of the participants.  Having no visualization (
 condition by two thirds of the participants. The normal waveform (C2) was not considered by many to be the easiest, nor
 the most frustrating.
 
-\begin{figure}[ht]
+\begin{figure}[h]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
   \begin{tikzpicture}
     \begin{axis}[
-      height=0.6\textwidth,
+      height=0.5\textwidth,
       width=0.9\textwidth,
       %xmin=0,
       %xmax=38,
@@ -1158,7 +1154,7 @@ the most frustrating.
   \centering
   \begin{tikzpicture}
     \begin{axis}[
-      height=0.6\textwidth,
+      height=0.5\textwidth,
       width=0.9\textwidth,
       %xmin=0,
       %xmax=32,
@@ -1176,7 +1172,7 @@ the most frustrating.
   \caption{Most frustrating}
   \label{fig:frustrating}
 \end{subfigure}
-\caption{Preferences of participants}
+\caption{Condition preferences of participants.}
 \label{fig:visualization-comparison}
 \end{figure}
 

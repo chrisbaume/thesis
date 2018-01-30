@@ -1,6 +1,6 @@
 \documentclass[11pt,a4paper,twoside,openany]{book}
-\usepackage[bindingoffset=0in,left=1.5in,right=1.5in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
-%\usepackage[bindingoffset=0.4in,left=1.3in,right=1.3in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
+%\usepackage[bindingoffset=0in,left=1.5in,right=1.5in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
+\usepackage[bindingoffset=0.4in,left=1.3in,right=1.3in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{graphics}
@@ -15,7 +15,7 @@
 \usepackage{emptypage}
 \usepackage{multirow}
 \usepackage[utf8]{inputenc}
-\usepackage[nottoc,notlof,notlot,numbib]{tocbibind}
+%\usepackage[nottoc,notlof,notlot,numbib]{tocbibind}
 \usepackage{pgfplots,pgfplotstable}
 \usepackage[backend=bibtex,style=authoryear,natbib=true,maxnames=8,maxcitenames=2,dashed=false]{biblatex}
 \pgfplotsset{compat=newest}
@@ -62,7 +62,7 @@
 \fancyhead[RE]{\textlcsc{\chaptername~\thechapter}}
 \fancyfoot{}
 
-
+%\appto{\bibsetup}{\raggedright}
 \bibliography{refs}
 
 \begin{document}
@@ -109,9 +109,9 @@ Christopher M. Baume\\
 30\textsuperscript{th} January 2018
 \end{flushright}
 
-\include{ethics}
-
 \include{acknowledgements}
+
+
 
 \chapter*{A note on writing style}
 Throughout this thesis, the term ``we'' is used to refer to the author's own work. This acknowledges that that the work
@@ -135,6 +135,8 @@ alongside, or perhaps disagree with, the author, phrases such as ``the author be
 \listoftables
 
 \include{abbreviations}
+
+\include{ethics}
 
 \pagestyle{fancy}
 \mainmatter

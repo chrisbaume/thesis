@@ -135,7 +135,7 @@ and present our conclusions in Section~\ref{sec:screen-conclusion}.
 %In Chapter~\ref{chp:ethno}, we found that the participants preferred to work with text-based representations of audio,
 %rather than working with the audio directly.
 In this section, we will review the results of our study in Chapter~\ref{chp:ethno} and map our observations into
-high-level system requirements for our semantic editing system.
+system requirements for our semantic editing system.
 
 We saw that the producers of the documentary ``logged'' each interview they recorded by transcribing it themselves, or
 by paying a third-party service to write a full transcription.  They then used the transcripts to select which bits
@@ -160,7 +160,7 @@ transcripts only have to be sufficiently accurate to use for editing. Both \cite
 \citet{Sivaraman2016} found that the errors in the transcripts did not prevent users from being able to edit using
 them. However, both also found that users wanted to be able to fix incorrect words in the transcript.
 
-\textit{Requirement:} Our semantic editing system needs to be able to produce a transcript quickly and cheaply. It
+\textbf{Requirement:} Our semantic editing system needs to be able to produce a transcript quickly and cheaply. It
 should be accurate enough to be useful for editing, and allow for correction where necessary.
 
 \subsection{Editing}
@@ -193,7 +193,7 @@ producer to give their feedback and sign-off. As part of this process, they both
 phrases. However, this is only usually a problem in drama production where multiple takes of the same lines are
 recorded.
 
-\textit{Requirement:} Our semantic editing system needs to be able to select and arrange parts of audio recordings.
+\textbf{Requirement:} Our semantic editing system needs to be able to select and arrange parts of audio recordings.
 Given that there are well-established radio production systems for advanced editing tasks such as de-umming and
 addition of music, it also needs to be able to integrate with these so that it can be used in professional radio
 production.
@@ -338,17 +338,17 @@ interface, and numbered list of its main features, are shown in Figure~\ref{fig:
 %A live demo of the system is
 %also available\footnote{\url{https://speecheditor.virt.ch.bbc.co.uk/demo} (accessed 15.08.2016)}.
 
-\begin{figure*}[ht]
-\centering
-  \includegraphics[width=\columnwidth]{figs/interface-labels.pdf}
-  \caption[Screenshot of the Dialogger user interface.]{Screenshot of the Dialogger user interface with highlighted
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{figs/interface-labels.pdf}
+  \caption[User interface of Dialogger.]{User interface of Dialogger, with highlighted
     features: (1) individual user accounts and projects, (2) upload of audio recordings, (3) list of uploaded
     recordings, (4) waveform display of currently selected recording, (5) toolbar with playback, save, copy and print
     functionality, (6) transcript of selected recording with speaker labelling and word editing, (7) confidence
   shading, (8) transcript selection with drag-and-drop editing, (9) listing and re-ordering of edits, (10) duration of
 edit, (11) export edit to audio file or digital audio workstation.}
   \label{fig:interface}
-\end{figure*}
+\end{figure}
 
 \subsubsection{Transcript}\label{sec:transcript}
 
@@ -668,7 +668,7 @@ during the observation and longitudinal deployment.
 \begin{table}[h]
 \centering
 {\small
-\begin{tabular}{|p{0.18\linewidth}|p{0.2\linewidth}|p{0.5\linewidth}|}
+\begin{tabular}{p{0.18\linewidth} p{0.2\linewidth} p{0.5\linewidth}}
 \hline
 \textbf{Theme} & \textbf{Category} & \textbf{Codes} \\ \hline
 \multirow{5}{*}{Comprehension}
@@ -1221,10 +1221,10 @@ The most basic feature that could be added is highlighting, which is often used 
   %arbitrary scoring system to say 'that's really good stuff and must get in'.
   %''} (P1)
 
-\begin{figure}[t]
+\begin{figure}
 \centering
   \includegraphics[width=\columnwidth]{figs/highlighting-cropped.jpg}
-  \caption{P2 using a highlighter pen with a printout}
+  \caption{Printed transcript that has been highlighted by P2.}
   \label{fig:highlight}
 \end{figure}
 
@@ -1471,15 +1471,15 @@ duplication of content. This could also be achieved by marking which parts of re
       reverse legend,
       legend cell align={left},
       ]
-  \addplot[fill=black!40, opacity=0.5] coordinates {(0.619,P1) (0.941,P2*) (1.48,P3) (0.395,P4**) (0.529,P5**)};
+  \addplot[fill=black!30, opacity=0.5] coordinates {(0.619,P1) (0.941,P2*) (1.48,P3) (0.395,P4**) (0.529,P5**)};
   \addlegendentry{New}
-  \addplot[fill=black!65, opacity=0.5] coordinates {(1.125,P1) (1.0,P2*) (2.75,P3) (0.258,P4**)
+  \addplot[fill=black!70, opacity=0.5] coordinates {(1.125,P1) (1.0,P2*) (2.75,P3) (0.258,P4**)
     (0.565,P5**)};
   \addlegendentry{Existing}
   \end{axis}
   \end{tikzpicture}
-  \caption[Time taken to complete the observed task for each workflow, compared to the original audio length.]{Time
-  taken to complete the observed task for each workflow, compared to the original audio length. Lower is better. *P2
+  \caption[Time taken to complete the task for each condition, compared to the original audio length.]{Time
+  taken to complete the task for each condition, compared to the original audio length. Lower is better. *P2
   logged their material on paper. **P4 and P5 did not do any logging. Due to the small sample size and variation in
   usage, no conclusions about time performance can be drawn.}
   \label{fig:time} \end{figure}
@@ -1935,10 +1935,10 @@ officially supported production tool.  This has allowed producers from around th
 normal workflow.  As of October 2016, the system had 45 active users and had processed 265 audio recordings.
 %We will continue to collect usage and interaction metrics for later analysis.
 
-\begin{figure}[ht]
+\begin{figure}
 \centering
   \includegraphics[width=.8\columnwidth]{figs/descript.png}
-  \caption{Interface of the Descript semantic speech editor.}
+  \caption{User interface of the \textit{Descript} semantic speech editor.}
   \label{fig:descript}
 \end{figure}
 
