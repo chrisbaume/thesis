@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,oneside,openany]{book}
+\documentclass[11pt,a4paper,twoside,openany]{book}
 \usepackage[bindingoffset=0in,left=1.5in,right=1.5in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
 %\usepackage[bindingoffset=0.4in,left=1.3in,right=1.3in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
 \usepackage[T1]{fontenc}
@@ -24,6 +24,7 @@
 \usepackage{xcolor,colortbl}
 \usepackage{calc}
 \usepackage{amsmath}
+\usepackage{xmpincl}
 
 % better tabular columns
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -65,6 +66,8 @@
 %\appto{\bibsetup}{\raggedright}
 \bibliography{refs}
 
+\includexmp{CC_Attribution_4.0_International}
+
 \begin{document}
 
 \pagestyle{plain}
@@ -89,7 +92,7 @@
 \end{titlepage}
 
 \setcounter{page}{0}
-%\cleardoublepage
+\cleardoublepage
 \include{abstract}
 
 \chapter*{Statement of originality}
@@ -111,7 +114,28 @@ Christopher M. Baume\\
 
 \include{acknowledgements}
 
+\chapter*{Licence}
+This work is copyright \textcopyright~2018 Chris Baume, and is licensed under the Creative Commons Attribution 4.0
+International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by/4.0/} or send
+a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
+\vspace{1cm}
+\begin{center}
+\includegraphics[width=1.5cm]{figs/cc.eps}
+\includegraphics[width=1.5cm]{figs/by.eps}
+\end{center}
+
+%{\singlespacing
+\tableofcontents
+%}
+
+\listoffigures
+
+\listoftables
+
+\include{abbreviations}
+
+\include{ethics}
 
 \chapter*{A note on writing style}
 Throughout this thesis, the term ``we'' is used to refer to the author's own work. This acknowledges that that the work
@@ -126,45 +150,33 @@ alongside, or perhaps disagree with, the author, phrases such as ``the author be
  %however. Statements in this category are delineated using phrases such as ``in the author’s opinion'' or the occasional
  %use of first person singular.
 
-%{\singlespacing
-\tableofcontents
-%}
-
-\listoffigures
-
-\listoftables
-
-\include{abbreviations}
-
-\include{ethics}
-
 \pagestyle{fancy}
 \mainmatter
 
-%\cleardoublepage
+\cleardoublepage
 \include{chp1}
 
-%\cleardoublepage
+\cleardoublepage
 \include{chp2}
 
-%\cleardoublepage
+\cleardoublepage
 \include{chp3}
 
-%\cleardoublepage
+\cleardoublepage
 \include{chp4}
 
-%\cleardoublepage
+\cleardoublepage
 \include{chp5}
 
-%\cleardoublepage
+\cleardoublepage
 \include{chp6}
 
-%\cleardoublepage
+\cleardoublepage
 \include{chp7}
 
 \begin{appendices}
   \renewcommand\chaptername{Appendix}
-  %\cleardoublepage
+  \cleardoublepage
   \include{appendix1}
   %\include{remit}
   %\include{startrack}
@@ -175,7 +187,7 @@ alongside, or perhaps disagree with, the author, phrases such as ``the author be
   %\include{opportunities}
 \end{appendices}
 
-%\cleardoublepage
+\cleardoublepage
 \fancyhead[LO]{\leftmark}
 \fancyhead[RE]{\rightmark}
 \printbibliography
