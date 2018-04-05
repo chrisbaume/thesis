@@ -1,9 +1,9 @@
 % !TeX root = main.tex
-\chapter{Screen-based semantic speech editing}\label{chp:screen}
+\chapter{Screen-based semantic speech editing}\label{sec:screen}
 
 %The producers in all three of our case studies interacted with audio content using textual representations. We also saw
 %that the documentary producer wrote transcripts of all their interviews.
-In Chapter~\ref{chp:ethno}, the radio producers we observed all used textual representations to navigate and edit audio
+In Chapter~\ref{sec:ethno}, the radio producers we observed all used textual representations to navigate and edit audio
 content. The drama producers used a script to write notes on what they recorded, any changes or mistakes that were made, and the
 quality of the performances. The documentary producers wrote transcripts of their recordings to help them navigate and
 arrange their content, and to mark up the parts they wanted to use in the programme. The news journalists also used
@@ -23,7 +23,7 @@ semantic editing interfaces have on the production of audio content.
 %Other semantic editing systems that use ASR been formally evaluated
 %\citep{Whittaker2004,Yoon2014,Sivaraman2016}, but they were designed for navigating and editing voice messages and
 %comments, which use a different style of audio content and have different requirements than radio production.
-We saw in Chapter~\ref{chp:ethno} that the documentary producers we observed either manually transcribed their
+We saw in Chapter~\ref{sec:ethno} that the documentary producers we observed either manually transcribed their
 recordings, which may not be the best use of their time, or paid a third-party to transcribe on their behalf, which is
 slow and expensive.  As we discussed in Section~\ref{sec:asr}, automatic speech recognition (ASR) could be used to
 replace the manual transcription process. However, the errors in ASR transcripts reduce listener comprehension
@@ -132,9 +132,9 @@ and present our conclusions in Section~\ref{sec:screen-conclusion}.
 %The producers of each programme were observed and interviewed to fully document their workflow, which took between half
 %a day (for news) and four days (for the documentary).
 
-%In Chapter~\ref{chp:ethno}, we found that the participants preferred to work with text-based representations of audio,
+%In Chapter~\ref{sec:ethno}, we found that the participants preferred to work with text-based representations of audio,
 %rather than working with the audio directly.
-In this section, we will review the results of our study in Chapter~\ref{chp:ethno} and map our observations into
+In this section, we will review the results of our study in Chapter~\ref{sec:ethno} and map our observations into
 system requirements for our semantic editing system.
 
 We saw that the producers of the documentary ``logged'' each interview they recorded by transcribing it themselves, or
@@ -148,7 +148,7 @@ editing may be able to make these two production activities more efficient. We w
 individually to gather high-level requirements for our system.
 
 \subsection{Transcription}
-As we discovered in Chapter~\ref{chp:ethno}, radio programmes are assigned a slot in the broadcast schedule, so
+As we discovered in Chapter~\ref{sec:ethno}, radio programmes are assigned a slot in the broadcast schedule, so
 producers have a strict deadline for finishing their programme. Programmes are sometimes scheduled up to three
 weeks in advance, but sometimes as little as one week in advance.  This means that producers have very little time to
 spare. If a programme's budget allows, interview recordings can be sent to a transcription service where they are
@@ -166,7 +166,7 @@ should be accurate enough to be useful for editing, and allow for correction whe
 \subsection{Editing}
 There are already well-established systems and software packages in place for producing radio programmes. As we discussed in
 Section~\ref{sec:background-daw}, producers use a digital audio workstation (DAW) to select the parts of each interview
-that they want to use in their programme, and to arrange them into a narrative. In Chapter~\ref{chp:ethno}, we learned
+that they want to use in their programme, and to arrange them into a narrative. In Chapter~\ref{sec:ethno}, we learned
 that the BBC provides two different DAWs --
 dira! StarTrack (made by SCISYS) and SADiE (made by Prism Sound).
 %Some producers prefer to use other DAWs, but as
@@ -176,7 +176,7 @@ in a DAW are ``non-destructive'' because the original recordings remain untouche
 Section~\ref{sec:background-daw}). This allows the producer the flexibility to adjust or undo their decisions at any
 point during the editing process.
 
-For the documentary production we observed in Chapter~\ref{chp:ethno}, a specialist sound engineer, known in the BBC as
+For the documentary production we observed in Chapter~\ref{sec:ethno}, a specialist sound engineer, known in the BBC as
 a \textit{studio manager} (SM), was brought in on the last day of production to ensure that the sound was well
 balanced, and to do any advanced editing that was required. This included removal of unwanted ``umm''s or breaths in a
 process called ``de-umming''. The SM for the observed documentary suggested that being able to de-umm speech in a way
@@ -315,12 +315,12 @@ original recordings are retained and the edit points can be re-adjusted in the a
 %available.
 
 \citet{Rubin2013} included features for finding music tracks and creating loops within them.  In
-Chapter~\ref{chp:ethno}, we found that specialist tools are already used for finding and choosing music, and that
+Chapter~\ref{sec:ethno}, we found that specialist tools are already used for finding and choosing music, and that
 editing of music is already efficiently handled by the DAW. Therefore, we chose not to include features for adding or
 editing music. 
 
 \citet{Rubin2013} also included detection of repeated words and phrases. We chose not to include this, as we found in
-Chapter~\ref{chp:ethno} that repeats are only an issue in drama production. As the production of drama involves a very
+Chapter~\ref{sec:ethno} that repeats are only an issue in drama production. As the production of drama involves a very
 different workflow of recording multiple takes of lines from a script, we chose to focus on production workflows for
 pre-recorded content in our system design or study.
 
@@ -340,7 +340,7 @@ interface, and numbered list of its main features, are shown in Figure~\ref{fig:
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{figs/interface-labels.pdf}
+  \includegraphics[width=\textwidth]{figs/interface-labels}
   \caption[User interface of Dialogger.]{User interface of Dialogger, with highlighted
     features: (1) individual user accounts and projects, (2) upload of audio recordings, (3) list of uploaded
     recordings, (4) waveform display of currently selected recording, (5) toolbar with playback, save, copy and print
@@ -500,7 +500,7 @@ functionality.
 
 Additionally, we wanted to take this opportunity to continue our research on the existing radio production workflow to
 learn more about the challenges producers face and the tools they use to produce their programmes. Our study in
-Chapter~\ref{chp:ethno} did not explore requirements in-depth, and there is not much previous literature that analyses
+Chapter~\ref{sec:ethno} did not explore requirements in-depth, and there is not much previous literature that analyses
 actual radio production practice, so we wanted to be able to inform researchers and designers about real requirements
 and behaviour in this field.
 
@@ -545,7 +545,7 @@ ensure that the production workflow was not affected by an artificial setting.
 
 We invited professional radio producers with at least five years of experience to take part by sending an email to
 departments in BBC Radio that create pre-produced factual programmes.  Drama programmes were excluded from the study as
-we saw in Chapter~\ref{chp:ethno} that their production workflow involves making multiple recordings of lines in a
+we saw in Chapter~\ref{sec:ethno} that their production workflow involves making multiple recordings of lines in a
 script and selecting the best ones. This is a sufficiently different process to other programme genres that it warrants
 a different interface.
 
@@ -570,7 +570,7 @@ interview/observation/interview. In addition, we recorded some simple metrics su
 usage.
 
 \paragraph{Stage 1: Background interview}
-    The participants was first given an overview of the project and the study, and asked to complete a consent form. This
+    The participant was first given an overview of the project and the study, and asked to complete a consent form. This
     was immediately followed by a semi-structured interview to learn about the participant's background, their existing
     production workflow and the tools they used. The investigator asked the participant to describe the
     radio production process in detail, and used follow-up questions to clarify their understanding. This information
@@ -627,10 +627,11 @@ coding to interpret the textual data, and we used statistical analysis to proces
 \subsubsection{Coding}
 We manually transcribed the audio recorded from the interviews in Stage 4 to produce a verbatim transcript, and
 collated them with notes made by the investigator from stages 1, 2 and 3. To organise and process this textual
-information, we employed the use of thematic coding techniques.
+information, we employed the use of thematic analysis \citep{Braun2006}.
 
-We performed a two-stage coding process.  Firstly, we openly coded each part of the transcripts using grounded theory
-\citep{Silverman2016} into a flat structure.  As there are not many previous studies on radio production, we decided to
+We performed a two-stage coding process.  Firstly, we openly coded each part of the transcripts
+%using grounded theory \citep{Silverman2016}
+into a flat structure.  As there are not many previous studies on radio production, we decided to
 use open coding so that the categories would emerge from the data we collected, rather than attempting to test an
 existing model.  We used the software package RQDA \citep{RQDA} to execute this stage.
 
@@ -756,7 +757,7 @@ by the categories from the thematic coding (see Table~\ref{tab:codes}).
 
 %Logs are usually written by the producer themselves. As they have done the research and are normally present at the
 %recordings, they can use their memory to navigate the material and use their experience to quickly determine which
-%parts are relevant. As we saw in Chapter~\ref{chp:ethno}, some programmes that are under particular time pressure will
+%parts are relevant. As we saw in Chapter~\ref{sec:ethno}, some programmes that are under particular time pressure will
 %use a third-party to create a verbatim transcript of a few interviews, but most do not because it is too expensive.
 
 %In the observation, P1 and P3 wrote their logs in Microsoft Word whilst using a digital audio workstation (DAW) to play
@@ -1938,11 +1939,12 @@ normal workflow.  As of October 2016, the system had 45 active users and had pro
 \begin{figure}
 \centering
   \includegraphics[width=.8\columnwidth]{figs/descript.png}
-  \caption{User interface of the \textit{Descript} semantic speech editor.}
+  \caption{User interface of the \textit{Descript} semantic speech editor, a commercial semantic speech editing system
+  developed independently of our research.}
   \label{fig:descript}
 \end{figure}
 
-Following our study, in late 2017, a commercial semantic speech editing system called \textit{Descript} was
+Independently of our research, in late 2017, a commercial semantic speech editing system called \textit{Descript} was
 released\footnote{\url{https://www.descript.com/}}. Descript is an audio production interface that uses ASR and manual
 transcription to allow users to transcribe and edit their audio. The interface, shown in Figure~\ref{fig:descript},
 includes annotation features such as bold, italic, highlighting and time markers.  Rather than using a drag-and-drop

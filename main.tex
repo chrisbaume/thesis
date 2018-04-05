@@ -3,7 +3,7 @@
 %\usepackage[bindingoffset=0.4in,left=1.3in,right=1.3in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{graphics}
+\usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -25,6 +25,9 @@
 \usepackage{calc}
 \usepackage{amsmath}
 \usepackage{xmpincl}
+
+% default to pdf extension
+\DeclareGraphicsExtensions{.pdf,.eps}
 
 % better tabular columns
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -68,6 +71,8 @@
 
 \includexmp{CC_Attribution_4.0_International}
 
+\title{Semantic Audio Tools for Radio Production}
+
 \begin{document}
 
 \pagestyle{plain}
@@ -106,7 +111,7 @@ for assessment as above.
 
 \vspace{1cm}
 \hfill
-\includegraphics[width=.3\textwidth]{figs/signature.pdf}
+\includegraphics[width=.3\textwidth]{figs/signature}
 \begin{flushright}
 Christopher M. Baume\\
 30\textsuperscript{th} January 2018
@@ -121,8 +126,8 @@ a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
 \vspace{1cm}
 \begin{center}
-\includegraphics[width=1.5cm]{figs/cc.eps}
-\includegraphics[width=1.5cm]{figs/by.eps}
+\includegraphics[width=1.5cm]{figs/cc}
+\includegraphics[width=1.5cm]{figs/by}
 \end{center}
 
 %{\singlespacing

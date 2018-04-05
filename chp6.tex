@@ -1,9 +1,9 @@
 % !TeX root = main.tex
-\chapter{Paper-based semantic speech editing}\label{chp:paper}
+\chapter{Paper-based semantic speech editing}\label{sec:paper}
 
-In Chapter~\ref{chp:ethno}, we found that two of the three radio production teams we observed used paper as part of
+In Chapter~\ref{sec:ethno}, we found that two of the three radio production teams we observed used paper as part of
 their current production workflow.  We also saw that all of the radio producers we observed used transcripts to help
-them navigate and structure their content.  In Chapter~\ref{chp:screen}, we saw that some radio producers found their
+them navigate and structure their content.  In Chapter~\ref{sec:screen}, we saw that some radio producers found their
 work environment noisy and distracting, and did not like working with screens for extended periods.  One of the study
 participants chose to print their transcripts as they found the production process easier to achieve on paper than
 directly on screen.
@@ -284,7 +284,7 @@ content.
 %recordings, so these systems could be using during that replay process.
 
 %\subsection{Correction}
-%In chapter~\ref{chp:screen}, we identified that some producers were interested in correcting the transcript for sharing
+%In chapter~\ref{sec:screen}, we identified that some producers were interested in correcting the transcript for sharing
 %with others, or for later publication.
 
 %TODO There are clearly defined symbols for use in proof correction (e.g. \citet{ISO5776}).
@@ -349,14 +349,14 @@ system.
 
 \subsection{Mock-up design}
 
-In the results from Chapter~\ref{chp:screen}, we saw that radio producers annotated paper transcripts using underlining
+In the results from Chapter~\ref{sec:screen}, we saw that radio producers annotated paper transcripts using underlining
 (for selecting words), strikethrough (for removing words) and drawing a line down the side of the page (for selecting
 whole lines).  We used this information as the basis for the design of our mock-up system, shown in
 Figure~\ref{fig:paper-prototype-design}.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{figs/paper-prototype-design}
+  \includegraphics[width=\columnwidth]{figs/paper-prototype-design.png}
   \caption[Design of our paper mock-up.]{Design of our paper mock-up.  Words are selected by drawing in the box beneath
   the word, and removed by drawing over the word. A whole line is selected by drawing in the box to the right.
 Timestamps are shown on the left.  Speaker turns are labelled with the speaker ID and coloured by gender. Words with a
@@ -588,7 +588,7 @@ notes for themselves, and P1 and P5 corrected mistakes in the transcript by writ
 %double-spaced, there was just enough room between lines to write the correct word in small writing.
 %% listening/playback
 %P3, P4 and P5 expressed a desire to listen to the audio while reading/editing it, which echoes the importance of
-%listening noted in Chapter~\ref{chp:screen}.
+%listening noted in Chapter~\ref{sec:screen}.
 
 %- Useful to know where presenter is asking question
 
@@ -824,7 +824,7 @@ design is shown in Figures~\ref{fig:paper-interface-diagram} and \ref{fig:paper-
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\columnwidth]{figs/paper-interface-diagram.pdf}
+  \includegraphics[width=\columnwidth]{figs/paper-interface-diagram}
   \caption[Layout of the paper interface.]{Layout of the paper interface, with timestamps at beginning of each
   paragraph (1), speaker diarization (2), word deletion (3), word selection (4), confidence shading (5), line selection
 (6) and a margin for freehand notes (7). Dotted lines indicate hidden active zones for selection (pink) and deletion
@@ -930,7 +930,7 @@ viewed through the screen interface.
 
 \subsection{Screen interface}\label{sec:paper-screen-design}
 
-For the screen interface, we updated the system we developed in Chapter~\ref{chp:screen} to implement some of the
+For the screen interface, we updated the system we developed in Chapter~\ref{sec:screen} to implement some of the
 changes suggested by our findings.  The original design can be seen in Figure~\ref{fig:interface}
 (p.~\pageref{fig:interface}), and the updated design is shown in Figure~\ref{fig:dialogger-interface}.  The original
 design used a drag-and-drop system for creating clips from selected text. We replaced this with underlining and
@@ -938,7 +938,7 @@ strikethrough gestures to provide better support for large selections, and to al
 
 \begin{figure}
   \centering
-  \includegraphics[width=\columnwidth]{figs/discourse-interface-labelled.pdf}
+  \includegraphics[width=\columnwidth]{figs/discourse-interface-labelled}
   \caption[User interface of the screen-based semantic speech editor.]{User interface of the screen-based semantic
     speech editor, which features 
     media storage (1),
@@ -981,7 +981,7 @@ they edit. The current playback position was shown in the text and the user coul
 on the transcript. Any edits made to the transcript were reflected in the audio.  The user could also correct any
 mistakes in the transcript by editing the text as they would in a word processor.
 
-%We updated the screen-based interface used in Chapter~\ref{chp:screen} to implement some of the
+%We updated the screen-based interface used in Chapter~\ref{sec:screen} to implement some of the
 %changes suggested by our findings.
 %The previous screen-based system is shown in Figure~\ref{fig:interface} on page \pageref{fig:interface}, and the
 %updated interface is shown in Figure~\ref{fig:dialogger-interface} on page \pageref{fig:dialogger-interface}.
@@ -1079,7 +1079,7 @@ and collect the data as producers often cancelled or re-arranged due to their de
 
 %We asked each participant to provide audio recordings from three recent interviews they had made, so we could use
 %content that was genuine and fresh in their mind. We set a minimum duration of 20 minutes for each recording, as we
-%found in the study in Chapter~\ref{chp:screen} that there was not much advantage in using transcripts for
+%found in the study in Chapter~\ref{sec:screen} that there was not much advantage in using transcripts for
 %short recordings.
 
 \subsection{Protocol}
@@ -1100,7 +1100,7 @@ conditions was balanced to avoid carryover effects.  We designed the experiment 
 overlapped with the work the producers already needed to do. This ensured that the tasks were genuine and part of a
 real production.  The participant provided three recent speech recordings that they needed to edit so that the content
 was fresh in their mind.  We needed to use different recordings for each condition, but we asked the participant to
-choose recordings from the same programme to ensure they were as similar as possible.  In Chapter~\ref{chp:screen}, we
+choose recordings from the same programme to ensure they were as similar as possible.  In Chapter~\ref{sec:screen}, we
 found that there was no benefit in using transcripts for short recordings, so each recording was at least 20 mins in
 length. 
  
@@ -1220,10 +1220,11 @@ the interview for later analysis.
 \subsection{Analysis}
 
 We transcribed the interview recordings and corrected the words manually using the screen interface described in
-Section~\ref{sec:paper-screen-design}.  Using grounded theory \citep{Silverman2016}, the investigator then openly coded
-the transcripts and observation notes using \textit{RQDA} \citep{RQDA}, which produced 229 initial codes. The
-investigator then used \textit{FreeMind} mind-mapping software to group the codes into categories, and the categories
-into themes.
+Section~\ref{sec:paper-screen-design}.  Using
+%grounded theory \citep{Silverman2016}, t
+thematic analysis \citep{Braun2006}, the investigator then openly coded the transcripts and observation notes using
+\textit{RQDA} \citep{RQDA}, which produced 229 initial codes. The investigator then used \textit{FreeMind} mind-mapping
+software to group the codes into categories, and the categories into themes.
 
 The time taken to edit an audio file depends upon its length.  As recommended by \citet{Dewey2014}, we divided the edit
 speed of each task by the audio file duration to calculate the ``normalised task completion time''.  Following the
@@ -1332,9 +1333,18 @@ Figure~\ref{fig:pen-useful-usable} shows the mean average scores of the usefulne
 %For the SUS metric, the mean ratings for PaperClip, screen interface and normal paper were 73\%, 75\% and 82\%, and
 %for perceived usefulness they were 75\%, 78\% and 85\%, respectively.
 A one-way within-subjects ANOVA showed that there was no statistically significant difference between the systems for
-usefulness [$F(2,14)=0.788, p>0.05$], nor usability [$F(2,14)=1.068, p>0.05$].  Using the SUS grading system from
-\citet{Sauro2016}, we can compare the usability score to other systems in general.  The grades for normal paper, screen
-and pen were A, B and B--, respectively, which shows that all of the tools appear to perform well overall.
+usefulness [$F(2,14)=0.788, p>0.05$], nor usability [$F(2,14)=1.068, p>0.05$].
+
+The SUS metric produces a numeric score between 0 and 100, which can be used to directly compare the usability of
+different systems.
+%However, without context these numbers can be difficult to understand in human terms.
+The reported SUS scores of systems from other studies can be used to convert our scores into a percentile figure that
+shows how they compare to other interfaces in general.  \citet[p.~204]{Sauro2016} proposed translating this percentile
+score into a grade between F and A+ to describe the result in human terms.
+%make it easier for readers to interpret the result.
+The grades for our normal paper, screen and pen interfaces were A, B and B--, respectively, which shows that all of the
+tools appear to perform well overall.  However, as this technique does not take into account the purpose
+of the interfaces, it cannot tell us how usable our interfaces are compared to other semantic speech editors.
 
 %The SUS grading system \cite{Sauro2016} scored the
 %usability for the normal paper, screen and digital pen as A, B and B--, respectively. This shows that compared to other
@@ -1809,7 +1819,7 @@ require a system that can distinguish between a strikethrough and highlight.
 %(P1)
 
 Participants used different marks to rate the importance of their selections, including stars and asterisks, which we
-witnessed previously in Chapter~\ref{chp:screen}. However, both P2 and P6 suggested using colours as a way of marking
+witnessed previously in Chapter~\ref{sec:screen}. However, both P2 and P6 suggested using colours as a way of marking
 up different selections.  This could be used as a rating system, where one colour is considered more important than
 other, or as a categorical system for whatever context is appropriate to that producer.
 
@@ -1937,7 +1947,7 @@ that I know where everything is.''} (P1)
 
 All of the participants were successfully able to use the ASR transcripts to edit their material as
 part of the production of their radio programme, and all reported that the transcripts were sufficiently accurate for
-the purpose of editing their content. Similarly to what we found in Chapter~\ref{chp:screen}, the most common
+the purpose of editing their content. Similarly to what we found in Chapter~\ref{sec:screen}, the most common
 complaints were of reduced accuracy due to heavy accents or background noise, and problems with speaker labelling and
 confidence shading. For example, the ASR system would occasionally give a high confidence score to an
 incorrect word, or a low confidence score to a correct word, which caused P3 to mistrust the confidence shading.
@@ -1994,7 +2004,7 @@ The ability to teach it some words would be really good.''} (P3)
 % ================ GENERATION
 \subsubsection{Generation}
 
-The participants in this study re-iterated the finding from Chapter~\ref{chp:screen} regarding frustrations with manual
+The participants in this study re-iterated the finding from Chapter~\ref{sec:screen} regarding frustrations with manual
 transcription and the benefits of having the transcript automatically generated.
 P1 and P3 stated that the ASR element was the largest benefit of the semantic speech editing systems, as it
 freed up that time.
@@ -2136,7 +2146,7 @@ then they could avoid listening to it altogether, which would save them time.
   %stuff on A rhino
 [...] and just discount it, whereas with your ears you've got to listen to the whole thing.''} (P5) 
 
-As we saw in Chapter~\ref{chp:screen}, most participants increased the playback speed when listening using the screen
+As we saw in Chapter~\ref{sec:screen}, most participants increased the playback speed when listening using the screen
 interface or their DAW to skip through material they thought they might not want to use.
 
 %\textit{``If you know it's going to be a boring bit, you can just go fast.''} (P8)
@@ -2305,7 +2315,7 @@ provide a good middle-ground between paper and screen interfaces.
 
 
 %All of the participants were able to use the automated transcript to edit speech recordings for their radio programme,
-%supporting what we found in Chapter~\ref{chp:screen}. One of the participants in this study had already started using
+%supporting what we found in Chapter~\ref{sec:screen}. One of the participants in this study had already started using
 %ASR as part of their normal workflow. As automated transcription becomes more widely available, it is
 %important to design tools that make the best use of the extra information.
 
@@ -2357,7 +2367,7 @@ remove them automatically.
 
 \subsection{Listening}
 
-We found in Chapter~\ref{chp:screen} that listening was an important part of the editing process. Through our study, we
+We found in Chapter~\ref{sec:screen} that listening was an important part of the editing process. Through our study, we
 learned more about how and why the participants listened to the audio for semantic speech editing.  Participants gave
 three main reasons for listening --- processing information, judging sound quality and identifying non-speech sounds.
 
