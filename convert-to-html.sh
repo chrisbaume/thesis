@@ -8,7 +8,7 @@ iconv -f windows-1252 -t utf-8 < refs.bib > refs-utf8.bib
   --to markdown \
   > main.md
 
-perl -0777 -i.original -pe 's/\[\\\[(fig:.*?)\\\]\]\(.*?\)\{[\s\S]*?\}/\[@\1\]/igs' main.md
+perl -0777 -i.original -pe 's/\[\\\[(fig:.*?)\\\]\]\(.*?\)\{[\s\S]*?\}/\[-@\1\]/igs' main.md
 perl -0777 -i.original -pe 's/\[\]\{label="(fig:.+?)"\}\]\((.+?)\)\{[\s\S]*?\}/\]\(\2\)\{#\1\}/igs' main.md
 
 # convert md to html
@@ -32,6 +32,7 @@ perl -0777 -i.original -pe 's/\[\]\{label="(fig:.+?)"\}\]\((.+?)\)\{[\s\S]*?\}/\
   -M numberSections \
   -M chapters \
   -M chaptersDepth=4 \
+  -M linkReferences \
   | sed -e 's/figs\/print\//figs\//g' \
   | sed -e 's/figs\//figs\/web\//g' \
   | sed -e 's/=15pt =1 //' \
