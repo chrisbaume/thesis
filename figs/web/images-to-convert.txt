@@ -22,4 +22,3 @@ dialogger-flow-diagram.pdf
 vampeyer.pdf
 dialogger-flow-diagram.pdf
 uist-sys-diagram.pdf
-

@@ -26,6 +26,10 @@
 \usepackage{amsmath}
 \usepackage{xmpincl}
 
+% externalize plots
+\usetikzlibrary{external}
+\tikzexternalize[prefix=plots/]
+
 % default to pdf extension
 \DeclareGraphicsExtensions{.pdf,.eps}
 
@@ -87,7 +91,7 @@
     {\Large Doctor of Philosophy}\\[1cm]
     {\Large 2018}\\[1cm]
     \begin{center}
-      \includegraphics[width=6cm]{figs/print/surrey-logo.jpg}\\[1cm]
+      \includegraphics[width=6cm]{figs/surrey-logo.png}\\[1cm]
     \end{center}
     Centre for Vision, Speech and Signal Processing\\
       Faculty of Engineering and Physical Sciences\\

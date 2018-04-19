@@ -20,3 +20,7 @@ main.pdf
 *.synctex.gz
 *.xmpi
 refs-utf8.bib
+*.svg
+*.original
+*.auxlock
+plots/
