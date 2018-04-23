@@ -11,7 +11,7 @@
   --toc-depth=2 \
 	--to html5 \
 	--template=tufte-pandoc-css/tufte \
-	--css tufte-css/tufte.css \
+	--css tufte.css \
 	--css tufte-pandoc-css/pandoc.css \
 	--css tufte-pandoc-css/pandoc-solarized.css \
 	--css tufte-pandoc-css/tufte-extra.css \
