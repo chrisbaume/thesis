@@ -1,6 +1,5 @@
 \documentclass[11pt,a4paper,twoside,openany]{book}
 \usepackage[bindingoffset=0in,left=1.5in,right=1.5in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
-%\usepackage[bindingoffset=0.4in,left=1.3in,right=1.3in,top=1.5in,bottom=1.5in,headsep=25pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{graphicx}
@@ -15,7 +14,6 @@
 \usepackage{emptypage}
 \usepackage{multirow}
 \usepackage[utf8]{inputenc}
-%\usepackage[nottoc,notlof,notlot,numbib]{tocbibind}
 \usepackage{pgfplots,pgfplotstable}
 \usepackage[backend=bibtex,style=authoryear,natbib=true,maxnames=8,maxcitenames=2,dashed=false]{biblatex}
 \pgfplotsset{compat=newest}
@@ -26,19 +24,15 @@
 \usepackage{amsmath}
 \usepackage{xmpincl}
 
-% externalize plots
 \usetikzlibrary{external}
 \tikzexternalize[prefix=plots/]
 
-% default to pdf extension
 \DeclareGraphicsExtensions{.pdf,.eps}
 
-% better tabular columns
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-% tweak for bar graph legend
 \pgfplotsset{compat=1.11,
   /pgfplots/ybar legend/.style={
   /pgfplots/legend image code/.code={%
@@ -61,7 +55,6 @@
 
 \setcounter{secnumdepth}{3}
 
-% set up page header/footer
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \newcommand\textlcsc[1]{\textsc{\MakeLowercase{#1}}}
@@ -70,7 +63,6 @@
 \fancyhead[RE]{\textlcsc{\chaptername~\thechapter}}
 \fancyfoot{}
 
-%\appto{\bibsetup}{\raggedright}
 \bibliography{refs}
 
 \includexmp{CC_Attribution_4.0_International}
@@ -95,7 +87,7 @@
     \end{center}
     Centre for Vision, Speech and Signal Processing\\
       Faculty of Engineering and Physical Sciences\\
-      University of Surrey%\\Guildford, Surrey, United Kingdom.
+      University of Surrey%
   \end{center}
   \vspace*{\fill}
 \end{titlepage}
@@ -115,7 +107,6 @@ for assessment as above.
 
 \vspace{1cm}
 \hfill
-%\includegraphics[width=.3\textwidth]{figs/signature}
 \begin{flushright}
 Christopher M. Baume\\
 30\textsuperscript{th} January 2018
@@ -134,9 +125,7 @@ a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 \includegraphics[width=1.5cm]{figs/by}
 \end{center}
 
-%{\singlespacing
 \tableofcontents
-%}
 
 \listoffigures
 
@@ -152,12 +141,6 @@ has been influenced by discussions with supervisors and colleagues, and follows 
 style.  At times when a statement represents the sole opinion of the author, or when reader is invited to think
 alongside, or perhaps disagree with, the author, phrases such as ``the author believes'' are deliberately used.
 
- %Throughout this thesis the term ``we'' is used (in line with recent trends in academic writing) to refer to the
- %author’s work, which is influenced by numerous discussions with his thesis supervisor, faculty and colleagues. This
- %fact is acknowledged through the use of the plural form, except in cases where its use invites the reader to think
- %alongside, or may well disagree with the author. The thesis may reflect the sole opinion of the author in some cases
- %however. Statements in this category are delineated using phrases such as ``in the author’s opinion'' or the occasional
- %use of first person singular.
 
 \pagestyle{fancy}
 \mainmatter
@@ -187,13 +170,6 @@ alongside, or perhaps disagree with, the author, phrases such as ``the author be
   \renewcommand\chaptername{Appendix}
   \cleardoublepage
   \include{appendix1}
-  %\include{remit}
-  %\include{startrack}
-  %\include{consent}
-  %\include{production}
-  %\include{study2-ethics}
-  %\include{results}
-  %\include{opportunities}
 \end{appendices}
 
 \cleardoublepage

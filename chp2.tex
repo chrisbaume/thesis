@@ -1,8 +1,6 @@
-% !TeX root = main.tex
 
 \chapter{Background}\label{sec:background}
 
-% WHAT IS RADIO PRODUCTION?
 The focus of this thesis is on the production of audio content for radio broadcast.  Radio production is both a
 technical and creative endeavour that combines complex audio technology with artistic taste and judgement
 \citep{Barbour2004}. The aim of radio production is to ``manipulate sound to create an effect or deliver a message'',
@@ -10,20 +8,12 @@ which is achieved by combining various sources of sound into a programme \citep[
 chapter, we review methods, systems and technologies that are related to the production of radio, and to the
 development of the semantic audio production tools in this thesis.
 
-%Study on TV sport \citep{Perry2009} and \citep{Engstroem2010}
 
-%Review on video interaction tools \citep{Schoeffmann2015}
 
-%Research on navigation of recorded speech for navigating meetings \citep{Bouamrane2007}: speaker segmentation, speech
-%skimming, automated speech recognition, word spotting, topic segmentation, spoken language summarisation.
 
-%Review on smart meeting systems \citep{Yu2010}
 
-%\citet{Loviscach2011a} includes low-level features (Comparisonics) and high-level features (keywords from ASR)
 
-%\citet{Tucker2005} provides an overview of multimodal meeting data browsers.
 
-%Audio mixing designs based on data visualization first principles \citep{Dewey2016,Dewey2016a}
 
 In Section~\ref{sec:background-editing}, we start by giving a brief overview of the methods and tools of audio editing,
 which is used to create radio programmes.  We show how current editing tools use visual representations to interact
@@ -34,29 +24,13 @@ audio visualization (Section~\ref{sec:background-visualization}), transcripts of
 (Section~\ref{sec:background-transcripts}), and audio playback interfaces (Section~\ref{sec:background-playback}).
 Finally, in Section~\ref{sec:background-questions}, we reflect upon the literature and our research aim to formulate
 the research questions that we will attempt to answer in this thesis.
-%We finish by considering the research strategy we will use to answer our research questions.
 
-%Stolen: In this chapter, we can find a review of a variety of systems and technologies that are related to the
-%approach we have chosen for our search interface. It is organized in sections according to different research fields
-%that play an important role on our proposed system.
 
-%TODO
-%- interested in reviewing technology that aids navigation and editing of audio
-%- Radio is based only on sound, so we will exclude navigation of content through video thumbnails
-%- Production of original content uses specific files, so we will exclude navigation of collections and archives
 
-%TODO
-% a variety of methods are used through this thesis to evaluate technical interventions, these will be introduced in
-% each chapter
 
-%====================================================================================================================
 \section{Audio editing}\label{sec:background-editing}
 
-%Radio production is ``using sound elements to create an effect or deliver a message'' \citep[p. 12]{Hausman2012}.
-%A radio producer is ``anyone who manipulates sound to create an effect or deliver a message'' \citep[p. 19]{Hausman2012}
-%Production is ``a method of combining various sources of sound into a product that accomplishes something specific'' \citep[p.~20]{Hausman2012}
 
-% benefits of pre-production
 The focus of this thesis is on the production of radio programmes using recorded audio.  Recording
 sound ahead of broadcast brings with it a number of benefits \citep[p. 133]{Hausman2012}.  Programmes can be much more
 complex, as many more sound elements can be brought together than would be possible in a live scenario.  The producer
@@ -66,7 +40,6 @@ and open up opportunities for a wider range of programme genres, such as drama a
 number of practical benefits too.  The time of production is not constrained by the broadcast schedule,
 and content for multiple programmes can also be recorded in one session.
 
-% WHAT IS EDITING?
 Recorded audio is refined through editing. \textit{Audio editing} is the process of selecting, re-arranging,
 correcting and assembling audio content into a finished product \citep[p. 112]{Hausman2012}.  According to
 \citet[p.~44]{McLeish2015} and \citet[p.~116]{Hausman2012}, the three primary reasons for editing are to:
@@ -85,7 +58,6 @@ suggest that editing can be used as a ``creative effect to produce juxtaposition
 
 \subsection{Digital audio workstations}\label{sec:background-daw}
 
-% what is digital audio?
 For more than fifty years, audio was recorded on magnetic tape. Combining sound sources required the use of a large
 mixing console which was used to control the sound with faders, knobs and buttons that had to be triggered at the right
 time. Editing was performed by cutting the magnetic tape with a razor blade and sticking it back together again
@@ -93,25 +65,12 @@ time. Editing was performed by cutting the magnetic tape with a razor blade and 
 
 The development of fast processors and high quality audio interfaces has since allowed audio to
 be stored and manipulated digitally using computer software.
-%Digital audio is recorded through a process of \textit{sampling}, where an analogue
-%audio signal is converted into a numerical representation.
-%This digital audio representation can then be read and
-%manipulated using computer software.
-%The amplitude of the signal is measured about 48,000 times a second and saved onto a computer file using binary
-%numbers.
-% how is digital audio editing peformed?
 The primary tool for editing digital audio is the \textit{digital audio workstation}, or \textit{DAW}. A DAW is
 software that provides recording, mixing and editing capabilities for digital audio.  DAWs were first introduced in the
 1980s \citep{Ingebretsen1982}, and have since evolved into powerful tools that are accessible to anybody with a
 computer. Examples of popular commercial DAWs include \textit{Pro Tools} by Avid, \textit{Logic Pro} by Apple and
 \textit{Cubase} by Steinberg \citep{AskAudio2015,ProducerSpot2015}.
 
-% Advantages of DAW:
-% - automatic functions (e.g. crossfades that make edits undetectable)
-% - non-destructive
-% - no loss in sound quality
-% - 100\% accuracy
-% - fine control over timing
 DAWs provide a feature-rich toolset for manipulating audio signals.  They can be used to navigate and edit audio with
 very fine control over timing, even down to individual samples. Automation means that changes made to the audio are
 remembered and repeated each time the audio is played. Automatic cross-fading between clips can be used to
@@ -126,9 +85,6 @@ create inaudible edits.
   \label{fig:sadie-example}
 \end{figure}
 
-% how has digital audio changed radio?
-% - doesn't require use of a studio
-% - programme can be produced by one person
 The introduction of DAWs has transformed radio broadcasting by allowing fast random access, high storage densities,
 improved portability, and greater cost-effectiveness than analogue systems \citep{Pizzi1989}.  The powerful features of
 a DAW can replace most of the activities that would traditionally have to be performed using a radio studio.  The
@@ -138,10 +94,7 @@ usability of DAWs has created a ``high level of personal job satisfaction'' \cit
 deskilling of audio editing has also caused a reduction in the number of people required to produce radio programmes
 \citep{Dunaway2000}.
 
-%Digital technology has also changed music recording by allowing people to record at home, and impacted the music
-%business \citep{Pras2013}
 
-% destructive vs non-destructive
 As the audio is being stored and manipulated digitally, DAWs can be used to edit audio without any loss in sound
 quality. However, when the edited audio is saved, there are two approaches that can be taken --- destructive and
 non-destructive \citep[p.~45]{McLeish2015}. \textit{Destructive editing} occurs when a change is made that alters the
@@ -153,15 +106,11 @@ the final edit is ready does the audio get destructively ``rendered'' or ``bounc
 
 \subsection{Visual representation}\label{sec:background-daw-visual}
 
-%``In computer-assisted editing, the information is stored digitally and manipulated through visual representation on a
-%computer screen''
 Digital audio editing is performed using a visual representation on a computer screen \citep{Derry2002,Hausman2012}.
-%\citep[p. 201]{Hausman2012}.
 \citet{Barbour2004} found through observation and interviews with radio producers that ``visualization of audio on a
 screen has become the dominant focus in a radio production studio'', and that visual representations are used to
 assemble, modify and balance the audio for radio programmes.
 
-% pros and cons of visual representation
 Using visual means to interact with audio has a number of benefits. It allows users to manipulate the audio using a
 mouse and screen, which are commonly used in computing.  Mapping audio to an image allows the temporal information of
 the sound to be displayed spatially, which means it can be searched and skimmed quickly and randomly.  However,
@@ -178,53 +127,29 @@ disengaged their visual senses by shutting or de-focusing their eyes, or looking
 Although we could not find any studies that surveyed the use of visualizations in DAWs, we looked at the five most
 popular DAWs \citep{AskAudio2015} and found that all of them visualized the audio using a ``waveform''.
 
-%In this
-%section, we will introduce the audio waveform, discuss its pros and cons, and compare it to an alternative
-%visualization known as a ``spectrogram''.
 
-% Affect of visual tools on radio production
 
-%However, there are several aspects of this computerisation that may lead to poorer quality productions and a deskilling
-%of producers: the visualization of audio on a computer screen and the reduction of the human interface with the audio
-%technology to a mouse.
 
-%the visualization of audio on a screen
-%has become the dominant focus in a radio production studio
-%\citep{Barbour2004}
 
-%all consciously engage analytic listening at different times during production, and there were a variety of techniques
-%to disengage visually from their productions, including shutting their eyes, looking away and de- focusing.
 
-%for example, they are able to listen analytically to identify the timbres and textures of a voice and to articulate
-%their requirements to the voice talent, to elicit the best vocal performance. The producer is also able to listen
-%analytically and adjust the parameters of the audio technology to achieve the best recorded sound. They are able to
-%combine the voice with backing music and sound effects to enhance the message of the production without losing the
-%clarity of the message or losing the impact of the music and effects.
 
 
 \subsubsection{Waveforms}\label{sec:background-waveforms}
 
-% WHAT IS A WAVEFORM?
 
 An \textit{audio waveform} is a common graphical representation of an audio signal that is produced by plotting the
 amplitude of an audio signal over time.
-%Waveforms are a very simple audio visualisation technique, and arguably the most commonly used.
-%The curve of an audio waveform directly represents the pressure waves of sound.
 Audio signals are periodic, as sound is produced through compression and rarefaction. This can be seen from the
 repeating curved lines of the waveform.  Lines that are closer together represent higher pitch sounds and lines that
 are farther apart represent a lower pitch.  The height of a waveform corresponds to the amplitude, or ``volume'', of
 the audio.
-%As most natural sounds are composed of a multitude of frequencies, waveforms often have complex curves. 
 
-% quiter/louder, deeper/higher pitch
-% https://scienceaid.net/images/3/3d/sound.png
 
 Waveforms have been used to visually represent audio content since the first digital audio workstations started to
 appear \citep{Ingebretsen1982}.  Today, they are the default audio visualization used in the DAWs we surveyed.
 The simplicity of the waveform makes it conceptually easy for users to understand and interpret the audio.  Waveforms
 are relatively compact, so can be arranged vertically on top of each other to view multiple audio tracks
 simultaneously. They are also computationally efficient to generate, as they are plotted in the time domain.
-%TODO Can be used for a variety of tasks and applications
 
 \begin{figure}[h]
   \centering
@@ -246,7 +171,6 @@ simultaneously. They are also computationally efficient to generate, as they are
   \label{fig:waveforms}
 \end{figure}
 
-% loss of frequency information
 Despite their widespread use, waveforms display relatively little information about the audio.
 Figure~\ref{fig:waveform-zoomin} shows a waveform that has been zoomed-in. At this scale, we can see the individual
 cycles of the audio signal, and the mix of frequencies that make up the sound.  However, when we zoom out, these
@@ -254,7 +178,6 @@ curves are compressed to the point where they are no longer visible.  Figure~\re
 waveform at a zoom level typical in audio production. At this scale, it is impossible to determine which frequencies
 are present.  What remains is an ``amplitude envelope'' that indicates the volume of the sound over time.
 
-% readability of amplitude profile
 Without frequency content, there is a limit to the amount of information waveforms can convey.  The amplitude envelope 
 can be used to identify silences, peaks and the relative volume of different parts of the audio.  With experience, it
 is possible to use the amplitude envelope to distinguish different types of sounds. For example, the frequent short
@@ -273,7 +196,6 @@ performance as a method of interacting with audio.
 
 \subsubsection{Spectrograms}\label{sec:background-spectrograms}
 
-% WHAT IS A SPECTROGRAM?
 A \textit{spectrogram} is a plot of the intensity of the Short-Time Fourier Transform \citep{Smith2007}, which visually
 represents of the spectrum of frequencies in an audio signal over time. Higher frequencies are displayed at the top of
 a spectrogram, and the intensity of the signal is mapped to the brightness (or sometimes colour) of the image.
@@ -311,19 +233,13 @@ semantic audio features, but first we will introduce the relevant methods and ap
 \end{figure}
 
 
-% HOW ARE SPECTROGRAMS USED? 
-
-%The frequency scale in an audio spectrogram is usually presented on a logarithmic or Mel scale to give a better mapping
-%of frequencies to the perception of pitch.
-
-%Spectrograms are available in most audio editing software, but rarely used by default.
-
-%TODO Can be used to edit frequencies like photoshop \cite{Boogaart2006}
 
 
 
 
-%====================================================================================================================
+
+
+
 \clearpage
 \section{Semantic audio analysis}\label{sec:background-semantic}
 
@@ -335,7 +251,6 @@ producers in navigating and editing their content by automatically segmenting mu
 interested in how semantic audio analysis can be applied to user interfaces for the purpose of assisting the production
 of radio.
 
-% different fields
 In this section, we will provide an overview of methods and applications of semantic audio analysis.  Semantic audio
 brings together a wide variety of disciplines, including speech recognition, information retrieval, audio analysis,
 signal processing, psychoacoustics, and machine learning \citep{Foote1999}. As such, we will only aim to provide a
@@ -344,7 +259,6 @@ in this thesis.  As the focus of our research is on the pre-production of speech
 and applications related to speech content, which notably excludes the active field of music information retrieval
 \citep{Downie2008}.
 
-% METHODS 
 \subsection{Semantic audio features}\label{sec:features}
 
 Semantic audio analysis is conducted by processing the audio using an algorithm to extract one or more semantically
@@ -356,34 +270,13 @@ people, or structural segments, such as programmes or topics.  Many semantic aud
 machine learning to map low-level features into high-level features. For example, in speech recognition, a
 language model is used to map individual phonemes of speech into words and sentences \citep{Junqua1995}.
 
-%Feature selection and extraction are methods of reducing the dimensionality of a feature vector, either by choosing a
-%combination of vector components that best describe the content (selection), or by translating the feature vector to a
-%smaller vector while retaining as much information as possible (extraction).
 
-%This process can be unsupervised where only the feature data is known (such as with principal component analysis), or
-%supervised where the feature data has corresponding labels (such as with linear discriminant analysis).
 
-%Canonical correaltion analysis (CCA) has been used to reduce the dimensions of features for speaker diarization
-%\citep{Chaudhuri2009} and phonetic labelling \citep{Arora2014}, amongst other things. It is able to efficiently map
-%features to a subspace and can be used with the kernel trick (known as KCCA) to support non-linear mappings.
 
-%\citet{Chaudhuri2009} found that
-%``CCA-based algorithms consistently provide better performance than standard PCA-based
-%clustering methods''.
 
-%In this section, we will describe methods for semantic audio analysis that have been used in applications related to
-%radio production. We outline several feature extraction algorithms, and describe some common methods that are used to
-%map them to high-level features.
 
-%then classification/mapping/grouping/clustering
-% low-level (frequencies) to high-level (words)
-% map or group these features into semantically meaningful categories
 
-% Extraction
 
-%There are a huge selection of semantic audio features that can be extracted from an audio signal.
-%These only represent a small selection
-%of the available features, but we have included them to give the reader an impression of how semantic audio works.
 
 There are many different types of audio features that can be extracted. With music, rhythmic features are used to
 extract the beats and tempo, and harmonic features are used to determine the notes and chords.  Speech is in some ways
@@ -391,36 +284,14 @@ a more complex signal to analyse, so more generic features are often used.  In t
 audio features that are touched upon later in this thesis, to help illuminate the reader's understanding of their
 origin.  Below we have outlined three types: energy, temporal and spectral features.
 
-%Prior to feature extraction, the audio signal is first segmented by time into equal-length chunks, known as
-%``frames'', which are filtered using a window function. This enables the algorithm to 
-
-%\paragraph{Feature learning}
-
-%Traditionally, audio features were developed by hand for specific tasks. This was usually done by attempting to write
-%an algorithm that calculated the properties of the sound that humans used to distinuish the categories in question.
-%More recently, fuelled by an ever-increasing availability of computing power, research has had a much greater focus on
-%automating this process.
-
-%The above methods of reducing dimensionality are based on a relatively short information-rich feature vector that it
-%suitable for the target application.  More recent research on feature development is focussed on automated learning of
-%features using large labelled datasets.
-
-%Deep learning is an increasingly popular method of learning features based on neural networks with large numbers (tens
-%or hundreds) of hidden units. This line of research has been enabled by the increasing availability of large amount of
-%processing power. When done properly, deep learning can produce the state-of-the-art in audio features, outperforming
-%even the best hand-crafted features \citep{Hamel2010,Sigtia2014}.
-
-%Such an approach requires a high-quality and very large labelled dataset, on which the success of the process depends.
-%The nature of neural networks means that it is very difficult to interpret what the resulting features represent which
-%isn't an issue when used as the input to a machine learning system, but would make it very difficult to map to a
-%visualization. The objective of the deep learning process is to minimise a cost function rather than to maximise the
-%link to human perception.
-
-%Deep belief networks for feature learning \citep{Hamel2010}
-%Deep neural networks for learning musical features \citep{Sigtia2014}
 
 
-% low-level vs high-level?
+
+
+
+
+
+
 
 \subsubsection{Energy features}
 
@@ -457,22 +328,16 @@ ZCR can be used as a crude measure of pitch, or distribution of spectral energy.
 Early work in SMD \citep{Saunders1996} identified that ``speech signals produce a marked rise in the ZCR during periods
 of fricativity occurring at the beginning and end of words'', whereas music does not. This causes a bimodality in the
 distribution of the ZCR, which can be detected by measuring its ``skewness''.
-%The variance of ZCR has also been found to perform well for SMD \citep{Scheirer1997}.
 \citet{Panagiotakis2005} also found that ``RMS and ZCR are somewhat correlated for speech signals, while essentially
 independent for music'', and so the product of RMS and ZCR can also be used as a SMD classifier.
 
-%ZCR also played a significant role in two steps of a five-step classifer \citep{Panagiotakis2005}. During silent
-%intervals the number of zero crossings is null, so this was used to detect gaps between speech.
 
-%A review \citep{Carey1999} of features for SMD found ZCR to perform least well, but did not consider the skewness,
-%variance, or probability of null zero-crossings.
 
 \subsubsection{Spectral features}\label{sec:background-spectral}
 
 Spectral features decompose the audio signal into individual frequency bands to analyse the frequencies that are present in the
 signal, and in what proportion.  This is commonly performed using a fast Fourier transform \citep{Smith2007}.
 
-% Spectral centroid
 \textit{Spectral centroid} \citep{Smaragdis2009} is a measure of the ``centre of mass'' of the spectrum, calculated as the mean of the audio
 frequencies, weighted by the magnitude of each frequency bin (see Equation~\ref{eq:background-centroid}). Audio that
 has more higher
@@ -493,7 +358,6 @@ predictor of the perceived ``brightness'' of the audio, which can be used to dis
 
 where $x(n)$ is the magnitude and $f(n)$ is the centre frequency of bin $n$.
 
-% What are MFCCs?
 The \textit{cepstrum} of a signal is the power spectrum of the log of its power spectrum \citep{Noll1967}. The cepstrum
 is a compact representation of how the frequencies in a signal change over time.  The Mel-frequency cepstrum is
 calculated by spacing the frequency bands using the Mel scale \citep{Stevens1937}, which gives a better approximation
@@ -506,27 +370,11 @@ MFCCs are commonly used as a speech analysis tool, and have been successfully ap
 Now that we have a general understanding of some common semantic audio features, we will see how they have been used for
 applications related to radio production.
 
-%The mapping between MFCCs and semantic labels is usually complex, so is often used in combination with machine
-%learning techniques.
 
-%Friendland et. al. \citep{Friedland2009} found that enhancing the standard MFCC features with prosodic features, which
-%measure the rhythm and intonation of speech, improved speaker diarization by 24\%.
 
-%proposed enhancing the standard MFCC features with a set of long-term features
-%representing prosody (the rhythm and intonation of speech). 52 candidate features were ranked using feature selection,
-%which showed that ``the median and mean fundamental frequency are the best features, following by high formants (F4,
-%F5)''. Inclusion of the top ten prosodic features improved the speaker diarization system by 24\%.
 
-%% CLASSIFICATION
-%\subsubsection{Classification}
 
-%% Mapping/grouping/clustering/modelling
-%% - machine learning
-%% - clustering
-%% - markov models
-%% - GMMS
 
-%HMM intro \citep{Rabiner1989}
 
 \subsection{Applications}
 
@@ -536,12 +384,7 @@ them. The semantic audio features we described have already been used to tackle 
 audio analysis that are used later in this thesis: speech/music discrimination, speaker diarization and automatic
 speech recognition.
 
-%\paragraph{Audio classification}
-%\citet{Liang2005} divides audio streams into five classes: silence, noise, pure speech, speech over background sound
-%and music. Four new features are proposed, including silence ratio, pitch frequency standard deviation, harmonicity
-%ratio and smooth pitch ratio.
 
-%Survey \citep{Duan2014}
 
 \subsubsection{Speech/music discrimination}
 
@@ -573,11 +416,7 @@ systems are based on clustering of MFCCs, and that current research is focused o
 algorithms and pre-processing stages, rather than audio features. They also show that most of the recent research has
 focused on recordings of meetings, rather than broadcast content.
 
-%\citet{Foote1998} describes a video browser prototype that allowed the user to control this threshold value,
-%using a slider in the user interface. Their prototype identified speaker turns, but did not attempt to match the
-%identities of the speakers.
 
-%Friendland et. al. \citep{Friedland2009} found that enhancing the standard MFCC features with prosodic features, which
 
 \citet{AngueraMiro2012} found that the average error rate for speaker diarization systems was 11.6\% and 17.7\% for two
 standard data sets \citep{NIST2016}. However, these data sets are based on microphone recordings of meetings, rather
@@ -611,7 +450,6 @@ into five named speakers.
 \end{figure}
 
 
-%Book \citep{Lee1999a}
 
 \subsubsection{Automatic speech recognition}\label{sec:asr}
 
@@ -626,7 +464,6 @@ stage, a language model converts the sequence of phonemes into words and sentenc
 models are developed using machine learning techniques to train the system based on recordings and transcripts of
 speech.  As such, the success of an ASR system depends on the quality and fitness of the data that it is trained on.
 
-% accuracy
 Despite advances in the field \citep{Lee1999a}, ASR produces erroneous transcripts.  \citet{Bell2015} conducted an
 evaluation of ASR systems on television programmes of various genres. Each system was judged by the proportion of
 incorrect words, known as the ``word error rate'' (WER).  The mean average WER of the systems tested was 23.7\%,
@@ -664,11 +501,7 @@ post-processing \citep{Gravano2009}.
 \end{figure}
 
 
-%Speech alignment \citep{Bohac2013}
-% can also be used with post-processing to conduct topic identification and segmentation
 
-%=====================================================================================================================
-% VISUALISATION
 \clearpage
 \section{Audio visualization}\label{sec:background-visualization}
 In the last section, we explored how semantic audio analysis can be used to extract information from audio, but did not
@@ -685,14 +518,7 @@ edit audio content.  However, we also saw that current audio visualizations are 
 example, waveforms only display amplitude information, much of which cannot be seen at typical zoom levels.  To
 effectively navigate audio waveforms, users must read the shape of the visualization.
 
-%to infer whether it is what
-%they are looking for.  Although in many cases this can be learned, it requires cognitive load to process the images
-%into the desired information. It also means that novice users must be trained or gain sufficient experience to be able
-%to reach satisfactory performance levels.
 
-%Audio visualizations can help overcome the contraints of having to consume audio content serially and in real-time.
-%Most existing tools treat audio as a collection of digital samples, without much regard for the information contained
-%in the audio.
 
 In this section, we will see how previous research has proposed a number of enhancements to current audio
 visualizations that aim to improve their performance.  We start by looking at the relationship between sound and
@@ -700,49 +526,17 @@ vision, and considering the perceptual mappings between the two that already exi
 previously been used to process or enhance waveforms and spectrograms to make it easier for users to navigate and edit
 audio recordings.
 
-%TODO Mention Sonic Visualizer from \citet{Cannam2010}
-
-%TODO Colour, size and orientation guide visual attention for visual search \citep{Wolfe2004}
-
-%Semantic audio is the extraction of meaning from audio. Example applications of semantic audio are speech-to-text or
-%music identification. This technology allows the computer to interpret the audio on the user's behalf in a way that is
-%helpful for their situation, however the success of this is dependent on the performance of the audio analysis
-%algorithm.
-
-%Semantic audio visualisation is a two-stage process where the audio is first analysed to extract the semantic data,
-%then the data is visualised. There are thousands of audio extraction and data visualisation techniques that could
-%be combined to create various audio visualisations. The interaction of these two parts, and the context of the
-%application, is important in the sucess of semantic audio visualisation. 
-
-%Visual systems can be used to complement audio interfaces, as they are able to address the key challenges of sound.
-
-%In modern society, screens for displaying visual content are widely available.
 
 
-%Academic research into audio analysis and audio interfaces tends to concentrate on fully automated systems
-%\citep{AngueraMiro2012}, navigation of large audio collections \citep{FontCorbera2010} or navigation interfaces based
-%on skimming \citep{Arons1997} and scrolling \citep{Lee2007}. Although there are examples of audio visualization from
-%the world of academia, it is much more popular in the context of art \citep{Armitage2012}, with excellent examples such
-%as Quayola's Form--Sound--Abstraction\footnote{\url{http://www.quayola.com/work/form-sound-abstraction/}} work.
 
 
-%In a world of `big data', data visualization is becoming an increasing popular subject. Visualization techniques have
-%been applied to audio content for a
-%variety of applications including accessibility \citep{Ho-Ching2003}, browsing
-%large databases \citep{FontCorbera2010}, browsing small databases \citep{Yoo2011} and musical training
-%\citep{Ferguson2005} amonst others.
 
-%The development of good visualizations lies somewhere between science and art.
-%Tufte's seminal work on good practice \citep{Tufte2001} gives solid guidance on
-%creating elegent and unbiased visuals, and Wolfe and Horowitz \citep{Wolfe2004}
-%tell us which properties of vision are most critical for visual search.
-%However, putting these together in the context of audio requires a certain
-%amount of creativity.
 
-%This project focusses on `visualization of time-oriented data', a good overview
-%of which can be found in a Springer book of the same name \citep{Aigner2011}.
-%The rest of this section will look at examples of time-oriented visualization
-%of audio, grouped by the most common visualization techniques.
+
+
+
+
+
 
 \subsection{Crossmodality}\label{sec:crossmodality}
 To be able to represent audio visually, we must map auditory properties to visual properties.  When attempting to link
@@ -775,28 +569,11 @@ population assigned the names ``bouba'' and ``kiki'' to these shapes in same ord
 \end{figure}
 
 
-%\citep{Hubbard1996} did some work to determine which sounds related to which visual properties
 
-%These audio-visual associations are not just higher-level constructs that our
-%concious brain creates, they affect the brain at the very lowest level even
-%with only brief exposure to bimodal stimuli. Zangenehpour et. al.
-%\citep{Zangenehpour2010} used a PET-CT scanner to measure blood flow in the
-%brain during exposure to audio and visual stimuli. ``When presented with only
-%the auditory or visual components of the bimodal stimuli, na\"{i}ve subjects
-%showed only modality-specific cortical activation, as expected.  However,
-%subjects who had previously been exposed to the audiovisual stimuli showed
-%increased cerebral blood flow in the primary visual cortex when presented with
-%sounds alone.''
 
 \citet{Spence2011} presented a review of psychology experiments that attempted to find crossmodal links in the human
 brain, including audio-visual mapping.  He found that there was strong evidence for five audio-visual mappings, shown in
 Table~\ref{tab:crossmodal}.
-%There are two common types of test methods used to discover these links -- `speeded' and `unspeeded'.  In `speeded'
-%tests, participants are tasked with classifying an audio/visual stimulus and their reaction time is measured. When the
-%auditory and visual stimuli are `congruent' (perceived to be similar), then their reaction times are quicker. In
-%`unspeeded' tests, visual and audio stimuli are presented very quickly, one after the other, and participants are
-%asked to select which stimulus came second. When the stimuli are congruent, participants find it more difficult to
-%work out the order of presentation.
 These findings were supported by \citet{Tsiros2014}, who attempted to generate images to match different sounds, and
 measured their success through a user study. In addition to confirming the strong links between loudness/size and
 pitch/elevation, he found weaker links for pitch/colour, dissonance/granularity, and dissonance/colour complexity.
@@ -819,27 +596,12 @@ Pitch/spatial frequency & higher=higher \\
 \end{table}
 
 
-%used a different approach to measure audio-visual crossmodality by using audio visualization
-%techniques.  Three audio recordings were used -- a violin, recording of wind noise and impact sound event. For each,
-%images were manually created which used different combinations of audio-visual mappings (e.g. dissonance $\to$ texture
-%granularity). Participants were played an audio clip and shown an image and were asked whether they are similar or not,
-%and to what degree (on a scale of 0--100).
 
-%Tsiros confirms the results revealed by previous studies [7], [15], [19] which found strong relationships between the
-%audio-visual feature associations of size – loudness, pitch – vertical position, and weaker relationships between
-%color – pitch, texture granularity – sound dissonance and color complexity- sound dissonance
 
-%Additional work from \citet{Marks2003} suggests that cross-modal interaction is a result of late-stage cognitive
-%processes.
 
-%Artwork that used synaesthesic style mapping for music to colour \citep{Armitage2012}
 
-%Relationship between pitch and colour \citep{Datteri2004}
 
-%Cross-modality can even be measured in the visual cortex using a PET scanner \citep{Zangenehpour2010}
 
-%Vision and audition are physiologically separate, but idential in many respects
-%\citep{Tsiros2013}.
 
 Current audio visualizations exploit some of these crossmodal mappings. For example, waveforms map loudness to size,
 and spectrograms map loudness to brightness, and pitch to elevation. However, this previous work shows that there are
@@ -858,11 +620,6 @@ and colour.
 \subsubsection{Scaling}
 When an audio waveform is zoomed out, the curves of the waveform are compressed which can make it difficult to read.
 This affects both horizontal zoom (on the time axis) and vertical zoom.
-%The scale at which a waveform is viewed is crucial to its effectiveness. There are two axes with which the scale is
-%controlled using horizontal and vertical zoom.  Horizontal zoom adjusts the time period that is viewed, which affects
-%the visibility of the frequency information.  Vertical zoom adjusts the amplitude range that is viewed, which affects
-%the visibility of the amplitude envelope.
-%\citet{Eika2017} proposed using the absolute value of the audio signal
 One very simple technique for improving waveform readability is to automatically scale the vertical zoom to match what
 is visible on the horizontal timeline.  However, if the scale of the waveform constantly shifts, there is no reference
 level by which to compare the amplitude of the audio.  The solution proposed by \citet[p. 39]{Goudeseune2012} was to
@@ -877,12 +634,6 @@ for repeating monoaural sounds --- for example, a sine wave would be identifiabl
 However, typical real-life applications use complex polyphonic audio, which would not benefit from quintessence
 waveforms as there is no repeating signal to display.
 
-%\begin{figure}[p]
-  %\centering
-  %\includegraphics[width=0.95\textwidth]{figs/quint.png}
-  %\caption{Above: Normal waveform, below: quintessence waveform, source: \citep{Loviscach2011}}
-  %\label{fig:quint}
-%\end{figure}
 
 \begin{figure}[t]
   \centering
@@ -900,9 +651,6 @@ allowed users to simultaneously view the waveform at two different scales --- an
 detailed local view. This technique has the potential to display frequency information in regions of interest, and help
 make more precise audio edits without having to adjust the overall zoom level.
 
-%waveform tracks can vertically overlap by 25\% without dramatically affecting display quality
-%waveforms are mostly symmetrical, so by discarding one half the overlap can be increased to 50\%
-%stack graph for contribution of each track to perceived loudness
 
 \subsubsection{Colour}
 The use of colour is a simple and effective way of adding additional information to a waveform.  However, many DAWs
@@ -944,15 +692,11 @@ could not find any formal evaluation of Comparisonics.
 quickly find and compare sound effects and music clips.  They used pseudocolour to map the spectral centroid of the
 audio (see Section~\ref{sec:background-spectral}) to a rainbow colour gradient. This colours lower frequency sounds
 blue and higher frequency sounds red, matching the effect seen in \citet{Rice2005}.
-%Spectral centroid is the weighted mean of the frequencies of a signal
-%\citep[p. 10]{Smaragdis2009}, so a low value indicates the presence of mostly low-frequency sound and vice-versa.
 An example of this approach is shown in Figure~\ref{fig:pseudocolour-example}.
 \citet{Loviscach2011a} used pseudocolour to enhance the navigation of speech in a video editor by distinguishing
 different phonemes of speech.  This was achieved by mapping the zero-crossing rate of the audio
 (see Section~\ref{sec:background-temporal}) to a rainbow colour spectrum.
 The author could not find any studies that attempted to evaluate these approaches.
-%The zero-crossing rate is the frequency with which an audio signal switches between a
-%positive and negative value \citep[p. 37]{Zhang2010}, which is a crude measure of the primary frequency of the audio.
 
 \citet{Tzanetakis2000} used false colour to design a visualisation technique known as \textit{Timbregrams}. Their aim
 was to ``use colour perception and the pattern recognition capabilities of the human visual system to depict timbral
@@ -964,14 +708,6 @@ When using RGB, speech, classical music and rock could easily be distinguished a
 blue and dark green, respectively. Tibregrams were later used to colour a waveform in a basic audio editor \citep[p.
 253]{Tzanetakis2001}, but the author could not find any formal evaluation of Timbregrams.
 
-%\begin{figure}[t]
-  %\centering
-  %\includegraphics[width=.8\textwidth]{figs/Mason2007.png}
-  %\caption{Audio visualization of the BBC radio programme ``From Our Own Correspondant'', using an audio waveform (top)
-  %and false colour visualization of three audio features (bottom), from \citet{Mason2007}. The location of the five
-  %segments of the programme can be seen in the false colour visualization, but not the waveform.}
-  %\label{fig:Mason2007}
-%\end{figure}
 
 \citet{Mason2007} used false colour to assist radio listeners in navigating recently-broadcast material. They mapped
 three empirically-chosen audio features to RGB colour space. The authors reported that the system was successful at
@@ -982,38 +718,8 @@ an example of this approach for a BBC radio programme that contains five segment
 visible in the waveform, the false colour visualization displays the voice of the female presenter in a lighter colour,
 which makes the segments visible.
 
-%\begin{figure}[p]
-%\centering
-%\begin{subfigure}{\textwidth}
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/freesound2.png}
-  %\caption{Freesound (\url{freesound.com})}
-  %\label{fig:freesound}
-%\end{subfigure}\\%
-%\begin{subfigure}{\textwidth}
-  %\centering
-  %\includegraphics[width=\textwidth]{figs/rice.png}
-  %\caption{Comparisonics \citep{Rice2005}}
-  %\label{fig:rice}
-%\end{subfigure}
-%\caption{Examples of pseudocolour (\ref{fig:freesound}) and false colour
-  %(\ref{fig:rice}) applied to colourising an audio waveform}
-%\label{fig:colourvis}
-%\end{figure}
 
-%False colour has also been used for navigating and summarizing extremely long recordings. \citet{Towsey2014} mapped
-%three spectral features to RGB colour for visualizing almost a year of environmental recording.
-%Figure~\ref{fig:towsey} shows the recordings from March until October, with each line representing one day.  The
-%visualization reveals the change in time of the dawn and evening choruses throughout the year, amongst other things.
 
-%\begin{figure}[p]
-  %\centering
-  %\includegraphics[width=0.95\textwidth]{figs/towsey.png}
-  %\caption{False colour visualization of environmental recordings, with each line representing one day. Missing data is
-    %shown in grey.
-    %\citep{Towsey2014}}
-  %\label{fig:towsey}
-%\end{figure}
 
 \begin{figure}[p]
   \centering
@@ -1023,8 +729,6 @@ which makes the segments visible.
       \label{fig:Mason2007-waveform}
   \end{subfigure}
 
-  %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-  %(or a blank line to force the subfigure onto a new line)
   \begin{subfigure}[b]{0.8\textwidth}
       \includegraphics[width=\textwidth]{figs/fooc-false.png}
       \caption{False colour}
@@ -1049,13 +753,7 @@ which makes the segments visible.
 \subsection{Spectrograms}
 
 
-%Spectrograms display the amplitude of audio frequency over time. Unlike waveforms, the frequency information and
-%timeline are somewhat de-coupled, so the frequency information is visible at all zoom levels. They display sufficient 
-%information that, with sufficient training, it is possible to read speech using a spectrogram \citep{Zue1979,Zue1986}.
-%However, despite these advantages, audio waveforms are much more widely used than spectrograms in audio production.
 
-%\citet{Gohlke2010} proposed a
-%thresholded spectrogram overlaid with different colours for each track to minimuse spectrotemporal overlap and masking
 
 As we discussed in Section~\ref{sec:background-spectrograms}, spectrograms are an information-rich representation of
 the spectrum of frequencies in an audio signal over time, but they can be difficult for novice users to read.
@@ -1068,75 +766,25 @@ hidden in meeting room recordings using both saliency-maximised and normal spect
 saliency-maximised spectrograms significantly outperformed normal spectrograms.  Filtering spectrograms shows promise as
 a way of detecting unusual events, however it is unclear how useful this sort of application would be in the context of
 radio production.
-%A user study of Timeliner for audio event detection \citep{Hasegawa-Johnson2011} Uses false colour to map min, mean
-%and max values to the HSV colour space
-
-%\begin{figure}[ht]
-  %\centering
-  %\includegraphics[width=0.95\textwidth]{figs/spectrogram-salience.png}
-  %\caption{Top: A normal spectrogram; Bottom: A salience-maximised spectrogram with target events marked using black
-    %underlines}
-  %\label{fig:timeliner}
-%\end{figure}
-
-
-% Could use image synthesis \citep{Levkowitz1991}
-
-%\clearpage
-%\section{Speech segmentation}
-
-%Waveforms and spectrograms provide a direct mapping of sound to vision, which is then interpreted by the user. The
-%benefit of this approach is that it can be used for a wide variety of tasks with any type of content.  The downside is
-%that the user must learn how to read these visualizations, and view them at an appropriate scale.
-
-%With many audio recordings, the content can be divided into logical groupings that could help the user navigate the
-%recording. For example, a ``magazine-style'' radio programme is made up of several pieces on different topics. Being
-%able to view what those topics were, and where they occured in the programme, would assist listeners in navigating to
-%a topic of interest.
-
-%Semantic audio analysis techniques have been widely used to classify and segment audio into a range of logical
-%categories. These are often combined with data visualization techniques \citep{Aigner2011} to create novel user
-%interfaces that aid the navigation and editing of audio content.
-
-%We have divided these segmentation techniques into two broad categories: classification, where audio is segmented by
-%the character of the audio (speech, music etc.), and topic summarization, where the audio is segmented by its content.
-
-%\subsection{Classification}
-
-%Audio can be divided into human-readable segments using semantic audio analysis techniques.  Semantic audio analysis
-%typically operates in two main steps: dividing an audio file into sematically meaningful segments, then grouping these
-%segments into semantically meaningful categories \citep{Lu2009,Zhang2010}. These categories can be chosen to match the
-%application being targeted. For example, a radio broadcast might be divided into speech, music, speech mixed with music
-%and applause.
-
-%This semantic audio segmentation has applications to audio editing \cite{Avdelidis2007}.
-
-%\subsubsection{Speech/music discrimination}
-%Speech-music discrimination (SMD) is the task of segmenting an audio recording and labelling those segments as either
-%speech or music.
-%Previous research into automated SMD has often targeted recordings of radio broadcasts
-%\citep{Goodwin2004,Wieser2014,Saunders1996,Pikrakis2008,Pikrakis2006a}.
-%%Clustering is a task in which comes naturally to humans, but machines often struggle with.
 
 
 
 
-%\subsubsection{Speaker diarization and identification}
-%\textit{Speaker diarization} is the task of segmenting a speech recording according to speaker identity, which is used
-%to answer the question ``who spoke when?'' \citep{AngueraMiro2012}. Segments are given a unique label for each speaker,
-%but the identity of the speakers is unknown.  \textit{Speaker identification} is the task of identifying the person who
-%is speaking based on the sound of their voice.
 
-%%Speaker identification with crowd-sourcing achieved 85\% precision and a 43\% recall
 
-%which used speaker diarization and
-%identification to facilitate navigation of radio programmes. The prototype relied on crowd-sourcing to add the speaker
-%names, which then populated a central database of speaker identities.
 
-%Segmentation algorithms often use a threshold value to configure their sensitivity. In the case of speaker diarization,
-%a low threshold would increase the recall and reduce the precision. For example, more speaker turns would be detected,
-%but some may be incorrect.  This threshold is often set to minimise a cost function, which balances the precision and
-%recall.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1151,19 +799,14 @@ of tools, such as word processors, or on paper.  \citet[p.~133]{Hausman2012} not
 paragraphs''.  In this section, we will see how transcripts can be used as an interface to aid the navigation and
 editing of speech recordings.
 
-% transcripts can increase the navigation speed
 \subsection{Transcript generation}\label{sec:transcript-generation}
 Transcripts can be written manually, either using pen and paper or a word processor,
-%Based on the author's informal
-%discussions with radio producers, it can take them between 2 and 5 times the length of recording to
 but this is a slow and tedious process. Transcription can be completed faster by only transcribing the most salient
 words, but this makes the transcript much less readable, particularly to others who haven't heard the original
 recording.  Alternatively, a third-party can be used to transcribe the speech, but this slow and expensive.  For
 example, transcribing speech using \texttt{rev.com} currently costs US\$1 per minute and takes 12
 hours\footnote{\url{https://www.rev.com/transcription}, accessed 11/12/2017}.
 
-% two types: manually written (perfect, but expensive and slow) or automatic (erroneous, but fast and cheap)
-% comparison?
 As we saw in Section~\ref{sec:asr}, ASR can be used to convert speech to text automatically.  ASR is quicker and
 cheaper than manual transcription.  ASR also produces accurate timestamps for each word, which can be used to precisely
 navigate and edit the audio, but word-level timestamps can also be added to manually-written transcripts using speech
@@ -1174,22 +817,10 @@ search audio content \citep{Ranjan2006} and correct errors \citep{Burke2006}.  H
 transcripts, they provide a highly effective tool for browsing audio content as users can visually scan the text to
 focus on regions of interest, known as ``strategic fixation'' \citep{Whittaker2007}.
 
-%\citet{Vemuri2004} conducted a user study of 34 participants and measured their comprehension of short audio clips when
-%presented with both perfect and auto-generated transcripts.  The results show that subject comprehension of audio
-%presented with a perfect transcript (C1) was found to be better than an automatically-generated transcript.
-%completely wrong transcripts aren't worse than no transcript
 
-%\citet{Ranjan2006} studied the performance of 13 participants in an audio search task with varying levels of
-%transcript quality. The results showed that the mean search time descreased as the transcript quality increased.
 
-%\citet{Burke2006} found that higher quality transcripts required users to listen less to complete a correction task.
 
-%Automatic speech recognition technology makes it possible to extract partially accurate transcripts of speech
-%recordings.  A number of researchers have experimented with using these transcripts to enhance interfaces for
-%interacting with audio content.
-%\subsection{Navigation}
 
-% navigation with transcripts
 
 \subsection{Transcript navigation}
 Transcripts have previously been used by several systems as an interface for improving the navigation of speech-based
@@ -1210,7 +841,6 @@ segmentation, and the ability to seek to a point in the audio recording by click
 \citet{Whittaker2002} evaluated SCANMail through a study of eight experienced users, which found that the transcript
 display enabled them to visually scan the content of recordings to quickly extract information, and to judge which
 parts were relevant, without having to play the audio.
-%SCANMail did not include editing capabilities
 
 \subsection{Semantic speech editing}\label{sec:background-semantic-editing}
 In addition to supporting the navigation of speech recordings, transcripts have also been used as a method of editing
@@ -1249,7 +879,6 @@ editing capabilities received positive feedback. The author could not find any f
   \includegraphics[width=\textwidth]{figs/Rubin2013.png}
   \caption{User interface of a semantic speech editor for creating ``audio stories'', from \citet{Rubin2013}.
   Republished with permission.}
-  %Image is \textcopyright~2015 Steven Surmacz Rubin.} 
   \label{fig:Rubin2013}
 \end{figure}
 
@@ -1262,9 +891,6 @@ that text-based editing was considered good enough to replace waveform editing, 
 observed that most users only used the system to make fine-grained edits, instead of editing large chunks.  Users said
 that the transcript also allowed them to quickly review all the points that were made, and that the errors in the
 transcript weren't a heavy distraction.
-%A quantitative study of 28 students and teachers found that
-%including editing functionality resulted in the students reporting lower levels of mental task load, effort and
-%temporal demand.
 
 \citet{Yoon2014} created a collaborative tablet-based document annotation system called \textit{RichReview}, which
 offered users three modalities in which to annotate documents --- free-form inking, voice recording and deictic gestures
@@ -1273,7 +899,6 @@ transcript of the speech.  Users could trim or tidy the voice recordings by draw
 remove them.  The system was evaluated using a qualitative study of 12 students which found that the editing features
 were considered easy to use and efficient for removing ``umm''s and long pauses.  However many participants reported
 that the transcripts were not accurate enough to use without having to listen to the audio.
-%RichReview was later deployed as a web applet on the online education platform edX \citep{Yoon2015a}.
 \citet{Yoon2016} describes two deployment studies that used a similar system called RichReview\textsuperscript{++}, but
 they did not report there being any semantic editing functionality.
 
@@ -1301,12 +926,10 @@ studies of this system could be found.
   \citet{Boas2011}.]{User interface of \textit{Hyperaudio Pad} --- a semantic speech editor for video, from
   \citet{Boas2011}.  Drag-and-drop is used to select clips from the left transcript and arrange them on the right
 transcript.}
-  %Image is \textcopyright~2015 Steven Surmacz Rubin.} 
   \label{fig:Boas2011}
 \end{figure}
 
 
-% video editing using perfect transcripts
 When editing a video interview, it is desirable to avoid making a cut while the person speaking is in shot, because it
 causes the image to jump unnaturally.  \citet{Berthouzoz2012} used image processing algorithms to create a video editor
 that can help the user hide these edit points. The system had an editable transcript window that displayed suitable
@@ -1325,7 +948,6 @@ user-supplied transcript to a video recording by placing a marker in the video f
 \citep{Griggs2007}. This allows users to jump to a particular line, or see which line in the transcript corresponds to the
 current point in the video.  A second version of ScriptSync was launched in February 2017 \citep{Avid2017} which added
 script correction and collaborative note-taking.
-%We did not find any reported user studies of ScriptSync.
 
 \citet{Shin2016} created a system called \textit{Voice Script} that supports an integrated workflow for writing
 scripts, and recording/editing audio. An informal study with four amateur participants found that it could support
@@ -1348,10 +970,7 @@ to watch and talk at the same time. However, for speech content it would be diff
 simultaneously.  The ability to export edits to professional software allows for a smooth continuation of the
 production workflow.
 
-%ellipses were used to indicate pauses.
-%three constraints - alignment, alternative, ordered
 
-% CORRECTION
 
 \subsection{Transcript correction}
 
@@ -1359,9 +978,6 @@ production workflow.
 they found in the transcript''. ASR errors reduce listener comprehension \citep{Stark2000,Vemuri2004} and increase the
 time it takes to search audio content \citep{Ranjan2006} and correct errors \citep{Burke2006}.
 
-%\citet{Whittaker1999,Whittaker2004,Apperley2002,Yoon2014,Boas2011} were based on ASR transcript, but did not include
-%correction.
-%\citet{Rubin2013} and \citet{Berthouzoz2012} used verbatim transcripts, which did not need correction.
 
 Four of the ASR transcript interfaces mentioned above included correction functionality, with each using a different
 method to edit the text.  SILVER \citep{Casares2002} required the user to both type the replacement word and select the
@@ -1375,26 +991,21 @@ users to either replace an individual word by selecting a replacement from a dro
 by selecting them and typing the replacement.  A user study of 16 participants who corrected voicemail messages found that
 compared to typing, selecting the replacement word required the user to listen to less of the audio.
 
-% contextual information
 The correction process can be made more efficient by correlating the user's input with contextual information
 \citep{Suhm2001}.  In particular, the words immediately before and after the incorrect word can be used to reduce the
 number of candidate words, or even estimate the replacement.  \citet{Liang2014} showed that once an incorrect word is
 identified, in 30\% of cases the correct word can automatically be inferred using $n$-grams and acoustic features.
 
-% real-time correction
 Correction is normally a process that happens after ASR transcription, but as \citet{Wald2007} demonstrated, it is
 possible to correct ASR transcripts in real-time as the audio is captured. However, during recordings, radio producers
 are normally pre-occupied with operating the equipment, asking questions or listening to the answers. As this does not
 leave enough space for performing real-time correction, an extra producer would be required, which is costly.
 
-% alternative inputs
 The above systems used a keyboard and mouse interface to correct transcripts. \citet{Suhm2001} tested alternatives
 methods that used vocal correction and a pen interface.  They found that for skilled typists, keyboard and mouse input
 was faster than the alternatives, but that voice and pen input would be attractive for use by poor typists, or for 
 devices that don't allow fast keyboard input.
 
-% normally correction used to fix mistranscribed audio, but could be used to change errors in speech
-% correction can be used to change synthesised speech
 
 ASR transcripts contain errors in the text, but sometimes there are errors in the speech itself that producers may want
 to correct. \textit{TypeTalker} from \citet{Arawjo2017} was an interface for editing synthesised speech using ASR
@@ -1407,14 +1018,11 @@ technology could be used to create seamless repairs to errors in speech recordin
 has ethical and legal implications, particularly in a broadcasting context \citep{Bendel2017}\footnote{There's an
 interesting episode of Radiolab that discusses this: \url{http://www.radiolab.org/story/breaking-news/}}.
 
-% confidence shading
 \subsection{Confidence shading}\label{sec:background-confidence}
 In addition to producing a transcript, many ASR systems return a confidence score for each
 transcribed word, indicating how sure the system is that the word is correct. \textit{Confidence shading} is a technique for
 displaying this score by colouring words with a low confidence score in a lighter shade \citep{Suhm2001}.
 Confidence shading has been used to try to make mistakes easier to locate, and transcripts easier to read.
-%It is hypothesised that confidence shading makes it easier to identify incorrect words for the purposes of correction,
-%and increases the comprehension of the text because the lighter shade makes mistakes less apparent.
 However, confidence scores may themselves be incorrect by indicating that a correct word is probably incorrect, or that
 an incorrect word is probably correct. The trade-off between these two types of errors is controlled using the threshold
 value \citep{Feng2004}.
@@ -1432,53 +1040,25 @@ study of 34 participants and measured the comprehension of short audio clips whe
 transcripts with and without confidence shading. Although the results indicated better comprehension with confidence
 shading, there was no statistically significant difference.
 
-%\subsection{Topic summarization}
-
-%Topic summarization has previously been used to assist the discovery and search of media archives \citep{Raimond2014,
-%Kim2003}. However, the same techniques can also be applied to aiding the navigation of audio files using segmentation.
-
-%% can use text summarization
-%Text summarization review paper \citep{Lloret2012}
-
-%% video digests
-%Video digests divide video recordings into chapters, sections and summaries.
-%\citet{Pavel2014} describes an interface for writing and editing video digests
-
-%% segmentation with keywords 
-%\citet{Abdulhamid2013,Abdulhamid2013a} introduced \textit{SpEx}, which is an interface designed to help students
-%navigate lecture recordings.
-
-%World service archive \citep{Raimond2014} topic extraction
 
 
-%% OTHER
-
-%% repeated bits
-%Similarity matrix can be used to discover and display repeated regions of audio \citep[p. 6]{Cooper2006}
-
-%% text
-%Text segmentation \citep{Choi2000}
-
-% (below not relevant)
-%Evaluation of SpeechBot for searching radio archives \citep{Kim2003}
 
 
-%\subsection{Keyword extraction}
-
-%Keyword extraction \citep{Matsuo2004}
-
-%Keywords used by \citet{Loviscach2011a} as part of his nimble video editor
-
-%% keyphrases from speech, using ASR, poor quality
-%Extracting keyphrases \citep{Inkpen2004}
 
 
-%TODO other applications
-%Coding of video interviews \cite{Chandrasegaran2017}
 
-%VisScribe - interactive transcript interface and speaker activity for coding design sessions \cite{Chandrasegaran2017}
 
-%Personal device for recording and navigating notes using keywords \citep{Tucker2003}
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Audio playback interfaces}\label{sec:background-playback}
 
@@ -1495,7 +1075,6 @@ separate the sounds.  We discuss each of these techniques below.
 
 \subsection{Time compression}\label{sec:background-time-compression}
 
-% problem description
 Listening to long audio recordings of speech can be time-consuming. A simple way to reduce the listening time is to
 increase the rate of playback.  However, this increase in speed causes an upward shift in the pitch of the sound, which
 is sometimes described as sounding ``like chipmunks'' \citep{Vemuri2004,Ranjan2006}.  The increased speed with which
@@ -1507,17 +1086,12 @@ content of the material, measured by the number of correctly answered questions 
 \citep{Foulke1969}.  The change in pitch caused by speeding-up audio negatively affects both the intelligibility and
 comprehension of speech \citep{Arons1997}.
 
-%By carefully selecting which words to listen to, speech
-%can remain intelligible at up to 10-times normal speed \citep[p.~7]{Arons1997}.
-%TODO better citation needed
 
-% difference between time compression and speech skimming
 There are several approaches for reducing the time required to listen to a recording while being able to extract
 critical information, which can be divided into two categories. \textit{Speed-up} techniques aim to increase the speed
 of playback without affecting the pitch of the speech, and \textit{excision} techniques aim to remove parts of the
 speech in a way that minimises the reduction in comprehension \citep{Arons1997}.
 
-% speed-up vs excision
 \citet{Tucker2006} performed a user study that compared two different excision techniques and a speed-up technique,
 using both 5-min and 30-min audio recordings.  Participants ranked a list of utterances to match what they heard, which
 was compared to a reference response to produce a score for comprehension. This score was normalised by the listening
@@ -1525,28 +1099,8 @@ time to measure ``comprehension efficiency''.  The results showed that for short
 speed-up, but that they performed similarly for long recordings. However, when using excision, participants were less
 likely to switch to normal-speed playback, and they reported that they preferred excision to speed-up.
 
-%time compression and speech skimming.
-%\textit{Time compression} refers to a set of sampling techniques that are used to reduce the length of the audio by
-%skipping or over-lapping audio frames.  \textit{Speech skimming} exploits the natural boundaries and acoustic
-%properties of speech to structure the audio content based on salience. This can be determined based on the location and
-%frequency of natural pauses, the emphasis of the voice (usually determined by pitch), speaker diarization and the
-%content of the speech.
 
-% time compression (sampling techniques)
-% - shortening/removing pauses
-% - isochronous sampling (regularly skipping frames)
-% - SOLA (overlapping frames)
-% - dichotic sampling
-% - backward sampling
-%
-% skimming (structuring the audio by segmenting based on saliency, then skipping)
-%   - pauses
-%   - pitch-based emphasis
-%   - content-based
-%   - speaker diarization
 
-% excision techniques
-% isochronous sampling, shortening/removing pauses
 The simplest excision technique is to remove frames of audio at regular intervals, known as ``isochronous sampling''
 \citep{Arons1997}.  However, this approach does not discriminate between valuable and redundant information. It also
 fails to take into account speech boundaries, so may cut the audio mid-way through a word. Shortening or removing
@@ -1554,11 +1108,6 @@ pauses between words is a simple and effective approach that reduces the length 
 the information and respecting speech boundaries. However, once all of the pauses have been removed, other techniques
 must be used to further compress the speech.
 
-% emphasis detection
-%Early work by \citet{Heiman1986} showed that double-speed playback removes virtually all redundant information, so when
-%playing back at higher speeds, information is lost. To avoid losing important information, some excision algorithms
-%attempt to segment the recording according to the relevance of the content. The audio is then compressed by only
-%playing only the beginning of each segment.
 
 Many excision algorithms operate by segmenting the audio at points of increased saliency, then playing only the
 beginning of each segment before moving onto the next. The saliency can be determined by measuring pause length, pitch,
@@ -1585,18 +1134,8 @@ their comprehension of short audio clips at different rates of playback using sp
 playback rate was $2.6\times$ real-time for listening only. The addition of an ASR transcript increased this to
 $2.8\times$, and a verbatim transcript increased this further to $3.0\times$. \citet{Whittaker2002} exploited this by
 including time-compressed playback in the SCANMail semantic speech interface.
-%TODO More system examples
 
-% PROS
-% - listening to audio, which is more natural and rich than text
-% - can halve the time needed to listen, up to a third the time with perfect transcript
 
-% CONS
-% - increases cognitive load, more tiring for listeners
-% - excision is preferred, okay for aiding memory but probably not suitable for first-time listening
-%   - might miss something out
-%   - harder to judge suitability of audio (e.g. prosody affected by pause shortening/removed
-%   - algorithms filtering content could inadvertenty affect creativity/balance
 
 \subsection{Simultaneous playback}
 
@@ -1630,28 +1169,11 @@ the overall search time compared to normal audio playback, particularly when the
 recording. The overall time reduction was around 20\%.  Dichotic presentation can be combined with time
 compression, but this creates high cognitive load and 8 of the 13 participants reported it to be ``very demanding''.
 
-%50x video playback with audio skimming on BBC rushes \citep{Christel2008}
 
-%Skimming and markers \citep{Dhanesha2010} for use on normal telephone
 
-%\citet{Imai2001} proposed a speed-up algorithm for Japanese speech, with a view to using it for video editing. They
-%tested the comprehensibility of their algorithm on 6 participants which indicated that speech can be comprehensible at
-%up to x5 speed. They implemented their algorithm in a non-linear video editing system, but did not attempt to evaluate
-%it.
 
-%\subsubsection{Scrolling interfaces}
-%Elastic Audio Slider \citep{Huerst2004}
-%Position-based audio slider \citep{Huerst2006}
-%MobileZoomSlider, ScrollWheel \citep{Huerst2008}
-%Hardware scrolling interfaces \citep{Lee2007}
-%DiMa\ss \citep{Lee2006}
 
-%\subsubsection{Haptic interfaces}
-%Haptics
-%\citep{Metatla2016}
 
-%\subsubsection{Mix audio and text}
-%Quixotic: Audio recorder with word processing interaction \citep{Milota2015}
 
 \clearpage
 \section{Research questions}\label{sec:background-questions}
@@ -1702,21 +1224,11 @@ evaluated, so it is unclear what effect semantic editing has on the radio produc
 \textbf{Question 3:} How can transcripts of speech be adapted and applied to radio production?
 \\
 
-% WHAT HASN'T BEEN DONE
-
-%In this chapter, we outlined the editing process in radio production and the tools that are used.  We introduced
-%semantic audio analysis and some of its applications that could be useful for radio production.  We then described how
-%previous work has used audio visualization, textual representation and audio playback interfaces to facilitate the
-%navigation and editing of audio content.
-
-% theme: not much work with radio producers
-%A characteristic problem within the scope of this work is related to 
 
 
-% CHAPTER 3 set-up
 
-% What hasn't been done
-%Our primary aim is to develop better tools for radio production. To achieve this,
+
+
 To be able to answer these questions, we first need to have a solid understanding of the radio production process.
 Despite the large scale of radio production activity around the world, the author could only find two studies that
 involved radio producers \citep{Dunaway2000,Barbour2004}, both of which were written by radio producers working in
@@ -1725,8 +1237,6 @@ workload, which can make it challenging to recruit them for academic research. F
 National Public Radio (NPR) to develop a speech archive interface, but reported that they were unable to recruit any
 radio producers to evaluate their system due to the small population and their limited availability.
 
-%It can be difficult for those working outside of the radio industry to learn about the practices and demands of radio
-%production.
 
 The author of this thesis is an employee of BBC R\&D, which gives us access to the resources of BBC Radio. This is
 unusual in academic research, where studies are often conducted with student participants and under laboratory
@@ -1740,68 +1250,21 @@ take advantage of access available to us that other researchers would not have. 
 understanding of the processes and challenges of radio production, in Section~\ref{sec:ethno-strategy} we will reflect
 upon our findings and our research aim to determine a research strategy for achieving our goal.
 
-%We have seen in Section~\ref{sec:background-radio} that not many formal studies have investigated radio production. One
-%potential reason for this is that radio producers are difficult to access. For example, \citet{Kim2003} worked with NPR
-%to develop a speech archive interface, but reported that they were unable to recruit any radio producers to evaluate
-%their system due to the small population and their limited availability.
-
-%% CHAPTER 4 set-up
-
-%% DAW still using waveforms, despite limitations and opportunities for improvement
-
-%We saw in Section~\ref{sec:background-daw} that DAWs use audio waveforms, which are limited in the information they can
-%display. However, despite their widespread use, we could not find any studies that attempted to measure the performance
-%of audio waveforms. Section~\ref{sec:background-visualization} described several promising methods for improving the
-%navigation of audio content by adding semantic information to audio waveforms, but we could not find any formal
-%evaluations of these methods.  To better understand audio waveforms and audio visualization techniques, we will
-%investigate their performance.
 
 
-%% CHAPTER 5 set-up
-%In Section~\ref{sec:background-transcripts}, we saw that transcripts of speech have been successfully used to allow for
-%semantic navigation and editing of audio content. This approach could be beneficial for use in radio production.
-%\citet{Rubin2013} demonstrated a system for the production of ``audio stories'', which is related to radio production.
-%However, their system used verbatim transcripts, which are slow and expensive to produce. In addition, they did not
-%evaluate their system, so it is unclear what impact this has on the production process.  The semantic editing systems
-%that were evaluated were designed for navigating and editing voice messages and comments. These systems have different
-%requirements and use different content than radio production.  Therefore, in order to better understand the effect of
-%semantic editing on the radio production process, we will investigate its use in the creation of radio programmes
-%through an evaluation.
-
-%% WHAT NEEDS DOING
-
-%% - better understanding of the current tools and their performance
-%% - better understanding of the radio production process and which techniques could be used to improve it
-%% - apply one or more of these techniques and test its effect in radio production to see:
-%%   - whether it works
-%%   - what the challenges are
-%%   - identify missing elements for future research
 
 
-%% HOW WE'RE GOING TO GO ABOUT IT
-
-%%TODO Mention Dewey in Chp4 methods, Chp5 methods and Chp6 paper prototyping
-
-%%\citet{Dewey2014} proposed a set of guidelines for the design and evaluation of user interfaces for the audio industry.
-%%Among their recommendations was the use of task analysis to better understand the process to be performed by the system
-%%being designed, and the use of expert users in the design and evaluation of systems.
-
-%%\citep{Dewey2014}
-%%Other recommendations include the use of paper prototyping for developing systems, expert users for
-%%design and evaluation, and using task completion time, accuracy and user preference to measure efficiency,
-%%effectiveness and satisfaction.
 
 
-%%An initial investigation of prevailing techniques revealed
-%%Therefore, in order to achieve the full potential of 
-%%we argue for advancements in 
-%%and consider these advancements vital in applications like 
-%%An underlying hypothesis for this work is that
-%%This may be achieved by
 
-%%Since data collection in the studio is a difficult task in itself, we focus on
-%%We argue that
-%%We aim to show that
+
+
+
+
+
+
+
+
 
 
 

@@ -1,53 +1,31 @@
-% !TeX root = main.tex
 \chapter{Introduction}\label{sec:intro}
 
-% RADIO IS HISTORIC
 Radio broadcasting is the use of radio waves to transmit sound to a large audience.  The first regular radio broadcasts
 in the UK began in 1922 when a consortium of radio manufacturers formed the BBC \citep{BBC2015}.
-% RADIO IS POPULAR
 Almost a century later, radio is still one of the mass media, with 90\% of the UK adult population listening to the
 radio each week for an average of 21 hours \citep{RAJAR2017a}.  In the UK alone, there are 50 national, 329 local and
 251 community radio stations \citep[pp. 6, 127]{Ofcom2017}.
 
-% SPEECH PROGRAMMES ARE GAINING POPULARITY THROUGH PODCASTS
 Traditionally, radio has been consumed over the airwaves, but the Internet has changed the way audio content is
 distributed and consumed.  On-demand radio allows the audience to listen to a radio programme whenever they like, and
 podcasting allows audio content to be downloaded as a digital file. Over 200,000 podcasts are available through iTunes
 \citep{Morgan2015} and approximately 10\% of the UK adult population regularly listen to podcasts \citep{RAJAR2017}.
 The distinction between radio content and podcasts is beginning to blur as broadcasters are repurposing some of their
 speech-based radio output as podcasts \citep[p.~98]{Ofcom2017}.
-%because they find them interesting
 
-% BBC IS BIGGEST RADIO BROADCASTER AND PODCAST SOURCE
 The British Broadcasting Corporation (BBC) has the largest share of radio listening, and is the most popular source of
 podcasts, in the UK \citep[p. 107]{Ofcom2017}.
-%Each week, 64\% of the
-%population listen for an average of 16 hours to its 9 national and 40 local radio stations \citep{RAJAR2017a}.
-%Globally, the BBC World Service broadcasts radio services in 29 languages to over 154M listeners per week. 
-%\citep{BBC2017a}.
-% BBC R&D FUNDED THIS RESEARCH
 The research presented in this thesis was funded by the BBC and conducted during, and as part of, the author's
 employment at BBC Research and Development.  BBC R\&D promotes technological innovation that supports the
 BBC's mission to enrich people's lives with programmes and services that inform, educate and entertain \citep[art.
 15]{BBCCharter2016}.  This is achieved through the research and development of broadcast technology, including for the
 production and distribution of audio content.
 
-%Community radio:
-%Each community radio station relies on 72 volunteers on average.
-%Staffing accounts for over half of all costs in community radio. \citep[p. 116]{Ofcom2017}
 
 \section{Motivation}\label{sec:intro-motivation}
 
-%\subsection{Sound}
-% Sound is linear - has a beginning and an end, constrained by the arrow of time
-% Cannot be searched or skimmed
-% Sound is one-dimensional
-% We never stop listening
-% Huge range of frequencies and pressure levels
 
-%Audio is an electronic representation of sound which stores pressure waves as an electrical signal.
 
-% Characteristics of sound
 One of the distinguishing characteristics of radio is that it is based exclusively on sound.  Although listeners have
 no visual reference, sound stimulates the imagination and creates pictures in the mind's eye.  Radio is not limited
 by the size of the screen in the way that television is. Sound design and music can be used to produce scenes for
@@ -63,12 +41,7 @@ Unlike pictures, which can be viewed and searched at a glance, sound recordings 
 The time needed to naturally listen to a sound recording is the same as the length of the recording.  Reviewing long
 recordings can therefore take a large amount of time. Sound is also a linear medium that must be played in sequence,
 which can make it challenging to navigate sound recordings non-linearly. 
-%For example, playing sounds in reverse often makes them incomprehensible.
 
-%From Dhanesha2010:
-%It is a common practice for us to skim textual content on a web page. While skimming, we usually skip words or phrases
-%that are not of interest to us and we slow down our speed when the content seems to be of relevance to us. But when we
-%listen to audio content, which is not persistent and is sequential, such skimming is not possible.
 
 Radio production is a process of recording, selecting and re-arranging audio content, so it is desirable to be able to
 efficiently interact with audio.  Modern radio production is performed on a computer screen using a \textit{digital
@@ -78,33 +51,12 @@ thought to be a faster and easier way to navigate audio recordings.  Waveforms d
 limited in the information they can convey.  For example, when viewing a waveform at the right scale, it is often
 possible for an experienced user to distinguish between speech and music, but it is not usually possible to determine
 the style of the music, or what is being said.
-%- Modern digital audio workstations are general purpose and not well-suited to most radio production tasks (pic of
-%cluttered DAW interface)
 
-%Audio visualization attempts to take advantage of the properties of the human visual system by mapping sound to images.
-%This is done to allow listeners to see the sound in a way they can understand and make use of. This approach takes
-%advantage of the spatial layout that is possible with images, and the natural searching and skimming capabilities of
-%the human visual system.
 
-%- Producers spend much of their time on menial tasks, which is wasteful because the time they spend on this is time
-%they can't spend on making the programme better.
 
-%To overcome the challenges that come with the temporal nature of sound, there are a number of technological solutions
-%that can be applied. At the very simplest level, sound can be navigated using rewind and fast-forward, to allow
-%listeners to re-listen or skip ahead to a sound recording. The playback rate of sound recordings can also be increased,
-%but there are limitations to this, which we discuss in Section X. However, in order to navigate sound with purpose, it
-%is preferable to be able to understand what is contained within the sound, and to be able to comprehend this
-%information efficiently. There have been two main approaches to achieving this -- audio visualization and semantic
-%audio analysis.
 
 Semantic audio analysis is the task of deriving meaning from audio. This is achieved by extracting audio features that
 describe the sound, and mapping these to a human-readable representation, such as categories or words.
-%Semantic audio analysis refers to a collection of techniques for analysing sound signals to extract human-readable
-%information from them. This can be used to map sound to high-level information, such as the name of the person
-%speaking, or the text of what they are saying. These techniques can vary from low-level features such as the most
-%dominant frequency, to high-level features such as the text of the words that are being spoken. These techniques can
-%also be combined with visualization methods to display the results.
-%Semantic audio analysis can extract useful information, but how can this best be used?
 This research was partly inspired by a conference presentation from \citet{Loviscach2013}, who demonstrated several
 prototypes that used semantic audio analysis to assist the editing of recorded speech. These included visualizing
 vowels using colour, detecting and highlighting ``umm''s, and identifying repetition. These prototypes were developed
@@ -117,41 +69,12 @@ best.  As part of this research, we want to understand how these techniques can 
 production of radio to make the process more efficient, such as by reducing the time or effort that is needed to
 produce the programme. 
 
-%Sound naturally occurs at a consistent rate, so everybody experiences sound over the same length of time.
-%This makes it a great medium for shared
-%experiences, the kind of which can be witnessed at music festivals. However,
 
-%Working with sound alone makes radio production a much simpler affair than with other media. For example, an interview
-%can be recorded using a portable sound recorder by an individual without much training. This simplicity makes radio
-%production accessible to amateurs, and the introduction of podcasting has also made it easier for amateurs to
-%distribute their own content.
 
-%- transitory nature of radio means it can only be heard at the time of broadcast, no second chances
-%Historically, the temporal nature of sound and radio mean that listeners could only hear a programme at the time it was
-%broadcast, and once it was heard it was gone. Nowadays, the Internet has facilitated the introduction of on-demand
-%listening and podcasting that have changed the wa
 
-%Sound is defined as vibrations that travel through a medium, typically air, which humans perceive through their ears.
-%As it is based on vibration, sound cannot exist in a moment -- it can only take place over a period of time.
-%Sound is linear, as it is based on a sequence of motion.
-%It is experienced at a consistent rate, which cannot naturally be increased or desreased.
 
-% challenges of sound
-%This time-based nature of sound gives it a fascinating character.
-%However, the time-based nature of sound comes with a variety of challenges.
-%Sound cannot be experienced instantanously, as it is the change in air pressure which produces sound.
-%As such, it takes time to consume sound.
-%For consuming long sound recordings, this property means that listening requires an investment of time.
-%In radio production, much of the time required to produce a programme must be committed to listening to the sound that has been recorded.
-%The purpose of listening to the sound includes a variety of reasons, including reminding themselves of what
-%was said, working out whether the sound quality is acceptable, deciding which bits of the recording to use, and many
-%more.
 
-%- Although radio production has turned digital, it has not undergone a technological revolution and the workflow
-%remains almost exactly the same
 
-%- Digital communication has allows producers greater flexibility and quality in getting content, but the editing
-%process is still analogous to cutting and pasting tape
 
 Making radio production more efficient may free up resources that could be spent on producing higher quality content,
 or used to making financial savings. The BBC spent \textsterling471M on radio production in 2016/17 \citep[p.
@@ -159,13 +82,11 @@ or used to making financial savings. The BBC spent \textsterling471M on radio pr
 in making radio production a more enjoyable and creative experience, where producers spend less time on boring, menial
 tasks and more time on activities that contribute to the quality of the programme output.
 
-% BBC situation
 Radio production has not been subject to much previous academic research.  The author's position within the BBC gives
 us extraordinary access to production staff and working environments that would otherwise be inaccessible to most
 researchers. We view this as a rare opportunity to conduct research that directly involves professional radio producers
 and takes place within a genuine work environment.
 
-%TODO Why radio and not television?
 
 \section{Aim and scope}\label{sec:aim}
 
@@ -174,34 +95,19 @@ manipulating, recorded audio.  Our ambition is to apply these methods to make ra
 open up new creative possibilities.  In Sections \ref{sec:background-questions} and \ref{sec:ethno-strategy}, we
 formulate the specific research questions that are answered in this thesis.
 
-% - not including live production, which is already efficient
 Most radio is broadcast live, where the audio production happens in real-time, but in these cases there is little 
 opportunity to make the audio production more efficient. For this reason, we have chose to focus only on the production
 of recorded audio.
 
-% - speech, not music
 Although most radio listeners in the UK tune in to music-based stations, 38\% of the population listen to speech-based
 radio \citep[pp.  97, 105]{Ofcom2017} and 10\% listen to podcasts \citep{RAJAR2017}, which are normally speech-based.
 Most original radio content is speech-based, so we will focus our research on the production of speech content.
 
-% make use of BBC producers
 We want to make the most of our access to professional radio producers and work environments.  To do this, we will
 adopt radio producers as our target user group, by involving them in the development and evaluation of our work, and
 conduct evaluations in the workplace.
 
-%where the sound is mixed and produced as the audience listeners to it.
-%Although there
-%are hours of planning and preparation that go into a live radio broadcast, the actual audio production happens in
-%real-time, so there is no opportunity to make the audio production more efficient.  However, many radio programmes are
-%pre-produced, where the sound is recorded before transmission.  In these cases, more audio is recorded than is
-%required, and audio editing is used to reduce the length, remove unwanted sounds and re-arrange the material into the
-%final programme. This process creates overheads for the producers.  This editing process creates overheads for the
-%producers, so there are opportunities to make this audio production process more efficient.  For this reason, we chose
-%to focus our research on radio programmes that are fully or partly produced in advance of broadcast, and in particular
-%on the audio editing stage of radio production.
 
-% - do not include tools for automatically editing (computer based decisions)
-%Radio production is a creative endeavour and 
 Finally, the intention behind this research is to facilitate creative expression, rather than replace it through
 automation.  Our ambition is to find ways for machines and humans to work to each of their strengths, where simple or
 menial tasks are automated, but there is always a ``human in the loop'' that makes the decisions.  Our hope is that, in
@@ -227,7 +133,6 @@ recordings. However, the effect of this approach on user performance has not bee
 quantitatively measures the performance of three audio visualization techniques for a typical radio production task.
 
 \paragraph{Chapter \ref{sec:screen}} investigates semantic speech editing in the context of real-life radio production.
-%Previous semantic speech editing systems have been evaluated under laboratory conditions, or not at all.
 We design and develop \textit{Dialogger} --- a semantic speech editor that integrates with the BBC's radio production
 systems.  We then describe the results of our qualitative user study of BBC radio producers, who used our editor in the
 workplace to produce radio programmes for broadcast.  We directly compare semantic editing to the current production
@@ -244,26 +149,10 @@ semantic speech editing.
 
 \section{Contributions}\label{sec:intro-contributions}
 
-% Chapter 3:
-%- 
 
-% Chapter 4:
-%- Demonstrating a concept – proving that something is feasible and useful; or that something is infeasible and
-%  explaining why it fails
 
-% Chapter 5:
-%- Re-contextualization of an existing technique, theory or model (i.e. applying a technique in a new context; testing
-%  a theory in a new setting; showing the applicability of a model to a new situation)
 
-% Chapter 6:
-%- Combining two or more ideas and showing that the arrangement reveals something new and useful
-%- Providing a new solution to a known problem and demonstrating the solution’s efficacy
 
-%- Confirmation and expansion of an existing model (i.e. evaluating the effects of a change in condition; providing an
-%  experimental assessment of a specific aspect of a model)
-%- Contradicting an existing model or a specific aspect of a model
-%- Implementing a theoretical principle – showing how it can be applied in practice; making ideas tangible; how
-%  something works in practice; and what its limitations are
 
 The principal contributions of this thesis are:
 \begin{itemize}
@@ -272,7 +161,6 @@ The principal contributions of this thesis are:
     editing workflows that contribute to the academic understanding of professional radio production.
   \item \textbf{Chapter~\ref{sec:colourised}}: 
     The first formal study on the effect of audio waveforms and semantic audio visualization on user performance.
-    %Insights into the effectiveness of audio waveforms, for segmenting music from speech.
   \item \textbf{Chapter~\ref{sec:screen}}: 
     The first application of semantic speech editing to professional radio production.  The first formal user study of
     semantic speech editing for audio production. Insights into the performance, challenges and limitations of semantic
@@ -287,7 +175,6 @@ The principal contributions of this thesis are:
 
 Portions of the work detailed in this thesis have been presented in the following publications:
 
-%\subsection*{Conference papers}
 
 \nocite{Baume2015,Baume2018a,Baume2018}
 \begin{itemize}

@@ -1,4 +1,3 @@
-% !TeX root = main.tex
 \chapter{Software implementation}\label{app:tech}
 
 As part of the research presented in this thesis, we developed several systems for semantic speech editing and audio
@@ -13,25 +12,7 @@ text-based interface. The design and operation of Dialogger is outlined in Secti
 have published the system as open-source software under an Apache 2.0 licence at the following URL:
 \url{https://github.com/bbc/dialogger}
 
-%Requirements:
-%Correction (i.e. text editing)
-%while retaining timestamps
-%Editing (i.e. audio editing)
-%Live preview of edits
-%Display/edit speaker segments
-%Display timestamps
-%Export EDL
 
-%Solution:
-%Use CKEditor for text editing with restricted functionality
-  %No cut/copy/paste or dragging
-  %Replace only
-  %Selections jump to start/end of words
-  %Generate new timestamps when replacing >1 word
-%Edit audio using bold/underline
-%Use HTML5-video-compositor for preview
-%JSON->HTML, HTML->JSON
-%JSON->EDL
 
 Dialogger includes features for playback, navigation and editing of media using a transcript, export of edit
 decision lists (EDLs), user accounts and media asset management. Our system does not include an ASR system, media

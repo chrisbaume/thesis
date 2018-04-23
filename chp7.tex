@@ -1,4 +1,3 @@
-% !TeX root = main.tex
 \chapter{Conclusions and further work}\label{sec:conclusions}
 
 The aim of this research was to ``improve radio production by developing and evaluating methods for interacting with,
@@ -16,7 +15,6 @@ describe potential options for further work, including follow-up research result
 broader applications of semantic audio production tools.  Finally, in Section~\ref{sec:conclusions-conclusions} we
 summarise the novelties and achievements of this work, and answer our research questions.
 
-%\section{Radio production practice}
 \section{Discussion}\label{sec:conclusions-discussion}
 
 We began our research by conducting three ethnographic case studies in BBC Radio to learn more about real-life
@@ -31,7 +29,6 @@ of paper.  We then investigated each of these through technical intervention.
 
 \subsection{Semantic audio visualization}
 
-% Coloured waveform was better
 Our initial investigation looked at using pseudocolour to visualize a semantic audio feature to support audio editing
 using waveforms.  We measured the user performance for a simple editing task using our semantic audio visualization,
 compared to a normal waveform.  The results showed that when using the semantic audio waveform, the participants
@@ -39,14 +36,12 @@ completed the task faster, with less effort and with greater accuracy than the n
 there is value in the pseudocolour approach to semantic audio visualization taken by \citet{Rice2005},
 \citet{Akkermans2011} and \citet{Loviscach2011a}, which had previously been untested.
 
-% Limited to one task, many more applications
 Our experiment only focused on a single task of segmenting music from speech so there are many opportunities for
 applications beyond the task we chose. Audio visualizations can either be designed for specific tasks, or for
 general use to cover a range of tasks. Visualizations that focus on an individual task may produce better results, but
 are only suitable for that task.  Designing a general audio visualization is much more challenging, but has the
 potential to create a greater impact as it could be used for a variety of applications.
 
-% Chose rudimentary feature, could do better
 The semantic audio visualization we designed and tested used a rudimentary semantic audio feature rather than the
 state-of-the-art.  We did not attempt to create the best possible visualization as we wanted there to be an element of
 human judgement in the measured task. There is potential to make better visualizations by including more and
@@ -54,7 +49,6 @@ better semantic audio features, and using more advanced methods of visualization
 approach taken by \citet{Tzanetakis2000} and \citet{Mason2007} allowed multiple features to be displayed simultaneously
 in a human-readable way.
 
-% Normal waveforms not great
 Although we found that users required less effort to complete the task with a normal waveform than without, they did
 not complete the task significantly faster nor more accurately. We found this surprising as waveforms are widely used
 in audio editing software, so it was expected that waveforms would improve the performance of users in completing audio
@@ -64,7 +58,6 @@ software by making improvements to the waveform visualization.
 
 \subsection{Semantic speech editing}
 
-% can be used for pro production
 We conducted two user studies in which semantic speech editing was successfully used by professional radio producers to
 create real radio programmes that were subsequently broadcast. Our results support previous work in finding that
 semantic speech interfaces help users navigate and edit speech \citep{Whittaker2002}, and that semantic editing is
@@ -72,7 +65,6 @@ faster than, and preferable to, using audio waveforms \citep{Whittaker2004,Sivar
 conducting user evaluations in a natural working environment, and directly comparing semantic speech editing to the
 existing editing workflow. This allowed us to gain insights into its limitations in the context of radio production.
 
-% ASR vs verbatim
 Our semantic speech editor was similar to the system described by \citet{Rubin2013}. However, rather than using
 verbatim transcripts, which are slow and expensive to produce, we used automatic speech recognition (ASR). The high
 speed and low cost of ASR make it better suited for use in broadcast environments, but the erroneous transcripts it
@@ -82,46 +74,28 @@ semantic editing of voice messages \citep{Whittaker2004,Sivaraman2016}.  Our stu
 the transcript affected the need for correction, reading speed, reliance on listening, longevity of the transcript and
 the edit granularity.
 
-% Only good for rough edits, but integrated with DAW
 The producers we tested reported that they only found semantic editing useful for creating a ``rough edit'', where
 large segments of audio are selected from the original material. This contradicts findings by \citet{Sivaraman2016} for
 the editing of voice messages.
-%found that for lightweight
-%voice editing, users were mainly interested in using semantic editing to make fine-grain edits.  Our research showed
-%that in the context of radio production, semantic editing tools were used differently.
 We found that the main reason for this limitation was the lack of annotation and re-ordering features, which made it
 difficult for producers to organise, structure and arrange their material in the later stages.  However, this
 limitation was not an obstruction to the producers we tested, as our semantic speech editing tools integrated with
 several digital audio workstations (DAWs), which allowed the producers to seamlessly transition to their normal tools
 to complete their production.
 
-%seamlessly move from our tools to their normal editing
-%software, so that they could use semantic editing tools to create a rough edit, then
 
-%by exporting an edit decision list
-%(EDL) that described the producer's edits. This allowed for a non-destructive integration where edits could be undone.
 
-% correction
 We tested a variety of additional features to support semantic editing, including transcript correction and confidence
 shading.
-%TODO and speaker diarization.
 We found that many of the transcript errors encountered were specific to the
 programme content, such as names and topic-specific words.  However, most producers were only interested in correcting
 errors that were particularly distracting.  Most producers we tested found confidence shading to be useful overall,
 which supports \citet{Burke2006}, but contradicts \citet{Suhm2001} and \citet{Vemuri2004}.
 
-%Both semantic speech editors included confidence shading, which low-lighted or underlined words that the ASR was not
-%confident were correct.
 
 
-% APPLICATIONS
 
 
-%Radio producers often work to tight unmovable deadlines, and have a small and shrinking budget.
-%This extra time could be
-%spent on more valuable activities such as research and recruitment of interviewees, which may improve the overall
-%quality of the final programme. Alternatively, these efficiencies could be used to reduce the cost of production whilst
-%retaining the same quality of output.
 
 DAWs are powerful, feature-rich tools, but to novice users they can be intimidating to work with.
 \citet{Yoon2014,Sivaraman2016} found that semantic speech editing tools are easier to use and more accessible than
@@ -134,12 +108,6 @@ innovative programme making.  For example, the comedy duo known as ``Cassetteboy
 trawl through hours of video footage to re-order the words of famous speeches in amusing ways. This could be achieved
 much more easily using a semantic speech editor.
 
-%Semantic speech editing provides an alternative to audio waveforms for interacting with speech content. Text-based
-%interfaces allow users to quickly search and discover content. This may open up new possibilities for different types
-%of content that were not previously possible when using waveforms. For example, the comedy duo ``Cassetteboy'' remix
-%speech content of popular figures to change the content in radical ways, such as turning political speeches into rap
-%songs. Doing this manually requires huge amounts of patience and time to edit, but could be achieved relatively quickly
-%using a semantic speech editor.
 
 The efficiency savings from using semantic speech editing tools and ASR could provide cost and time
 savings over traditional editing and manual transcription.  This should free up time and budget for more valuable
@@ -149,12 +117,10 @@ production.
 
 \subsection{Reading vs listening}
 
-% Limitations of transcripts
 Transcripts display the words that were spoken in a recording, but much of the content's true meaning is hidden in the
 audio. Although transcripts show \textit{what} was said, they do not reveal \textit{how} it was said, which is crucial
 when producing radio programmes.  As one producer pointed out, ``radio is made with your ears''.
 
-% reasons for listening
 The only way to fully comprehend audio recordings is through listening.  We found that radio producers used listening
 to process information, judge the quality of the sound and identify non-speech sounds.  Some producers reported that
 reading and listening at the same time enabled them to comprehend information more easily, supporting the findings from
@@ -164,7 +130,6 @@ not included in ASR transcripts.  Producers also listened to identify any high q
 identifiable using the transcript, and non-speech sounds that they might want to include or exclude in their programme.
 
 
-% not listening while logging
 The existing radio production workflow involves producers ``logging'' recordings by listening to the audio and typing
 rough quotes and labels.  This process is time-consuming and tedious, but it helps the producer to review and organise
 their content.  ASR transcription replaces this logging process, which saves producers time and effort. However, it
@@ -173,25 +138,18 @@ listening to the material before making editorial decisions.  There is a risk th
 result in missing out on good quality content or failing to avoid poor quality content, which would affect the overall
 programme quality.
 
-%Some of the producers in the Chapter 5 study
-%said they valued this listening opportunity, and one of the producers in Chapter 6 wanted to listen back in full first.
 
-% integrated playback
 Providing an easy way to listen to the audio underlying the transcript is important. Our screen-based semantic speech
 editor included integrated playback, which allowed users to navigate the audio using the text.  Time compression, such
 as described in Section 2.6, would also allow producers to listen faster, and producers valued this feature when we
 added it to our screen-based editor. Reading the transcript while listening also increases the
 speed at which time-compressed audio can be comprehended \citep{Vemuri2004}.
 
-% transcripts not always needed
 However, we found that in some situations, transcripts are not necessary or useful. With recordings shorter than 15-25
 mins, producers reported that they can remember what was said, and when it was said. Some programmes have a greater
 focus on the sound design, which limits the value of a transcript.
 
-%However, our paper-based
-%editor did not, which meant that users did not cope well with low accuracy transcript.
 
-% use of time compression
 
 We saw that transcripts of radio programmes are not normally published at the BBC, as they are not written during the
 programme's production. ASR and transcript correction tools could make it possible for producers to create a verbatim
@@ -210,20 +168,16 @@ that compared our paper interface to a screen-based semantic speech editor. The 
 into the relative benefits of editing speech on paper compared to screens. We found that both the paper and screen
 interfaces worked well, but that each had advantages and disadvantages in different contexts.
 
-% summary
 Overall, we found that the paper interface was better suited to quick and simple edits where listening is not as
 critical, such as with high accuracy transcripts, or very recent recordings.  Our screen-based semantic speech editor
 included integrated playback and correction features, which made it better for more complex editing with less familiar
 audio and less accurate transcripts.
 
-% benefits of paper
 Producers reported that paper transcripts were easier to read and remember, and made it easier for them to think widely
 and orientate themselves.  They reported that our digital pen interface was simple, intuitive, precise and allowed edit
 decisions to be made quickly and easily.  However, producers had concerns over the cost of an additional device which
 would likely have to be shared amongst a team, and could easily be lost.
-%TODO Why is sharing a problem?
 
-% portability
 The physical nature of the digital pen and paper made it better suited to travel and working away from the desk. This
 gives producers greater flexibility to work in more comfortable locations and while commuting.  However the digital pen
 interface uses considerable amounts of paper, involves carrying the pen around, and requires access to a colour laser
@@ -231,13 +185,11 @@ printer, which would make it difficult to work ``on the road''.  The screen inte
 tablet, which have the added benefit of integrated playback. However, screens are heavier, bulkier and have a much
 shorter battery life than digital pens.
 
-% collaboration
 Radio is usually produced by a team, so tools that facilitate collaboration are valuable in such an environment.  We
 found that the physical nature and pagination of paper made it better suited to face-to-face collaboration than the
 screen.  However, the screen interface is capable of remote collaboration, and could be used over the Internet for
 real-time collaborative speech editing.
 
-% implementation limitations - integrated playback, correction, undo
 The limitations of the digital pen system we used prevented us from including features for integrated playback,
 correction and undo. The lack of integrated playback forced producers to replay and navigate audio using a separate
 device, which made it more challenging to identify errors in the transcript. This was a bigger issue with low
@@ -245,270 +197,79 @@ quality transcripts, which could also not be corrected using the digital pen.  T
 interface made it easier for the participants to find and fix mistakes in the transcript.  This also made it
 easier to edit content that required more listening, such as old or unfamiliar recordings.
 
-%Our system interpreted the user's gestures strictly, which created a source for unintentional errors.
 
-%\section{Applications}
 
 
-%The recent release and investment in the Descript editor demonstrates that there is increasing commercial interest in
-%semantic speech editing for audio production. Avid have included their ScriptSync tool since 2007(?) and released a
-%major update in 2016(?). This shows that there is market demand for timed transcript tools and semantic speech editing
-%in the audio production community.
 
 
 
-%=====================================================================================================================
 
-% CHAPTER INTRO
 
 
-% Release the structure of the chapters
 
-%=====================================================================================================================
 
-% RE-INTRODUCTION
-%   - an introductory restatement of research problem, aims and/or research question
-%   - restate the objectives
 
 
-% APPROACH - how and why - justify the approach adopted
 
-%To achieve this aim, we started by conducting three ethnographic case studies to investigate how radio production is
-%currently conducted at the BBC. This helped us to ensure that the direction of the research was aligned with the
-%real-life challenges faced by professional producers.  This investigation provided three directions for the research,
-%each of which we investigated in turn.
 
-%Previous work had used audio visualization techniques to display more information about audio signals, but they had not
-%attempted to measure the effect these visualizations had on production tasks.
-%We conducted a quantitative study that measured the actual and reported performance of users in segmenting music from
-%speech using different audio visualizations.
-%This allowed us to demonstrate the measurable effect that waveforms and a simple semantic audio visualization had on
-%user performance of a typical radio production task.
 
-%Semantic speech interfaces had been considered by previous research as an alternative method of navigating and
-%editing speech content.
-%These systems did not attempt to measure user performance, and most used perfect transcripts which are too expensive to
-%produce in professional production. \citet{Whittaker2004} showed that ASR transcripts could be used for editing.
-%We developed a semantic speech editor that integrated with the BBC's radio production systems, which allowed us to
-%evaluate semantic editing in a professional context.
-%We then evaluated our system on radio producers who used it to produce programmes for broadcast, and compared our
-%system to the existing workflow.
 
-%Finally, we identified an opportunity to develop a novel interface that used paper transcripts to edit speech content.
-%We worked directly with professional producers to refine an early prototype, then collaborated with a digital pen
-%manufacturer to create a working system.
-%We evaluated our system for use in real-life programme-making, and compared it to our screen-based semantic speech
-%editor, and an inactive paper transcript.
 
-% TAKE-HOME MESSAGE - highlight the ‘take-home message’ 
 
-%Professional radio production can benefit from semantic audio tools
 
-%We demonstrated three approaches in which semantic audio can be used to make professional radio production more
-%efficient
 
-%Audio visualization and semantic speech editing have benefits to professional radio production
 
 
 
 
-% SUMMARY
-%   - a summary of findings and limitations
-%   - Summarize what was said in the different chapters
-%   - include the most important points already covered
 
-%Chapter~\ref{sec:ethno} used ethnographic case studies to investigate audio editing workflows for the production of a
-%news bulletin, drama and documentary within BBC Radio. Our investigation identified three themes regarding audio
-%waveforms, textual representaton and the use of paper.
 
-%- Audio waveforms are widely used
-%- Producers work with textual representation
-%- Drama and docs producers use paper
 
-%Chapter~\ref{sec:colourised}:
 
-% Audio visualization
-% - previous systems had not been formally evaluated
-% - Using semantic audio to add colour to waveform improves performance for music/speech segmentation
-% - Faster, more accurately and with less effort
-% - our study demonstrates pseudocolour approach by Rice2005, Akkermans2011 and Loviscach2011a has value
-% - false colour from Tzanetakis2000 and Mason2007 may have greater benefits
 
-%- Normal waveform was not significantly faster, nor more accurate
-%- We chose task-specific, but alternative could be general
-%- We only focussed on one task. Audio visualization has applications beyond music/speech segmentation, such as
-%  programme segmentation, spotting noises
 
 
-%Chapter~\ref{sec:screen}:
 
-%- Semantic speech editing can be used for professional radio production (continued to use)
-% - Whittaker2004 found that semantic editing of voicemail messages was faster than editing with a waveform. Our
-%   research supports this, and shows that it also applies to professional radio production
-% - Sivaraman2016 found semantic editing was good enough to replace waveform editing and more accessible
 
-%- The goal of our system was similar to Rubin2013, but used ASR, integrated with radio production system and was evaluated
-%- Annotation is needed to organise and structure content
-%- Collaboration is useful
-%- Portability allows flexible working away from desk
-%- Does working with text affect the final result? Could have negative impact, could open up creative possibilities
 
-% radio is made with your ears
-% - text can only represent the words that were spoken, which only tells half the story
-% - semantic editing can't fully repace it
-% - combination with listening features such as time compression could help
 
-%- Listening is important
-% - limits usefulness of semantic speech editing
-% - Whittaker2002 found that users could use stratigic fixation to scan transcripts to extract info and judge
-%   relevance without listening. We found similar, but listening is still required.
-
-% faster playback
-% - Can use time compression (section 2.6), which works even better with transcript
-% - Whittaker2002 included it
-% - Vemuri2004 shows that adding transcripts increases maxiumum playback rate
 
-% confidence shading
-% - Suhm2001 found that confidence shading slowed down correction
-% - Burke2006 reported that users find confidence shading helpful
-% - Vemuri2004 found no statistically significant difference in comprehension with/without confidence shading
 
-% transcript accuracy
-%- Transcripts are sufficiently accurate for professional radio producton
-% - ASR is sufficiently accurate for professional production
-% - Yoon2014 found that transcripts were not accurate enough to use without listening
-% - Sivaraman2016 found semantic editing ASR errors weren't a heavy distraction
-
-%One of the findings from Chapter~\ref{sec:ethno} was that the observed radio producers used paper to allow for
-%handwritten annotation and to facilitate face-to-face collaboration.
-%Chapter~\ref{sec:paper}:
-%- Screen and digital pen interfaces both work well for semantic speech editing, strengths in different situations
-%- Paper is easier to read and simpler, making it better for simple edits with accurate transcripts
-%- Screen has integrated playback and correction, which is better for complex editing and less accurate transcripts
-%- Screen interface has remote collaboration, but pen might be better for face-to-face
-%- Pen has greater flexiblity for portablity, but depends on access to printer
-%- Lack of re-ordering and labelling in both mean it's only useful for rough editing
-
-%- Transcripts not needed for short recordings, or where content is led by sound
-% - short recordings can be kept in memory (15-25 mins)
-% - actuality led programmes, emphasis on sound
-
-% stage of usefulness
-% - mostly useful for rough edit
-% - continuing to further stages requires good integration with tools
-% - EDL allows non-destructive integration 
-
-
-%- Participants reported that using paper made it easier to read transcripts, remember information, think widely and
-%  orient themselves. This aligns with previous research.
 
-% - Editing with pen better for making simple edits and quick decisions, using familiar content with high-quality transcript
-% - Editing with screen better for more complicated editing involving complex decisions using less familiar content
-%   with a lower accuracy transcript
-% - Collaboration - pen better for face-to-face, screen allows remote collab
-% - Portability - pen is more flexible, allowing for working in more places away from screen, but relies on printer
-% - Labelling and re-ordering features would be useful
-% - Listened to process information, judge quality and identify non-speech sounds
-
-% - Transcript accuracy affected need for correction, reading speed, reliance on listening, longevity and edit
-%   granularity
-% - Sivaraman2016 found that users only made fine-grain edits rather than rough edits
-
-
-
-% LEARNINGS
-%   - What do I know now, that I didn’t know before doing the research?
-%   - What do I know that no one else knows? (e.g., things that arise from my unique context or data sets)
-
-
-% COMPARE TO EXISTING WORK
-%   - new research, positioned against existing knowledge
-%   - Does your work confirm or contradict other published work?
-%   - key aspects of the literature you have studied and say how they are justified or contradicted by your research
-
-
-% LIMITATIONS
-%   - stress the limitations of the current work
-
-
-% CONTRIBUTIONS
-%   - Give an overview of the main original contributions
-%   - emphasise the contribution that it makes to research
-
-  %A set of theoretical models of audio editing workflows in professional radio production, which
-  %contribute to the academic understanding of radio production.
-
-  %A demonstration of the feasibility of semantic audio visualization, and insights into the
-  %effectiveness of audio waveforms, for segmenting music from speech.
-
-  %The application of semantic speech editing to professional radio production, with
-  %demonstration of its feasibility and insights into its limitations. 
-
-  %A novel approach to editing speech recordings through the combination of semantic speech
-  %editing and a digital pen interface. Insights into the relative benefits of paper and screen interfaces for semantic
-  %speech editing.
-
-  %Other outputs include: contributions towards the academic understanding of radio production workflows
-  %and open-source implementations of tools for semantic speech editing and audio visualiation (see
-  %Appendix~\ref{app:tech}).
-
-% APPLICATIONS
-%   - Who cares? / Who should care?
-%   - Practical applications/implications
-%   - a paragraph in which you reflect upon the practical implications of your results into the your field
-%   - connect the dots in an attempt to lead the reader to a deeper understanding of the implications of the work
-
-  % benefits and drawbacks of automation
-  % - logging and cross-referencing could be assisted or automated
-  % - this may remove the opportunity to listen back, which help thinking process
-  % - serendipidy may play an important role in identifying high quality content
-
-  % commercial interest
-  % - Investment in Descript shows that there is market interest and value in semantic speech editing
-  % - Avid have included ScriptSync since 2007
-
-  % free up time/money
-  %Radio producers have tight deadlines and reducing budgets. Tools which allow them to be more efficient can therefore
-  %free up time and creative energy to improve the output of the programme.
-
-  % enabling new types of programmes
-  %Alternative methods of interacting with audio content may also give rise to opportunities for more innovative programme
-  %making.
-  %For example, the comedy duo known as ``Cassetteboy'' \citep{Perraudin2014} remix speeches to make popular figures say
-  %controverial things, which could be achieved very easily using a semantic speech editor.
-  % could be misused?
-
-  % democratisation
-  %Semantic editing tools may lower the barrier of entry to audio production.
-  %Podcasting had democratized distribution of audio content, but digitial audio workstations are feature-rich
-  %and have complicated layouts, which may be intimidating to novice users.
-  %Semantic speech editors could make it easier for amateur users to create their own content, and the increasing
-  %popularity in podcasts gives amateur producers an audience and method of distribution.
-  % - Sivaraman2016 found semantic editing was more accessible than waveform editing
-  % - Yoon2014 found that semantic editing was easy to use
-
-  % correction could allow publication of transcripts
-  % - correcton is less necessary when producer can remember what happened
-  % - accuracy affects longevity of recordings as memory fades
-  % - accuracy may affect granularity
-  %NPR Shortcut\citet{Friedhoff2016}
-
-
-% FURTHER WORK
-%   - What questions does your research raise, and is there potential for further research?
-%   - Recommendations for further research
-
-
-%=====================================================================================================================
-
-
-%It would likely be easier to create effective specific visualizations as they
-%only need to include information relevant to the application, but this would make it difficult to cater for every
-%possible use case. Users would also have to switch between multiple specific visualizations depending on the task they
-%are performing, and learn how to read each of them. General visualizations would have to contain information relevant
-%to all applications. It would be difficult to select the most relevant information and map it in a way that humans can
-%easily interpret. However, they could be used for any purpose without users having to switch between or learn to read
-%multiple visualizations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -520,8 +281,6 @@ easier to edit content that required more listening, such as old or unfamiliar r
 Further work that could follow on from the research of this thesis includes:
 
 \paragraph{Collaborative semantic speech interaction:}
-% use operational transformation to allow simultaneous access and editing
-% NPR presedential debate fact-checking \citep{Fisher2016}
 
 The semantic speech editing systems we developed in this thesis were designed to be operated by individuals.
 However, as shown in Chapter~\ref{sec:ethno}, radio production involves teams of people.  Collaborative tools may help
@@ -532,10 +291,8 @@ dozen producers to collaboratively fact-check the US Presidential Election debat
 transcripts. By linking the text to audio, a similar approach could be used for collaborative semantic editing of
 speech. Teams could also use annotation to make suggestions for edits that are then accepted or rejected by the
 programme producer.
-%TODO Integrated writing and editing, like Shin2016
 
 \paragraph{Assisted/automatic de-umming:}
-% take into account intonation
 
 In Section~\ref{sec:doc}, we saw that a large proportion of a studio manager's time was spent on cleaning-up interview
 material by removing unwanted vocal noises, known as ``de-umming''. Examples of unwanted noises include ``umm''s and
@@ -550,10 +307,8 @@ ASR system to ``transcribe'' unwanted sounds. These ``words'' could then be high
 that transcripts can be semantically edited.  However, this assumes that these noises have clearly defined boundaries,
 which they often do not.  In the author's experience, de-umming involves a level of editorial and creative judgement,
 so a ``human in the loop'' system may be necessary.
-% - Rubin2013 and Berthouzoz2012 included de-umm features
 
 \paragraph{Improved automatic speech recognition:}
-% use prior information to produce better transcripts
 
 In this thesis, we found that the transcripts produced by current ASR systems were sufficiently accurate to perform
 semantic speech editing in professional radio production. However, as discussed in
@@ -565,10 +320,6 @@ topic to appear.  Many ASR systems have a speaker diarization pre-processing sta
 of speakers could also be used to improve the accuracy of this process.
 
 \paragraph{Improved digital pen system:}
-% re-ordering and labelling
-% integrated playback using wireless link
-% correction
-% better intepretation
 
 The design of our digital pen semantic speech editor in Chapter~\ref{sec:paper} was influenced by the technical
 limitations of the technology that we used to implement it.  This prevented us from including certain features such as
@@ -584,8 +335,6 @@ inadvertent mistakes.  Additionally, the ability to distinguish between edit com
 user to both edit and correct the transcript on paper.
 
 \paragraph{Penless paper editor:}
-% use scanner or camera, mask out printed area
-% digital ink with electronic paper
 
 In Chapter~\ref{sec:paper}, we based the design of our system on a digital pen as it combined the readability of real
 paper with the digital capture of freehand annotations. However, when we evaluated the system, some producers were
@@ -598,12 +347,8 @@ example, a barcode or QR code could be used to label each page with a unique ide
 the printed page. The stored image could be used to mask the picture, or scan of the paper, leaving only the user's
 annotations. Image analysis could then be used to interpret the user's annotations and translate them into edits,
 corrections and labels.
-%TODO E-paper interface
 
 \paragraph{Rich audio visualization:}
-% multiple features
-% different colour spaces
-% texture
 
 In Chapter~\ref{sec:colourised}, we showed that speech/music segmentation can be performed faster, more easily and more
 accurately by using pseudocolour to map a semantic audio scalar feature to a colour gradient. Previous systems from
@@ -621,14 +366,7 @@ image.  For example, textures can be generated using procedural techniques \cite
 be synthesised from semantic audio features.  However, selecting the best combination of semantic audio features and
 visual mappings is a huge challenge, and is likely to be different for each application.
 
-%\paragraph{Cost/benefit of transcripts:}
-%We found that semantic editing was faster for long recordings, but it would be
-%interesting to investigate how long a recording needs to be before the benefits of semantic editing outweigh the
-%costs.  Additionally, it is unclear how much of the speed benefit comes from automatically generating the transcript,
-%and how much comes from the editing interface.
 
-%\paragraph{Non-speech sounds}
-%Tagging music and environmental sounds
 
 \paragraph{Application to television}
 
@@ -649,20 +387,7 @@ commercial arm of the BBC.  It is currently unknown how these differences will a
 semantic production tools, so this may be an interesting direction for the research.
 
 
-% SPEAKER DIARIZATION 
-%All of productions we observed may benefit from being able to see where different people are speaking in a recording,
-%known as ``speaker diarization''. In drama, it could help producers identify different lines in the script, in
-%documentaries it could highlight the position of the questions in interview recordings, and in news it could help
-%producers navigate long off-air recordings. There is an existing body of work on speaker diarization
-%\citep{AngueraMiro2012} that has been used to help users navigate radio archives \citep{Raimond2014}, but could also be
-%used in the production process.
 
-% PRE-RECORDED CONTENT
-%Drama production involves recording multiple takes of the same content. This technique allows producers to get the most
-%from the actors, but means that it can be difficult to select which performances to use.  Comparing takes during
-%post-production is a manual and inefficient process.  Providing an easy way to directly compare performances could
-%allow the director to make a better informed decision on which takes to use. Automatically aligning the takes on
-%different tracks in the DAW would be an easy way to make such comparisons.
 
 
 \clearpage
@@ -729,47 +454,14 @@ for collaboration and portability.
 \\
 
 
-%New methods for the analysis of audio production workflows.
-%A set of novel theoretical models of audio editing workflows that contribute to the academic understanding of
-%professional radio production.
 
-%The first formal study on the effect of audio waveforms and semantic audio visualization on user performance.
-%Insights into the effectiveness of audio waveforms, for segmenting music from speech.
 
-%The first application of semantic speech editing to professional radio production. Development of a semantic speech
-%editor that includes a novel DAW integration. The first formal user study of semantic speech editing for audio
-%production. Insights into the challenges and limitations of semantic speech editing in the context of radio
-%production. 
 
-%A novel approach to editing speech recordings through the combination of semantic speech editing and a digital pen
-%interface. Insights into the relative benefits of paper and screen interfaces for semantic speech editing.
 
-%In this thesis, we show that radio production can be improved by using semantic audio visualization and semantic
-%speech editing to interact with, and manipulate, recorded audio.
 
-%We began our research by conducting three ethnographic case studies of professional radio production. We found that
-%the radio producers used audio waveforms and textual representations to navigate and edit audio content, and used paper
-%to make freehand annotations and facilitate face-to-face collaboration.  Based on these findings, we developed and
-%evaluated three semantic audio tools for radio production using semantic audio visualization, and semantic speech
-%editing on screen and paper interfaces.
 
-%We developed a simple semantic audio visualization for segmenting music and speech, and conducted the first formal
-%study on the effect of audio waveforms and semantic audio visualization on user performance. We found that using our
-%semantic audio visualization was faster, more accurate and required less effort than using a waveform.  Using an audio
-%waveform required less effort than no visualization, but was not significantly faster, nor more accurate.
 
-%We developed a semantic speech editing system for radio production, and evaluated this approach with professional radio
-%producers for the production of genuine programmes. The radio producers were successful in using semantic speech
-%editing with ASR transcripts as part of their workflow, and continued to use our system after the study. Through our
-%study, we also gained insights into the importance of annotation, collaboration, portability and listening.
 
-%Finally, we designed and developed a novel system for semantic speech editing on paper using a digital pen. We compared
-%our paper interface to a screen interface and normal paper through a user study of professional radio producers. We
-%found that the benefits of reading from paper and the simplicity of the pen interface made it better for fast, simple
-%editing with familiar audio and accurate transcripts.  The integrated listening and correction features of the screen
-%interface made it better for more complex editing with less familiar audio and less accurate transcripts.  We also
-%gained insights into effect of ASR accuracy, the role of listening, and the relative benefits of paper and screen
-%interfaces for collaboration and portability.
 
 We have shown that semantic audio production tools can benefit professional radio producers, but they could also be
 adapted to make audio production more accessible to the wider public. This could empower many more people to 
